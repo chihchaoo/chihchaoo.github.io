@@ -1,27 +1,24 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.2.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-1200-ich.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-1200-ich.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-1200-ich.png">
-  <link rel="mask-icon" href="/images/favicon-1200-ich.png" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"chihchao.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
-  </script>
-
-  <meta name="description" content="Python中包含六种常规数据类型和两种种特殊数据类型。六种常规数据类型为字符串（String）、数字（Number）、列表（List）、元祖（Tuple）、集合（Set）和字典（Dictionary），其中字符串、数字、元组是不可变类型，列表、集合、字典是可变类型。列表、元祖、集合和字典四种数据类型也称为容器，相对较为困难，下一章节再详细学习。两种特殊数据类型为空值（None）和布尔值（Bool">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo-star-bg-1200.png">
+  <link rel="icon" href="/img/logo-star-bg-1200.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="chihchao">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Python中包含六种常规数据类型和两种种特殊数据类型。六种常规数据类型为字符串（String）、数字（Number）、列表（List）、元祖（Tuple）、集合（Set）和字典（Dictionary），其中字符串、数字、元组是不可变类型，列表、集合、字典是可变类型。列表、元祖、集合和字典四种数据类型也称为容器，相对较为困难，下一章节再详细学习。两种特殊数据类型为空值（None）和布尔值（Bool">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python学习笔记-2-数据类型">
 <meta property="og:url" content="http://chihchao.cn/posts/88828131/index.html">
@@ -39,192 +36,235 @@
 <meta property="article:modified_time" content="2020-11-01T11:00:00.000Z">
 <meta property="article:author" content="chihchao">
 <meta property="article:tag" content="python基础语法">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png?v8">
+  
+  
+  
+  <title>Python学习笔记-2-数据类型 - 理乐志</title>
 
-<link rel="canonical" href="http://chihchao.cn/posts/88828131/">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
 
-  <title>Python学习笔记-2-数据类型 | 理乐志</title>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"chihchao.cn","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":" ","loop":false,"scope":"home"},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-
+  
+<meta name="generator" content="Hexo 6.2.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
+<body>
+  
 
-  <div class="site-meta">
+  <header>
+    
 
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">理乐志</h1>
-      <span class="logo-line-after"><i></i></span>
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>理乐志</strong>
     </a>
-      <p class="site-subtitle" itemprop="description">chihchao's blog</p>
-  </div>
 
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
     </div>
   </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
-
-  </li>
-  </ul>
 </nav>
 
+  
 
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">Python学习笔记-2-数据类型</span>
+          
+        </div>
 
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        chihchao
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2020-11-01 19:00" pubdate>
+          2020年11月1日 晚上
+        </time>
+      </span>
+    
+  </div>
 
-</div>
-    </header>
+  <div class="mt-1">
+    
 
     
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
+
+    
+    
   </div>
 
 
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
-            
-
-    
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://chihchao.cn/posts/88828131/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="chihchao">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="理乐志">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Python学习笔记-2-数据类型
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-11-01 19:00" itemprop="dateCreated datePublished" datetime="2020-11-01T19:00:00+08:00">2020-11-01</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+        
+      </div>
 
       
-        <p>Python中包含六种常规数据类型和两种种特殊数据类型。六种常规数据类型为<code>字符串（String）</code>、<code>数字（Number）</code>、<code>列表（List）</code>、<code>元祖（Tuple）</code>、<code>集合（Set）</code>和<code>字典（Dictionary）</code>，其中字符串、数字、元组是不可变类型，列表、集合、字典是可变类型。列表、元祖、集合和字典四种数据类型也称为容器，相对较为困难，下一章节再详细学习。两种特殊数据类型为<code>空值（None）</code>和<code>布尔值（Boolean）</code>。本章节主要学习字符串和数字两种常规数据类型、空值和布尔值两种特殊数据类型，此外，在学习数据类型之前先简单了解一下Python的变量。</p>
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Python学习笔记-2-数据类型</h1>
+            
+            <div class="markdown-body">
+              
+              <p>Python中包含六种常规数据类型和两种种特殊数据类型。六种常规数据类型为<code>字符串（String）</code>、<code>数字（Number）</code>、<code>列表（List）</code>、<code>元祖（Tuple）</code>、<code>集合（Set）</code>和<code>字典（Dictionary）</code>，其中字符串、数字、元组是不可变类型，列表、集合、字典是可变类型。列表、元祖、集合和字典四种数据类型也称为容器，相对较为困难，下一章节再详细学习。两种特殊数据类型为<code>空值（None）</code>和<code>布尔值（Boolean）</code>。本章节主要学习字符串和数字两种常规数据类型、空值和布尔值两种特殊数据类型，此外，在学习数据类型之前先简单了解一下Python的变量。</p>
 <span id="more"></span>
 <h1 id="python变量">1 Python变量</h1>
 <p>Python变量命名规则： - 变量名只能包含字母、数字和下划线； -
@@ -234,23 +274,23 @@
 变量名应避免使用容易引起误解的符号，如小写字母<code>l</code>（容易被误认为数字<code>1</code>）、大写字母<code>O</code>（容易被误认为数字<code>0</code>）等。</p>
 <p>上述规则第三条提到不要把Python关键字和函数名用作变量名。在Python中有许多关键字和内置函数，因此有必要了解这些关键字和内置函数。</p>
 <p>Python自带了一个<code>keyword</code>模块，可以用于查看和判断关键字。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> keyword</span><br><span class="line">keyword.kwlist</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>['False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']    </code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keyword.iskeyword(<span class="string">'and'</span>)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>True</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keyword.iskeyword(<span class="string">'has'</span>)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>False</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> keyword<br>keyword.kwlist<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">['False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']    </code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">keyword.iskeyword(<span class="hljs-string">'and'</span>)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">True</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">keyword.iskeyword(<span class="hljs-string">'has'</span>)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">False</code></pre>
 <p>将内置函数名用作变量名时，不会导致错误，但会覆盖这些函数的行为。<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.7/library/functions.html">Python内置函数</a>较多，其用法以后再详解。</p>
 <h1 id="特殊数据类型">2 特殊数据类型</h1>
 <p>Python有两种特殊数据类型：<strong>空值（None）</strong>和<strong>布尔值（bool）</strong>。</p>
-<p><span class="github-emoji"><span>👉</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 空值（None）
+<p><span class="github-emoji"><span>👉</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png?v8" srcset="/img/loading.gif" lazyload aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 空值（None）
 空值用None表示，但不能理解为数字0，因为0是有意义的，而None是一个特殊值。空值也可以用<code>NaN</code>表示，在后续学习NumPy和Pandas处理数据时会被经常用到。</p>
-<p><span class="github-emoji"><span>👉</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 布尔值（bool）
+<p><span class="github-emoji"><span>👉</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png?v8" srcset="/img/loading.gif" lazyload aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 布尔值（bool）
 布尔值：一个布尔值只有<code>真（True）</code>和<code>假（Flase）</code>两种。在Python中，空值（None）、所有类型的数字0（包括浮点型，长整型和其他类型）、空序列（比如空字符串、元组和列表）以及空字典都默认为假。</p>
 <p>Python内置函数中有一个<code>bool()</code>函数，<strong><code>bool(x)</code></strong>
 返回一个布尔值，True 或者 False。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="built_in">bool</span>(<span class="number">0</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">bool</span>(<span class="number">1</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">bool</span>([]))</span><br><span class="line"><span class="built_in">bool</span>([<span class="string">'This is a list'</span>])</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>False
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(<span class="hljs-built_in">bool</span>(<span class="hljs-number">0</span>))<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">bool</span>(<span class="hljs-number">1</span>))<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">bool</span>([]))<br><span class="hljs-built_in">bool</span>([<span class="hljs-string">'This is a list'</span>])<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">False
 True
 False
 True</code></pre>
@@ -258,75 +298,75 @@ True</code></pre>
 <p>Python中数字类型包括整数（int）、浮点数（float）和复数（complex）三种。Python内置函数<code>type()</code>可用来查询变量所指的对象类型。</p>
 <h2 id="整数">3.1 整数</h2>
 <p>Python可以处理任意大小的整数，当然还包括负整数。在Python中对数字的赋值较为灵活。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">num1 = <span class="number">10</span></span><br><span class="line"><span class="built_in">print</span>(num1)</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 连续赋值</span></span><br><span class="line">num2 = num1 = <span class="number">10</span></span><br><span class="line"><span class="built_in">print</span>(num1, num2)</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10 10</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 交互式赋值</span></span><br><span class="line">num3, num4 = <span class="number">9</span>, <span class="number">10</span></span><br><span class="line"><span class="built_in">print</span>(num3, num4)</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">9 10</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">num1 = <span class="hljs-number">10</span><br><span class="hljs-built_in">print</span>(num1)<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">10<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 连续赋值</span><br>num2 = num1 = <span class="hljs-number">10</span><br><span class="hljs-built_in">print</span>(num1, num2)<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight basic"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-symbol">10 </span><span class="hljs-number">10</span><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 交互式赋值</span><br>num3, num4 = <span class="hljs-number">9</span>, <span class="hljs-number">10</span><br><span class="hljs-built_in">print</span>(num3, num4)<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight basic"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-symbol">9 </span><span class="hljs-number">10</span><br></code></pre></td></tr></tbody></table></figure>
 <h2 id="浮点数">3.2 浮点数</h2>
 <p>浮点数由整数部分和小数部分组成。浮点数与浮点数之间的运算可能会有四舍五入的误差。整数和浮点数混合运算时，会默认把整数转化为浮点数。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f1 = <span class="number">1.1</span></span><br><span class="line"><span class="built_in">print</span>(f1)</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1.1</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">f1 = <span class="number">1.1</span></span><br><span class="line">f2 = <span class="number">2.2</span></span><br><span class="line"><span class="built_in">print</span>(f1 + f2)</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3.3000000000000003</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(num1 + f1)</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">11.1</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">f1 = <span class="hljs-number">1.1</span><br><span class="hljs-built_in">print</span>(f1)<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight apache"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">1</span>.<span class="hljs-number">1</span><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">f1 = <span class="hljs-number">1.1</span><br>f2 = <span class="hljs-number">2.2</span><br><span class="hljs-built_in">print</span>(f1 + f2)<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight apache"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">3</span>.<span class="hljs-number">3000000000000003</span><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(num1 + f1)<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight apache"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">11</span>.<span class="hljs-number">1</span><br></code></pre></td></tr></tbody></table></figure>
 <h2 id="复数">3.3 复数</h2>
 <p>复数由实数和虚数两部分组成，表示为<code>real+imag*j</code>或<code>complex(real, imag)</code>，其中real,imag默认均为浮点数。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c1 = <span class="number">1</span> + <span class="number">2j</span></span><br><span class="line"><span class="built_in">print</span>(c1)</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(1+2j)</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">c1 = <span class="hljs-number">1</span> + <span class="hljs-number">2j</span><br><span class="hljs-built_in">print</span>(c1)<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight clojure"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs clojure">(<span class="hljs-number">1</span><span class="hljs-number">+2</span>j)<br></code></pre></td></tr></tbody></table></figure>
 <ul>
 <li><strong><code>complex(real, imag)</code></strong> 返回值为 real +
 imag*1j
 的复数，或将字符串或数字转换为复数。imag为可选项，默认值为零。</li>
 </ul>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">complex</span>(<span class="number">1</span>,<span class="number">2</span>)</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(1+2j)</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">complex</span>(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>)<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight clojure"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs clojure">(<span class="hljs-number">1</span><span class="hljs-number">+2</span>j)<br></code></pre></td></tr></tbody></table></figure>
 <h2 id="一些数学常量">3.4 一些数学常量</h2>
 <p>math库是Python的标准库之一，其中存储了一些常用的数学常量。</p>
 <ul>
 <li>数学常量Π</li>
 </ul>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">math.pi</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3.141592653589793</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">math.pi<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight apache"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">3</span>.<span class="hljs-number">141592653589793</span><br></code></pre></td></tr></tbody></table></figure>
 <ul>
 <li>数学常量e</li>
 </ul>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">math.e</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2.718281828459045</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">math.e<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight apache"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">2</span>.<span class="hljs-number">718281828459045</span><br></code></pre></td></tr></tbody></table></figure>
 <ul>
 <li>浮点正负无穷大</li>
 </ul>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">math.inf</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inf</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-math.inf</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-inf</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">math.inf<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight ebnf"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">inf</span><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">-math.inf<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight diff"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs diff"><span class="hljs-deletion">-inf</span><br></code></pre></td></tr></tbody></table></figure>
 <ul>
 <li>浮点“非数字”（NaN）值</li>
 </ul>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">math.nan</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nan</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">math.nan<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight arcade"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-literal">nan</span><br></code></pre></td></tr></tbody></table></figure>
 <h2 id="整数和浮点数之间的类型转换">3.5 整数和浮点数之间的类型转换</h2>
 <p>整数和浮点数之间可以相互转换，但二者都无法和复数相互转换。</p>
 <ul>
 <li><strong><code>int(x, base)</code></strong> 返回一个使用数字或字符串
 x 生成的整数对象。x 有两种类型 number 和 str。</li>
 </ul>
-<p><span class="github-emoji"><span>👉</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 若 x 为纯数字，则不能有 base
+<p><span class="github-emoji"><span>👉</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png?v8" srcset="/img/loading.gif" lazyload aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 若 x 为纯数字，则不能有 base
 参数，否则报错；其作用为对参数 x
 取整。<strong>注意：浮点数转换为整数时向下取整，即只保留浮点数的整数部分，且不考虑四舍五入</strong>。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="built_in">int</span>(<span class="number">2.1</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">int</span>(<span class="number">2.9</span>))</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">2</span><br></pre></td></tr></tbody></table></figure>
-<p><span class="github-emoji"><span>👉</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 若 x 为 str，则 base 可有可无。base 存在时，视 x 为
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(<span class="hljs-built_in">int</span>(<span class="hljs-number">2.1</span>))<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">int</span>(<span class="hljs-number">2.9</span>))<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs">2<br>2<br></code></pre></td></tr></tbody></table></figure>
+<p><span class="github-emoji"><span>👉</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f449.png?v8" srcset="/img/loading.gif" lazyload aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 若 x 为 str，则 base 可有可无。base 存在时，视 x 为
 base 类型数字，并将其转换为 10 进制数字。若 x 不符合 base
 规则，则报错。str需为整数。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1001为二进制类型数字，并将其转换为十进制</span></span><br><span class="line"><span class="built_in">int</span>(<span class="string">'1001'</span>, <span class="number">2</span>)</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">9</span></span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 123为八进制类型数字，并将其转换为十进制</span></span><br><span class="line"><span class="built_in">int</span>(<span class="string">'123'</span>, <span class="number">8</span>)</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">83</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 0xa为十六进制类型数字，并将其转换为十进制</span></span><br><span class="line"><span class="built_in">int</span>(<span class="string">'0xa'</span>, <span class="number">16</span>)</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 1001为二进制类型数字，并将其转换为十进制</span><br><span class="hljs-built_in">int</span>(<span class="hljs-string">'1001'</span>, <span class="hljs-number">2</span>)<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-number">9</span><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 123为八进制类型数字，并将其转换为十进制</span><br><span class="hljs-built_in">int</span>(<span class="hljs-string">'123'</span>, <span class="hljs-number">8</span>)<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">83<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 0xa为十六进制类型数字，并将其转换为十进制</span><br><span class="hljs-built_in">int</span>(<span class="hljs-string">'0xa'</span>, <span class="hljs-number">16</span>)<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">10<br></code></pre></td></tr></tbody></table></figure>
 <ul>
 <li><strong>round(number, ndigits)</strong>
 在浮点数转换为整数时，如果需要考虑四舍五入，可使用Python内置函数<code>round()</code>，该函数返回
@@ -334,8 +374,8 @@ number 舍入到小数点后 ndigits 位精度的值。 任何整数值都可作
 ndigits (正数、零或负数)。如果 ndigits 被省略或为
 None，则返回最接近输入值的整数。</li>
 </ul>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">round</span>(<span class="number">3.1415</span>, <span class="number">2</span>)</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3.14</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">round</span>(<span class="hljs-number">3.1415</span>, <span class="hljs-number">2</span>)<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight apache"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">3</span>.<span class="hljs-number">14</span><br></code></pre></td></tr></tbody></table></figure>
 <ul>
 <li>向上/下取整</li>
 </ul>
@@ -345,58 +385,58 @@ x 的最小整数。</p>
 <p><strong><code>math.floor(x)</code></strong> x 向下取整，小于或等于 x
 的最大整数。</p>
 <p>math库的floor()函数与Python内置函数<code>int()</code>实现的效果一致，因此也可使用int()函数来实现向下取整。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(math.ceil(<span class="number">3.6</span>))</span><br><span class="line"><span class="built_in">print</span>(math.floor(<span class="number">3.6</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">int</span>(<span class="number">3.6</span>))</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">3</span><br><span class="line">3</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(math.ceil(<span class="hljs-number">3.6</span>))<br><span class="hljs-built_in">print</span>(math.floor(<span class="hljs-number">3.6</span>))<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">int</span>(<span class="hljs-number">3.6</span>))<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs">4<br>3<br>3<br></code></pre></td></tr></tbody></table></figure>
 <ul>
 <li><strong><code>float(x)</code></strong> 返回从数字或字符串 x
 生成的浮点数。</li>
 </ul>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">float</span>(<span class="number">123</span>)</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">123.0</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">float</span>(<span class="string">'123'</span>)</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">123.0</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">float</span>(<span class="hljs-number">123</span>)<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight apache"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">123</span>.<span class="hljs-number">0</span><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">float</span>(<span class="hljs-string">'123'</span>)<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight apache"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">123</span>.<span class="hljs-number">0</span><br></code></pre></td></tr></tbody></table></figure>
 <h1 id="字符串">4 字符串</h1>
 <p>字符串（str）就是一系列字符。在Python中，用引号括起来的都是字符串，其中的引号可以是单引号，也可以是双引号。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">'This is a string.'</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"This is also a string."</span>)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>This is a string.
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(<span class="hljs-string">'This is a string.'</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">"This is also a string."</span>)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">This is a string.
 This is also a string.</code></pre>
 <p>在打印字符串时可灵活混用双引号和单引号。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">'I told my friend, "Python is my favorite language!"'</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"The language 'Python' is named after Monty Python, not the snake."</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"One of Python's strengths is its diverse and supportive community."</span>)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>I told my friend, "Python is my favorite language!"
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(<span class="hljs-string">'I told my friend, "Python is my favorite language!"'</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">"The language 'Python' is named after Monty Python, not the snake."</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">"One of Python's strengths is its diverse and supportive community."</span>)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">I told my friend, "Python is my favorite language!"
 The language 'Python' is named after Monty Python, not the snake.
 One of Python's strengths is its diverse and supportive community.</code></pre>
 <p>在Python中可以对字符串进行一系列操作，也有一些内置函数或关键字可用于对字符串的简单操作或判断。</p>
 <h2 id="求字符串长度">4.1 求字符串长度</h2>
 <p>Python内置函数<code>len()</code>可求取字符串长度。需要注意的是，字符串中的空格也是一个字符。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">'Hello, world!'</span></span><br><span class="line"><span class="built_in">len</span>(str1)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>13</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">str1 = <span class="hljs-string">'Hello, world!'</span><br><span class="hljs-built_in">len</span>(str1)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">13</code></pre>
 <h2 id="切片slice">4.2 切片(slice)</h2>
 <p>切片操作公式 <code>str[start:end:step]</code>
 。注意Python中默认起始为0而不是1，默认步长为1。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str1[<span class="number">1</span>:<span class="number">13</span>:<span class="number">2</span>]</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>'el,wrd'</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">str1[<span class="hljs-number">1</span>:<span class="hljs-number">13</span>:<span class="hljs-number">2</span>]<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">'el,wrd'</code></pre>
 <p>如果不指定起始、结尾和步长，则相当于截取原字符串全部的字符，即对原字符串进行复制，制作了一个副本，这种用法在对字符串进行操作而不想改变原字符串的情景下很实用。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str1_copy = str1[:]</span><br><span class="line"><span class="built_in">print</span>(str1_copy)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>Hello, world!</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">str1_copy = str1[:]<br><span class="hljs-built_in">print</span>(str1_copy)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">Hello, world!</code></pre>
 <h2 id="字符串的合并">4.3 字符串的合并</h2>
 <ul>
 <li>直接使用加法或乘法进行字符串的合并</li>
 </ul>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">str2 = <span class="string">'Hello, Python!'</span></span><br><span class="line">all_str = str1 + <span class="string">' '</span> + str2</span><br><span class="line"><span class="built_in">print</span>(all_str)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>Hello, world! Hello, Python!</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str2 * <span class="number">3</span></span><br></pre></td></tr></tbody></table></figure>
-<pre><code>'Hello, world!Hello, world!Hello, world!'</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">str2 = <span class="hljs-string">'Hello, Python!'</span><br>all_str = str1 + <span class="hljs-string">' '</span> + str2<br><span class="hljs-built_in">print</span>(all_str)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">Hello, world! Hello, Python!</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">str2 * <span class="hljs-number">3</span><br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">'Hello, world!Hello, world!Hello, world!'</code></pre>
 <ul>
 <li><p>使用<strong><code>'sep'.join(seq)</code></strong>合并字符串</p>
 <p><code>sep</code>：分隔符。分隔符可以自定义，常用的有<code>,</code>、<code>-</code>、<code>\</code>等，也可以是空格<code>' '</code>，但不能为空<code>''</code>。</p>
 <p><code>seq</code>：要连接的元素序列。此处注意seq是一个参数，合并时要把多个字符串放在一个列表或元组或字典中。</p>
 <p>上面的语法即：以sep作为分隔符，将seq所有的元素合并成一个新的字符串。</p></li>
 </ul>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">' '</span>.join([str1, str2])</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>'Hello, world! Hello, Python!'</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'-'</span>.join([<span class="string">'h'</span>, <span class="string">'e'</span>, <span class="string">'l'</span>, <span class="string">'l'</span>, <span class="string">'o'</span>])</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">'h-e-l-l-o'</span><br></pre></td></tr></tbody></table></figure>
-<p><span class="github-emoji"><span>⚠</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">' '</span>.join([str1, str2])<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">'Hello, world! Hello, Python!'</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">'-'</span>.join([<span class="hljs-string">'h'</span>, <span class="hljs-string">'e'</span>, <span class="hljs-string">'l'</span>, <span class="hljs-string">'l'</span>, <span class="hljs-string">'o'</span>])<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight scheme"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scheme"><span class="hljs-symbol">'h-e-l-l-o</span>'<br></code></pre></td></tr></tbody></table></figure>
+<p><span class="github-emoji"><span>⚠</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8" srcset="/img/loading.gif" lazyload aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>
 <code>join</code>和<code>+</code>对字符串的操作可以达到相同的效果，但二者性能并不相同，实际上，<code>join</code>的性能要明显好于<code>+</code>，因此在编写大型程序时，尽量使用<code>join</code>，从而缩短程序运行时间。</p>
 <h2 id="字符串的分割">4.4 字符串的分割</h2>
 <ul>
@@ -405,25 +445,25 @@ One of Python's strengths is its diverse and supportive community.</code></pre>
 <p>num：表示分割次数。如果存在参数num，则仅分隔成 num+1
 个子字符串，并且每一个子字符串可以赋给新的变量。</p>
 <p>[n]：表示选取第n个分片。</p>
-<p><span class="github-emoji"><span>⚠</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>
+<p><span class="github-emoji"><span>⚠</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8" srcset="/img/loading.gif" lazyload aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>
 当使用空格作为分隔符时，对于中间为空的项会自动忽略。</p></li>
 </ul>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 默认以空格为分隔符分隔字符串</span></span><br><span class="line">str1.split()</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>['Hello,', 'world!']</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以逗号为分隔符分隔字符串</span></span><br><span class="line">str1.split(<span class="string">','</span>)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>['Hello', ' world!']</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 若字符串中没有分隔符，则把整个字符串作为列表的一个元素</span></span><br><span class="line"><span class="string">'abcdefg'</span>.split()</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>['abcdefg']</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">my_blog = <span class="string">'www.iamzc.wang'</span></span><br><span class="line"><span class="comment"># 以点号为分隔符分隔字符串</span></span><br><span class="line">my_blog.split(<span class="string">'.'</span>)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>['www', 'iamzc', 'wang']</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以点号为分隔符分隔字符串，但只分隔1次，即生成2个字符串</span></span><br><span class="line">my_blog.split(<span class="string">'.'</span>, <span class="number">1</span>)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>['www', 'iamzc.wang']</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以点号为分隔符分隔字符串，但只分隔1次，且分隔结束后只保留序列为1的项</span></span><br><span class="line">my_blog.split(<span class="string">'.'</span>, <span class="number">1</span>)[<span class="number">1</span>]</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>'iamzc.wang'</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 默认以空格为分隔符分隔字符串</span><br>str1.split()<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">['Hello,', 'world!']</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 以逗号为分隔符分隔字符串</span><br>str1.split(<span class="hljs-string">','</span>)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">['Hello', ' world!']</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 若字符串中没有分隔符，则把整个字符串作为列表的一个元素</span><br><span class="hljs-string">'abcdefg'</span>.split()<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">['abcdefg']</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">my_blog = <span class="hljs-string">'www.iamzc.wang'</span><br><span class="hljs-comment"># 以点号为分隔符分隔字符串</span><br>my_blog.split(<span class="hljs-string">'.'</span>)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">['www', 'iamzc', 'wang']</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 以点号为分隔符分隔字符串，但只分隔1次，即生成2个字符串</span><br>my_blog.split(<span class="hljs-string">'.'</span>, <span class="hljs-number">1</span>)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">['www', 'iamzc.wang']</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 以点号为分隔符分隔字符串，但只分隔1次，且分隔结束后只保留序列为1的项</span><br>my_blog.split(<span class="hljs-string">'.'</span>, <span class="hljs-number">1</span>)[<span class="hljs-number">1</span>]<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">'iamzc.wang'</code></pre>
 <h2 id="添加删除空白">4.5 添加/删除空白</h2>
 <p>在Python中，空白泛指任何非打印字符，如空格、制表符（、换行符（）等。可以使用空白来组织输出，使其更易读、美观。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">'无空白：'</span> + <span class="string">'Python'</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'换行符：'</span> + <span class="string">'\nPython'</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'制表符：'</span> + <span class="string">'\tPython'</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'换行符+制表符：'</span> + <span class="string">'\n\tPython'</span>)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>无空白：Python
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(<span class="hljs-string">'无空白：'</span> + <span class="hljs-string">'Python'</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'换行符：'</span> + <span class="hljs-string">'\nPython'</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'制表符：'</span> + <span class="hljs-string">'\tPython'</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'换行符+制表符：'</span> + <span class="hljs-string">'\n\tPython'</span>)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">无空白：Python
 换行符：
 Python
 制表符：    Python
@@ -433,380 +473,423 @@ Python
 <p><code>str.strip</code>：去掉字符串前后所有空格，内部空白不受影响</p>
 <p><code>str.lstrip</code>：去掉字符串前部（左部）的所有空白</p>
 <p><code>str.rstrip</code>：去掉字符串后部（右部）的所有空白</p>
-<p><span class="github-emoji"><span>⚠</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>
+<p><span class="github-emoji"><span>⚠</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8" srcset="/img/loading.gif" lazyload aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>
 这种删除是暂时的，不改变变量，若需永久删除多余空白，需将删除后的结果存回变量中。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成一个前、中、后都包含空格的字符串</span></span><br><span class="line">blank_str = <span class="string">' Hello, world! '</span></span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除所有空格</span></span><br><span class="line">blank_str.strip()</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>'Hello, world!'</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除前部空格</span></span><br><span class="line">blank_str.lstrip()</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>'Hello, world! '</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除后部空格</span></span><br><span class="line">blank_str.rstrip()</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>' Hello, world!'</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重新打印字符串，可以发现变量值并没有变，依然包含空格</span></span><br><span class="line">blank_str</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>' Hello, world! '</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除空白后赋值给原变量，变量值发生改变</span></span><br><span class="line">blank_str = blank_str.strip()</span><br><span class="line">blank_str</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>'Hello, world!'</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 生成一个前、中、后都包含空格的字符串</span><br>blank_str = <span class="hljs-string">' Hello, world! '</span><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 删除所有空格</span><br>blank_str.strip()<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">'Hello, world!'</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 删除前部空格</span><br>blank_str.lstrip()<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">'Hello, world! '</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 删除后部空格</span><br>blank_str.rstrip()<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">' Hello, world!'</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 重新打印字符串，可以发现变量值并没有变，依然包含空格</span><br>blank_str<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">' Hello, world! '</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 删除空白后赋值给原变量，变量值发生改变</span><br>blank_str = blank_str.strip()<br>blank_str<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">'Hello, world!'</code></pre>
 <h2 id="改变字母大小写">4.6 改变字母大小写</h2>
 <p><code>str.upper()</code>：字母全部大写</p>
 <p><code>str.lower()</code>：字母全部小写</p>
 <p><code>str.swapcase()</code>：大小写互换</p>
 <p><code>str.title()</code>：首字母大写</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">my_name = <span class="string">'wang ZHICHAO'</span></span><br><span class="line"><span class="built_in">print</span>(my_name.upper())</span><br><span class="line"><span class="built_in">print</span>(my_name.lower())</span><br><span class="line"><span class="built_in">print</span>(my_name.swapcase())</span><br><span class="line"><span class="built_in">print</span>(my_name.title())</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>WANG ZHICHAO
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">my_name = <span class="hljs-string">'wang ZHICHAO'</span><br><span class="hljs-built_in">print</span>(my_name.upper())<br><span class="hljs-built_in">print</span>(my_name.lower())<br><span class="hljs-built_in">print</span>(my_name.swapcase())<br><span class="hljs-built_in">print</span>(my_name.title())<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">WANG ZHICHAO
 wang zhichao
 WANG zhichao
 Wang Zhichao</code></pre>
 <h2 id="替换字符串">4.7 替换字符串</h2>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'Tom smiled, Tom cried, Tom shouted'</span>.replace(<span class="string">'Tom'</span>,<span class="string">'Jane'</span>)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>'Jane smiled, Jane cried, Jane shouted'</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">'Tom smiled, Tom cried, Tom shouted'</span>.replace(<span class="hljs-string">'Tom'</span>,<span class="hljs-string">'Jane'</span>)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">'Jane smiled, Jane cried, Jane shouted'</code></pre>
 <h2 id="判断字符串内容是否相同">4.8 判断字符串内容是否相同</h2>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="string">'Hello world!'</span></span><br><span class="line">y = <span class="string">'Hello world!'</span></span><br><span class="line">x == y</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>True</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">x = <span class="hljs-string">'Hello world!'</span><br>y = <span class="hljs-string">'Hello world!'</span><br>x == y<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">True</code></pre>
 <h2 id="判断字符串中是否包含某个字符">4.9
 判断字符串中是否包含某个字符</h2>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'h'</span> <span class="keyword">in</span> x</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>False</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'H'</span> <span class="keyword">in</span> x</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>True</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">'h'</span> <span class="hljs-keyword">in</span> x<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">False</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">'H'</span> <span class="hljs-keyword">in</span> x<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">True</code></pre>
 <h2 id="判断字母数字">4.10 判断字母数字</h2>
 <p><code>str.isalpha()</code> 判断字符串是否全部由字母构成</p>
 <p><code>str.isdigit()</code>判断字符串是否全部由数字构成</p>
 <p><code>str.isalnum()</code>
 判断字符串是否仅包含字母和数字，而不含特殊字符</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x.isalpha()</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>False</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">'Helloworld'</span></span><br><span class="line">s.isalpha()</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>True</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">x.isalpha()<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">False</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">s = <span class="hljs-string">'Helloworld'</span><br>s.isalpha()<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">True</code></pre>
 <h2 id="字符串排版">4.11 字符串排版</h2>
 <p><code>str.center()</code> 字符串居中对齐</p>
 <p><code>str.ljust()</code> 字符串左对齐</p>
 <p><code>str.lright()</code> 字符串右对齐</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">'hello'</span></span><br><span class="line"><span class="built_in">len</span>(s)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>5</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.center(<span class="number">20</span>,<span class="string">'*'</span>)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>'*******hello********'</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.ljust(<span class="number">20</span>,<span class="string">'*'</span>)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>'hello***************'</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.rjust(<span class="number">20</span>,<span class="string">'*'</span>)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>'***************hello'</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">s = <span class="hljs-string">'hello'</span><br><span class="hljs-built_in">len</span>(s)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">5</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">s.center(<span class="hljs-number">20</span>,<span class="hljs-string">'*'</span>)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">'*******hello********'</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">s.ljust(<span class="hljs-number">20</span>,<span class="hljs-string">'*'</span>)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">'hello***************'</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">s.rjust(<span class="hljs-number">20</span>,<span class="hljs-string">'*'</span>)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">'***************hello'</code></pre>
 <p>字符串排版也可使用<code>format()</code>传递参数完成任务</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">format</span>(s,<span class="string">'*^20'</span>)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>'*******hello********'</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">format</span>(s,<span class="string">'*&lt;20'</span>)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>'hello***************'</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">format</span>(s,<span class="string">'*&gt;20'</span>)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>'***************hello'</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">format</span>(s,<span class="hljs-string">'*^20'</span>)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">'*******hello********'</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">format</span>(s,<span class="hljs-string">'*&lt;20'</span>)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">'hello***************'</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">format</span>(s,<span class="hljs-string">'*&gt;20'</span>)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">'***************hello'</code></pre>
 <h1 id="数字和字符串的合并">5 数字和字符串的合并</h1>
 <p>整数和浮点数也可以与字符串类型相互转换。在进行字符串与数字合并输出时，注意要保持类型一致。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">age = <span class="number">23</span></span><br><span class="line"><span class="comment"># 合并时注意将age转换为字符串</span></span><br><span class="line">message = <span class="string">'Happy '</span> + <span class="built_in">str</span>(age) + <span class="string">'rd Birthday!'</span></span><br><span class="line"><span class="built_in">print</span>(message)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>Happy 23rd Birthday!</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">age = <span class="hljs-number">23</span><br><span class="hljs-comment"># 合并时注意将age转换为字符串</span><br>message = <span class="hljs-string">'Happy '</span> + <span class="hljs-built_in">str</span>(age) + <span class="hljs-string">'rd Birthday!'</span><br><span class="hljs-built_in">print</span>(message)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">Happy 23rd Birthday!</code></pre>
 <h1 id="格式化输出数字和字符串">６ 格式化输出数字和字符串</h1>
 <h2 id="使用format">6.1 使用format</h2>
 <p><strong><code>format(value, format_spec)</code></strong> 将 value
 转换为 format_spec 控制的“格式化”表示。用法：'string{}
 string{}'.format(参数1,参数2)</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 不设置指定位置，按默认顺序</span></span><br><span class="line"><span class="string">"{} {}"</span>.<span class="built_in">format</span>(<span class="string">"hello"</span>, <span class="string">'world'</span>)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>'hello world'</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置指定位置</span></span><br><span class="line"><span class="string">"{1} {0} {1} {0}"</span>.<span class="built_in">format</span>(<span class="string">"hello"</span>, <span class="string">"world"</span>)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>'world hello world hello'</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用列表来存储需要格式化的数据</span></span><br><span class="line">alist = [<span class="string">'Jack'</span>, <span class="number">18</span>]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"My name is {}, I'm {} years old."</span>.<span class="built_in">format</span>(*alist))</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>My name is Jack, I'm 18 years old.</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用列表索引来进行格式化数据</span></span><br><span class="line">alist = [<span class="number">18</span>, <span class="string">'Jack'</span>]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"My name is {0[1]}, I'm {0[0]} years old."</span>.<span class="built_in">format</span>(alist)) <span class="comment"># 0是必须的</span></span><br></pre></td></tr></tbody></table></figure>
-<pre><code>My name is Jack, I'm 18 years old.</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用字典来存储需要格式化的数据</span></span><br><span class="line">adict = {<span class="string">'name'</span>: <span class="string">'Jack'</span>, <span class="string">'age'</span>: <span class="number">18</span>}</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"My name is {name}, I'm {age} years old."</span>.<span class="built_in">format</span>(**adict))</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>My name is Jack, I'm 18 years old.</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 不设置指定位置，按默认顺序</span><br><span class="hljs-string">"{} {}"</span>.<span class="hljs-built_in">format</span>(<span class="hljs-string">"hello"</span>, <span class="hljs-string">'world'</span>)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">'hello world'</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 设置指定位置</span><br><span class="hljs-string">"{1} {0} {1} {0}"</span>.<span class="hljs-built_in">format</span>(<span class="hljs-string">"hello"</span>, <span class="hljs-string">"world"</span>)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">'world hello world hello'</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 使用列表来存储需要格式化的数据</span><br>alist = [<span class="hljs-string">'Jack'</span>, <span class="hljs-number">18</span>]<br><span class="hljs-built_in">print</span>(<span class="hljs-string">"My name is {}, I'm {} years old."</span>.<span class="hljs-built_in">format</span>(*alist))<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">My name is Jack, I'm 18 years old.</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 使用列表索引来进行格式化数据</span><br>alist = [<span class="hljs-number">18</span>, <span class="hljs-string">'Jack'</span>]<br><span class="hljs-built_in">print</span>(<span class="hljs-string">"My name is {0[1]}, I'm {0[0]} years old."</span>.<span class="hljs-built_in">format</span>(alist)) <span class="hljs-comment"># 0是必须的</span><br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">My name is Jack, I'm 18 years old.</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 使用字典来存储需要格式化的数据</span><br>adict = {<span class="hljs-string">'name'</span>: <span class="hljs-string">'Jack'</span>, <span class="hljs-string">'age'</span>: <span class="hljs-number">18</span>}<br><span class="hljs-built_in">print</span>(<span class="hljs-string">"My name is {name}, I'm {age} years old."</span>.<span class="hljs-built_in">format</span>(**adict))<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">My name is Jack, I'm 18 years old.</code></pre>
 <h2 id="使用f-string">6.2 使用f-string</h2>
 <p>在Python3.6中新引入一种字符串格式化方法，<strong><code>f-string</code></strong>，亦称为格式化字符串常量（formatted
 string
 literals）。主要目的是使格式化字符串的操作更加简便。f-string在本质上并不是字符串常量，而是一个在运行时运算求值的表达式。f-string在功能方面不逊于传统的%-formatting语句和str.format()函数，同时性能又优于二者，且使用起来也更加简洁明了，因此对于Python3.6及以后的版本，推荐使用f-string进行字符串格式化。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 简单使用</span></span><br><span class="line">name = <span class="string">'Jack'</span></span><br><span class="line">age = <span class="number">20</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"My name is <span class="subst">{name}</span>, I'm <span class="subst">{age}</span> years old."</span>)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>My name is Jack, I'm 20 years old.</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 表达式求值与函数调用</span></span><br><span class="line"><span class="comment"># f-string的大括号 {} 可以填入表达式或调用函数，Python会求出其结果并填入返回的字符串内</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"My name is <span class="subst">{name.upper()}</span>."</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"I'll be <span class="subst">{age + <span class="number">30</span>}</span> years old 30 years later."</span>)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>My name is JACK.
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 简单使用</span><br>name = <span class="hljs-string">'Jack'</span><br>age = <span class="hljs-number">20</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f"My name is <span class="hljs-subst">{name}</span>, I'm <span class="hljs-subst">{age}</span> years old."</span>)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">My name is Jack, I'm 20 years old.</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 表达式求值与函数调用</span><br><span class="hljs-comment"># f-string的大括号 {} 可以填入表达式或调用函数，Python会求出其结果并填入返回的字符串内</span><br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f"My name is <span class="hljs-subst">{name.upper()}</span>."</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f"I'll be <span class="hljs-subst">{age + <span class="hljs-number">30</span>}</span> years old 30 years later."</span>)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">My name is JACK.
 I'll be 48 years old 30 years later.</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># f-string 使用字典</span></span><br><span class="line">adict = {<span class="string">'name'</span>: <span class="string">'Jack'</span>, <span class="string">'age'</span>: <span class="number">18</span>}</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"My name is <span class="subst">{adict[<span class="string">'name'</span>]}</span>, I'm <span class="subst">{adict[<span class="string">'age'</span>]}</span> years old."</span>)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>My name is Jack, I'm 18 years old.</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># f-string 使用字典</span><br>adict = {<span class="hljs-string">'name'</span>: <span class="hljs-string">'Jack'</span>, <span class="hljs-string">'age'</span>: <span class="hljs-number">18</span>}<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f"My name is <span class="hljs-subst">{adict[<span class="hljs-string">'name'</span>]}</span>, I'm <span class="hljs-subst">{adict[<span class="hljs-string">'age'</span>]}</span> years old."</span>)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">My name is Jack, I'm 18 years old.</code></pre>
 <p>使用 <strong><code>f-string</code></strong> 输出特定格式数字。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> pi</span><br><span class="line"></span><br><span class="line"><span class="comment"># 保留小数点后两位</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"<span class="subst">{pi:<span class="number">.2</span>f}</span>"</span>) </span><br><span class="line"></span><br><span class="line"><span class="comment"># 带符号保留小数点后两位</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"<span class="subst">{+pi:<span class="number">.2</span>f}</span>"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"<span class="subst">{-pi:<span class="number">.2</span>f}</span>"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 百分比格式</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"<span class="subst">{pi:<span class="number">.2</span>%}</span>"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指数记法</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"<span class="subst">{pi*<span class="number">1000</span>:<span class="number">.2</span>e}</span>"</span>)</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">3.14</span><br><span class="line">+3.14</span><br><span class="line">-3.14</span><br><span class="line">314.16%</span><br><span class="line">3.14e+03</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> math <span class="hljs-keyword">import</span> pi<br><br><span class="hljs-comment"># 保留小数点后两位</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f"<span class="hljs-subst">{pi:<span class="hljs-number">.2</span>f}</span>"</span>) <br><br><span class="hljs-comment"># 带符号保留小数点后两位</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f"<span class="hljs-subst">{+pi:<span class="hljs-number">.2</span>f}</span>"</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f"<span class="hljs-subst">{-pi:<span class="hljs-number">.2</span>f}</span>"</span>)<br><br><span class="hljs-comment"># 百分比格式</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f"<span class="hljs-subst">{pi:<span class="hljs-number">.2</span>%}</span>"</span>)<br><br><span class="hljs-comment"># 指数记法</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f"<span class="hljs-subst">{pi*<span class="hljs-number">1000</span>:<span class="hljs-number">.2</span>e}</span>"</span>)<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight subunit"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs subunit">3.14<br><span class="hljs-string">+3</span>.14<br><span class="hljs-string">-3</span>.14<br>314.16%<br>3.14e<span class="hljs-string">+03</span><br></code></pre></td></tr></tbody></table></figure>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Python/" class="category-chain-item">Python</a>
+  
+  
+
+      </span>
+    
+  
+</span>
 
     </div>
-
-    
-    
-    
-
-      <footer class="post-footer">
-          
-          <div class="post-tags">
-              <a href="/tags/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> python基础语法</a>
-          </div>
-
-        
-
-
-        
-      </footer>
-    
-  </article>
   
   
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">#python基础语法</a>
+      
+    </div>
   
+</div>
 
 
+              
 
-          </div>
-          
+              
+            </div>
 
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
+            
+          </article>
         </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python%E5%8F%98%E9%87%8F"><span class="nav-number">1.</span> <span class="nav-text">1 Python变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">2 特殊数据类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E5%AD%97"><span class="nav-number">3.</span> <span class="nav-text">3 数字</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B4%E6%95%B0"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 整数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%AE%E7%82%B9%E6%95%B0"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 浮点数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%8D%E6%95%B0"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 复数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E6%95%B0%E5%AD%A6%E5%B8%B8%E9%87%8F"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 一些数学常量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B4%E6%95%B0%E5%92%8C%E6%B5%AE%E7%82%B9%E6%95%B0%E4%B9%8B%E9%97%B4%E7%9A%84%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 整数和浮点数之间的类型转换</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">4.</span> <span class="nav-text">4 字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B1%82%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%95%BF%E5%BA%A6"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 求字符串长度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%87%E7%89%87slice"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 切片(slice)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%90%88%E5%B9%B6"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 字符串的合并</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%88%86%E5%89%B2"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 字符串的分割</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E5%88%A0%E9%99%A4%E7%A9%BA%E7%99%BD"><span class="nav-number">4.5.</span> <span class="nav-text">4.5 添加&#x2F;删除空白</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%B9%E5%8F%98%E5%AD%97%E6%AF%8D%E5%A4%A7%E5%B0%8F%E5%86%99"><span class="nav-number">4.6.</span> <span class="nav-text">4.6 改变字母大小写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%BF%E6%8D%A2%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">4.7.</span> <span class="nav-text">4.7 替换字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%86%85%E5%AE%B9%E6%98%AF%E5%90%A6%E7%9B%B8%E5%90%8C"><span class="nav-number">4.8.</span> <span class="nav-text">4.8 判断字符串内容是否相同</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E6%9F%90%E4%B8%AA%E5%AD%97%E7%AC%A6"><span class="nav-number">4.9.</span> <span class="nav-text">4.9
-判断字符串中是否包含某个字符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E5%AD%97%E6%AF%8D%E6%95%B0%E5%AD%97"><span class="nav-number">4.10.</span> <span class="nav-text">4.10 判断字母数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8E%92%E7%89%88"><span class="nav-number">4.11.</span> <span class="nav-text">4.11 字符串排版</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%90%88%E5%B9%B6"><span class="nav-number">5.</span> <span class="nav-text">5 数字和字符串的合并</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%87%BA%E6%95%B0%E5%AD%97%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">6.</span> <span class="nav-text">６ 格式化输出数字和字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8format"><span class="nav-number">6.1.</span> <span class="nav-text">6.1 使用format</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8f-string"><span class="nav-number">6.2.</span> <span class="nav-text">6.2 使用f-string</span></a></li></ol></li></ol></div>
       </div>
-      <!--/noindex-->
+    </div>
 
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="chihchao"
-      src="/images/avatar.png">
-  <p class="site-author-name" itemprop="name">chihchao</p>
-  <div class="site-description" itemprop="description"></div>
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
 </div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">11</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">4</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">7</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
-  </div>
 
 
 
-      </div>
+  </aside>
+
 
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
-  
-  &copy; 2020 – 
-  <span itemprop="copyrightYear">2022</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">chihchao</span>
-</div><!-- 网站运行时间的设置 -->
-<span id="timeDate">载入天数...</span>
-<span id="times">载入时分秒...</span>
-<script>
-    var now = new Date();
-    function createtime() {
-        var grt= new Date("02/25/2020 09:00:00");//此处修改你的建站时间或者网站上线时间
-        now.setTime(now.getTime()+250);
-        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
-        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
-        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
-        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
-        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
-        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
-        document.getElementById("timeDate").innerHTML = "理乐志已运行 "+ dnum +" 天 ";
-        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
-    }
-setInterval("createtime()",250);
-</script>
-
-
-        
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
   </div>
+</div>
+
+
+
+
 
   
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/pjax/pjax.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
-  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
 
 
-<script src="/js/schemes/pisces.js"></script>
+
+  
 
 
-<script src="/js/next-boot.js"></script>
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      冀ICP备20003094号-2
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=50010902000951"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+          
+          <span>渝公网安备50010902000951号</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
   <script>
-var pjax = new Pjax({
-  selectors: [
-    'head title',
-    '#page-configurations',
-    '.content-wrap',
-    '.post-toc-wrap',
-    '.languages',
-    '#pjax'
-  ],
-  switches: {
-    '.post-toc-wrap': Pjax.switches.innerHTML
-  },
-  analytics: false,
-  cacheBust: false,
-  scrollTo : !CONFIG.bookmark.enable
-});
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
 
-window.addEventListener('pjax:success', () => {
-  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
-    var code = element.text || element.textContent || element.innerHTML || '';
-    var parent = element.parentNode;
-    parent.removeChild(element);
-    var script = document.createElement('script');
-    if (element.id) {
-      script.id = element.id;
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
     }
-    if (element.className) {
-      script.className = element.className;
-    }
-    if (element.type) {
-      script.type = element.type;
-    }
-    if (element.src) {
-      script.src = element.src;
-      // Force synchronous loading of peripheral JS.
-      script.async = false;
-    }
-    if (element.dataset.pjax !== undefined) {
-      script.dataset.pjax = '';
-    }
-    if (code !== '') {
-      script.appendChild(document.createTextNode(code));
-    }
-    parent.appendChild(script);
   });
-  NexT.boot.refresh();
-  // Define Motion Sequence & Bootstrap Motion.
-  if (CONFIG.motion.enable) {
-    NexT.motion.integrator
-      .init()
-      .add(NexT.motion.middleWares.subMenu)
-      .add(NexT.motion.middleWares.postList)
-      .bootstrap();
-  }
-  NexT.utils.updateSidebarPosition();
-});
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
 </script>
 
 
 
 
-  
 
 
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-    <div id="pjax">
-  
 
   
 
-  
-
-    </div>
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
 </body>
 </html>

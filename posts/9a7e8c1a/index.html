@@ -1,27 +1,24 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.2.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-1200-ich.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-1200-ich.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-1200-ich.png">
-  <link rel="mask-icon" href="/images/favicon-1200-ich.png" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"chihchao.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
-  </script>
-
-  <meta name="description" content="NumPy，是Numerical Python的简称，提供了高效存储和操作密集数据缓存的借口。在某些方面，NumPy数据与Python内置的列表类型非常相似。但是随着数组在维度上变大，NumPy数组提供了更加高效的存储和数据操作。NumPy数组几乎是整个Python数据科学工具生态系统的核心。 因此，不管你对数据科学的哪个方面感兴趣，花点时间学习如何有效地使用NumPy都是非常值得的。">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo-star-bg-1200.png">
+  <link rel="icon" href="/img/logo-star-bg-1200.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="chihchao">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="NumPy，是Numerical Python的简称，提供了高效存储和操作密集数据缓存的借口。在某些方面，NumPy数据与Python内置的列表类型非常相似。但是随着数组在维度上变大，NumPy数组提供了更加高效的存储和数据操作。NumPy数组几乎是整个Python数据科学工具生态系统的核心。 因此，不管你对数据科学的哪个方面感兴趣，花点时间学习如何有效地使用NumPy都是非常值得的。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NumPy学习笔记-1-基础">
 <meta property="og:url" content="http://chihchao.cn/posts/9a7e8c1a/index.html">
@@ -32,191 +29,234 @@
 <meta property="article:modified_time" content="2020-12-24T07:35:25.000Z">
 <meta property="article:author" content="chihchao">
 <meta property="article:tag" content="NumPy">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>NumPy学习笔记-1-基础 - 理乐志</title>
 
-<link rel="canonical" href="http://chihchao.cn/posts/9a7e8c1a/">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
 
-  <title>NumPy学习笔记-1-基础 | 理乐志</title>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"chihchao.cn","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":" ","loop":false,"scope":"home"},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-
+  
+<meta name="generator" content="Hexo 6.2.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
+<body>
+  
 
-  <div class="site-meta">
+  <header>
+    
 
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">理乐志</h1>
-      <span class="logo-line-after"><i></i></span>
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>理乐志</strong>
     </a>
-      <p class="site-subtitle" itemprop="description">chihchao's blog</p>
-  </div>
 
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
     </div>
   </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
-
-  </li>
-  </ul>
 </nav>
 
+  
 
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">NumPy学习笔记-1-基础</span>
+          
+        </div>
 
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        chihchao
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2020-12-24 15:35" pubdate>
+          2020年12月24日 下午
+        </time>
+      </span>
+    
+  </div>
 
-</div>
-    </header>
+  <div class="mt-1">
+    
 
     
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
+
+    
+    
   </div>
 
 
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
-            
-
-    
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://chihchao.cn/posts/9a7e8c1a/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="chihchao">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="理乐志">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          NumPy学习笔记-1-基础
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-12-24 15:35" itemprop="dateCreated datePublished" datetime="2020-12-24T15:35:25+08:00">2020-12-24</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+        
+      </div>
 
       
-        <p>NumPy，是Numerical
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">NumPy学习笔记-1-基础</h1>
+            
+            <div class="markdown-body">
+              
+              <p>NumPy，是Numerical
 Python的简称，提供了高效存储和操作密集数据缓存的借口。在某些方面，NumPy数据与Python内置的列表类型非常相似。但是随着数组在维度上变大，NumPy数组提供了更加高效的存储和数据操作。<strong>NumPy数组几乎是整个Python数据科学工具生态系统的核心</strong>。
 因此，不管你对数据科学的哪个方面感兴趣，花点时间学习如何有效地使用NumPy都是非常值得的。</p>
 <span id="more"></span>
@@ -224,7 +264,7 @@ Python的简称，提供了高效存储和操作密集数据缓存的借口。�
 x =
 10，这里x并不是一个“原生”整型，而是一个指针，指向一个C语言的复合结构体，这个结构体包含内存位置、可以转换成整型的字节等大量额外的信息。正是由于这些大量额外的信息，Python可以自由、动态的编码。但这些额外信息也成为其负担，在多个对象组合的结构体中尤其明显。Python中标准可变的元素容器是列表，列表是灵活的，因为一个列表中既可以包含同一种类型元素，也可以包含不同类型。为了获得这些灵活的类型，列表中的每一项必须包含各自的类型信息、引用计数和其他信息；也就是说，每一项都是一个完整的Python对象。如果列表中的所有变量都是同一类型的，那么很多信息都会显得多余，这时候，把数据存储在固定类型的数组中会更高效。<strong>NumPy就是一种固定类型的数组，它要求数组必须包含同一类型的数据，虽然这样失去了灵活性，但可以更有效地存储和操作数据。</strong></p>
 <p>NumPy并非Python内置模块，因此在使用前需要先导入，一般使用np作为NumPy的别名：</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br></code></pre></td></tr></tbody></table></figure>
 <h1 id="创建数组">1 创建数组</h1>
 <p>创建数组经常使用的函数有<code>np.array()</code>
 、<code>np.reshape()</code>、<code>np.arange()</code>、<code>np.linspace()</code>、<code>np.logspace()</code>、<code>np.random()</code>、<code>np.ones()</code>、<code>np.ones_like()</code>、<code>np.zeros()</code>、<code>np.zeros_like()</code>、<code>np.empty()</code>、<code>np.empty_like()</code>、<code>np.full()</code>、<code>np.full_like()</code>、<code>np.eye()</code>
@@ -236,29 +276,29 @@ x =
 </ul>
 <p>是创建数据最常用的函数，完整函数和参数为：<code>np.array(object, dtype=None, *, copy=True, order='K', subok=False, ndmin=0)</code>
 其中，object只能是列表或元组，dtype决定数据类型，ndim表示数组的维度；copy、order、subok三个参数并不常用，暂时不深入学习。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([<span class="number">1</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'a:'</span>, a, a.dtype)</span><br><span class="line"></span><br><span class="line">b = np.array((<span class="number">2.2</span>, <span class="number">5.0</span>, <span class="number">7.1</span>, <span class="number">6.6</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'b:'</span>, b, b.dtype)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>a: [1 4 2 3] int32
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.array([<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:'</span>, a, a.dtype)<br><br>b = np.array((<span class="hljs-number">2.2</span>, <span class="hljs-number">5.0</span>, <span class="hljs-number">7.1</span>, <span class="hljs-number">6.6</span>))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'b:'</span>, b, b.dtype)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">a: [1 4 2 3] int32
 b: [2.2 5.  7.1 6.6] float64</code></pre>
 <p><strong>注意:</strong>
 根据前面的介绍可知，不同于Python列表，NumPy要求数组必须包含同一类型的数据。如果类型不匹配，NumPy将会向上转换为同一类型数据（如果可行）。在下面这个例子中，整型被转换为浮点型：</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([<span class="number">1</span>, <span class="number">4</span>, <span class="number">2.0</span>, <span class="number">5</span>, <span class="number">3</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'a:'</span>, a, a.dtype)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>a: [1. 4. 2. 5. 3.] float64</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.array([<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">2.0</span>, <span class="hljs-number">5</span>, <span class="hljs-number">3</span>])<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:'</span>, a, a.dtype)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">a: [1. 4. 2. 5. 3.] float64</code></pre>
 <p>NumPy数组可以是一维的、二维的，也可以是多维的。数组的维度一般用<code>ndim</code>函数，形状用<code>shape</code>函数，此外还有大小<code>size</code>
 、数据类型<code>dtype</code> 等。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一维数组</span></span><br><span class="line">a = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'a:\n'</span>, a, <span class="string">'\na_nidm:'</span>, a.ndim, <span class="string">'\na_shape:'</span>, a.shape)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>a:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 一维数组</span><br>a = np.array([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>])<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:\n'</span>, a, <span class="hljs-string">'\na_nidm:'</span>, a.ndim, <span class="hljs-string">'\na_shape:'</span>, a.shape)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">a:
  [1 2 3 4] 
 a_nidm: 1 
 a_shape: (4,)</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 二维数组，三行四列</span></span><br><span class="line"></span><br><span class="line">b = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>],</span><br><span class="line">              [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>],</span><br><span class="line">              [<span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>]])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'b:\n'</span>, b, <span class="string">'\nb_nidm:'</span>, b.ndim, <span class="string">'\nb_shape:'</span>, b.shape)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>b:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 二维数组，三行四列</span><br><br>b = np.array([[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>],<br>              [<span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>],<br>              [<span class="hljs-number">9</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">12</span>]])<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'b:\n'</span>, b, <span class="hljs-string">'\nb_nidm:'</span>, b.ndim, <span class="hljs-string">'\nb_shape:'</span>, b.shape)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">b:
  [[ 1  2  3  4]
  [ 5  6  7  8]
  [ 9 10 11 12]] 
 b_nidm: 2 
 b_shape: (3, 4)</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 三维数组，三个二行四列的数组</span></span><br><span class="line"></span><br><span class="line">c = np.array([[[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]],</span><br><span class="line">              [[<span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>], [<span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>, <span class="number">16</span>]],</span><br><span class="line">              [[<span class="number">17</span>, <span class="number">18</span>, <span class="number">19</span>, <span class="number">20</span>], [<span class="number">21</span>, <span class="number">22</span>, <span class="number">23</span>, <span class="number">24</span>]]])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'c:\n'</span>, c, <span class="string">'\nc_nidm:'</span>, c.ndim, <span class="string">'\nc_shape:'</span>, c.shape)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>c:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 三维数组，三个二行四列的数组</span><br><br>c = np.array([[[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>], [<span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>]],<br>              [[<span class="hljs-number">9</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">12</span>], [<span class="hljs-number">13</span>, <span class="hljs-number">14</span>, <span class="hljs-number">15</span>, <span class="hljs-number">16</span>]],<br>              [[<span class="hljs-number">17</span>, <span class="hljs-number">18</span>, <span class="hljs-number">19</span>, <span class="hljs-number">20</span>], [<span class="hljs-number">21</span>, <span class="hljs-number">22</span>, <span class="hljs-number">23</span>, <span class="hljs-number">24</span>]]])<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'c:\n'</span>, c, <span class="hljs-string">'\nc_nidm:'</span>, c.ndim, <span class="hljs-string">'\nc_shape:'</span>, c.shape)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">c:
  [[[ 1  2  3  4]
   [ 5  6  7  8]]
 
@@ -274,15 +314,15 @@ c_shape: (3, 2, 4)</code></pre>
 </ul>
 <p><code>np.reshape(a, newshape, order='C')</code>
 返回一个数组a的新形状，但不改变其数据。此函数一般用于数组的变形，较为常用。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">data = [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">13</span>)]</span><br><span class="line"></span><br><span class="line">a = np.array(data)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'a:\n'</span>, a)</span><br><span class="line"></span><br><span class="line">b = np.reshape(a, (<span class="number">3</span>, <span class="number">4</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'b:\n'</span>, b)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>a:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">data = [i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-number">13</span>)]<br><br>a = np.array(data)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:\n'</span>, a)<br><br>b = np.reshape(a, (<span class="hljs-number">3</span>, <span class="hljs-number">4</span>))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'b:\n'</span>, b)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">a:
  [ 1  2  3  4  5  6  7  8  9 10 11 12]
 b:
  [[ 1  2  3  4]
  [ 5  6  7  8]
  [ 9 10 11 12]]</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 直接在创建数组时使用reshape</span></span><br><span class="line"></span><br><span class="line">c = np.array(data).reshape(<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'c:\n'</span>, c)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>c:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 直接在创建数组时使用reshape</span><br><br>c = np.array(data).reshape(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'c:\n'</span>, c)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">c:
  [[ 1  2  3  4]
  [ 5  6  7  8]
  [ 9 10 11 12]]</code></pre>
@@ -293,8 +333,8 @@ b:
 </ul>
 <p><code>np.arange()</code>
 与Python中的<code>arange()</code>用法相似，但可以生成浮点数，完整函数与参数为：<code>arange(start, stop, step, dtype=None)</code></p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = np.arange(<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'a:'</span>, a, a.dtype)</span><br><span class="line"></span><br><span class="line">b = np.arange(<span class="number">1</span>, <span class="number">5</span>, <span class="number">0.5</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'b:'</span>, b, b.dtype)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>a: [0 1 2 3 4] int32
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.arange(<span class="hljs-number">5</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:'</span>, a, a.dtype)<br><br>b = np.arange(<span class="hljs-number">1</span>, <span class="hljs-number">5</span>, <span class="hljs-number">0.5</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'b:'</span>, b, b.dtype)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">a: [0 1 2 3 4] int32
 b: [1.  1.5 2.  2.5 3.  3.5 4.  4.5] float64</code></pre>
 <ul>
 <li><code>np.linspace()</code></li>
@@ -302,8 +342,8 @@ b: [1.  1.5 2.  2.5 3.  3.5 4.  4.5] float64</code></pre>
 <p><code>np.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None, axis=0)</code>
 该函数返回一个等差数列。数列范围为“[start,
 stop]”，数据数量由参数“num”决定，区间结束端点“stop”默认包含其中，也可由参数“endpoint”更改。参数“retstep”决定是否返回等差值。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在[2,3]的闭区间内生成5个等间隔数据</span></span><br><span class="line">a = np.linspace(<span class="number">2.0</span>, <span class="number">3.0</span>, num=<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在[2,3)的左开右闭区间内生成5个等间隔数据</span></span><br><span class="line">b = np.linspace(<span class="number">2.0</span>, <span class="number">3.0</span>, num=<span class="number">5</span>, endpoint=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在[2,3]的闭区间内生成5个等间隔数据，并返回间隔值</span></span><br><span class="line">c = np.linspace(<span class="number">2.0</span>, <span class="number">3.0</span>, num=<span class="number">5</span>, retstep=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'a:'</span>, a, <span class="string">'\nb:'</span>, b, <span class="string">'\nc:'</span>, c)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>a: [2.   2.25 2.5  2.75 3.  ] 
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 在[2,3]的闭区间内生成5个等间隔数据</span><br>a = np.linspace(<span class="hljs-number">2.0</span>, <span class="hljs-number">3.0</span>, num=<span class="hljs-number">5</span>)<br><br><span class="hljs-comment"># 在[2,3)的左开右闭区间内生成5个等间隔数据</span><br>b = np.linspace(<span class="hljs-number">2.0</span>, <span class="hljs-number">3.0</span>, num=<span class="hljs-number">5</span>, endpoint=<span class="hljs-literal">False</span>)<br><br><span class="hljs-comment"># 在[2,3]的闭区间内生成5个等间隔数据，并返回间隔值</span><br>c = np.linspace(<span class="hljs-number">2.0</span>, <span class="hljs-number">3.0</span>, num=<span class="hljs-number">5</span>, retstep=<span class="hljs-literal">True</span>)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:'</span>, a, <span class="hljs-string">'\nb:'</span>, b, <span class="hljs-string">'\nc:'</span>, c)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">a: [2.   2.25 2.5  2.75 3.  ] 
 b: [2.  2.2 2.4 2.6 2.8] 
 c: (array([2.  , 2.25, 2.5 , 2.75, 3.  ]), 0.25)</code></pre>
 <ul>
@@ -311,8 +351,8 @@ c: (array([2.  , 2.25, 2.5 , 2.75, 3.  ]), 0.25)</code></pre>
 </ul>
 <p><code>np.logspace(start,stop,num=50,endpoint=True,base=10.0,dtype=None,axis=0)</code>
 该函数返回一个对数刻度上的等比数列。数列范围为“[<span class="math inline">\(base^{start}\)</span>，<span class="math inline">\(base^{stop}\)</span>]”，“base”默认为10。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在区间[10,100]内生成一个包含5个数据的等比数列</span></span><br><span class="line">a = np.logspace(<span class="number">1</span>, <span class="number">2</span>, num=<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在区间[4,8]内生成一个包含4个数据的等比数列</span></span><br><span class="line">b = np.logspace(<span class="number">2</span>, <span class="number">3</span>, base=<span class="number">2</span>, num=<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'a:'</span>, a, <span class="string">'\nb:'</span>, b)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>a: [ 10.          17.7827941   31.6227766   56.23413252 100.        ] 
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 在区间[10,100]内生成一个包含5个数据的等比数列</span><br>a = np.logspace(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, num=<span class="hljs-number">5</span>)<br><br><span class="hljs-comment"># 在区间[4,8]内生成一个包含4个数据的等比数列</span><br>b = np.logspace(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, base=<span class="hljs-number">2</span>, num=<span class="hljs-number">4</span>)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:'</span>, a, <span class="hljs-string">'\nb:'</span>, b)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">a: [ 10.          17.7827941   31.6227766   56.23413252 100.        ] 
 b: [4.         5.0396842  6.34960421 8.        ]</code></pre>
 <h2 id="创建规模数组">1.3 创建规模数组</h2>
 <h3 id="np.zeros-和-np.zeros_like">1.3.1 <code>np.zeros</code> 和
@@ -321,14 +361,14 @@ b: [4.         5.0396842  6.34960421 8.        ]</code></pre>
 该函数返回一个全为0的数组。数组形状由参数“shape”决定，“shape”可以是整数也可以是一个元组，当shape为整数时返回一个一维数组。</p>
 <p><code>np.zeros_like(a, dtype=None, order='K', subok=True, shape=None)</code>
 该函数返回一个数据全为0，但与数组“a”具有相同形状和数据类型的新数组。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = np.zeros(<span class="number">10</span>)</span><br><span class="line">b = np.zeros((<span class="number">2</span>, <span class="number">3</span>))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'a:\n'</span>, a, <span class="string">'\nb:\n'</span>, b)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>a:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.zeros(<span class="hljs-number">10</span>)<br>b = np.zeros((<span class="hljs-number">2</span>, <span class="hljs-number">3</span>))<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:\n'</span>, a, <span class="hljs-string">'\nb:\n'</span>, b)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">a:
  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.] 
 b:
  [[0. 0. 0.]
  [0. 0. 0.]]</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = np.arange(<span class="number">1</span>, <span class="number">13</span>).reshape(<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">b = np.zeros_like(a)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'a:\n'</span>, a, <span class="string">'\nb:\n'</span>, b)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>a:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.arange(<span class="hljs-number">1</span>, <span class="hljs-number">13</span>).reshape(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>)<br>b = np.zeros_like(a)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:\n'</span>, a, <span class="hljs-string">'\nb:\n'</span>, b)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">a:
  [[ 1  2  3  4]
  [ 5  6  7  8]
  [ 9 10 11 12]] 
@@ -342,15 +382,15 @@ b:
 该函数返回一个全为1的数组。</p>
 <p><code>np.ones_like(a, dtype=None, order='K', subok=True, shape=None)</code>
 该函数返回一个数据全为1，但与数组“a”具有相同形状和数据类型的新数组。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = np.ones(<span class="number">5</span>)</span><br><span class="line">b = np.ones((<span class="number">3</span>, <span class="number">4</span>))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'a:\n'</span>, a, <span class="string">'\nb:\n'</span>, b)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>a:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.ones(<span class="hljs-number">5</span>)<br>b = np.ones((<span class="hljs-number">3</span>, <span class="hljs-number">4</span>))<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:\n'</span>, a, <span class="hljs-string">'\nb:\n'</span>, b)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">a:
  [1. 1. 1. 1. 1.] 
 b:
  [[1. 1. 1. 1.]
  [1. 1. 1. 1.]
  [1. 1. 1. 1.]]</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = np.arange(<span class="number">1</span>, <span class="number">13</span>).reshape(<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">b = np.ones_like(a)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'a:\n'</span>, a, <span class="string">'\nb:\n'</span>, b)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>a:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.arange(<span class="hljs-number">1</span>, <span class="hljs-number">13</span>).reshape(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>)<br>b = np.ones_like(a)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:\n'</span>, a, <span class="hljs-string">'\nb:\n'</span>, b)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">a:
  [[ 1  2  3  4]
  [ 5  6  7  8]
  [ 9 10 11 12]] 
@@ -364,14 +404,14 @@ b:
 返回一个给定形状和数据类型的新数组，数组数据全为给定值“fill_value”。</p>
 <p><code>np.full_like(a, fill_value, dtype=None, order='K', subok=True, shape=None)</code>
 返回一个数据全为值“fill_value”，但与数组“a”具有相同形状和数据类型的新数组。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = np.full(<span class="number">5</span>, <span class="number">3.14</span>)</span><br><span class="line">b = np.full((<span class="number">2</span>, <span class="number">3</span>), <span class="number">3.14</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'a:\n'</span>, a, <span class="string">'\nb:\n'</span>, b)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>a:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.full(<span class="hljs-number">5</span>, <span class="hljs-number">3.14</span>)<br>b = np.full((<span class="hljs-number">2</span>, <span class="hljs-number">3</span>), <span class="hljs-number">3.14</span>)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:\n'</span>, a, <span class="hljs-string">'\nb:\n'</span>, b)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">a:
  [3.14 3.14 3.14 3.14 3.14] 
 b:
  [[3.14 3.14 3.14]
  [3.14 3.14 3.14]]</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = np.arange(<span class="number">1</span>, <span class="number">13</span>).reshape(<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">b = np.full_like(a, <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'a:\n'</span>, a, <span class="string">'\nb:\n'</span>, b)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>a:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.arange(<span class="hljs-number">1</span>, <span class="hljs-number">13</span>).reshape(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>)<br>b = np.full_like(a, <span class="hljs-number">3</span>)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:\n'</span>, a, <span class="hljs-string">'\nb:\n'</span>, b)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">a:
  [[ 1  2  3  4]
  [ 5  6  7  8]
  [ 9 10 11 12]] 
@@ -382,20 +422,20 @@ b:
 <p><strong>注意：</strong> <code>zeros_like</code>
 、<code>ones_like</code> 和<code>full_like</code>
 都只能产生与所给数组具有相同数据类型的数组。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = np.arange(<span class="number">1</span>, <span class="number">13</span>).reshape(<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">b = np.arange(<span class="number">1</span>, <span class="number">7</span>, <span class="number">0.5</span>).reshape(<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'a_dtype:'</span>, a.dtype, <span class="string">'\nb_dtype:'</span>, b.dtype)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>a_dtype: int32 
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.arange(<span class="hljs-number">1</span>, <span class="hljs-number">13</span>).reshape(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>)<br>b = np.arange(<span class="hljs-number">1</span>, <span class="hljs-number">7</span>, <span class="hljs-number">0.5</span>).reshape(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a_dtype:'</span>, a.dtype, <span class="hljs-string">'\nb_dtype:'</span>, b.dtype)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">a_dtype: int32 
 b_dtype: float64</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">c_a = np.zeros_like(a)</span><br><span class="line">c_b = np.zeros_like(b)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'c_a_dtype:'</span>, c_a.dtype, <span class="string">'\nc_b_dtype:'</span>, c_b.dtype)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>c_a_dtype: int32 
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">c_a = np.zeros_like(a)<br>c_b = np.zeros_like(b)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'c_a_dtype:'</span>, c_a.dtype, <span class="hljs-string">'\nc_b_dtype:'</span>, c_b.dtype)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">c_a_dtype: int32 
 c_b_dtype: float64</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">d_a = np.full_like(a, <span class="number">3.14</span>)</span><br><span class="line">d_b = np.full_like(b, <span class="number">3.14</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'d_a_dtype:'</span>, d_a.dtype, <span class="string">'\nd_b_dtype:'</span>, d_b.dtype)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>d_a_dtype: int32 
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">d_a = np.full_like(a, <span class="hljs-number">3.14</span>)<br>d_b = np.full_like(b, <span class="hljs-number">3.14</span>)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'d_a_dtype:'</span>, d_a.dtype, <span class="hljs-string">'\nd_b_dtype:'</span>, d_b.dtype)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">d_a_dtype: int32 
 d_b_dtype: float64</code></pre>
 <h3 id="np.eye">1.3.4 <code>np.eye()</code></h3>
 <p><code>np.eye(N, M=None, k=0, dtype=&lt;class 'float'&gt;, order='C')</code>
 返回一个N×M的二维数组，数组对角线值为1，其余为0。M默认等于N，k为对角线的索引，默认为0。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = np.eye(<span class="number">3</span>)</span><br><span class="line">b = np.eye(<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">c = np.eye(<span class="number">3</span>, <span class="number">4</span>, k=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'a:\n'</span>, a, <span class="string">'\nb:\n'</span>, b, <span class="string">'\nc:\n'</span>, c)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>a:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.eye(<span class="hljs-number">3</span>)<br>b = np.eye(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>)<br>c = np.eye(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, k=<span class="hljs-number">1</span>)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:\n'</span>, a, <span class="hljs-string">'\nb:\n'</span>, b, <span class="hljs-string">'\nc:\n'</span>, c)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">a:
  [[1. 0. 0.]
  [0. 1. 0.]
  [0. 0. 1.]] 
@@ -415,19 +455,19 @@ c:
 <li><code>np.random.rand(d0, d1, ..., dn)</code>
 返回一个指定维度、数据介于[0,1)的数组，参数d为维度。</li>
 </ul>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成一个一维随机数组 a</span></span><br><span class="line"></span><br><span class="line">a = np.random.rand(<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'a:\n'</span>, a, <span class="string">'\na_nidm:'</span>, a.ndim, <span class="string">'\na_shape:'</span>, a.shape)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>a:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 生成一个一维随机数组 a</span><br><br>a = np.random.rand(<span class="hljs-number">5</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:\n'</span>, a, <span class="hljs-string">'\na_nidm:'</span>, a.ndim, <span class="hljs-string">'\na_shape:'</span>, a.shape)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">a:
  [0.60190474 0.79229068 0.08220012 0.85542785 0.2297879 ] 
 a_nidm: 1 
 a_shape: (5,)</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成一个二维随机数组 b，2行3列</span></span><br><span class="line"></span><br><span class="line">b = np.random.rand(<span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'b:\n'</span>, b, <span class="string">'\nb_nidm:'</span>, b.ndim, <span class="string">'\nb_shape:'</span>, b.shape)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>b:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 生成一个二维随机数组 b，2行3列</span><br><br>b = np.random.rand(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'b:\n'</span>, b, <span class="hljs-string">'\nb_nidm:'</span>, b.ndim, <span class="hljs-string">'\nb_shape:'</span>, b.shape)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">b:
  [[0.8527445  0.59884459 0.56320288]
  [0.85995761 0.50276433 0.23505394]] 
 b_nidm: 2 
 b_shape: (2, 3)</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成一个三维随机数组 c，2个3行4列</span></span><br><span class="line"></span><br><span class="line">c = np.random.rand(<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'c:\n'</span>, c, <span class="string">'\nc_nidm:'</span>, c.ndim, <span class="string">'\nc_shape:'</span>, c.shape)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>c:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 生成一个三维随机数组 c，2个3行4列</span><br><br>c = np.random.rand(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'c:\n'</span>, c, <span class="hljs-string">'\nc_nidm:'</span>, c.ndim, <span class="hljs-string">'\nc_shape:'</span>, c.shape)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">c:
  [[[0.37208962 0.03070275 0.78003387 0.22731879]
   [0.63874307 0.94845367 0.71938931 0.11407476]
   [0.80291404 0.96805784 0.43899818 0.16440592]]
@@ -442,29 +482,29 @@ c_shape: (2, 3, 4)</code></pre>
 返回一个随机整数数组，数据范围[low,high)，如果“
 high”为“无”（默认值），则结果来自[0,low）。参数“size”决定数组的维度。参数“low”和“high”既可以是整数，也可以是元组。</li>
 </ul>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 从[0,100)范围内生成一个一维的随机整数数组</span></span><br><span class="line"></span><br><span class="line">a = np.random.randint(<span class="number">100</span>, size=<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'a:\n'</span>, a)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>a:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 从[0,100)范围内生成一个一维的随机整数数组</span><br><br>a = np.random.randint(<span class="hljs-number">100</span>, size=<span class="hljs-number">5</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:\n'</span>, a)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">a:
  [74  0  7 78 38]</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 从[10,500)范围内生成一个二维（2行4列）随机整数数组</span></span><br><span class="line"></span><br><span class="line">b = np.random.randint(<span class="number">10</span>, <span class="number">500</span>, size=(<span class="number">2</span>, <span class="number">4</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'b:\n'</span>, b)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>b:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 从[10,500)范围内生成一个二维（2行4列）随机整数数组</span><br><br>b = np.random.randint(<span class="hljs-number">10</span>, <span class="hljs-number">500</span>, size=(<span class="hljs-number">2</span>, <span class="hljs-number">4</span>))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'b:\n'</span>, b)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">b:
  [[299  85 386 307]
  [ 69 220 499 249]]</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 分别从[1,3)、[1,5)、[1,10)区间各生成一个随机整数，组成一个一维数组</span></span><br><span class="line"></span><br><span class="line">c = np.random.randint(<span class="number">1</span>, [<span class="number">3</span>, <span class="number">5</span>, <span class="number">10</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'c:\n'</span>, c)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>c:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 分别从[1,3)、[1,5)、[1,10)区间各生成一个随机整数，组成一个一维数组</span><br><br>c = np.random.randint(<span class="hljs-number">1</span>, [<span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">10</span>])<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'c:\n'</span>, c)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">c:
  [1 1 5]</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 分别从[1,10)、[5,10)、[7,10)区间各生成一个随机整数，组成一个一维数组</span></span><br><span class="line"></span><br><span class="line">d = np.random.randint([<span class="number">1</span>, <span class="number">5</span>, <span class="number">7</span>], <span class="number">10</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'d:\n'</span>, d)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>d:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 分别从[1,10)、[5,10)、[7,10)区间各生成一个随机整数，组成一个一维数组</span><br><br>d = np.random.randint([<span class="hljs-number">1</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>], <span class="hljs-number">10</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'d:\n'</span>, d)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">d:
  [7 8 9]</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成一个二维随机整数数组</span></span><br><span class="line"></span><br><span class="line">e = np.random.randint([<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>], [[<span class="number">10</span>], [<span class="number">20</span>]])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'e:\n'</span>, e)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>e:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 生成一个二维随机整数数组</span><br><br>e = np.random.randint([<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>], [[<span class="hljs-number">10</span>], [<span class="hljs-number">20</span>]])<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'e:\n'</span>, e)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">e:
  [[ 3  4  7  8]
  [ 1 19  9 14]]</code></pre>
 <ul>
 <li><code>np.random.random(size=None)</code>
 返回一个随机浮点数数组，数据范围为[0,1)</li>
 </ul>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成一个二维随机浮点数数组</span></span><br><span class="line"></span><br><span class="line">a = np.random.random((<span class="number">3</span>, <span class="number">3</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'a:\n'</span>, a)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>a:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 生成一个二维随机浮点数数组</span><br><br>a = np.random.random((<span class="hljs-number">3</span>, <span class="hljs-number">3</span>))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:\n'</span>, a)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">a:
  [[0.59745994 0.29976794 0.44992556]
  [0.63682168 0.80479305 0.67311453]
  [0.77075207 0.61300261 0.41127895]]</code></pre>
@@ -472,8 +512,8 @@ high”为“无”（默认值），则结果来自[0,low）。参数“size”
 <li><code>np.random.normal(loc=0.0, scale=1.0, size=None)</code>
 从正态（高斯）分布中抽取随机样本。参数“loc”表示概率分布的均值，对应着整个分布的中心cente；“scale"表示概率分布的标准差，对应于分布的宽度，scale越大越矮胖，scale越小，越瘦高；“loc”和“scale"都必须是浮点数或浮点数组成的元组</li>
 </ul>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建均值为0、标准差为1的二维（2×3）正态分布随机数组</span></span><br><span class="line"></span><br><span class="line">a = np.random.normal(<span class="number">0.0</span>, <span class="number">1.0</span>, (<span class="number">2</span>, <span class="number">3</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'a:\n'</span>, a)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>a:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 创建均值为0、标准差为1的二维（2×3）正态分布随机数组</span><br><br>a = np.random.normal(<span class="hljs-number">0.0</span>, <span class="hljs-number">1.0</span>, (<span class="hljs-number">2</span>, <span class="hljs-number">3</span>))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:\n'</span>, a)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">a:
  [[ 1.25935466  0.59439736 -0.16857579]
  [ 1.08024485  0.77929309  0.96025698]]</code></pre>
 <ul>
@@ -481,25 +521,25 @@ high”为“无”（默认值），则结果来自[0,low）。参数“size”
 生成一个随机数种子，用于指定随机数生成时所用算法开始的整数值。如果使用相同的seed(
 )值，则每次生成的随即数都相同；如果不设置这个值，则系统根据时间来自己选择这个值，此时每次生成的随机数因时间差异而不同。设置的seed()值仅一次有效。</li>
 </ul>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用相同的seed，生成的随机数相同</span></span><br><span class="line"></span><br><span class="line">num = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span>(num &lt; <span class="number">5</span>):</span><br><span class="line">    np.random.seed(<span class="number">3</span>)</span><br><span class="line">    <span class="built_in">print</span>(np.random.random())</span><br><span class="line">    num += <span class="number">1</span></span><br></pre></td></tr></tbody></table></figure>
-<pre><code>0.5507979025745755
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 使用相同的seed，生成的随机数相同</span><br><br>num = <span class="hljs-number">0</span><br><span class="hljs-keyword">while</span>(num &lt; <span class="hljs-number">5</span>):<br>    np.random.seed(<span class="hljs-number">3</span>)<br>    <span class="hljs-built_in">print</span>(np.random.random())<br>    num += <span class="hljs-number">1</span><br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">0.5507979025745755
 0.5507979025745755
 0.5507979025745755
 0.5507979025745755
 0.5507979025745755</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 虽然使用相同的seed，但seed只能生效一次，故生成的随机数不同</span></span><br><span class="line"></span><br><span class="line">num = <span class="number">0</span></span><br><span class="line">np.random.seed(<span class="number">3</span>)</span><br><span class="line"><span class="keyword">while</span>(num &lt; <span class="number">5</span>):</span><br><span class="line">    <span class="built_in">print</span>(np.random.random())</span><br><span class="line">    num += <span class="number">1</span></span><br></pre></td></tr></tbody></table></figure>
-<pre><code>0.5507979025745755
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 虽然使用相同的seed，但seed只能生效一次，故生成的随机数不同</span><br><br>num = <span class="hljs-number">0</span><br>np.random.seed(<span class="hljs-number">3</span>)<br><span class="hljs-keyword">while</span>(num &lt; <span class="hljs-number">5</span>):<br>    <span class="hljs-built_in">print</span>(np.random.random())<br>    num += <span class="hljs-number">1</span><br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">0.5507979025745755
 0.7081478226181048
 0.2909047389129443
 0.510827605197663
 0.8929469543476547</code></pre>
 <h1 id="数组的索引与切片">2 数组的索引与切片</h1>
 <p>索引和切片的语法相同，在一维数组中表示为<code>x[start:stop:step]</code>，在多维数组中，用逗号分隔的方式获取不同维度的元素<code>x[start:stop:step, start:stop:step, ...]</code>。三个参数的默认值分别为start=0，stop=维度的大小和step=1。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = np.random.randint(<span class="number">10</span>, size=<span class="number">10</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'a:\n'</span>, a)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>a:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.random.randint(<span class="hljs-number">10</span>, size=<span class="hljs-number">10</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:\n'</span>, a)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">a:
  [9 9 5 7 6 0 4 7 8 1]</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取第一个元素</span></span><br><span class="line"><span class="built_in">print</span>(a[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取最后一个元素</span></span><br><span class="line"><span class="built_in">print</span>(a[-<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取前五个元素</span></span><br><span class="line"><span class="built_in">print</span>(a[:<span class="number">5</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取最后三个元素</span></span><br><span class="line"><span class="built_in">print</span>(a[<span class="number">7</span>:])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取中间四个元素</span></span><br><span class="line"><span class="built_in">print</span>(a[<span class="number">3</span>:<span class="number">7</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 间隔一个元素获取</span></span><br><span class="line"><span class="built_in">print</span>(a[::<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 所有元素逆序</span></span><br><span class="line"><span class="built_in">print</span>(a[::-<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 从索引5开始间隔一个元素逆序</span></span><br><span class="line"><span class="built_in">print</span>(a[<span class="number">5</span>::-<span class="number">2</span>])</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>9
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 获取第一个元素</span><br><span class="hljs-built_in">print</span>(a[<span class="hljs-number">0</span>])<br><br><span class="hljs-comment"># 获取最后一个元素</span><br><span class="hljs-built_in">print</span>(a[-<span class="hljs-number">1</span>])<br><br><span class="hljs-comment"># 获取前五个元素</span><br><span class="hljs-built_in">print</span>(a[:<span class="hljs-number">5</span>])<br><br><span class="hljs-comment"># 获取最后三个元素</span><br><span class="hljs-built_in">print</span>(a[<span class="hljs-number">7</span>:])<br><br><span class="hljs-comment"># 获取中间四个元素</span><br><span class="hljs-built_in">print</span>(a[<span class="hljs-number">3</span>:<span class="hljs-number">7</span>])<br><br><span class="hljs-comment"># 间隔一个元素获取</span><br><span class="hljs-built_in">print</span>(a[::<span class="hljs-number">2</span>])<br><br><span class="hljs-comment"># 所有元素逆序</span><br><span class="hljs-built_in">print</span>(a[::-<span class="hljs-number">1</span>])<br><br><span class="hljs-comment"># 从索引5开始间隔一个元素逆序</span><br><span class="hljs-built_in">print</span>(a[<span class="hljs-number">5</span>::-<span class="hljs-number">2</span>])<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">9
 1
 [9 9 5 7 6]
 [7 8 1]
@@ -507,13 +547,13 @@ high”为“无”（默认值），则结果来自[0,low）。参数“size”
 [9 5 6 4 8]
 [1 8 7 4 0 6 7 5 9 9]
 [0 7 9]</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">b = np.random.randint(<span class="number">10</span>, size=(<span class="number">3</span>, <span class="number">4</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'b:\n'</span>, b)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>b:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">b = np.random.randint(<span class="hljs-number">10</span>, size=(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'b:\n'</span>, b)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">b:
  [[6 2 2 1]
  [3 5 8 1]
  [8 7 8 1]]</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(b[<span class="number">0</span>, <span class="number">0</span>])</span><br><span class="line"><span class="built_in">print</span>(b[<span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line"><span class="built_in">print</span>(b[<span class="number">1</span>, -<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(b[:<span class="number">2</span>, :<span class="number">3</span>])</span><br><span class="line"><span class="built_in">print</span>(b[::<span class="number">1</span>, ::<span class="number">2</span>])</span><br><span class="line"><span class="built_in">print</span>(b[::-<span class="number">1</span>, ::-<span class="number">1</span>])</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>6
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(b[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>])<br><span class="hljs-built_in">print</span>(b[<span class="hljs-number">2</span>, <span class="hljs-number">3</span>])<br><span class="hljs-built_in">print</span>(b[<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>])<br><span class="hljs-built_in">print</span>(b[:<span class="hljs-number">2</span>, :<span class="hljs-number">3</span>])<br><span class="hljs-built_in">print</span>(b[::<span class="hljs-number">1</span>, ::<span class="hljs-number">2</span>])<br><span class="hljs-built_in">print</span>(b[::-<span class="hljs-number">1</span>, ::-<span class="hljs-number">1</span>])<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">6
 1
 1
 [[6 2 2]
@@ -524,8 +564,8 @@ high”为“无”（默认值），则结果来自[0,low）。参数“size”
 [[1 8 7 8]
  [1 8 5 3]
  [1 2 2 6]]</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c = np.random.randint(<span class="number">100</span>, size=(<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'c:\n'</span>, c)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>c:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">c = np.random.randint(<span class="hljs-number">100</span>, size=(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'c:\n'</span>, c)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">c:
  [[[79 48 37 20]
   [94 49 21 78]
   [28 54  0 64]]
@@ -533,8 +573,8 @@ high”为“无”（默认值），则结果来自[0,low）。参数“size”
  [[18 63 37 56]
   [56 71 37 46]
   [33  1 85 74]]]</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(c[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>])</span><br><span class="line"><span class="built_in">print</span>(c[<span class="number">1</span>, <span class="number">0</span>, -<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(c[<span class="number">0</span>, :<span class="number">2</span>, :<span class="number">3</span>])</span><br><span class="line"><span class="built_in">print</span>(c[::-<span class="number">1</span>, ::-<span class="number">1</span>, ::-<span class="number">1</span>])</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>21
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(c[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>])<br><span class="hljs-built_in">print</span>(c[<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, -<span class="hljs-number">1</span>])<br><span class="hljs-built_in">print</span>(c[<span class="hljs-number">0</span>, :<span class="hljs-number">2</span>, :<span class="hljs-number">3</span>])<br><span class="hljs-built_in">print</span>(c[::-<span class="hljs-number">1</span>, ::-<span class="hljs-number">1</span>, ::-<span class="hljs-number">1</span>])<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">21
 56
 [[79 48 37]
  [94 49 21]]
@@ -546,11 +586,11 @@ high”为“无”（默认值），则结果来自[0,low）。参数“size”
   [78 21 49 94]
   [20 37 48 79]]]</code></pre>
 <p>索引和切片出来的部分是数组的<strong>视图</strong>，并非副本，这意味着修改这部分数值时，原数组数据也会改变。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = np.random.randint(<span class="number">10</span>, size=<span class="number">10</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'a_0:'</span>, a[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">a[<span class="number">0</span>] = <span class="number">100</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'a_0:'</span>, a[<span class="number">0</span>])</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>a_0: 4
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.random.randint(<span class="hljs-number">10</span>, size=<span class="hljs-number">10</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a_0:'</span>, a[<span class="hljs-number">0</span>])<br><br>a[<span class="hljs-number">0</span>] = <span class="hljs-number">100</span><br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a_0:'</span>, a[<span class="hljs-number">0</span>])<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">a_0: 4
 a_0: 100</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">b = np.random.randint(<span class="number">10</span>, size=(<span class="number">3</span>, <span class="number">4</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'b:\n'</span>, b)</span><br><span class="line"></span><br><span class="line">b_sub = b[:<span class="number">2</span>, :<span class="number">3</span>]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'\nb_sub:\n'</span>, b_sub)</span><br><span class="line"></span><br><span class="line">b_sub[<span class="number">0</span>, <span class="number">0</span>] = <span class="number">100</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'\nb_sub:\n'</span>, b_sub)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'\nb:\n'</span>, b)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>b:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python">b = np.random.randint(<span class="hljs-number">10</span>, size=(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'b:\n'</span>, b)<br><br>b_sub = b[:<span class="hljs-number">2</span>, :<span class="hljs-number">3</span>]<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'\nb_sub:\n'</span>, b_sub)<br><br>b_sub[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>] = <span class="hljs-number">100</span><br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'\nb_sub:\n'</span>, b_sub)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'\nb:\n'</span>, b)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">b:
  [[5 0 1 4]
  [1 2 2 4]
  [8 0 6 0]]
@@ -568,8 +608,8 @@ b:
  [  1   2   2   4]
  [  8   0   6   0]]</code></pre>
 <p>如果想要创建副本，可以使用<code>copy()</code>方法实现。创建副本后再修改子数组，原始数组就不会再随之更改了。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">b = np.random.randint(<span class="number">10</span>, size=(<span class="number">3</span>, <span class="number">4</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'b:\n'</span>, b)</span><br><span class="line"></span><br><span class="line">b_sub_copy = b[:<span class="number">2</span>, :<span class="number">3</span>].copy()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'\nb_sub_copy:\n'</span>, b_sub_copy)</span><br><span class="line"></span><br><span class="line">b_sub_copy[<span class="number">0</span>, <span class="number">0</span>] = <span class="number">99</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'\nb_sub_copy:\n'</span>, b_sub_copy)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'\nb:\n'</span>, b)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>b:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python">b = np.random.randint(<span class="hljs-number">10</span>, size=(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'b:\n'</span>, b)<br><br>b_sub_copy = b[:<span class="hljs-number">2</span>, :<span class="hljs-number">3</span>].copy()<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'\nb_sub_copy:\n'</span>, b_sub_copy)<br><br>b_sub_copy[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>] = <span class="hljs-number">99</span><br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'\nb_sub_copy:\n'</span>, b_sub_copy)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'\nb:\n'</span>, b)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">b:
  [[4 1 5 1]
  [8 8 7 0]
  [0 9 1 7]]
@@ -587,8 +627,8 @@ b:
  [8 8 7 0]
  [0 9 1 7]]</code></pre>
 <p>在对数组值进行修改时需要<strong>注意</strong>，NumPy数组是固定类型的。这意味着当你试图将一个浮点数插入一个整型数组时，浮点值会被截短成整型，并且这种截短是自动完成的，不会提示或警告。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">b_sub_copy[<span class="number">0</span>, <span class="number">0</span>] = <span class="number">3.14</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'b_sub_copy:\n'</span>, b_sub_copy)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>b_sub_copy:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">b_sub_copy[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>] = <span class="hljs-number">3.14</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'b_sub_copy:\n'</span>, b_sub_copy)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">b_sub_copy:
  [[3 1 5]
  [8 8 7]]</code></pre>
 <h1 id="数组的变形">3 数组的变形</h1>
@@ -597,18 +637,18 @@ b:
 函数来实现，该函数在上一小节“创建数组”中已经介绍过。此处讲解另一种变形模式是将一个一维数组转变为二维的行或列的矩阵。此变形既可以通过
 reshape 来实现，也可以通过 <code>newaxis</code>
 关键字实现对数组的变形。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'a:\n'</span>, a, <span class="string">'\na_nidm:'</span>, a.ndim, <span class="string">'\na_shape:'</span>, a.shape)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>a:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.array([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:\n'</span>, a, <span class="hljs-string">'\na_nidm:'</span>, a.ndim, <span class="hljs-string">'\na_shape:'</span>, a.shape)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">a:
  [1 2 3] 
 a_nidm: 1 
 a_shape: (3,)</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">b = a.reshape((<span class="number">1</span>, <span class="number">3</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'b:\n'</span>, b, <span class="string">'\nb_nidm:'</span>, b.ndim, <span class="string">'\nb_shape:'</span>, b.shape)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>b:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">b = a.reshape((<span class="hljs-number">1</span>, <span class="hljs-number">3</span>))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'b:\n'</span>, b, <span class="hljs-string">'\nb_nidm:'</span>, b.ndim, <span class="hljs-string">'\nb_shape:'</span>, b.shape)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">b:
  [[1 2 3]] 
 b_nidm: 2 
 b_shape: (1, 3)</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c = a[np.newaxis, :]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'c:\n'</span>, c, <span class="string">'\nc_nidm:'</span>, c.ndim, <span class="string">'\nc_shape:'</span>, c.shape)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>c:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">c = a[np.newaxis, :]<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'c:\n'</span>, c, <span class="hljs-string">'\nc_nidm:'</span>, c.ndim, <span class="hljs-string">'\nc_shape:'</span>, c.shape)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">c:
  [[1 2 3]] 
 c_nidm: 2 
 c_shape: (1, 3)</code></pre>
@@ -616,15 +656,15 @@ c_shape: (1, 3)</code></pre>
 后变为二维数组，原数组a成为新数组的一行。从上面的例子可以看出，<code>np.newaxis</code>
 的作用就是在其所在位置增加一个维度。也可以使用 reshape 和 newaxis
 让原数组a成为新数组的一列：</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">d = a.reshape((<span class="number">3</span>, <span class="number">1</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'d:\n'</span>, d, <span class="string">'\nd_nidm:'</span>, d.ndim, <span class="string">'\nd_shape:'</span>, d.shape)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>d:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">d = a.reshape((<span class="hljs-number">3</span>, <span class="hljs-number">1</span>))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'d:\n'</span>, d, <span class="hljs-string">'\nd_nidm:'</span>, d.ndim, <span class="hljs-string">'\nd_shape:'</span>, d.shape)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">d:
  [[1]
  [2]
  [3]] 
 d_nidm: 2 
 d_shape: (3, 1)</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">e = a[:, np.newaxis]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'e:\n'</span>, e, <span class="string">'\ne_nidm:'</span>, e.ndim, <span class="string">'\ne_shape:'</span>, e.shape)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>e:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">e = a[:, np.newaxis]<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'e:\n'</span>, e, <span class="hljs-string">'\ne_nidm:'</span>, e.ndim, <span class="hljs-string">'\ne_shape:'</span>, e.shape)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">e:
  [[1]
  [2]
  [3]] 
@@ -635,13 +675,13 @@ e_shape: (3, 1)</code></pre>
 即可。高维数组的转置则需要使用transpose和swapaxes。transpose语法为：<code>np.transpose(a, axes=None)</code>
 。swapaxes语法为：<code>np.swapaxes(a, axis1, axis2)</code> ，axis1 和
 axis2 分别表示需要转换的两个轴。三维以上数组的转置暂时不深入学习。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = np.arange(<span class="number">1</span>, <span class="number">13</span>).reshape(<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'a:\n'</span>, a)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>a:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.arange(<span class="hljs-number">1</span>, <span class="hljs-number">13</span>).reshape(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:\n'</span>, a)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">a:
  [[ 1  2  3  4]
  [ 5  6  7  8]
  [ 9 10 11 12]]</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">b = a.T</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'b:\n'</span>, b)</span><br><span class="line"></span><br><span class="line">c = np.transpose(a)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'c:\n'</span>, c)</span><br><span class="line"></span><br><span class="line">d = np.swapaxes(a, <span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'d:\n'</span>, d)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>b:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">b = a.T<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'b:\n'</span>, b)<br><br>c = np.transpose(a)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'c:\n'</span>, c)<br><br>d = np.swapaxes(a, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'d:\n'</span>, d)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">b:
  [[ 1  5  9]
  [ 2  6 10]
  [ 3  7 11]
@@ -666,17 +706,17 @@ d:
 <p>完整函数为 <code>concatenate((a1, a2, ...), axis=0, out=None)</code>
 。a1, a2, ...
 是序列，各个序列应具有相同的大小，或经过axis参数后具有相同的大小。axis默认为0，表示沿第一个轴拼接，为1时表示沿第二个轴拼接。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">b = np.array([<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>])</span><br><span class="line">c = np.array([<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>])</span><br><span class="line"></span><br><span class="line">d = np.concatenate((a, b, c))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'d:\n'</span>, d)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>d:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.array([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])<br>b = np.array([<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>])<br>c = np.array([<span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>])<br><br>d = np.concatenate((a, b, c))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'d:\n'</span>, d)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">d:
  [1 2 3 4 5 6 7 8 9]</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>]])</span><br><span class="line">b = np.array([[<span class="number">5</span>, <span class="number">6</span>]])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'a:\n'</span>, a)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'b:\n'</span>, b)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>a:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.array([[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]])<br>b = np.array([[<span class="hljs-number">5</span>, <span class="hljs-number">6</span>]])<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:\n'</span>, a)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'b:\n'</span>, b)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">a:
  [[1 2]
  [3 4]]
 b:
  [[5 6]]</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">c = np.concatenate((a, b))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'c:\n'</span>, c)</span><br><span class="line"></span><br><span class="line">d = np.concatenate((a, b.T), axis=<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'d:\n'</span>, d)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>c:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">c = np.concatenate((a, b))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'c:\n'</span>, c)<br><br>d = np.concatenate((a, b.T), axis=<span class="hljs-number">1</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'d:\n'</span>, d)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">c:
  [[1 2]
  [3 4]
  [5 6]]
@@ -688,8 +728,8 @@ d:
 </ul>
 <p><code>np.column_stack(tup)</code>
 可以把一维数组变为二维数组的列。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">b = np.array([<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>])</span><br><span class="line">c = np.array([<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>])</span><br><span class="line"></span><br><span class="line">d = np.column_stack((a, b, c))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'d:\n'</span>, d)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>d:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.array([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])<br>b = np.array([<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>])<br>c = np.array([<span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>])<br><br>d = np.column_stack((a, b, c))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'d:\n'</span>, d)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">d:
  [[1 4 7]
  [2 5 8]
  [3 6 9]]</code></pre>
@@ -700,8 +740,8 @@ d:
 np.hstack（水平栈）函数会更简洁。二者参数相同，完整函数为<code>np.vstack(tup)</code>
 和 <code>np.hstack(tup)</code> 。其中，tup
 表示元组，也就是说把待处理的数组放进一个元组中作为整体。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>]])</span><br><span class="line">b = np.array([[<span class="number">5</span>, <span class="number">6</span>]])</span><br><span class="line"></span><br><span class="line">e = np.vstack((a, b))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'e:\n'</span>, e)</span><br><span class="line"></span><br><span class="line">f = np.hstack((a, b.T))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'\nf:\n'</span>, f)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>e:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.array([[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]])<br>b = np.array([[<span class="hljs-number">5</span>, <span class="hljs-number">6</span>]])<br><br>e = np.vstack((a, b))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'e:\n'</span>, e)<br><br>f = np.hstack((a, b.T))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'\nf:\n'</span>, f)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">e:
  [[1 2]
  [3 4]
  [5 6]]
@@ -717,8 +757,8 @@ f:
 <li><code>np.split</code></li>
 </ul>
 <p>完整函数为：<code>np.split(ary, indices_or_sections, axis=0)</code></p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">99</span>, <span class="number">99</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'a:\n'</span>, a)</span><br><span class="line"></span><br><span class="line">b, c, d = np.split(a, [<span class="number">3</span>, <span class="number">5</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'b:\n'</span>, b)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'c:\n'</span>, c)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'d:\n'</span>, d)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>a:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">a = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">99</span>, <span class="hljs-number">99</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>]<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:\n'</span>, a)<br><br>b, c, d = np.split(a, [<span class="hljs-number">3</span>, <span class="hljs-number">5</span>])<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'b:\n'</span>, b)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'c:\n'</span>, c)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'d:\n'</span>, d)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">a:
  [1, 2, 3, 99, 99, 3, 2, 1]
 b:
  [1 2 3]
@@ -726,8 +766,8 @@ c:
  [99 99]
 d:
  [3 2 1]</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a = np.arange(<span class="number">12</span>).reshape(<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'a:\n'</span>, a)</span><br><span class="line"></span><br><span class="line">b, c, d = np.split(a, [<span class="number">1</span>, <span class="number">2</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'b:\n'</span>, b)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'c:\n'</span>, c)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'d:\n'</span>, d)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>a:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.arange(<span class="hljs-number">12</span>).reshape(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:\n'</span>, a)<br><br>b, c, d = np.split(a, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>])<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'b:\n'</span>, b)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'c:\n'</span>, c)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'d:\n'</span>, d)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">a:
  [[ 0  1  2  3]
  [ 4  5  6  7]
  [ 8  9 10 11]]
@@ -737,8 +777,8 @@ c:
  [[4 5 6 7]]
 d:
  [[ 8  9 10 11]]</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">b, c = np.split(a, [<span class="number">2</span>], axis=<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'b:\n'</span>, b)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'c:\n'</span>, c)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>b:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">b, c = np.split(a, [<span class="hljs-number">2</span>], axis=<span class="hljs-number">1</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'b:\n'</span>, b)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'c:\n'</span>, c)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">b:
  [[0 1]
  [4 5]
  [8 9]]
@@ -752,15 +792,15 @@ c:
 <p>如果沿固定维度分割，可使用
 <code>np.vsplit(ary, indices_or_sections)</code> 或
 <code>np.hsplit(ary, indices_or_sections)</code></p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">b, c, d = np.vsplit(a, [<span class="number">1</span>, <span class="number">2</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'b:\n'</span>, b)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'c:\n'</span>, c)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'d:\n'</span>, d)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>b:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">b, c, d = np.vsplit(a, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>])<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'b:\n'</span>, b)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'c:\n'</span>, c)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'d:\n'</span>, d)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">b:
  [[0 1 2 3]]
 c:
  [[4 5 6 7]]
 d:
  [[ 8  9 10 11]]</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">b, c = np.hsplit(a, [<span class="number">2</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'b:\n'</span>, b)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'c:\n'</span>, c)</span><br></pre></td></tr></tbody></table></figure>
-<pre><code>b:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">b, c = np.hsplit(a, [<span class="hljs-number">2</span>])<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'b:\n'</span>, b)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'c:\n'</span>, c)<br></code></pre></td></tr></tbody></table></figure>
+<pre><code class="hljs">b:
  [[0 1]
  [4 5]
  [8 9]]
@@ -779,286 +819,326 @@ c:
 <li><p><a target="_blank" rel="noopener" href="https://www.imooc.com/learn/1237">Numpy基础入门</a></p></li>
 </ul>
 
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Python/" class="category-chain-item">Python</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
     </div>
-
-    
-    
-    
-
-      <footer class="post-footer">
-          
-          <div class="post-tags">
-              <a href="/tags/NumPy/" rel="tag"><i class="fa fa-tag"></i> NumPy</a>
-          </div>
-
-        
-
-
-        
-      </footer>
-    
-  </article>
   
   
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/NumPy/">#NumPy</a>
+      
+    </div>
   
+</div>
 
 
+              
 
-          </div>
-          
+              
+            </div>
 
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
+            
+          </article>
         </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84"><span class="nav-number">1.</span> <span class="nav-text">1 创建数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#np.array-%E5%92%8Cnp.reshape"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 np.array()
-和np.reshape()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%A7%84%E5%BE%8B%E6%80%A7%E6%95%B0%E7%BB%84"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 创建规律性数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%A7%84%E6%A8%A1%E6%95%B0%E7%BB%84"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 创建规模数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#np.zeros-%E5%92%8C-np.zeros_like"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.3.1 np.zeros 和
-np.zeros_like</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#np.ones-%E5%92%8C-np.ones_like"><span class="nav-number">1.3.2.</span> <span class="nav-text">1.3.2 np.ones 和
-np.ones_like</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#np.full-%E5%92%8C-np.full_like"><span class="nav-number">1.3.3.</span> <span class="nav-text">1.3.3 np.full() 和
-np.full_like()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#np.eye"><span class="nav-number">1.3.4.</span> <span class="nav-text">1.3.4 np.eye()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#np.random"><span class="nav-number">1.3.5.</span> <span class="nav-text">1.3.5 np.random()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E7%B4%A2%E5%BC%95%E4%B8%8E%E5%88%87%E7%89%87"><span class="nav-number">2.</span> <span class="nav-text">2 数组的索引与切片</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E5%8F%98%E5%BD%A2"><span class="nav-number">3.</span> <span class="nav-text">3 数组的变形</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E7%BB%B4%E5%8F%98%E4%BA%8C%E7%BB%B4"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 一维变二维</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E8%BD%AC%E7%BD%AE"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 数组的转置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E6%8B%BC%E6%8E%A5"><span class="nav-number">4.</span> <span class="nav-text">4 数组的拼接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E5%88%86%E5%89%B2"><span class="nav-number">5.</span> <span class="nav-text">5 数组的分割</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-number">6.</span> <span class="nav-text">小结</span></a></li></ol></div>
       </div>
-      <!--/noindex-->
+    </div>
 
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="chihchao"
-      src="/images/avatar.png">
-  <p class="site-author-name" itemprop="name">chihchao</p>
-  <div class="site-description" itemprop="description"></div>
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
 </div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">11</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">4</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">7</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
-  </div>
 
 
 
-      </div>
+  </aside>
+
 
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
-  
-  &copy; 2020 – 
-  <span itemprop="copyrightYear">2022</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">chihchao</span>
-</div><!-- 网站运行时间的设置 -->
-<span id="timeDate">载入天数...</span>
-<span id="times">载入时分秒...</span>
-<script>
-    var now = new Date();
-    function createtime() {
-        var grt= new Date("02/25/2020 09:00:00");//此处修改你的建站时间或者网站上线时间
-        now.setTime(now.getTime()+250);
-        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
-        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
-        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
-        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
-        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
-        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
-        document.getElementById("timeDate").innerHTML = "理乐志已运行 "+ dnum +" 天 ";
-        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
-    }
-setInterval("createtime()",250);
-</script>
-
-
-        
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
   </div>
+</div>
+
+
+
+
 
   
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/pjax/pjax.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
-  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
 
 
-<script src="/js/schemes/pisces.js"></script>
+
+  
 
 
-<script src="/js/next-boot.js"></script>
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      冀ICP备20003094号-2
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=50010902000951"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+          
+          <span>渝公网安备50010902000951号</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
   <script>
-var pjax = new Pjax({
-  selectors: [
-    'head title',
-    '#page-configurations',
-    '.content-wrap',
-    '.post-toc-wrap',
-    '.languages',
-    '#pjax'
-  ],
-  switches: {
-    '.post-toc-wrap': Pjax.switches.innerHTML
-  },
-  analytics: false,
-  cacheBust: false,
-  scrollTo : !CONFIG.bookmark.enable
-});
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
 
-window.addEventListener('pjax:success', () => {
-  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
-    var code = element.text || element.textContent || element.innerHTML || '';
-    var parent = element.parentNode;
-    parent.removeChild(element);
-    var script = document.createElement('script');
-    if (element.id) {
-      script.id = element.id;
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
     }
-    if (element.className) {
-      script.className = element.className;
-    }
-    if (element.type) {
-      script.type = element.type;
-    }
-    if (element.src) {
-      script.src = element.src;
-      // Force synchronous loading of peripheral JS.
-      script.async = false;
-    }
-    if (element.dataset.pjax !== undefined) {
-      script.dataset.pjax = '';
-    }
-    if (code !== '') {
-      script.appendChild(document.createTextNode(code));
-    }
-    parent.appendChild(script);
   });
-  NexT.boot.refresh();
-  // Define Motion Sequence & Bootstrap Motion.
-  if (CONFIG.motion.enable) {
-    NexT.motion.integrator
-      .init()
-      .add(NexT.motion.middleWares.subMenu)
-      .add(NexT.motion.middleWares.postList)
-      .bootstrap();
-  }
-  NexT.utils.updateSidebarPosition();
-});
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
 </script>
 
 
 
 
-  
 
 
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-    <div id="pjax">
-  
 
   
 
-  
-
-    </div>
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
 </body>
 </html>
