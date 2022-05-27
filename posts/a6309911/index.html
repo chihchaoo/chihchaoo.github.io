@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-1200-ich.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-1200-ich.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-1200-ich.png">
+  <link rel="mask-icon" href="/images/favicon-1200-ich.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"chihchao.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="0 写在前面 0.1 为什么要搭建这个网站 起初的想法很简单，主要是想拥有一个自己的 “云端笔记系统”。好记性不如烂笔头，虽然也曾尝试着使用印象笔记、OneNote等诸多类似的产品，但换来换去终究没有一款称心的（可能是我太挑剔了？🌚）。后来偶然发现竟然还有搭建个人博客网站这种操作，当即兴趣盎然，对于我这种勇（shan）于（chang）挑（zhe）战（teng）的人，不尝试一下怎么行？！🙈 于是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo + 阿里云服务器搭建个人博客网站">
+<meta property="og:url" content="http://chihchao.cn/posts/a6309911/index.html">
+<meta property="og:site_name" content="理乐志">
+<meta property="og:description" content="0 写在前面 0.1 为什么要搭建这个网站 起初的想法很简单，主要是想拥有一个自己的 “云端笔记系统”。好记性不如烂笔头，虽然也曾尝试着使用印象笔记、OneNote等诸多类似的产品，但换来换去终究没有一款称心的（可能是我太挑剔了？🌚）。后来偶然发现竟然还有搭建个人博客网站这种操作，当即兴趣盎然，对于我这种勇（shan）于（chang）挑（zhe）战（teng）的人，不尝试一下怎么行？！🙈 于是">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f31a.png?v8">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f648.png?v8">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f4a9.png?v8">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f61e.png?v8">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/2764.png?v8">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f450.png?v8">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/18/Yhsvcj.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/28/tes0gg.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/19/YIGqu8.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/20/Y7awFK.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/15/UdMdxA.png">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/19/YIYdY9.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/19/YIt1tH.png">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f624.png?v8">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f624.png?v8">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f615.png?v8">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f602.png?v8">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/25/tCYAqx.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/01/tJ2LGV.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/27/tE1wjJ.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/26/tFs54J.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/27/tEGTER.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/27/tEYrYq.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/27/tEtyEd.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/02/ttQ5MF.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/02/ttQxMD.png">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/26/sjHY8g.md.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/18/s677J1.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/18/s6vmut.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/18/scN8J0.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/18/scUa1f.png">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/270c.png?v8">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/19/s2DzVK.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/19/s2gjrd.png">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f648.png?v8">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f447.png?v8">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/22/s5EWSe.md.png">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbvh4O.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/25/sqWC1U.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/28/yCCOud.md.png">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f4da.png?v8">
+<meta property="article:published_time" content="2020-02-25T01:00:00.000Z">
+<meta property="article:modified_time" content="2020-02-25T01:00:00.000Z">
+<meta property="article:author" content="chihchao">
+<meta property="article:tag" content="hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f31a.png?v8">
+
+<link rel="canonical" href="http://chihchao.cn/posts/a6309911/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Hexo + 阿里云服务器搭建个人博客网站 | 理乐志</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">理乐志</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">chihchao's blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://chihchao.cn/posts/a6309911/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="chihchao">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="理乐志">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hexo + 阿里云服务器搭建个人博客网站
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-25 09:00" itemprop="dateCreated datePublished" datetime="2020-02-25T09:00:00+08:00">2020-02-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Blog/" itemprop="url" rel="index"><span itemprop="name">Blog</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="写在前面">0 写在前面</h1>
+<h2 id="为什么要搭建这个网站">0.1 为什么要搭建这个网站</h2>
+<p>起初的想法很简单，主要是想拥有一个自己的
+“云端笔记系统”。好记性不如烂笔头，虽然也曾尝试着使用印象笔记、OneNote等诸多类似的产品，但换来换去终究没有一款称心的（可能是我太挑剔了？<span class="github-emoji"><span>🌚</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f31a.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>）。后来偶然发现竟然还有搭建个人博客网站这种操作，当即兴趣盎然，对于我这种勇（shan）于（chang）挑（zhe）战（teng）的人，不尝试一下怎么行？！<span class="github-emoji"><span>🙈</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f648.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>
+于是乎各种查资料，参考别人的经验，摩拳擦掌，蠢蠢欲动，然而真正操作起来才发现真是各种坑啊<span class="github-emoji"><span>💩</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4a9.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>……
+虽然网上有各种资源和教程，但大多面向的是一些专业人员，对于我这种零基础之人，执行起来颇为困难。整个搭建过程涉及太多编程方面的知识，linux系统中一些简单的操作命令，Vim编辑器的常用命令，git的简单使用等等，这些对于我这个非程序猿而言是相当晦涩且繁琐的。最怕的是出现BUG，往往需要尝试很多方法才可以解决。还好功夫不负有心人，在折腾了N次之后终于在2月份把这个网站成功部署上线<span class="github-emoji"><span>😆</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>。</p>
+<span id="more"></span>
+<p>然而，网站上线之后我却开始自我怀疑与否定了……</p>
+<p>花这么长时间、这么大精力搞这么个玩意儿真的值得吗？起初确实是有好奇心和虚荣心在作祟，毕竟拥有一个自己的网站是一件很酷的事儿。但是，之后呢？就像每次都以锻炼的名义买一些运动衣物，等所有装备都到齐，反而偷懒耍赖去了。在这种自我怀疑的情绪中，这个搭建好的网站也被我闲置了很长一段时间<span class="github-emoji"><span>😞</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f61e.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>。</p>
+<p>重新开始打理这个网站已经是半年后了。一来确有需要，以前的知识需要整理回忆，新知识又要及时记录。二是想给自己一个“空间”，不仅存储知识，还有所思所想、所感所悟。它不应该只是一个“知识笔记本”，还应是一个“思想笔记本”、“情绪笔记本”、“人生笔记本”……
+想到这里，也就决定了要把这个网站长期维护下去<span class="github-emoji"><span>❤</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2764.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>。</p>
+<h2 id="为什么是hexo">0.2 为什么是Hexo</h2>
+<p>博客网站的搭建有多种方案，<a target="_blank" rel="noopener" href="https://cn.wordpress.org/">WordPress</a>、<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>、<a target="_blank" rel="noopener" href="https://gohugo.io/">Hugo</a>、<a target="_blank" rel="noopener" href="https://jekyllrb.com/">Jekyll</a>
+等等，各个框架有其优点和特色。本博客使用的是Hexo框架，并非表示Hexo就是最优的方案，仅仅是因为我一开始接触的就是Hexo框架，没有尝试别的，也没有进行对比，所以对其他方案不甚了解。事实是，在我一股脑儿搭建完这个网站之后，才了解到原来有这么多框架可以选择。所以，如果你也有兴趣搭建一个自己的网站，大可以多多了解之后再做选择。当然，如果不想在搭建平台上浪费时间，尽可以选择现有的平台，微信公众号、简书、CSDN等都是不错的选择。然而我还是情愿自己搭建平台的，按照自己的意愿规划部署，这种DIY的乐趣以及成功后的满足感，不亲自体会是不会理解的<span class="github-emoji"><span>😆</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p>
+<p>因为非科班出身，这个网站的搭建耗费了我大量精力，为防以后有需要，也给和我一样的“小白”们一个参考，特意记录此网站的搭建过程。考虑到实际操作性，本文只记录操作指令，不涉及背后原理，况且我也不懂<span class="github-emoji"><span>👐</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f450.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>……</p>
+<h1 id="本地环境搭建">1 本地环境搭建</h1>
+<h2 id="node.js的安装与配置">1.1 Node.js的安装与配置</h2>
+<p>Hexo是基于Node.js开发的，因此需要先安装Node.js。下载链接： <a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/">Node.js官网</a> 或 <a target="_blank" rel="noopener" href="https://npm.taobao.org/mirrors/node">Node.js淘宝镜像源</a>。需要注意的是，Node.js有长期支持版和当前发布版两个版本。当前发布版版本较新，相应配套组件更新不及时，后续安装使用Hexo会出现一些未知错误，因此注意下载使用<strong>长期支持版</strong>。现阶段长期支持版已经更新到14.15，这个版本还是太新，在后续操作中会引起一些报错（具体报错内容可参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/136552969">此文</a>），建议安装<strong>12版本左右的长期支持版</strong>
+。安装过程中除了可以自定义安装路径外，其余选项建议都采用默认方式。</p>
+<p>npm是node.js自带的一个包管理器，后续安装hexo博客和插件时会经常用到。npm仓库是国外的地址，国内下载速度可能较慢，更换为国内镜像源后可大幅提高使用体验。在Win10系统的菜单栏里有<code>命令提示符</code>（即cmd）和<code>Windows PowerShell</code>（以下简称Shell）的快捷链接，打开任意一个均可，此处以Shell演示。</p>
+<p><img data-src="https://s1.ax1x.com/2020/05/18/Yhsvcj.png"></p>
+<p>在打开的Shell窗口输入以下命令，即可把npm仓库源更换为淘宝仓库源：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org/</span><br></pre></td></tr></tbody></table></figure>
+<p>然后在Shell窗口输入以下命令，如果出现下图中红框部分表示更换成功：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config ls</span><br></pre></td></tr></tbody></table></figure>
+<p><img data-src="https://s1.ax1x.com/2020/05/28/tes0gg.png"></p>
+<h2 id="hexo的安装">1.2 Hexo的安装</h2>
+<p>在Shell窗口输入下面这条指令安装Hexo框架：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></tbody></table></figure>
+<p>在进行下一步之前，先要决定博客文件存放的位置，比如我想把所有的博客文件存放于D盘的blog文件夹中，那首先需要使用指令<code>cd d:</code>切换当前位置，如下图：</p>
+<p><img data-src="https://s1.ax1x.com/2020/05/19/YIGqu8.png"></p>
+<p>按照上图切换成功后，输入下面的指令建立自己的blog文件夹（这条指令会自动创建一个名为blog的文件夹，不需要额外创建文件夹）。</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br></pre></td></tr></tbody></table></figure>
+<p>此外，因为后续工作需要，还需要分别安装 hexo-server 和 <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-deployer-git">hexo-deployer-git</a>
+，安装命令如下：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-server --save</span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></tbody></table></figure>
+<p>至此，博客框架已经安装完毕。切换至博客文件夹路径，执行<code>hexo server</code>或<code>hexo s</code>，如果返回下图信息，表示博客本地环境成功运行：</p>
+<p><img data-src="https://s1.ax1x.com/2020/05/20/Y7awFK.png"></p>
+<p>在电脑浏览器打开<code>http://localhost:4000</code>可以看到默认的博客界面。</p>
+<p><img data-src="https://s1.ax1x.com/2020/07/15/UdMdxA.png" style="zoom:50%;"></p>
+<h2 id="安装过程中遇到的坑">1.3 安装过程中遇到的坑</h2>
+<ul>
+<li>第一个坑 <span class="github-emoji"><span>⚠</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></li>
+</ul>
+<p>在执行<code>hexo init blog</code>指令时，遇到”无法加载文件脚本“的问题，下面贴出解决过程，以供参考。</p>
+<p><img data-src="https://s1.ax1x.com/2020/05/19/YIYdY9.png" style="zoom: 80%;"></p>
+<p>解决思路来自博客<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43190355/article/details/100552569">webpack
+:
+无法加载文件</a>。首先以管理员身份打开<code>Windows PowerShell</code>，输入<code>get-ExecutionPolicy</code>，返回显示Restricted（表示状态是禁止的），然后输入<code>set-ExecutionPolicy RemoteSigned</code>更改策略，输入<code>A</code>选择<code>全是</code>，再次输入<code>get-ExecutionPolicy</code>可以看到已经更改成功，再次执行hexo命令即可正常执行。</p>
+<p><img data-src="https://s1.ax1x.com/2020/05/19/YIt1tH.png" style="zoom:80%;"></p>
+<ul>
+<li>第二个坑 <span class="github-emoji"><span>⚠</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></li>
+</ul>
+<p>执行<code>npm install hexo-server --save</code>指令时，报错提示<code>ENOENT: no such file or directory, open 'C:\Users\WangZC\package.json'</code>，意思是缺少了一个<code>package.json</code>的文件（可能是一时手欠误删？<span class="github-emoji"><span>😤</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f624.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>
+），不过同样是可以解决的，首先执行<code>npm init -f</code>指令，该指令会生成一个<code>package.json</code>文件，用文本编辑器打开后在<code>description</code>字段后随便添加一些字母，再在文件末尾添加<code>"private": true</code>即可，效果如下：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  ...</span><br><span class="line">  "description": "ABC",</span><br><span class="line">  ...</span><br><span class="line">  "private": true</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="云服务器环境搭建">2 云服务器环境搭建</h1>
+<h2 id="域名的购买与备案">2.1 域名的购买与备案</h2>
+<p>是否购买域名完全看个人需求，如果要求不高，可以采用Hexo+GitHub的方案（参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26625249">GitHub+Hexo
+搭建个人网站详细教程</a>）。只是会在域名后添加一个<code>.github.io</code>的后缀，如<code>iamzc.github.io</code>。想要一个专属的个性域名就需要购买了，本站域名<code>iamzc.wang</code>是在<a target="_blank" rel="noopener" href="https://wanwang.aliyun.com/domain/searchresult/#/?keyword=&amp;suffix=com">阿里云</a>上购买的。现在域名后缀比以往丰富很多，不用再局限于<code>.com</code>、<code>.cn</code>等，而且其他后缀的域名也相对便宜，不过也不要购买太少见的，以免无法备案（阿里云购买时会有提醒）。</p>
+<p>个人博客网站并不一定要备案。如果使用国外服务器，不备案也可以正常访问。如果是购买国内的云服务器，那就要求必须备案了。各个云服务器提供商都会提供备案接口，按照步骤一步步操作即可，此处不再赘述。阿里云网站备案<a target="_blank" rel="noopener" href="https://beian.aliyun.com/?spm=5176.12825654.eofdhaal5.95.e9392c4ayEG9ns">点击这里</a>
+。</p>
+<p>在这里记录一下备案时遇到的一些”小插曲“。不同省份备案规则不同，以个人身份证信息为准，遵循身份证上住址所在省份的备案规则。虽然在山城生活了许久，但由于本人身份证依旧是老家的信息，所以只能遵循河北省的备案规则。然而河北省的备案规则中有一条要求：“备案时联系电话必须是本人实名认证的河北省手机号！”
+<span class="github-emoji"><span>😤</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f624.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 没办法，趁着过年回家特意办了一个手机号，才完成备案。</p>
+<p>此外，在备案前一定仔细查看<a target="_blank" rel="noopener" href="https://help.aliyun.com/knowledge_detail/36948.html?spm=5176.13841030.J_2053935540.2.45485c693JlizW#title-lhm-b1g-ehx">个人网站命名要求</a>
+中的附录二。我第一次备案时使用的名称是“王志超的博客”，几日后等来的竟然是被拒绝的消息！<span class="github-emoji"><span>😕</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f615.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>
+按照提示查看了相关要求才发现竟然还有那么多要求！在网上看到有个网友分享，先后起了两个名称都被拒绝，后来随便取了一个“健康快乐每一天”，没想到第二天竟然顺利通过了……
+<span class="github-emoji"><span>😂</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f602.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>
+关于网站名称的问题，不用煞费苦心的想一步到位给网站起个好名字，因为备案时的网站名与网站搭建后对外开放的名称是没有关系的。本站备案时的名称是“汤圆薄荷”（不要问我为什么哈哈哈哈<span class="github-emoji"><span>😆</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>……），现在网站名称为“理乐志”，二者互不影响。</p>
+<p><img data-src="https://s1.ax1x.com/2020/05/25/tCYAqx.png" style="zoom:80%;"></p>
+<p>为了与服务器连接，还需要对域名进行<strong>解析</strong>，在阿里云官网登陆后，点击右上角的<code>控制台</code>，进入域名列表界面后点击<code>解析</code>进入域名解析页面，按照下图进行配置：</p>
+<p><img data-src="https://s1.ax1x.com/2020/06/01/tJ2LGV.png"></p>
+<p>上图中服务器公网IP需要购买云服务器后才能知道，云服务器的购买与配置见下一小节。</p>
+<h2 id="云服务器的购买与连接">2.2 云服务器的购买与连接</h2>
+<h3 id="云服务器的购买与配置">2.2.1 云服务器的购买与配置</h3>
+<p>云端环境的搭建有多种方案，目前比较受欢迎的托管于<a target="_blank" rel="noopener" href="https://github.com/">GitHub</a>上，最大的好处当然是免费，缺点就是慢。一开始我也是采用这种方案，后来实在受不了打开网页时的龟速体验，趁着<a target="_blank" rel="noopener" href="https://www.aliyun.com/">阿里云</a>搞活动买了个云服务器。本人购买的云服务器只是1核
+2 GB
+的，但用来部署一个博客网站已经绰绰有余了。目前云服务器厂商很多，阿里云、腾讯云、华为云、七牛云等等，各个厂家为了争夺市场会不定期做一些活动，很多厂商还会针对学生用户有更大力度的折扣活动，大家尽可以选好时机再下手。</p>
+<p>云服务器购买后首先安装一个Linux系统（不建议使用Windows），我安装的是64位的CentOS
+8.0。在<code>安全设置</code>一栏有设置密钥和自定义密码两种选项，不同选项在远程连接服务器时进行安全验证的方式不同。为了方便，本人使用的是自定义密码方式。</p>
+<p><img data-src="https://s1.ax1x.com/2020/05/27/tE1wjJ.png" style="zoom: 80%;"></p>
+<p>安装后首先需要配置一下安全组规则，进入云服务器管理页面后，在<code>网络与安全</code>下找到<code>安全组</code>，点击进入后<code>添加安全组规则</code>，配置如下：</p>
+<p><img data-src="https://s1.ax1x.com/2020/05/26/tFs54J.png" style="zoom:80%;"></p>
+<h3 id="云服务器的连接">2.2.2 云服务器的连接</h3>
+<p>阿里云的管理页面提供了Workbench和VNC两种方式远程连接，但实际体验并不好，这里推荐在本地电脑使用Xshell工具远程连接，个人用户可以使用<a target="_blank" rel="noopener" href="https://www.netsarang.com/zh/free-for-home-school/">Xshell免费版</a>
+，安装过程不再赘述。</p>
+<p>使用Xshell与服务器连接有两种方式，与前面安装服务器系统时选择的<code>安全设置</code>选项有关，因为我使用的是自定义密码的形式，下面以此连接方式展示。在<strong>本地电脑</strong>打开Xshell点击<code>新建</code>，在弹出的对话框按照下图设置后连接。</p>
+<p><img data-src="https://s1.ax1x.com/2020/05/27/tEGTER.png" style="zoom: 80%;"></p>
+<p>连接后看到下图红框信息表示连接成功。</p>
+<p><img data-src="https://s1.ax1x.com/2020/05/27/tEYrYq.png" style="zoom:80%;"></p>
+<p>上图中<code>WARNING</code>信息不影响使用，也可以通过设置消除。依次点击XShell的
+“文件” → “当前会话属性” → “隧道”，取消 “转发X11连接到”
+之前的对勾。断开后再次连接，就不会有此错误提示了。</p>
+<p><img data-src="https://s1.ax1x.com/2020/05/27/tEtyEd.png" style="zoom: 67%;"></p>
+<h2 id="nginx的安装与配置">2.3 Nginx的安装与配置</h2>
+<p>Nginx是一款Web服务器，可以托管博客网站的静态资源，实现快速访问。在安装Nginx之前还需要做一些准备工作，首先更新一下系统，然后创建一个目录作为博客网站的根目录：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum update -y    # 更新系统（非必需）</span><br><span class="line">mkdir /home/blog    # 在home文件夹下创建一个blog文件夹，作为博客根目录</span><br><span class="line">chown -R git:git /home/blog    # 变更该目录的所有者</span><br><span class="line">chmod -R 755 /home/blog    # 修改目录权限</span><br></pre></td></tr></tbody></table></figure>
+<p>Nginx安装命令如下：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y nginx</span><br></pre></td></tr></tbody></table></figure>
+<p>阿里云默认下载的是fedora版本的nginx，配置文件<code>nginx.conf</code>
+位于路径<code>/etc/nginx/</code> 下，执行以下命令打开配置文件：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/nginx/nginx.conf</span><br></pre></td></tr></tbody></table></figure>
+<p>打开后按键盘中的<code>insert</code>键或字母<code>i</code>进入编辑模式，修改配置文件中的以下信息：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">user: root    #需要修改的内容</span><br><span class="line">...</span><br><span class="line">server {</span><br><span class="line">     listen       80;    # 云服务器的80端口</span><br><span class="line">     server_name  chihchao.cn;     #此处填域名</span><br><span class="line">     root         /home/blog;    #此处为博客根目录路径</span><br><span class="line">     }</span><br></pre></td></tr></tbody></table></figure>
+<p>修改完成后先按<code>ESC</code>键退出编辑模式，再输入<code>:wq</code>保存并退出。然后执行下面的指令检查配置文件语法是否正确：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -t   </span><br></pre></td></tr></tbody></table></figure>
+<p>如果返回如下信息表示没有问题：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nginx: the configuration file /etc/nginx/nginx.conf syntax is ok</span><br><span class="line">nginx: configuration file /etc/nginx/nginx.conf test is successful</span><br></pre></td></tr></tbody></table></figure>
+<p>最后启动nginx：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start nginx</span><br><span class="line">systemctl enable nginx</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="安装node.js">2.4 安装Node.js</h2>
+<p>安装node.js较为简单，安装完成后执行 <code>node -v</code> 和
+<code>npm -v</code>，如果正常返回版本号表示安装成功。</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install nodejs    # 安装指令</span><br><span class="line">node -v    # 查看node版本号</span><br><span class="line">npm -v    # 查看npm版本号</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="本地环境与云端环境的连接">3 本地环境与云端环境的连接</h1>
+<p><a target="_blank" rel="noopener" href="https://git-scm.com/">Git</a>是分布式版本控制系统，通过git可以实现Hexo代码在本地电脑和云服务器之间同步。因此，需要在本地电脑和云服务器上分别安装Git，并通过ssh公钥连接。有关Git的具体介绍和使用可参考
+<a target="_blank" rel="noopener" href="https://git-scm.com/">Git官网</a> 或 <a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/896043488029600">廖雪峰的Git教程</a>
+。</p>
+<h2 id="本地环境安装并配置git">3.1 本地环境安装并配置Git</h2>
+<p>在进行下列工作之前，首先需要在<a target="_blank" rel="noopener" href="https://github.com/">GitHub</a>上注册一个账号，记下自己的用户名和邮箱。在
+<a target="_blank" rel="noopener" href="https://git-scm.com/">Git官网</a> 或 <a target="_blank" rel="noopener" href="https://npm.taobao.org/mirrors/git-for-windows/">Git淘宝镜像源</a>
+下载Git软件，建议使用默认方式安装，也可以自定义安装路径。安装完成后打开“Git
+Bash”，输入自己在GitHub上注册的用户名和邮箱：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name "GitHub用户名"</span><br><span class="line">git config --global user.email "GitHub注册邮箱"</span><br></pre></td></tr></tbody></table></figure>
+<p>然后输入生成ssh公钥的指令：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></tbody></table></figure>
+<p>在生成公钥过程中会弹出一些选项，不需要更改，一直按回车即可，部分结果下图：</p>
+<p><img data-src="https://s1.ax1x.com/2020/06/02/ttQ5MF.png"></p>
+<p>生成之后就可以在上图提示的文件路径中找到一个“.ssh”的文件夹，文件夹中有“id_rsa”和“id_rsa.pub”两个文件，其中“id_rsa.pub”就是用于连接本地和云服务器的公钥，相当于本地电脑有了一把访问服务器的“钥匙”，接下来的工作就是要把这个公钥配置到云服务器上。</p>
+<h2 id="云服务器环境安装并配置git">3.2 云服务器环境安装并配置Git</h2>
+<p>在云服务器上安装并配置git：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install -y git </span><br><span class="line">adduser git</span><br><span class="line">passwd git    # 配置git密码</span><br></pre></td></tr></tbody></table></figure>
+<p>对linux系统不熟悉的用户需要注意，在输入密码时，可视化界面中不会出现任何字符，但实际是已经输入了。配置好密码之后就需要赋予git用户相应权限了：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 740 /etc/sudoers</span><br><span class="line">vim /etc/sudoers    # 打开文件</span><br></pre></td></tr></tbody></table></figure>
+<p>打开sudoers文件后找到 <code>root    ALL=(ALL)    ALL</code>
+这句内容，按键盘中的<code>i</code>键进入编辑模式，在这句话下面添加一句
+<code>git    ALL=(ALL)    ALL</code> 。如下：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># Allow root to run any commands anywhere</span></span></span><br><span class="line">root    ALL=(ALL)    ALL</span><br><span class="line">git    ALL=(ALL)    ALL    # 添加的内容</span><br></pre></td></tr></tbody></table></figure>
+<p>添加完成后先按<code>ESC</code>键退出编辑模式，再输入<code>:wq</code>保存并退出，最后把sudoers文件的权限修改回来：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 400 /etc/sudoers</span><br></pre></td></tr></tbody></table></figure>
+<p>至此，云服务器环境的git已配置完成，接下来需要连接本地git和云服务器git。</p>
+<h2 id="使用公钥连接">3.3 使用公钥连接</h2>
+<p>在接下来的操作中，需要来回切换本地电脑和云服务器环境，我会使用加粗字体特别标注，以此提醒。</p>
+<p>在<strong>Xshell</strong>连接<strong>云服务器</strong>的窗口中，输入以下指令以切换至git用户，创建一个“.ssh”的文件夹，并在此文件下创建一个名为“authorized_keys”的文件：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">su git    # 切换至git用户</span><br><span class="line">mkdir ~/.ssh    #创建.ssh文件夹</span><br><span class="line">vim ~/.ssh/authorized_keys    #创建并打开authorized_keys文件</span><br></pre></td></tr></tbody></table></figure>
+<p>打开authorized_keys文件后进入编辑模式，在<strong>本地电脑</strong>中找到3.1小节中创建的“id_rsa.pub”文件，用文本编辑器打开后复制所有内容，切换到<strong>Xshell</strong>连接<strong>云服务器</strong>的窗口，把复制的所有内容粘贴在“authorized_keys”文件中，保存并退出后修改<strong>云服务器</strong>中“.ssh”文件夹和“authorized_keys”文件的权限：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 600 ~/.ssh/authorized_keys    # 将文件设置为可读可写</span><br><span class="line">chmod 700 ~/.ssh    # 将该文件夹设置为可读可写可访问</span><br></pre></td></tr></tbody></table></figure>
+<p>下面测试一下连接是否成功。在<strong>本地电脑</strong>打开<code>Windows PowerShell</code>，输入以下指令：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -v git@云服务器的公网IP    # 连接时把@后面的文字替换为云服务器的公网IP</span><br></pre></td></tr></tbody></table></figure>
+<p>出现以下界面表示连接成功：</p>
+<p><img data-src="https://s1.ax1x.com/2020/06/02/ttQxMD.png"></p>
+<p>至此，连接工作已经做完。</p>
+<h2 id="自动化部署">3.4 自动化部署</h2>
+<p>上面的工作已经实现本地与云端环境的连接，但还没有完成自动化部署。在<strong>Xshell</strong>连接<strong>云服务器</strong>的窗口中，输入以下指令以切换至root用户，在“home”文件夹下创建一个“git”文件夹：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">su root    #切换到root用户</span><br><span class="line">cd /home/git</span><br><span class="line">chown -R git:git /home/git    #变更该目录的所有者</span><br><span class="line">git init --bare blog.git    #创建一个git裸库</span><br></pre></td></tr></tbody></table></figure>
+<p>在 “blog.git” 裸库中新建一个hooks文件夹，在其下新建 “post-receive”
+文件：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim blog.git/hooks/post-receive</span><br></pre></td></tr></tbody></table></figure>
+<p>进入编辑模式，输入以下命令：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/sh</span></span><br><span class="line">git --work-tree=/home/blog --git-dir=/home/git/blog.git checkout -f</span><br></pre></td></tr></tbody></table></figure>
+<p>添加完成后保存并退出，最后赋予这个文件可执行权限：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chown -R git:git /home/git/blog.git/hooks/post-receive</span><br><span class="line">chmod +x /home/git/blog.git/hooks/post-receive</span><br></pre></td></tr></tbody></table></figure>
+<p>下面在本地环境与云端自动化部署连接起来。在<strong>本地电脑</strong>博客<strong>主目录文件夹</strong>下找到<code>_config.yml</code>
+文件，用文本编辑器打开后，找到并修改以下语句：</p>
+<figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># URL</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">http://chihchao.cn</span>   <span class="comment"># 这里改为个人域名</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@服务器公网IP:/home/git/blog.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></tbody></table></figure>
+<p>此步骤有两个细节需要特别注意：一是本地博客文件夹下有两个<code>_config.yml</code>文件，一个位于主目录文件夹下（D:），一个位于主题文件夹下（D:），此处需要修改的是前者；二是修改时要在英文输入法之下，而且所有冒号后面要加一个空格，如<code>type: git</code>中，<code>type:</code>和<code>git</code>之间是有一个空格的，<strong>此空格必不可少</strong>。</p>
+<p>然后打开<strong>本地电脑</strong>的<code>Windows PowerShell</code>，切换到博客目录，把博客部署到线上：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd d:\bog</span><br><span class="line">hexo deploy</span><br></pre></td></tr></tbody></table></figure>
+<p>在浏览器中打开自定义的域名，可以看到博客已成功部署（第一次部署可能有延迟，等几分钟即可）。</p>
+<ul>
+<li>部署过程中遇到的坑​ <span class="github-emoji"><span>⚠</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></li>
+</ul>
+<p>在执行<code>hexo deploy</code>时报错<code>error: remote unpack failed: unable to create temporary object directory</code>，在网上查了一下，很大可能是权限不够，在云服务器中使用<code>ll</code>命令查看blog目录和git目录的权限，如果目录所有者不是git用户，重新更改即可：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chown -R git:git /home/blog</span><br><span class="line">chown -R git:git /home/git</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="主题更改与美化">4 主题更改与美化</h1>
+<p>Hexo的<a target="_blank" rel="noopener" href="https://hexo.io/themes/">Themes</a>页面有大量主题可供选择，<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/24422335">点击此处</a>查看网友总结的一些较为欢迎的主题。本博客使用的是NexT。作为最受欢迎的Hexo主题，NexT页面简洁，支持插件多，可定制性强。而且官网教程详细，对新手友好。因为使用的人多，遇到问题也方便查到解决方案。最新版本可在其
+<a target="_blank" rel="noopener" href="https://github.com/theme-next/hexo-theme-next">Github页面</a>
+查看。</p>
+<p>主题的安装按照 <a target="_blank" rel="noopener" href="http://theme-next.iissnan.com/">NexT官方教程</a>
+一步步来，完成基本设置之后再根据需求进行深度改造和美化。以下三篇博客是我优化主题的主要参考：</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="http://yearito.cn/tags/Hexo/">Hexo
+搭建个人博客系列</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://houmin.cc/posts/a63a603e/">Hexo
+NexT深度定制</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://io-oi.me/tech/hexo-next-optimization/">打造个性超赞博客
+Hexo + NexT + GitHub Pages 的超深度优化</a></p></li>
+</ul>
+<p>这些大佬们的文章写的文章已经很清晰了，按照以上步骤基本可以完成主题的美化。不过需要注意的是，这些博客写的时间比较早，是基于老版本的NexT进行优化的。目前NexT已经更新到7.8版，有些优化过程不再像以前那样繁琐，甚至可能会不适用。下面记录一下我基于
+NexT 7.8 版本的优化过程。</p>
+<p><img data-src="https://s3.ax1x.com/2021/01/26/sjHY8g.md.png"></p>
+<p>在开始之前再次强调，Hexo 中有两份主要的配置文件，其名称都是
+<code>_config.yml</code>。一份位于站点根目录（~blog）下，是 Hexo
+本身的配置；另一份位于主题目录（~blog）下，主要用于配置主题相关的选项；一般前者称为
+<strong>站点配置文件</strong>， 后者称为 <strong>主题配置文件</strong>
+；在配置过程中一定要分清在哪个文件中更改。</p>
+<h2 id="菜单">4.1 菜单</h2>
+<p>在 <strong>主题配置文件</strong>
+中修改以下内容可更改菜单，也就是网站页面抬头：</p>
+<figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-home</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="string">/categories/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-th</span></span><br><span class="line">  <span class="attr">archives:</span> <span class="string">/archives/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-archive</span></span><br><span class="line">  <span class="attr">about:</span> <span class="string">/about/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-user</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Enable / Disable menu icons / item badges.</span></span><br><span class="line"><span class="attr">menu_settings:</span></span><br><span class="line">  <span class="attr">icons:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">badges:</span> <span class="literal">false</span></span><br></pre></td></tr></tbody></table></figure>
+<p><img data-src="https://s3.ax1x.com/2021/01/18/s677J1.png"></p>
+<p>各个menu选项从上到下的顺序也就是网站页面抬头从左到右的顺序，可自行调节更改。<code>||</code>
+之后的字符表示图标，NexT 使用的是 <a target="_blank" rel="noopener" href="http://fontawesome.io/">Font
+Awesome</a> 提供的图标，更改字符即可变换为自己喜欢的图标：</p>
+<figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-house-user</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="string">/categories/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-th-list</span></span><br><span class="line">  <span class="attr">archives:</span> <span class="string">/archives/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-folder</span></span><br><span class="line">  <span class="attr">about:</span> <span class="string">/about/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-user-astronaut</span></span><br></pre></td></tr></tbody></table></figure>
+<p><img data-src="https://s3.ax1x.com/2021/01/18/s6vmut.png"></p>
+<p>如果不想展示图标可在<code>menu_settings</code>项中，把icons设为false。badges设为true时会在菜单后添加数字。</p>
+<p>以上设置只是在页面显示的效果，如果点击“分类”进入页面，会有<code>Cannot GET /categories/</code>的错误提示，这是因为还没有创建该页面。本地shell端执行以下命令创建页面：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd d:\blog</span><br><span class="line">hexo new page categories</span><br></pre></td></tr></tbody></table></figure>
+<p>该命令会在source文件夹下创建一个categories的文件夹（d:），该文件夹下有个“index.md”文档，打开后在最后添加一行type内容：</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">title: categories</span><br><span class="line">date: 2020-02-25 18:08:27</span><br><span class="line">type: "categories"</span><br></pre></td></tr></tbody></table></figure>
+<p>按照同样的方法可创建“标签”、“关于”等其他页面。</p>
+<h2 id="更改文章链接样式">4.2 更改文章链接样式</h2>
+<p>在 <strong>站点配置文件</strong> 中，文章链接<code>permalink</code>
+默认是以日期+文章名的形式展现的，默认代码和效果如下：</p>
+<figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br><span class="line"><span class="attr">pretty_urls:</span></span><br><span class="line">  <span class="attr">trailing_index:</span> <span class="literal">true</span> <span class="comment"># Set to false to remove trailing 'index.html' from permalinks</span></span><br><span class="line">  <span class="attr">trailing_html:</span> <span class="literal">true</span> <span class="comment"># Set to false to remove trailing '.html' from permalinks</span></span><br></pre></td></tr></tbody></table></figure>
+<p><img data-src="https://s3.ax1x.com/2021/01/18/scN8J0.png"></p>
+<p>这种 url
+结构不太稳定，一旦修改了文章的文件名，就相应会修改其路径，无法保证链接的永久性。<a target="_blank" rel="noopener" href="https://github.com/Rozbo/hexo-abbrlink">hexo-abbrlink</a>
+插件可以很好的解决这一问题。首先安装此插件，在本地电脑shell端执行以下命令：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></tbody></table></figure>
+<p>然后在<strong>站点配置文件</strong>中进行如下修改：</p>
+<figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># abbrlink config</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:abbrlink/</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br><span class="line"><span class="attr">abbrlink:</span></span><br><span class="line">  <span class="attr">alg:</span> <span class="string">crc32</span>      <span class="comment">#support crc16(default) and crc32</span></span><br><span class="line">  <span class="attr">rep:</span> <span class="string">hex</span>        <span class="comment">#support dec(default) and hex</span></span><br></pre></td></tr></tbody></table></figure>
+<p>修改后效果为：</p>
+<p><img data-src="https://s3.ax1x.com/2021/01/18/scUa1f.png"></p>
+<h2 id="添加emoji表情-smile-v">4.3 添加emoji表情 <span class="github-emoji"><span>😄</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> <span class="github-emoji"><span>✌</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/270c.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></h2>
+<p>Github上有一个专门用于hexo的emoji表情插件：<a target="_blank" rel="noopener" href="https://github.com/crimx/hexo-filter-github-emojis">hexo-filter-github-emojis</a>
+。首先安装此插件：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-filter-github-emojis --save</span><br></pre></td></tr></tbody></table></figure>
+<p>然后在<strong>站点配置文件</strong>添加如下命令：</p>
+<figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">githubEmojis:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">className:</span> <span class="string">github-emoji</span></span><br><span class="line">  <span class="attr">inject:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">styles:</span></span><br><span class="line">  <span class="attr">customEmojis:</span></span><br></pre></td></tr></tbody></table></figure>
+<p><code>styles</code>和<code>customEmojis</code>两个参数暂时没有用到，具体可参考<a target="_blank" rel="noopener" href="https://github.com/crimx/hexo-filter-github-emojis">文档</a>
+。</p>
+<h2 id="添加文章结束标记">4.4 添加文章结束标记</h2>
+<p>首先在博客目录source文件夹下创建一个<code>_data</code>
+文件夹（<code>D:\blog\source\_data</code>），再创建一个<code>post-body-end.swig</code>文件，在该文件中添加以下代码：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">  {% if not is_index %}</span><br><span class="line">    &lt;div style="text-align:center;color:#bfbfbf;font-size:16px;"&gt;</span><br><span class="line">      &lt;span&gt;-------- 本文结束 &lt;/span&gt;</span><br><span class="line">      &lt;i class="fa fa-{{ config.post_end_tag.icon }}"&gt;&lt;/i&gt;</span><br><span class="line">      &lt;span&gt; 感谢阅读 --------&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  {% endif %}</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></tbody></table></figure>
+<p>在<strong>站点配置文件</strong>末尾添加如下代码：</p>
+<figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">post_end_tag:</span></span><br><span class="line">  <span class="attr">enabled:</span> <span class="literal">true</span>   <span class="comment"># 是否开启文末的本文结束标记</span></span><br><span class="line">  <span class="attr">icon:</span> <span class="string">coffee</span>  <span class="comment"># 结束标记之间的图标，可更换</span></span><br></pre></td></tr></tbody></table></figure>
+<p>最后在<strong>主题配置文件</strong>中<code>custom_file_path</code>字段下取消<code>postBodyEnd</code>前的<code>#</code>
+：</p>
+<figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Define custom file paths.</span></span><br><span class="line"><span class="comment"># Create your custom files in site directory `source/_data` and uncomment needed files below.</span></span><br><span class="line"><span class="attr">custom_file_path:</span></span><br><span class="line">  <span class="attr">postBodyEnd:</span> <span class="string">source/_data/post-body-end.swig</span></span><br></pre></td></tr></tbody></table></figure>
+<p>最终效果如下：</p>
+<p><img data-src="https://s3.ax1x.com/2021/01/19/s2DzVK.png"></p>
+<h2 id="添加站点运行时间">4.5 添加站点运行时间</h2>
+<p>在<code>_data</code>
+文件夹（<code>blog\source\_data</code>）下创建一个<code>footer.swig</code>文件，在该文件中添加以下代码：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">{# 页脚站点运行时间统计 #} {% if theme.footer.ages.enable %}</span><br><span class="line">&lt;script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src="https://cdn.jsdelivr.net/npm/moment-precise-range-plugin@1.3.0/moment-precise-range.min.js"&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  function timer() {</span><br><span class="line">    var ages = moment.preciseDiff(moment(),moment({{ theme.footer.ages.birthday }},"YYYYMMDD"));</span><br><span class="line">    ages = ages.replace(/years?/, "年");</span><br><span class="line">    ages = ages.replace(/months?/, "月");</span><br><span class="line">    ages = ages.replace(/days?/, "天");</span><br><span class="line">    ages = ages.replace(/hours?/, "小时");</span><br><span class="line">    ages = ages.replace(/minutes?/, "分");</span><br><span class="line">    ages = ages.replace(/seconds?/, "秒");</span><br><span class="line">    ages = ages.replace(/\d+/g, '&lt;span style="color:{{ theme.footer.ages.color }}"&gt;$&amp;&lt;/span&gt;');</span><br><span class="line">    div.innerHTML = `{{ __('footer.age')}} ${ages}`;</span><br><span class="line">  }</span><br><span class="line">  var div = document.createElement("div");</span><br><span class="line">  //插入到copyright之后</span><br><span class="line">  var copyright = document.querySelector(".copyright");</span><br><span class="line">  document.querySelector(".footer-inner").insertBefore(div, copyright.nextSibling);</span><br><span class="line">  timer();</span><br><span class="line">  setInterval("timer()",1000)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">{% endif %}</span><br></pre></td></tr></tbody></table></figure>
+<p>在<strong>主题配置文件</strong>中<code>footer</code>字段下添加以下命令：</p>
+<figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">footer:</span></span><br><span class="line">  <span class="attr">ages:</span></span><br><span class="line">    <span class="comment"># site running time</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment"># birthday of your site</span></span><br><span class="line">    <span class="attr">birthday:</span> <span class="number">20200225</span></span><br><span class="line">    <span class="comment"># color of number</span></span><br><span class="line">    <span class="attr">color:</span> <span class="string">"#FF0000"</span></span><br></pre></td></tr></tbody></table></figure>
+<p><code>birthday</code>就是网站的创建日期，<code>color</code>是运行时间字体的颜色，这两个参数可以自行更改。</p>
+<p>然后在<code>themes\next\languages\zh-CN.yml</code>文件中补齐文案：</p>
+<figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">footer:</span></span><br><span class="line">  <span class="attr">age:</span> <span class="string">理乐志已运行</span></span><br></pre></td></tr></tbody></table></figure>
+<p>最后在<strong>主题配置文件</strong>中启用<code>footer.swig</code>文件：</p>
+<figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Define custom file paths.</span></span><br><span class="line"><span class="comment"># Create your custom files in site directory `source/_data` and uncomment needed files below.</span></span><br><span class="line"><span class="attr">custom_file_path:</span></span><br><span class="line">  <span class="attr">footer:</span> <span class="string">source/_data/footer.swig</span></span><br></pre></td></tr></tbody></table></figure>
+<p>最终效果图：</p>
+<p><img data-src="https://s3.ax1x.com/2021/01/19/s2gjrd.png"></p>
+<h2 id="添加二次元看板娘">4.6 添加二次元看板娘</h2>
+<p>该功能由 <a target="_blank" rel="noopener" href="https://github.com/EYHN/hexo-helper-live2d">hexo-helper-live2d</a>
+插件支持，该插件提供多个 <a target="_blank" rel="noopener" href="https://huaji8.top/post/live2d-plugin-2.0/">模型</a>
+，先择一个喜欢的模型在电脑shell窗口安装插件：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-helper-live2d</span><br><span class="line">npm install live2d-widget-model-haruto  #更改自己喜欢的模型</span><br></pre></td></tr></tbody></table></figure>
+<p>在Hexo的<strong>站点配置文件</strong>
+（推荐）或<strong>主题文件</strong>中添加配置：</p>
+<figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">live2d:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">scriptFrom:</span> <span class="string">local</span></span><br><span class="line">  <span class="attr">pluginRootPath:</span> <span class="string">live2dw/</span></span><br><span class="line">  <span class="attr">pluginJsPath:</span> <span class="string">lib/</span></span><br><span class="line">  <span class="attr">pluginModelPath:</span> <span class="string">assets/</span></span><br><span class="line">  <span class="attr">tagMode:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">debug:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">model:</span></span><br><span class="line">    <span class="attr">use:</span> <span class="string">live2d-widget-model-haruto</span></span><br><span class="line">  <span class="attr">display:</span></span><br><span class="line">    <span class="attr">position:</span> <span class="string">right</span></span><br><span class="line">    <span class="attr">width:</span> <span class="number">150</span></span><br><span class="line">    <span class="attr">height:</span> <span class="number">300</span></span><br><span class="line">  <span class="attr">mobile:</span></span><br><span class="line">    <span class="attr">show:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">react:</span></span><br><span class="line">    <span class="attr">opacity:</span> <span class="number">0.7</span></span><br></pre></td></tr></tbody></table></figure>
+<p>以上设置会在网站所有页面展示看板娘，如果只想在一级菜单页面上显示看板娘，可
+参考<a target="_blank" rel="noopener" href="http://yearito.cn/posts/hexo-theme-beautify.html">此篇博文</a>。</p>
+<h2 id="添加鼠标点击特效">4.7 添加鼠标点击特效</h2>
+<p>鼠标点击特效共有四种：火花特效、爆炸特效、爱心特效和文字特效。<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1LyUUDxcrjqMJojzUoSkj1g">点击此处</a>
+（提取码:
+evhu）下载“cursor.zip”压缩包，解压后把<code>cursor</code>文件夹放在主题文件夹
+<code>blog\themes\next\source\js</code>下，在博客文件夹
+<code>blog\source\_data</code>下创建一个<code>body-end.swig</code>文件并添加以下内容：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">{# 鼠标点击特效 #}</span><br><span class="line">{% if theme.cursor_effect == "fireworks" %}</span><br><span class="line">  &lt;script async src="/js/cursor/fireworks.js"&gt;&lt;/script&gt;</span><br><span class="line">{% elseif theme.cursor_effect == "explosion" %}</span><br><span class="line">  &lt;canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" &gt;&lt;/canvas&gt;</span><br><span class="line">  &lt;script src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script async src="/js/cursor/explosion.min.js"&gt;&lt;/script&gt;</span><br><span class="line">{% elseif theme.cursor_effect == "love" %}</span><br><span class="line">  &lt;script async src="/js/cursor/love.min.js"&gt;&lt;/script&gt;</span><br><span class="line">{% elseif theme.cursor_effect == "text" %}</span><br><span class="line">  &lt;script async src="/js/cursor/text.js"&gt;&lt;/script&gt;</span><br><span class="line">{% endif %}</span><br></pre></td></tr></tbody></table></figure>
+<p>最后在主<strong>题配置文件</strong>中取消<code>bodyEnd</code>参数前的注释符，并添加相应命令：</p>
+<figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">custom_file_path:</span></span><br><span class="line">  <span class="attr">bodyEnd:</span> <span class="string">source/_data/body-end.swig</span></span><br><span class="line">  </span><br><span class="line"><span class="comment"># mouse click effect: fireworks | explosion | love | text</span></span><br><span class="line"><span class="attr">cursor_effect:</span> <span class="string">fireworks</span></span><br></pre></td></tr></tbody></table></figure>
+<p>在四种鼠标点击特效中选择自己喜欢的并更改<code>cursor_effect</code>参数即可。如果想要自定义文字特效，可在<code>cursor</code>文件夹下的<code>text.js</code>文件中更改。</p>
+<h2 id="更改字体">4.8 更改字体</h2>
+<p>NexT主题默认使用的中文字体是微软雅黑（Microsoft
+Yahei），看着是真的难受<span class="github-emoji"><span>🙈</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f648.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>
+看了看大佬们的博客，决定把网站的中文字体改为思源宋体（Noto Serif
+SC）。关于黑体和宋体间的区别、思源宋体的介绍可以看下面这两篇文章<span class="github-emoji"><span>👇</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f447.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://io-oi.me/tech/noto-serif-sc-added-on-google-fonts/">Google
+Fonts 已支持思源宋体！</a></li>
+<li><a target="_blank" rel="noopener" href="https://bestzuo.cn/posts/notoserifsc.html">博客网站字体设置：思源宋体</a></li>
+</ul>
+<p>这两个博客中同样也介绍了更改字体的方法，不过已经不适用于新版本的NexT了，下面给出我的改良方法。</p>
+<p>首先在 <a target="_blank" rel="noopener" href="https://fonts.google.com/">Google Fonts</a> 上找到
+Noto Serif SC
+，进入字体页面后选择样式，然后复制网页右侧<code>link</code>中的内容。</p>
+<p><img data-src="https://s3.ax1x.com/2021/01/22/s5EWSe.md.png"></p>
+<p>在<code>~blog\source\_data</code>文件夹下新建一个<code>head.swig</code>文件，把复制的<code>link</code>内容粘贴其中并保存。在<strong>站点配置文件</strong>
+中启用此文件：</p>
+<figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">custom_file_path:</span></span><br><span class="line">  <span class="attr">head:</span> <span class="string">source/_data/head.swig</span></span><br></pre></td></tr></tbody></table></figure>
+<p>最后再把<code>base.styl</code>文件中的“Microsoft Yahei”改为“Noto
+Serif SC”，保存后重新部署就大功告成<span class="github-emoji"><span>😆</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p>
+<figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 文件位置：~blog\themes\next\source\css\_variables\base.styl</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Font families.</span></span><br><span class="line"><span class="variable">$font</span>-family-chinese      = <span class="string">"Noto Serif SC"</span>;</span><br></pre></td></tr></tbody></table></figure>
+<p>如果想修改英文字体则相对简单，只需要修改
+<strong>站点配置文件</strong> 中<code>Font Settings</code>
+的内容即可：</p>
+<figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Font Settings</span></span><br><span class="line"></span><br><span class="line"><span class="attr">font:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Uri of fonts host, e.g. https://fonts.googleapis.com (Default).</span></span><br><span class="line">  <span class="attr">host:</span> </span><br><span class="line"></span><br><span class="line">  <span class="comment"># Global font settings used for all elements inside &lt;body&gt;.</span></span><br><span class="line">  <span class="attr">global:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">family:</span> <span class="string">Lora</span></span><br><span class="line">    <span class="attr">size:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Font settings for site title (.site-title).</span></span><br><span class="line">  <span class="attr">title:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">family:</span> <span class="string">Lora</span></span><br><span class="line">    <span class="attr">size:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Font settings for headlines (&lt;h1&gt; to &lt;h6&gt;).</span></span><br><span class="line">  <span class="attr">headings:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">family:</span> <span class="string">Lora</span></span><br><span class="line">    <span class="attr">size:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Font settings for posts (.post-body).</span></span><br><span class="line">  <span class="attr">posts:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">family:</span> <span class="string">Lora</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Font settings for &lt;code&gt; and code blocks.</span></span><br><span class="line">  <span class="attr">codes:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">family:</span> <span class="string">Lora</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="文章置顶功能">4.9 文章置顶功能</h2>
+<p>博客文章默认按照日期倒序的方式呈现在首页，如果希望某一篇或某几篇文章一直位于首页顶部，那就需要用到置顶功能了。最新版
+NexT 主题已经内置了置顶样式，只需要安装一下 <a target="_blank" rel="noopener" href="https://github.com/next-theme/hexo-generator-indexed">hexo-generator-indexed</a>
+插件，安装命令如下：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-indexed</span><br></pre></td></tr></tbody></table></figure>
+<p>在需要置顶的文章 Front-matter 中增加一个 <code>sticky</code> 参数，
+<code>sticky</code>
+参数的值应为大于0的整数，表示置顶的优先级（未指定则默认为
+0）。数字越大，文章越靠前。</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title:</span> <span class="string">Hexo博客之主题美化</span></span><br><span class="line"><span class="string">……</span></span><br><span class="line"><span class="attr">sticky:</span> <span class="number">10</span></span><br></pre></td></tr></tbody></table></figure>
+<p>这个方法虽然简单，但效果却有点简陋，简单粗暴的在标题前添加了一个与标题文字很不协调的符号。</p>
+<p><img data-src="https://s3.ax1x.com/2021/01/24/sbvh4O.png"></p>
+<p>下面对其进行美化，把置顶符移到文章元数据一栏。打开<code>post.swig</code>
+文件，定位到<code>{%- if post.sticky &gt; 0 %}</code>
+字段，把以下命令行直接删除（一共有两处）：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">文件路径：blog/themes/next/layout/_macro/post.swig</span><br><span class="line"></span><br><span class="line">{%- if post.sticky &gt; 0 %}</span><br><span class="line">  &lt;span class="post-sticky-flag" title="{{ __('post.sticky') }}"&gt;</span><br><span class="line">    &lt;i class="fa fa-thumbtack"&gt;&lt;/i&gt;</span><br><span class="line">  &lt;/span&gt;</span><br><span class="line">{%- endif %}</span><br></pre></td></tr></tbody></table></figure>
+<p>然后在该文件中找到<code>&lt;div class="post-meta"&gt;</code>字段，在第一个<code>span</code>标签下添加新的置顶命令：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class="post-meta"&gt;</span><br><span class="line">  ……</span><br><span class="line">  {%- if theme.post_meta.created_at %}</span><br><span class="line">    &lt;span class="post-meta-item"&gt;                  {##第一个span标签处##}</span><br><span class="line">      </span><br><span class="line">      {%- if post.sticky &gt; 0 %}                             {##此行以下为需要添加的内容##}</span><br><span class="line">        &lt;span class="post-sticky-flag"&gt;</span><br><span class="line">          &lt;i class="fa fa-thumbtack"&gt;&lt;/i&gt;</span><br><span class="line">          &lt;font color=FF0000&gt;置顶&lt;/font&gt;</span><br><span class="line">          &lt;span class="post-meta-divider"&gt;|&lt;/span&gt;</span><br><span class="line">        &lt;/span&gt;</span><br><span class="line">      {%- endif %}</span><br><span class="line">     </span><br><span class="line">   ……</span><br></pre></td></tr></tbody></table></figure>
+<p>因为NexT内置样式对置顶符号添加了30度的角度旋转，因此还需要把角度改一下：</p>
+<figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 文件路径：blog/themes/next/source/CSS/_common/post/post.styl</span></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.post-sticky-flag</span> {</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">transform</span>: rotate(<span class="number">0deg</span>);   <span class="comment">//原角度为30deg</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>最终效果如下：</p>
+<p><img data-src="https://s3.ax1x.com/2021/01/25/sqWC1U.png"></p>
+<p>此外，hexo-generator-indexed
+插件还具有隐藏文章、隐藏特定分类文章的功能，具体可参考其github页面。</p>
+<h2 id="更换back-to-top按钮">4.10 更换back-to-top按钮</h2>
+<p><a target="_blank" rel="noopener" href="https://github.com/jiangtj-lab/hexo-cake-moon-menu">hexo-cake-moon-menu</a>
+插件提供一个全新的back-to-top按钮，比NexT原有样式更美观。首先同样要安装此插件，7.8版本以下的NexT需要安装2.1.2版本的back-to-top：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cake-moon-menu@2.1.2</span><br></pre></td></tr></tbody></table></figure>
+<p>在<strong>站点配置文件</strong>中添加以下命令：</p>
+<figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">moon_menu:</span></span><br><span class="line">  <span class="attr">back2top:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">icon:</span> <span class="string">fas</span> <span class="string">fa-chevron-up</span></span><br><span class="line">    <span class="attr">func:</span> <span class="string">back2top</span></span><br><span class="line">    <span class="attr">order:</span> <span class="number">-1</span></span><br><span class="line">  <span class="attr">back2bottom:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">icon:</span> <span class="string">fas</span> <span class="string">fa-chevron-down</span></span><br><span class="line">    <span class="attr">func:</span> <span class="string">back2bottom</span></span><br><span class="line">    <span class="attr">order:</span> <span class="number">-2</span></span><br></pre></td></tr></tbody></table></figure>
+<p><code>icon</code> 参数表示图标，可在<a target="_blank" rel="noopener" href="https://fontawesome.com/">Font Awesome</a>
+找到自己喜欢的图标进行更改。此外，还需要把<strong>主题配置文件</strong>中的<code>back2top</code>参数关闭：</p>
+<figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">back2top:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span>  <span class="comment"># 此处改为false即可</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="页面背景及边框圆角">4.10 页面背景及边框圆角</h2>
+<p>此部分内容参考 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/280784973">nexT主题更改背景图片和边框圆角</a>
+。首先是更改背景图和透明度，在 <code>blog/source</code> 目录下新建
+<code>images</code>
+文件夹用来存储背景图，在<code>blog/source/_data</code> 目录下新建一个
+<code>styles.styl</code> 文件并添加以下内容：</p>
+<figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 整体背景设置</span></span><br><span class="line"><span class="selector-tag">body</span> {</span><br><span class="line">  <span class="attribute">background</span>: url(/images/background.jpg);</span><br><span class="line">  <span class="attribute">background-repeat</span>: no-repeat; </span><br><span class="line">    <span class="attribute">background-attachment</span>:fixed; </span><br><span class="line">    <span class="attribute">background-position</span>:<span class="number">100%</span> <span class="number">100%</span>; </span><br><span class="line">  <span class="attribute">background-size</span>: cover;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//菜单栏的透明度设置</span></span><br><span class="line"><span class="selector-class">.header-inner</span> {</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#FFFFFF</span>;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.8</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//文章内容的透明度设置</span></span><br><span class="line"><span class="selector-class">.content-wrap</span> {</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.8</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//侧边框的透明度设置</span></span><br><span class="line"><span class="selector-class">.sidebar</span> {</span><br><span class="line">  <span class="attribute">background-color</span>: transparent;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0.8</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>以上命令参数可自行更改调节。然后在 <strong>主题配置文件</strong>
+中启用<code>styles.styl</code>文件：</p>
+<figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">custom_file_path:</span></span><br><span class="line">  <span class="attr">style:</span> <span class="string">source/_data/styles.styl</span></span><br></pre></td></tr></tbody></table></figure>
+<p>至此，背景图更改已完成。下面更改边框圆角，在<code>blog/source/_data</code>
+目录下新建一个 <code>variables.styl</code> 文件并添加以下内容：</p>
+<figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 圆角设置</span></span><br><span class="line"><span class="variable">$border</span>-radius-inner     = <span class="number">20px</span> <span class="number">20px</span> <span class="number">20px</span> <span class="number">20px</span>;</span><br><span class="line"><span class="variable">$border</span>-radius           = <span class="number">20px</span>;</span><br></pre></td></tr></tbody></table></figure>
+<p>然后在 <strong>主题配置文件</strong>
+中启用<code>styles.styl</code>文件：</p>
+<figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">custom_file_path:</span></span><br><span class="line">  <span class="attr">variable:</span> <span class="string">source/_data/variables.styl</span></span><br></pre></td></tr></tbody></table></figure>
+<p>最终效果对比：</p>
+<p><img data-src="https://s3.ax1x.com/2021/01/28/yCCOud.md.png"></p>
+<h1 id="参考资料-books">参考资料 <span class="github-emoji"><span>📚</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4da.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></h1>
+<p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo官方文档</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/896043488029600">廖雪峰的官方网站-Git教程</a></p>
+<p><a target="_blank" rel="noopener" href="http://linux.vbird.org/">鸟哥的Linux私房菜</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26625249">GitHub+Hexo
+搭建个人网站详细教程</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.im/post/5d54f29af265da03cc08b45a">从零搭建Hexo博客并部署阿里云服务器</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41154636/article/details/99685965?ops_request_misc=%7B%22request%5Fid%22%3A%22158264129319724835830278%22%2C%22scm%22%3A%2220140713.130056874..%22%7D&amp;request_id=158264129319724835830278&amp;biz_id=0&amp;utm_source=distribute.pc_search_result.none-task">Hexo部署云服务器的全过程</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/0f9dfa9c141b">阿里云Centos7+Nginx部署Hexo静态博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yb411a7ty">手把手教你从0开始搭建自己的个人博客
+|无坑版视频教程| hexo</a></p>
+<p><a target="_blank" rel="noopener" href="http://theme-next.iissnan.com/">NexT官方教程</a></p>
+<p><a target="_blank" rel="noopener" href="http://yearito.cn/tags/Hexo/">Hexo 搭建个人博客系列</a></p>
+<p><a target="_blank" rel="noopener" href="https://houmin.cc/posts/a63a603e/">Hexo NexT深度定制</a></p>
+<p><a target="_blank" rel="noopener" href="https://io-oi.me/tech/hexo-next-optimization/">打造个性超赞博客
+Hexo + NexT + GitHub Pages 的超深度优化</a></p>
+<p><a target="_blank" rel="noopener" href="https://bestzuo.cn/tags/hexo.html">Sanarous's Blog</a></p>
+<p><a target="_blank" rel="noopener" href="https://co5.me/">少女癌的博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.antmoe.com/tags/Hexo/">小康博客</a></p>
+<p><a target="_blank" rel="noopener" href="http://shenzekun.cn/tags/hexo/">hexo的next主题个性化教程:打造炫酷网站</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
+          </div>
+
+        
+
+
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-number">1.</span> <span class="nav-text">0 写在前面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%90%AD%E5%BB%BA%E8%BF%99%E4%B8%AA%E7%BD%91%E7%AB%99"><span class="nav-number">1.1.</span> <span class="nav-text">0.1 为什么要搭建这个网站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AFhexo"><span class="nav-number">1.2.</span> <span class="nav-text">0.2 为什么是Hexo</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-number">2.</span> <span class="nav-text">1 本地环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#node.js%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="nav-number">2.1.</span> <span class="nav-text">1.1 Node.js的安装与配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo%E7%9A%84%E5%AE%89%E8%A3%85"><span class="nav-number">2.2.</span> <span class="nav-text">1.2 Hexo的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91"><span class="nav-number">2.3.</span> <span class="nav-text">1.3 安装过程中遇到的坑</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-number">3.</span> <span class="nav-text">2 云服务器环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%9F%E5%90%8D%E7%9A%84%E8%B4%AD%E4%B9%B0%E4%B8%8E%E5%A4%87%E6%A1%88"><span class="nav-number">3.1.</span> <span class="nav-text">2.1 域名的购买与备案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E8%B4%AD%E4%B9%B0%E4%B8%8E%E8%BF%9E%E6%8E%A5"><span class="nav-number">3.2.</span> <span class="nav-text">2.2 云服务器的购买与连接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E8%B4%AD%E4%B9%B0%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="nav-number">3.2.1.</span> <span class="nav-text">2.2.1 云服务器的购买与配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E8%BF%9E%E6%8E%A5"><span class="nav-number">3.2.2.</span> <span class="nav-text">2.2.2 云服务器的连接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nginx%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="nav-number">3.3.</span> <span class="nav-text">2.3 Nginx的安装与配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85node.js"><span class="nav-number">3.4.</span> <span class="nav-text">2.4 安装Node.js</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E7%8E%AF%E5%A2%83%E4%B8%8E%E4%BA%91%E7%AB%AF%E7%8E%AF%E5%A2%83%E7%9A%84%E8%BF%9E%E6%8E%A5"><span class="nav-number">4.</span> <span class="nav-text">3 本地环境与云端环境的连接</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AEgit"><span class="nav-number">4.1.</span> <span class="nav-text">3.1 本地环境安装并配置Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AEgit"><span class="nav-number">4.2.</span> <span class="nav-text">3.2 云服务器环境安装并配置Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%85%AC%E9%92%A5%E8%BF%9E%E6%8E%A5"><span class="nav-number">4.3.</span> <span class="nav-text">3.3 使用公钥连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2"><span class="nav-number">4.4.</span> <span class="nav-text">3.4 自动化部署</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E6%9B%B4%E6%94%B9%E4%B8%8E%E7%BE%8E%E5%8C%96"><span class="nav-number">5.</span> <span class="nav-text">4 主题更改与美化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8F%9C%E5%8D%95"><span class="nav-number">5.1.</span> <span class="nav-text">4.1 菜单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9%E6%96%87%E7%AB%A0%E9%93%BE%E6%8E%A5%E6%A0%B7%E5%BC%8F"><span class="nav-number">5.2.</span> <span class="nav-text">4.2 更改文章链接样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0emoji%E8%A1%A8%E6%83%85-smile-v"><span class="nav-number">5.3.</span> <span class="nav-text">4.3 添加emoji表情 😄 ✌</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E7%BB%93%E6%9D%9F%E6%A0%87%E8%AE%B0"><span class="nav-number">5.4.</span> <span class="nav-text">4.4 添加文章结束标记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E7%AB%99%E7%82%B9%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4"><span class="nav-number">5.5.</span> <span class="nav-text">4.5 添加站点运行时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E4%BA%8C%E6%AC%A1%E5%85%83%E7%9C%8B%E6%9D%BF%E5%A8%98"><span class="nav-number">5.6.</span> <span class="nav-text">4.6 添加二次元看板娘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E9%BC%A0%E6%A0%87%E7%82%B9%E5%87%BB%E7%89%B9%E6%95%88"><span class="nav-number">5.7.</span> <span class="nav-text">4.7 添加鼠标点击特效</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9%E5%AD%97%E4%BD%93"><span class="nav-number">5.8.</span> <span class="nav-text">4.8 更改字体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E7%AB%A0%E7%BD%AE%E9%A1%B6%E5%8A%9F%E8%83%BD"><span class="nav-number">5.9.</span> <span class="nav-text">4.9 文章置顶功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%8D%A2back-to-top%E6%8C%89%E9%92%AE"><span class="nav-number">5.10.</span> <span class="nav-text">4.10 更换back-to-top按钮</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E8%83%8C%E6%99%AF%E5%8F%8A%E8%BE%B9%E6%A1%86%E5%9C%86%E8%A7%92"><span class="nav-number">5.11.</span> <span class="nav-text">4.10 页面背景及边框圆角</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99-books"><span class="nav-number">6.</span> <span class="nav-text">参考资料 📚</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="chihchao"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">chihchao</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chihchao</span>
+</div><!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("02/25/2020 09:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "理乐志已运行 "+ dnum +" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+  
+
+    </div>
+</body>
+</html>

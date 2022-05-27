@@ -23,26 +23,26 @@
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="理乐志">
-<meta property="og:url" content="http://chihchao.cn/archives/index.html">
+<meta property="og:url" content="http://chihchao.cn/page/2/index.html">
 <meta property="og:site_name" content="理乐志">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="chihchao">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://chihchao.cn/archives/">
+<link rel="canonical" href="http://chihchao.cn/page/2/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : false,
+    isHome : true,
     isPost : false,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | 理乐志</title>
+  <title>理乐志</title>
   
 
 
@@ -158,233 +158,86 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://chihchao.cn/posts/a6309911/">
 
-  
-  
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 11 篇日志。 继续努力。</span>
-      </div>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="chihchao">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="理乐志">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/a6309911/" class="post-title-link" itemprop="url">Hexo + 阿里云服务器搭建个人博客网站</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-25 09:00" itemprop="dateCreated datePublished" datetime="2020-02-25T09:00:00+08:00">2020-02-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Blog/" itemprop="url" rel="index"><span itemprop="name">Blog</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+          <h1 id="写在前面">0 写在前面</h1>
+<h2 id="为什么要搭建这个网站">0.1 为什么要搭建这个网站</h2>
+<p>起初的想法很简单，主要是想拥有一个自己的
+“云端笔记系统”。好记性不如烂笔头，虽然也曾尝试着使用印象笔记、OneNote等诸多类似的产品，但换来换去终究没有一款称心的（可能是我太挑剔了？<span class="github-emoji"><span>🌚</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f31a.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>）。后来偶然发现竟然还有搭建个人博客网站这种操作，当即兴趣盎然，对于我这种勇（shan）于（chang）挑（zhe）战（teng）的人，不尝试一下怎么行？！<span class="github-emoji"><span>🙈</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f648.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>
+于是乎各种查资料，参考别人的经验，摩拳擦掌，蠢蠢欲动，然而真正操作起来才发现真是各种坑啊<span class="github-emoji"><span>💩</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4a9.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>……
+虽然网上有各种资源和教程，但大多面向的是一些专业人员，对于我这种零基础之人，执行起来颇为困难。整个搭建过程涉及太多编程方面的知识，linux系统中一些简单的操作命令，Vim编辑器的常用命令，git的简单使用等等，这些对于我这个非程序猿而言是相当晦涩且繁琐的。最怕的是出现BUG，往往需要尝试很多方法才可以解决。还好功夫不负有心人，在折腾了N次之后终于在2月份把这个网站成功部署上线<span class="github-emoji"><span>😆</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>。</p>
+          <!--noindex-->
+          <!--/noindex-->
+        
+      
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-12-28T12:48:25+08:00"
-              content="2020-12-28">
-          12-28
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/91ad67e3/" itemprop="url">
-            <span itemprop="name">NumPy学习笔记-2-进阶</span>
-          </a>
-      </div>
-
-    </header>
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-12-24T15:35:25+08:00"
-              content="2020-12-24">
-          12-24
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/9a7e8c1a/" itemprop="url">
-            <span itemprop="name">NumPy学习笔记-1-基础</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-11-06T17:10:00+08:00"
-              content="2020-11-06">
-          11-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/965df762/" itemprop="url">
-            <span itemprop="name">Python学习笔记-6-math库及数学运算</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-11-03T16:00:00+08:00"
-              content="2020-11-03">
-          11-03
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/de1493f5/" itemprop="url">
-            <span itemprop="name">Python学习笔记-5-函数</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-11-03T12:00:00+08:00"
-              content="2020-11-03">
-          11-03
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/86b521d4/" itemprop="url">
-            <span itemprop="name">Python学习笔记-4-条件循环</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-11-02T09:00:00+08:00"
-              content="2020-11-02">
-          11-02
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/6f6437fd/" itemprop="url">
-            <span itemprop="name">Python学习笔记-3-容器</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-11-01T19:00:00+08:00"
-              content="2020-11-01">
-          11-01
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/88828131/" itemprop="url">
-            <span itemprop="name">Python学习笔记-2-数据类型</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-11-01T09:00:00+08:00"
-              content="2020-11-01">
-          11-01
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/13c36235/" itemprop="url">
-            <span itemprop="name">Python学习笔记-1-介绍及环境搭建</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-04-29T09:00:00+08:00"
-              content="2020-04-29">
-          04-29
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/1263dcc2/" itemprop="url">
-            <span itemprop="name">大气科学基础知识</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-01T00:00:00+08:00"
-              content="2020-03-01">
-          03-01
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/85cf867d/" itemprop="url">
-            <span itemprop="name">单颗粒气溶胶质谱仪概述</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-
-    </div>
-  </div>
   
   
   
+
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
   </nav>
 
 

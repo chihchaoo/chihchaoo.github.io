@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-1200-ich.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-1200-ich.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-1200-ich.png">
+  <link rel="mask-icon" href="/images/favicon-1200-ich.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"chihchao.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="于我而言，编程语言的学习向来比较困难。本科学校要求必修C语言基础课程，我学的相当吃力，最后也只是勉强及格。读研时，由于攻读的专业方向需要借助Matlab进行数据分析，我才又重新开始接触编程。后来在课题组一位老师的推荐下，了解到Python这门语言其实更适合进行数据分析。但当时大部分精力用于专业知识和Matlab的学习上，对Python的学习总是断断续续，更没有形成系统的知识体系，结果就是既浪费了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python学习笔记-1-介绍及环境搭建">
+<meta property="og:url" content="http://chihchao.cn/posts/13c36235/index.html">
+<meta property="og:site_name" content="理乐志">
+<meta property="og:description" content="于我而言，编程语言的学习向来比较困难。本科学校要求必修C语言基础课程，我学的相当吃力，最后也只是勉强及格。读研时，由于攻读的专业方向需要借助Matlab进行数据分析，我才又重新开始接触编程。后来在课题组一位老师的推荐下，了解到Python这门语言其实更适合进行数据分析。但当时大部分精力用于专业知识和Matlab的学习上，对Python的学习总是断断续续，更没有形成系统的知识体系，结果就是既浪费了">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2020/05/14/YDUqIg.md.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2020/03/11/8E8xaQ.png">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8">
+<meta property="og:image" content="https://s2.ax1x.com/2020/03/11/8E0gFf.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/14/8MyAMR.png">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8">
+<meta property="og:image" content="https://s1.ax1x.com/2020/11/04/BcGBKH.png">
+<meta property="article:published_time" content="2020-11-01T01:00:00.000Z">
+<meta property="article:modified_time" content="2020-11-01T01:00:00.000Z">
+<meta property="article:author" content="chihchao">
+<meta property="article:tag" content="jupyter">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/05/14/YDUqIg.md.jpg">
+
+<link rel="canonical" href="http://chihchao.cn/posts/13c36235/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Python学习笔记-1-介绍及环境搭建 | 理乐志</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">理乐志</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">chihchao's blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://chihchao.cn/posts/13c36235/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="chihchao">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="理乐志">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python学习笔记-1-介绍及环境搭建
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-11-01 09:00" itemprop="dateCreated datePublished" datetime="2020-11-01T09:00:00+08:00">2020-11-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img data-src="https://s1.ax1x.com/2020/05/14/YDUqIg.md.jpg" style="width:60%;margin:auto"></p>
+<p>于我而言，编程语言的学习向来比较困难。本科学校要求必修C语言基础课程，我学的相当吃力，最后也只是勉强及格。读研时，由于攻读的专业方向需要借助Matlab进行数据分析，我才又重新开始接触编程。后来在课题组一位老师的推荐下，了解到Python这门语言其实更适合进行数据分析。但当时大部分精力用于专业知识和Matlab的学习上，对Python的学习总是断断续续，更没有形成系统的知识体系，结果就是既浪费了时间，又没学好这门语言。痛定思痛之后，决定从头开始并记录下自己的学习过程，也就有了这个系列的笔记。</p>
+<span id="more"></span>
+<h1 id="python语言介绍">1 Python语言介绍</h1>
+<p>程序语言一路发展，从最初的机械编程（插线/拔开关）到机器语言（1010001），从汇编语言（MOV
+AX,
+0x300）到高级语言。高级语言种类繁多，如1957面向科学计算开发的FORTRAN；1964年
+，BASIC语言使编程得以普及；1972年针对操作系统底层开发了C语言；1991年开发出面向对象的Python语言；以及后来的Java、PHP、Golang、Swift等等。这些语言各有特色和优势，应用领域也有所不同。近年来，随着大数据及人工智能的发展，Python语言迎来了其发展高峰。</p>
+<p>Python语言的开发者为荷兰人吉多·范罗苏姆（Guido van
+Rossum），1989年12月，他为了打发圣诞节假期的无趣而开发出Python（大佬……）。Python语言继承了多种优秀语言的特性：</p>
+<ul>
+<li><p>是一种高级动态、完全面向对象的语言；</p></li>
+<li><p>函数、模块、数字、字符串都是对象；</p></li>
+<li><p>完全支持继承、重载、派生、多继承；</p></li>
+<li><p>有益于增强代码的复用性</p></li>
+</ul>
+<p>Python有自己的程序设计风格，在Python中输入<code>import this</code>就可看到Python哲学。</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> this</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!</code></pre>
+<h1 id="安装python">2 安装Python</h1>
+<p><a target="_blank" rel="noopener" href="https://www.python.org/">Python官方网站</a>提供了适用于各个平台、各个版本的程序安装包。由于Python2.x版本系列已不再更新维护，因此建议从Python3.0以上版本开始学习，但不建议使用最新的版本（目前最新版为3.8），因为与Python配套的第三方模块的更新可能会相对滞后；而且对于初学者来说，基础知识才是最重要的，新版本的特性可以放到以后再学。本系列笔记基于Windows10系统的<a target="_blank" rel="noopener" href="https://www.python.org/downloads/release/python-376/">Python3.7.6</a>版本整理。</p>
+<p>在安装页面，选择下载安装程序（executable
+installer），64位操作系统选择图中红框部分，如果是32位操作系统可选择Windows
+x86的安装程序。</p>
+<p><img data-src="https://s2.ax1x.com/2020/03/11/8E8xaQ.png" style="width:70%;margin:auto"></p>
+<p><span class="github-emoji"><span>⚠</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>
+在安装时注意勾选把Python添加到环境变量的选项，同时建议以自定义的方式安装。</p>
+<p><img data-src="https://s2.ax1x.com/2020/03/11/8E0gFf.png" style="width:50%;margin:auto"></p>
+<p>安装完成后，在windows菜单栏就可以找到Python3.7的图标了。</p>
+<p><img data-src="https://s1.ax1x.com/2020/03/14/8MyAMR.png"></p>
+<h1 id="pip模块">3 pip模块</h1>
+<h2 id="pip模块的配置">3.1 pip模块的配置</h2>
+<p>Python的安装过程自带一个pip模块。pip是Python的一个包管理器，通过此模块可以安装、升级、卸载第三方扩展包。<a target="_blank" rel="noopener" href="https://pypi.org/">pip</a>官方下载源的服务器位于国外，导致每次下载时速度缓慢，因此有必要重新配置一下，将下载源修改为国内的镜像源。详细配置过程可参考B站视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av91165060">解决Python安装第三方库超慢的问题，提速10倍的方法</a>。下面以修改为阿里云镜像源为例列出我的配置过程：</p>
+<ul>
+<li>首先在<code>C:\Users\Username</code>（Username为个人电脑用户名）目录下创建一个名为pip的文件夹，在pip文件夹下新建一个<code>pip.ini</code>的文件，注意此文件后缀名就是<code>.ini</code>，不是<code>.txt</code>。</li>
+<li>使用文本编辑器打开后输入以下内容： <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://mirrors.aliyun.com/pypi/simple/</span><br><span class="line">[install]</span><br><span class="line">trusted-host = mirrors.aliyun.com</span><br></pre></td></tr></tbody></table></figure> <span class="github-emoji"><span>⚠</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>
+global和install前后的方括号[
+]要在英文状态下输入，而且使用记事本默认的ANSI编码格式就可以。修改成功后就可以快速的安装第三方扩展包了。</li>
+</ul>
+<h2 id="pip常用命令">3.2 pip常用命令</h2>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/pip/">pip官网</a>有详细的使用说明，但对于像我这种普通用户，无需全部掌握，只要熟悉以下常用的基本命令就可以。</p>
+<ul>
+<li><p>查看pip版本 </p><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip --version</span><br></pre></td></tr></tbody></table></figure><p></p></li>
+<li><p>升级pip </p><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install -U pip</span><br></pre></td></tr></tbody></table></figure><p></p></li>
+<li><p>安装扩展包 </p><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install SomePackage</span><br></pre></td></tr></tbody></table></figure>
+在上述命令中，只需要把<code>SomePackage</code>更换为具体的扩展包名称就可以了，如Numpy、Pandas等。此命令会默认安装扩展包的最新版本。<p></p></li>
+<li><p>查看所有已安装扩展包 </p><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip list</span><br></pre></td></tr></tbody></table></figure><p></p></li>
+<li><p>查看已安装扩展包中所有可升级的包 </p><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip list --outdated</span><br></pre></td></tr></tbody></table></figure><p></p></li>
+<li><p>升级扩展包 </p><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install --upgrade SomePackge</span><br></pre></td></tr></tbody></table></figure>
+这条指令只能升级一个扩展包，如果需要一次性升级很多扩展包，可以使用pip-review这个扩展包。
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pip install pip-review  # 安装pip-review</span><br><span class="line">pip-review  # 查看可升级的包</span><br><span class="line">pip-review --auto  # 自动升级所有包</span><br><span class="line">pip-review --local --interactive  # 交互式页面更新包，提供可操作选项[Y]es, [N]o, [A]ll, [Q]uit</span><br></pre></td></tr></tbody></table></figure>
+在使用<code>pip-review --auto</code>指令自动更新所有扩展包时，可能会出现因某个包无法更新而报错的情况，只需要把报错的包单独升级后再运行<code>pip-review --auto</code>指令即可。<p></p></li>
+<li><p>卸载扩展包 </p><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip uninstall SomePackage</span><br></pre></td></tr></tbody></table></figure><p></p></li>
+</ul>
+<h1 id="jupyter-notebook的安装与配置">4 Jupyter
+Notebook的安装与配置</h1>
+<p>Python自带IDLE，功能较为简单，但对于新手来说却是最适合的。此外还有很多第三方IDLE，如PyCharm、Anaconda、Jupyter等等，这些开发环境功能更为强大，当然也需要花费不少的时间去学习如何使用。但是如果你和我一样并不是专职程序员，那就没有必要太过纠结于使用哪种IDLE，也无需花费大量精力去研究这些工具。当然，如果你也想记录自己的学习过程，形成笔记的话，那我强烈建议使用<a target="_blank" rel="noopener" href="https://jupyter.org/">Jupyter Notebook</a>。</p>
+<h2 id="安装">4.1 安装</h2>
+<p>打开电脑<code>命令提示符(command,cmd)</code>或<code>Windows PowerShell</code>，使用pip工具安装：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install notebook</span><br></pre></td></tr></tbody></table></figure>
+<p>安装完成后在Shell窗口输入<code>jupyter notebook</code>（注意此处jupyter和notebook之间是有空格的），该命令会自动在浏览器中打开一个地址为
+<code>http://localhost:8888/tree</code>
+的页面，接下来就可以正常使用了。在使用过程中，只要不关闭<code>命令提示符</code>或<code>Windows PowerShell</code>面板，就可以保证notebook与后台保持连接的状态。在此状态下，随时可以关闭浏览器，只要再打开浏览器输入'localhost:8888/tree'即可再次使用。</p>
+<h2 id="更改默认路径">4.2 更改默认路径</h2>
+<p>Jupyter
+Notebook默认打开的路径在C盘用户目录下,如果想要修改默认路径的话，需要修改配置文件。首先生成成默认配置文件，在Shell面板中输入：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook --generate-config</span><br></pre></td></tr></tbody></table></figure>
+<p>该指令会在<code>C:\Users\Username\.jupyter</code>（<code>Username</code>是个人电脑的用户名）目录下生成一个名为<code>jupyter_notebook_config.py</code>的默认配置文件。使用文本编辑器打开此文件，查找关键词<code>c.NotebookApp.notebook_dir</code>，<strong>删除该语句句首的井号注释符</strong><code>#</code>，把需要修改的路径放置在语句等号后面的引号中即可，如:<code>c.NotebookApp.notebook_dir = 'D:/Python'</code>。再使用jupyte
+notebook时，默认打开的目录就变为<code>D:/Python</code>了。</p>
+<h2 id="更改主题">4.3 更改主题</h2>
+<p>默认的主题已经很好了，唯一的缺点就是字体太小，在网上查找并尝试了各种方法，包括修改<code>custom.css</code>、<code>codemirror.css</code>等文件，虽然输入字体的大小可调，但输出字体的大小始终无法调节。目前可行的方法就是安装第三方主题插件<strong><a target="_blank" rel="noopener" href="https://github.com/dunovank/jupyter-themes">jupyter-themes</a></strong>，在Shell窗口输入以下命令：</p>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># install jupyterthemes</span></span><br><span class="line">pip install jupyterthemes</span><br><span class="line"></span><br><span class="line"><span class="comment"># upgrade to latest version</span></span><br><span class="line">pip install <span class="literal">--upgrade</span> jupyterthemes</span><br></pre></td></tr></tbody></table></figure>
+<p>然后输入<code>jt -l</code>可查看内置主题列表，有chesterish、grade3、gruvboxd、gruvboxl、monokai、oceans16、onedork、solarizedd、solarizedl
+九个主题可供选择，而且可以更改字体样式、大小等。<strong><a target="_blank" rel="noopener" href="https://github.com/dunovank/jupyter-themes">jupyter-themes</a></strong>的github页面有详细说明。下面是我的配置指令：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">jt -t grade3 -f firacode -fs 14 -nf merriserif -nfs 12 -tf merriserif -tfs 14 -ofs 14 -cellw 70% -lineh 150 -T</span><br><span class="line"></span><br><span class="line">jt -t onedork -f firacode -fs 16 -nf merriserif -nfs 16 -tf merriserif -tfs 16 -ofs 16 -cellw 60%  -lineh 170 -T</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="安装扩展插件">4.4 安装扩展插件</h2>
+<p>安装一些扩展插件可极大提高notebook的使用，首先安装并激活<code>jupyter_contrib_nbextensions</code></p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install jupyter_contrib_nbextensions</span><br><span class="line">jupyter contrib nbextension install --user</span><br></pre></td></tr></tbody></table></figure>
+<p>再打开jupyter
+notebook就可以看到Nbextensions标签了，单击扩展可看到详细用方，通过勾选启用相应扩展即可，下面是我使用的一些插件：</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/BcGBKH"><img src="https://s1.ax1x.com/2020/11/04/BcGBKH.png"></a></p>
+<p>注意勾选 autopep8
+后可能会提示找不到该模块，此时需要安装autopep8：</p>
+<figure class="highlight powershell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install autopep8</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="参考资料">参考资料</h1>
+<p><a target="_blank" rel="noopener" href="https://book.douban.com/subject/26829016/">《Python编程-从入门到实践》</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.python.org/doc/">Python官方文档</a></p>
+<p><a target="_blank" rel="noopener" href="https://jupyter.org/documentation">Jupyter官方文档</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Q4411H7fJ?from=search&amp;seid=2701988887495824409">python数据分析神器Jupyter
+notebook快速入门</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/jupyter/" rel="tag"><i class="fa fa-tag"></i> jupyter</a>
+          </div>
+
+        
+
+
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python%E8%AF%AD%E8%A8%80%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">1 Python语言介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85python"><span class="nav-number">2.</span> <span class="nav-text">2 安装Python</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#pip%E6%A8%A1%E5%9D%97"><span class="nav-number">3.</span> <span class="nav-text">3 pip模块</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#pip%E6%A8%A1%E5%9D%97%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 pip模块的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pip%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 pip常用命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jupyter-notebook%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">4 Jupyter
+Notebook的安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9%E9%BB%98%E8%AE%A4%E8%B7%AF%E5%BE%84"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 更改默认路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9%E4%B8%BB%E9%A2%98"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 更改主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%89%A9%E5%B1%95%E6%8F%92%E4%BB%B6"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 安装扩展插件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="chihchao"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">chihchao</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chihchao</span>
+</div><!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("02/25/2020 09:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "理乐志已运行 "+ dnum +" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+  
+
+    </div>
+</body>
+</html>
