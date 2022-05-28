@@ -18,24 +18,20 @@
   <meta name="author" content="chihchao">
   <meta name="keywords" content="">
   
-    <meta name="description" content="本小结学习NumPy包的进阶操作，包括常用的数学通用函数、聚合、广播、排序以及花哨的索引等。">
+    <meta name="description" content="NumPy的进阶操作，包括常用的数学通用函数、聚合、广播、排序以及花哨的索引等。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NumPy学习笔记-2-进阶">
 <meta property="og:url" content="http://chihchao.cn/posts/91ad67e3/index.html">
 <meta property="og:site_name" content="理乐志">
-<meta property="og:description" content="本小结学习NumPy包的进阶操作，包括常用的数学通用函数、聚合、广播、排序以及花哨的索引等。">
+<meta property="og:description" content="NumPy的进阶操作，包括常用的数学通用函数、聚合、广播、排序以及花哨的索引等。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s3.ax1x.com/2020/12/29/rHm3c9.png">
-<meta property="og:image" content="https://s3.ax1x.com/2020/12/18/rJEYfs.png">
-<meta property="og:image" content="https://s3.ax1x.com/2020/12/29/rHmB1H.png">
-<meta property="og:image" content="https://s3.ax1x.com/2020/12/29/rHmxgJ.png">
-<meta property="og:image" content="https://s3.ax1x.com/2020/12/29/rHmzv9.png">
+<meta property="og:image" content="http://chihchao.cn/img/NumPy.png">
 <meta property="article:published_time" content="2020-12-28T04:48:25.000Z">
 <meta property="article:modified_time" content="2020-12-28T04:48:25.000Z">
 <meta property="article:author" content="chihchao">
 <meta property="article:tag" content="NumPy">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://s3.ax1x.com/2020/12/29/rHm3c9.png">
+<meta name="twitter:image" content="http://chihchao.cn/img/NumPy.png">
   
   
   
@@ -262,7 +258,7 @@
             
             <div class="markdown-body">
               
-              <p>本小结学习NumPy包的进阶操作，包括常用的数学通用函数、聚合、广播、排序以及花哨的索引等。</p>
+              <p>NumPy的进阶操作，包括常用的数学通用函数、聚合、广播、排序以及花哨的索引等。</p>
 <span id="more"></span>
 <h1 id="通用函数">1 通用函数</h1>
 <h2 id="通用函数的介绍">1.1 通用函数的介绍</h2>
@@ -601,7 +597,7 @@ Maximun height: 189
 Median: 169.0
 75th percentile: 177.0</code></pre>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> seaborn<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br>%matplotlib inline<br><br>seaborn.<span class="hljs-built_in">set</span>()<br><br>plt.hist(heights)<br>plt.title(<span class="hljs-string">"Height Distribution"</span>)<br>plt.xlabel(<span class="hljs-string">"height(cm)"</span>)<br>plt.ylabel(<span class="hljs-string">"number"</span>)<br></code></pre></td></tr></tbody></table></figure>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/rHm3c9"><img src="https://s3.ax1x.com/2020/12/29/rHm3c9.png" srcset="/img/loading.gif" lazyload alt="rHm3c9.png"></a></p>
+<p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/NumPyPlot1.png" srcset="/img/loading.gif" lazyload></p>
 <h1 id="数组的计算广播">4 数组的计算：广播</h1>
 <h2 id="广播的介绍">4.1 广播的介绍</h2>
 <p>前面介绍了 NumPy
@@ -670,7 +666,7 @@ c_ndim: 2
 c_shape: (3, 3)</code></pre>
 <p>正如此前将一个值扩展或广播以匹配另外一个数组的形状，这里将 a 和 b
 都进行了扩展来匹配一个公共的形状，最终的结果是一个二维数组。下图可以更直观的展示以上三个例子的广播过程：</p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/rJEYfs"><img src="https://s3.ax1x.com/2020/12/18/rJEYfs.png" srcset="/img/loading.gif" lazyload alt="rJEYfs.png"></a></p>
+<p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/NumPyBrocast.png" srcset="/img/loading.gif" lazyload></p>
 <p>上图中浅色盒子表示广播的值。同样需要注意的是，这个额外的内存并没有在实际操作中进行分配，但是这样的想象方式更方便我们从概念上理解。</p>
 <h2 id="广播的规则">4.2 广播的规则</h2>
 <p>NumPy
@@ -777,7 +773,7 @@ z = f(x, y) ，可以用广播沿数值区间计算该函数，并使用 Matplot
 画出这个二维数组。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">x = np.linspace(<span class="hljs-number">0</span>, <span class="hljs-number">5</span>, <span class="hljs-number">50</span>)<br>y = np.linspace(<span class="hljs-number">0</span>, <span class="hljs-number">5</span>, <span class="hljs-number">50</span>)[:, np.newaxis]<br><br>z = np.sin(x)**<span class="hljs-number">10</span> + np.cos(<span class="hljs-number">10</span>+y*x) * np.cos(x)<br></code></pre></td></tr></tbody></table></figure>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br>plt.imshow(z, origin=<span class="hljs-string">'lower'</span>, extent=[<span class="hljs-number">0</span>, <span class="hljs-number">5</span>, <span class="hljs-number">0</span>, <span class="hljs-number">5</span>], cmap=<span class="hljs-string">'viridis'</span>)<br>plt.colorbar()<br></code></pre></td></tr></tbody></table></figure>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/rHmB1H"><img src="https://s3.ax1x.com/2020/12/29/rHmB1H.png" srcset="/img/loading.gif" lazyload alt="rHmB1H.png"></a></p>
+<p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/numpyplot.png" srcset="/img/loading.gif" lazyload></p>
 <h1 id="比较掩码和布尔逻辑">5 比较、掩码和布尔逻辑</h1>
 <p>下面学习用布尔掩码来查看和操作NumPy数组中的值。当你想基于某些准则来抽取、修改、计数或对一个数组中的值进行其他操作时，掩码就可以排上用场了。例如你可能希望统计数组中又多少值大于某一个给定值，或者删除所有超出某些限值的异常点。在NumPy中，布尔掩码通常是完成这类任务的最高效方式。</p>
 <h2 id="比较操作">5.1 比较操作</h2>
@@ -1055,7 +1051,7 @@ N × D
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">mean = [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>]<br>cov = [[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">2</span>, <span class="hljs-number">5</span>]]<br>rand = np.random.RandomState(<span class="hljs-number">42</span>)<br>a = rand.multivariate_normal(mean, cov, <span class="hljs-number">100</span>)<br>a.shape<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">(100, 2)</code></pre>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><span class="hljs-keyword">import</span> seaborn<br>seaborn.<span class="hljs-built_in">set</span>()<br><br>plt.scatter(a[:, <span class="hljs-number">0</span>], a[:, <span class="hljs-number">1</span>])<br></code></pre></td></tr></tbody></table></figure>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/rHmxgJ"><img src="https://s3.ax1x.com/2020/12/29/rHmxgJ.png" srcset="/img/loading.gif" lazyload alt="rHmxgJ.png"></a></p>
+<p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/scatter.png" srcset="/img/loading.gif" lazyload></p>
 <p>我们利用花哨的索引随机选取20个点——选择20个随机的、不重复的索引值，并利用这些索引值选取到原始数组对应的值：</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">indices = np.random.choice(a.shape[<span class="hljs-number">0</span>], <span class="hljs-number">20</span>, replace=<span class="hljs-literal">False</span>)<br>indices<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">array([26, 48, 10, 66, 96,  7, 91,  2, 90, 33, 22, 78, 75, 70, 82, 92, 16, 13, 21, 45])</code></pre>
@@ -1063,8 +1059,7 @@ N × D
 <pre><code class="hljs">(20, 2)</code></pre>
 <p>现在看看哪些点被选中了，将选中的点在图上用大圆圈标示出来：</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">plt.scatter(a[:, <span class="hljs-number">0</span>], a[:, <span class="hljs-number">1</span>], alpha=<span class="hljs-number">0.3</span>)<br>plt.scatter(selection[:, <span class="hljs-number">0</span>], selection[:, <span class="hljs-number">1</span>],<br>            facecolor=<span class="hljs-string">'none'</span>, edgecolors=<span class="hljs-string">'b'</span>, s=<span class="hljs-number">200</span>)<br></code></pre></td></tr></tbody></table></figure>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/rHmzv9"><img src="https://s3.ax1x.com/2020/12/29/rHmzv9.png" srcset="/img/loading.gif" lazyload alt="rHmzv9.png"></a></p>
-<p>​</p>
+<p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/scatter2.png" srcset="/img/loading.gif" lazyload></p>
 <p>这种方法通常用于快速分割数据，即需要分割训练、测试数据集以验证统计模型时，以及在解答统计问题时的抽样方法中使用。</p>
 <h1 id="数组的排序">7 数组的排序</h1>
 <h2 id="numpy中的快速排序">7.1 NumPy中的快速排序</h2>

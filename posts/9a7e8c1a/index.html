@@ -18,18 +18,20 @@
   <meta name="author" content="chihchao">
   <meta name="keywords" content="">
   
-    <meta name="description" content="NumPy，是Numerical Python的简称，提供了高效存储和操作密集数据缓存的借口。在某些方面，NumPy数据与Python内置的列表类型非常相似。但是随着数组在维度上变大，NumPy数组提供了更加高效的存储和数据操作。NumPy数组几乎是整个Python数据科学工具生态系统的核心。 因此，不管你对数据科学的哪个方面感兴趣，花点时间学习如何有效地使用NumPy都是非常值得的。">
+    <meta name="description" content="NumPy，整个Python数据科学工具生态系统的核心。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NumPy学习笔记-1-基础">
 <meta property="og:url" content="http://chihchao.cn/posts/9a7e8c1a/index.html">
 <meta property="og:site_name" content="理乐志">
-<meta property="og:description" content="NumPy，是Numerical Python的简称，提供了高效存储和操作密集数据缓存的借口。在某些方面，NumPy数据与Python内置的列表类型非常相似。但是随着数组在维度上变大，NumPy数组提供了更加高效的存储和数据操作。NumPy数组几乎是整个Python数据科学工具生态系统的核心。 因此，不管你对数据科学的哪个方面感兴趣，花点时间学习如何有效地使用NumPy都是非常值得的。">
+<meta property="og:description" content="NumPy，整个Python数据科学工具生态系统的核心。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://chihchao.cn/img/NumPy.png">
 <meta property="article:published_time" content="2020-12-24T07:35:25.000Z">
 <meta property="article:modified_time" content="2020-12-24T07:35:25.000Z">
 <meta property="article:author" content="chihchao">
 <meta property="article:tag" content="NumPy">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://chihchao.cn/img/NumPy.png">
   
   
   
@@ -256,10 +258,11 @@
             
             <div class="markdown-body">
               
-              <p>NumPy，是Numerical
-Python的简称，提供了高效存储和操作密集数据缓存的借口。在某些方面，NumPy数据与Python内置的列表类型非常相似。但是随着数组在维度上变大，NumPy数组提供了更加高效的存储和数据操作。<strong>NumPy数组几乎是整个Python数据科学工具生态系统的核心</strong>。
-因此，不管你对数据科学的哪个方面感兴趣，花点时间学习如何有效地使用NumPy都是非常值得的。</p>
+              <p>NumPy，整个Python数据科学工具生态系统的核心。</p>
 <span id="more"></span>
+<p>NumPy，是Numerical
+Python的简称，提供了高效存储和操作密集数据缓存的接口。在某些方面，NumPy数据与Python内置的列表类型非常相似。但是随着数组在维度上变大，NumPy数组提供了更加高效的存储和数据操作。<strong>NumPy数组几乎是整个Python数据科学工具生态系统的核心</strong>。
+因此，不管你对数据科学的哪个方面感兴趣，花点时间学习如何有效地使用NumPy都是非常值得的。</p>
 <p>在开始学习NumPy之前，需要先理解NumPy的优势，这涉及到数据是如何被存储和操作的。标准的Python语言是用C语言编写的。这意味着每一个Python对象都是一个聪明的伪C语言结构体，该结构体不仅包含其值，还有其他信息。例如，当我们在Python中定义一个整型，如
 x =
 10，这里x并不是一个“原生”整型，而是一个指针，指向一个C语言的复合结构体，这个结构体包含内存位置、可以转换成整型的字节等大量额外的信息。正是由于这些大量额外的信息，Python可以自由、动态的编码。但这些额外信息也成为其负担，在多个对象组合的结构体中尤其明显。Python中标准可变的元素容器是列表，列表是灵活的，因为一个列表中既可以包含同一种类型元素，也可以包含不同类型。为了获得这些灵活的类型，列表中的每一项必须包含各自的类型信息、引用计数和其他信息；也就是说，每一项都是一个完整的Python对象。如果列表中的所有变量都是同一类型的，那么很多信息都会显得多余，这时候，把数据存储在固定类型的数组中会更高效。<strong>NumPy就是一种固定类型的数组，它要求数组必须包含同一类型的数据，虽然这样失去了灵活性，但可以更有效地存储和操作数据。</strong></p>
@@ -811,13 +814,13 @@ c:
 <h1 id="小结">小结</h1>
 <p>以上简单学习了NumPy数组的创建和操作，但这些大多是基于一维和二维数组的操作，是基础中的基础，需要不断练习强化。待熟练掌握后还需要进一步学习更多函数，如各种花式索引和切片，应用于三维数组的拼接和分割等等。</p>
 <p>本章节内容基于以下资料学习整理而得：</p>
-<ul>
+<ol type="1">
 <li><p><a target="_blank" rel="noopener" href="https://book.douban.com/subject/27667378/">Python数据科学手册</a></p></li>
 <li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Q441187wR">3小时教你入门Numpy</a></p></li>
 <li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ex411L7oT?from=search&amp;seid=8811664039681764975">Numpy
 &amp; Pandas(莫烦Python数据处理教程)</a></p></li>
 <li><p><a target="_blank" rel="noopener" href="https://www.imooc.com/learn/1237">Numpy基础入门</a></p></li>
-</ul>
+</ol>
 
               
             </div>

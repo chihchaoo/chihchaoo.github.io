@@ -25,13 +25,13 @@
 <meta property="og:site_name" content="理乐志">
 <meta property="og:description" content="总结一下单颗粒气溶胶质谱仪的工作原理及系统构造。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s2.ax1x.com/2020/03/11/8EuQYV.jpg">
+<meta property="og:image" content="http://chihchao.cn/img/SPAMS.jpg">
 <meta property="article:published_time" content="2020-02-29T16:00:00.000Z">
 <meta property="article:modified_time" content="2020-02-29T16:00:00.000Z">
 <meta property="article:author" content="chihchao">
 <meta property="article:tag" content="SPAMS">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://s2.ax1x.com/2020/03/11/8EuQYV.jpg">
+<meta name="twitter:image" content="http://chihchao.cn/img/SPAMS.jpg">
   
   
   
@@ -260,27 +260,10 @@
               
               <p>总结一下单颗粒气溶胶质谱仪的工作原理及系统构造。</p>
 <span id="more"></span>
-<h1 id="大气气溶胶研究方法概述">大气气溶胶研究方法概述</h1>
-<p>目前对大气气溶胶的研究方法可从两个维度来总结。从时间维度来看，分为离线、在线和半在线研究方法；从数量维度来看，分为整体分析和单颗粒分析。</p>
-<p>离线分析即滤膜采样-离线分析法，是指先在现场用采样器将颗粒物采集在滤膜上，然后在实验室对滤膜上的颗粒物进行提取和分析。通过测量采样前后滤膜的重量差和采样期间的采样体积，得出颗粒物的质量浓度。再结合其他分析手段来分析颗粒物中的不同组分。如采用热学法、光学法或热-光法（包括热-光反射法和热-光透射法）等手段分析颗粒物中的有机碳（Organic
-Carbon, OC）和元素碳(Element Carbon,
-EC);采用气相色谱-质谱联用等方法分析颗粒物中的有机化合物；采用离子色谱法分析颗粒物中的水溶性无机离子（<span class="math inline">\(SO_4^{2-}\)</span>,<span class="math inline">\(NO_3^-\)</span>,<span class="math inline">\(Na^+\)</span>等）；采用电感耦合等离子体质谱法或X射线荧光分析法等手段分析颗粒物中的不溶性组分，如地壳物质（Si、Al、Fe等）和痕量元素（Hg、Zn、Cu等）。滤膜采样-离线分析是经典的研究方法，技术要求相对简单，成本较低，多年来一直被广泛采用。主要的不足之处在于流程繁琐，容易造成误差，且缺乏时效性。</p>
-<p>随着研究的需要和科技的进步，越来越多的在线和半在线分析技术得到开发。典型的质量浓度在线监测方法有微量振荡天平和β射线衰减法。空气动力学粒径谱仪、颗粒物扫描电迁移率粒径谱仪和宽范围粒径谱仪可以实现颗粒物粒径信息的在线获取。在化学组分的在线监测方法中，黑碳仪和单颗粒物黑碳光度计等可实时监测大气中的OC/EC；大气细粒子连续液化采样技术分别与离子色谱和总有机碳分析仪联用组成的PILS-IC和PILS-TOC则可分别实现对大气颗粒物中水溶性离子和水溶性有机物的实时监测；重金属分析仪和热离解激光诱导荧光检测法可分别在线监测大气颗粒物中的重金属元素和有机硝酸酯。除了对特定化学组分的监测外，还有大气颗粒物综合性在线监测仪器，如气溶胶质谱仪（Aerosol
-Mass
-Spectrometry，AMS）能够同时测定亚微米颗粒物中有机组分和无机组分及其粒径分布情况。</p>
-<p>从数量维度来看，目前大多数的分析方法都属于颗粒物整体分析，即分析结果代表的是所有颗粒物理化性质的平均值。以离线分析法为例，通常滤膜采样周期为22小时以上，分析结果也就是这一个采样周期内采集到的所有颗粒物的平均值。然而，大气中每一个颗粒物都有其特定的来源、专属的粒径和独特的化学组分信息，在大气传输过程中经历一系列物理化学过程后发生的变化千差万别，由此引发的对人体健康、空气质量和气候变化等方面的效应也不尽相同。因此，相比于颗粒物的整体分析，在单个颗粒水平上反映颗粒物理化特征的单颗粒分析手段更具有微观价值。</p>
-<p>单颗粒分析同样分为离线和在线两大类技术手段。离线分析技术中，扫描电镜和电子透射电镜等可用于单颗粒表面形态和粒径大小分析；激光微探针质谱和二次粒子质谱等可用于元素、化合物等成分分析。在线单颗粒分析技术以基于气溶胶质谱仪发展来的单颗粒气溶胶质谱仪为主。<a target="_blank" rel="noopener" href="https://pubs.acs.org/doi/abs/10.1021/ac00081a007">Prather</a>等人于1994年研制出单颗粒气溶胶质谱仪（aerosol
-time-of-flight mass
-spectrometry，ATOFMS），之后不断优化使其得到广泛应用（<a target="_blank" rel="noopener" href="https://pubs.acs.org/doi/abs/10.1021/ac970540n">Gard
-等.，1997</a>）。我国对单颗粒气溶胶质谱仪的研制工作起步较晚，起初虽有一些研究组开展相关的研制工作，但由于仪器达不到较高性能指标而没有得到推广（<a target="_blank" rel="noopener" href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CMFD&amp;dbname=CMFD2012&amp;filename=1012023865.nh&amp;v=MjY4MjBWRjI2SExPNkhkbktxcEViUElSOGVYMUx1eFlTN0RoMVQzcVRyV00xRnJDVVI3cWZaT1p1Rnl6bFU3L1A=">李磊，2011</a>）。2010年，在上海大学、中国科学院广州地球化学研究所和广州禾信分析仪器有限公司等多个单位通力合作下，我国成功研制出高性能单颗粒气溶胶质谱仪（Single
-Particle Aerosol Mass Spectrometry，SPAMS）并使其得到商业化发展（<a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S1387380611000376">Li
-等.，2011</a>）。单颗粒气溶胶质谱仪可以实时在线同时获得单个颗粒物的粒径和化学组成信息，并具有快速鉴别颗粒物来源的潜力，因而得以广泛应用（<a target="_blank" rel="noopener" href="https://pubs.acs.org/doi/abs/10.1021/ac970540n">Gard
-等.，1997</a>；<a target="_blank" rel="noopener" href="http://fxhx.cbpt.cnki.net/WKE/WebPublication/paperDigest.aspx?paperID=c15ccb1c-5ea2-459c-a713-ff63838f00ef#">蔡靖
-等.，2015</a>）。</p>
 <h1 id="spams系统组成及工作原理">SPAMS系统组成及工作原理</h1>
 <p>单颗粒气溶胶质谱仪以ATOFM和SPAMS为代表，两者原理大体相通。SPAMS为国产化仪器，下面围绕SPAMS进行介绍。</p>
-SPAMS由进样系统、粒径检测系统、汽化离子化系统、质量分析检测系统四个部分组成，此外，还有真空系统和计算机控制及数据处理系统。此外，还有真空系统和计算机控制及数据处理系统。SPAMS结构示意图和实体图如图1所示。
-<img src="https://s2.ax1x.com/2020/03/11/8EuQYV.jpg" srcset="/img/loading.gif" lazyload>
+<p>SPAMS由进样系统、粒径检测系统、汽化离子化系统、质量分析检测系统四个部分组成，此外，还有真空系统和计算机控制及数据处理系统。此外，还有真空系统和计算机控制及数据处理系统。SPAMS结构示意图和实体图如图1所示。</p>
+<p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/MS/SPAMS.jpg" srcset="/img/loading.gif" lazyload></p>
 <center>
 图1 （a）SPAMS结构示意图；（b）SPAMS实体照片
 </center>
@@ -305,10 +288,12 @@ PSL)小球标定，从而得出粒径和飞行时间的标准曲线，根据此�
 <p>SPAMS的汽化离子化系统采用激光解析电离技术（laser desorption
 ionlization，LDI），具体使用Nd:YAG紫外脉冲激光（266nm，0.5mJ/次）。该技术最大的优点在于能够对几乎所有种类的化学组分进行电离，特别是对盐类和金属类颗粒物的电离效率非常高（<a target="_blank" rel="noopener" href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CDFD&amp;dbname=CDFDLAST2015&amp;filename=1014418857.nh&amp;v=MzA2NDdmWk9adUZ5emxVN3JCVkYyNkdyZTVGdG5KcUpFYlBJUjhlWDFMdXhZUzdEaDFUM3FUcldNMUZyQ1VSN3E=">李磊，2014</a>）。</p>
 <h2 id="质量分析检测系统">质量分析检测系统</h2>
-<p>常用的有质量分析检测系统离子飞行时间质谱仪、四极杆和离子阱。不同质谱仪有各自的优缺点，需要根据检测目的合理选择。SPAMS采用飞行时间质谱仪，其原理为：离子经加速电压加速后进入一个长度一定的无场空间，加速飞出的离子具有相同的动能，但不同质荷比的离子到达检测器的时间：
-<span class="math display">\[qU = \frac{1}{2}·mv^2\]</span> <span class="math display">\[t = \frac{L}{v}\]</span> 由上面两个公式可得出：
-<span class="math display">\[\frac{m}{q} = \frac{2U}{L^2}·t^2\]</span>
-由此可知，质荷比与时间的平方成正比，即m/z越大，飞行时间就越长。随着时间的漂移，不同质荷比的离子在无场空间中逐渐分开，先后达到离子检测区并被微通道检测板检测到，根据飞行时间即可计算得出该离子的质荷比。</p>
+<p>常用的有质量分析检测系统离子飞行时间质谱仪、四极杆和离子阱。不同质谱仪有各自的优缺点，需要根据检测目的合理选择。SPAMS采用飞行时间质谱仪，其原理为：离子经加速电压加速后进入一个长度一定的无场空间，加速飞出的离子具有相同的动能，但不同质荷比的离子到达检测器的时间：</p>
+<p><span class="math display">\[qU = \frac{1}{2}·mv^2\]</span> <span class="math display">\[t = \frac{L}{v}\]</span></p>
+<p>由上面两个公式可得出：</p>
+<p><span class="math display">\[\frac{m}{q} =
+\frac{2U}{L^2}·t^2\]</span></p>
+<p>由此可知，质荷比与时间的平方成正比，即m/z越大，飞行时间就越长。随着时间的漂移，不同质荷比的离子在无场空间中逐渐分开，先后达到离子检测区并被微通道检测板检测到，根据飞行时间即可计算得出该离子的质荷比。</p>
 <h2 id="真空系统">真空系统</h2>
 <p>质谱仪的离子源、质量分析器及检测器都必须处于高真空状态下，若真空度较低，则会带来很多危害，如大量氧会烧坏离子源的灯丝；使图谱本底增高，干扰质谱图；引起额外的离子-分子反应，改变裂解模型，使质谱解释复杂化；干扰离子源中电子束的正常调节；用作加速离子的几千伏高压会引起放电等。</p>
 <p>要想达到高真空状态，一般采用低真空泵（如机械泵）预抽真空后，再用高效率扩散泵连续地运行以保持真空，现代的质谱仪采用分子泵可获得更高的真空度。低真空泵有两个用途，一是作为高真空泵的前级泵，提供高真空泵正常工作所需要的前级真空；二是预抽真空，为进样系统、离子源或整个仪器暴露大气后预抽真空。低真空泵一般指机械泵，高真空泵有扩散泵、涡轮分子泵等。SPAMS使用三级差动真空构造，配有一个前级泵和三个分子泵，以满足离子源、质量分析器和检测器正常工作状态下所需要的高真空要求。</p>
@@ -358,7 +343,7 @@ International Journal of Mass Spectrometry, 2011, 303（2–3）:
     
       <span class="category-chain">
         
-  <a href="/categories/%E8%B4%A8%E8%B0%B1/" class="category-chain-item">质谱</a>
+  <a href="/categories/MS/" class="category-chain-item">MS</a>
   
   
 

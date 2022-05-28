@@ -18,68 +18,20 @@
   <meta name="author" content="chihchao">
   <meta name="keywords" content="">
   
-    <meta name="description" content="0 写在前面 0.1 为什么要搭建这个网站 起初的想法很简单，主要是想拥有一个自己的 “云端笔记系统”。好记性不如烂笔头，虽然也曾尝试着使用印象笔记、OneNote等诸多类似的产品，但换来换去终究没有一款称心的（可能是我太挑剔了？🌚）。后来偶然发现竟然还有搭建个人博客网站这种操作，当即兴趣盎然，对于我这种勇（shan）于（chang）挑（zhe）战（teng）的人，不尝试一下怎么行？！🙈 于是">
+    <meta name="description" content="零基础搭建博客网站，保姆级详细记录。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo + 阿里云服务器搭建个人博客网站">
 <meta property="og:url" content="http://chihchao.cn/posts/a6309911/index.html">
 <meta property="og:site_name" content="理乐志">
-<meta property="og:description" content="0 写在前面 0.1 为什么要搭建这个网站 起初的想法很简单，主要是想拥有一个自己的 “云端笔记系统”。好记性不如烂笔头，虽然也曾尝试着使用印象笔记、OneNote等诸多类似的产品，但换来换去终究没有一款称心的（可能是我太挑剔了？🌚）。后来偶然发现竟然还有搭建个人博客网站这种操作，当即兴趣盎然，对于我这种勇（shan）于（chang）挑（zhe）战（teng）的人，不尝试一下怎么行？！🙈 于是">
+<meta property="og:description" content="零基础搭建博客网站，保姆级详细记录。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f31a.png?v8">
-<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f648.png?v8">
-<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f4a9.png?v8">
-<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8">
-<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f61e.png?v8">
-<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/2764.png?v8">
-<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8">
-<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f450.png?v8">
-<meta property="og:image" content="https://s1.ax1x.com/2020/05/18/Yhsvcj.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/05/28/tes0gg.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/05/19/YIGqu8.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/05/20/Y7awFK.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/07/15/UdMdxA.png">
-<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8">
-<meta property="og:image" content="https://s1.ax1x.com/2020/05/19/YIYdY9.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/05/19/YIt1tH.png">
-<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8">
-<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f624.png?v8">
-<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f624.png?v8">
-<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f615.png?v8">
-<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f602.png?v8">
-<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8">
-<meta property="og:image" content="https://s1.ax1x.com/2020/05/25/tCYAqx.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/06/01/tJ2LGV.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/05/27/tE1wjJ.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/05/26/tFs54J.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/05/27/tEGTER.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/05/27/tEYrYq.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/05/27/tEtyEd.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/06/02/ttQ5MF.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/06/02/ttQxMD.png">
-<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/26/sjHY8g.md.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/18/s677J1.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/18/s6vmut.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/18/scN8J0.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/18/scUa1f.png">
-<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8">
-<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/270c.png?v8">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/19/s2DzVK.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/19/s2gjrd.png">
-<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f648.png?v8">
-<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f447.png?v8">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/22/s5EWSe.md.png">
-<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbvh4O.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/25/sqWC1U.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/28/yCCOud.md.png">
-<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f4da.png?v8">
+<meta property="og:image" content="http://chihchao.cn/img/Hexo-logo.jpg">
 <meta property="article:published_time" content="2020-02-25T01:00:00.000Z">
 <meta property="article:modified_time" content="2020-02-25T01:00:00.000Z">
 <meta property="article:author" content="chihchao">
 <meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f31a.png?v8">
+<meta name="twitter:image" content="http://chihchao.cn/img/Hexo-logo.jpg">
   
   
   
@@ -306,13 +258,14 @@
             
             <div class="markdown-body">
               
-              <h1 id="写在前面">0 写在前面</h1>
+              <p>零基础搭建博客网站，保姆级详细记录。</p>
+<span id="more"></span>
+<h1 id="写在前面">0 写在前面</h1>
 <h2 id="为什么要搭建这个网站">0.1 为什么要搭建这个网站</h2>
 <p>起初的想法很简单，主要是想拥有一个自己的
 “云端笔记系统”。好记性不如烂笔头，虽然也曾尝试着使用印象笔记、OneNote等诸多类似的产品，但换来换去终究没有一款称心的（可能是我太挑剔了？<span class="github-emoji"><span>🌚</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f31a.png?v8" srcset="/img/loading.gif" lazyload aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>）。后来偶然发现竟然还有搭建个人博客网站这种操作，当即兴趣盎然，对于我这种勇（shan）于（chang）挑（zhe）战（teng）的人，不尝试一下怎么行？！<span class="github-emoji"><span>🙈</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f648.png?v8" srcset="/img/loading.gif" lazyload aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>
 于是乎各种查资料，参考别人的经验，摩拳擦掌，蠢蠢欲动，然而真正操作起来才发现真是各种坑啊<span class="github-emoji"><span>💩</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4a9.png?v8" srcset="/img/loading.gif" lazyload aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>……
 虽然网上有各种资源和教程，但大多面向的是一些专业人员，对于我这种零基础之人，执行起来颇为困难。整个搭建过程涉及太多编程方面的知识，linux系统中一些简单的操作命令，Vim编辑器的常用命令，git的简单使用等等，这些对于我这个非程序猿而言是相当晦涩且繁琐的。最怕的是出现BUG，往往需要尝试很多方法才可以解决。还好功夫不负有心人，在折腾了N次之后终于在2月份把这个网站成功部署上线<span class="github-emoji"><span>😆</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8" srcset="/img/loading.gif" lazyload aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>。</p>
-<span id="more"></span>
 <p>然而，网站上线之后我却开始自我怀疑与否定了……</p>
 <p>花这么长时间、这么大精力搞这么个玩意儿真的值得吗？起初确实是有好奇心和虚荣心在作祟，毕竟拥有一个自己的网站是一件很酷的事儿。但是，之后呢？就像每次都以锻炼的名义买一些运动衣物，等所有装备都到齐，反而偷懒耍赖去了。在这种自我怀疑的情绪中，这个搭建好的网站也被我闲置了很长一段时间<span class="github-emoji"><span>😞</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f61e.png?v8" srcset="/img/loading.gif" lazyload aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>。</p>
 <p>重新开始打理这个网站已经是半年后了。一来确有需要，以前的知识需要整理回忆，新知识又要及时记录。二是想给自己一个“空间”，不仅存储知识，还有所思所想、所感所悟。它不应该只是一个“知识笔记本”，还应是一个“思想笔记本”、“情绪笔记本”、“人生笔记本”……
@@ -326,36 +279,37 @@
 <p>Hexo是基于Node.js开发的，因此需要先安装Node.js。下载链接： <a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/">Node.js官网</a> 或 <a target="_blank" rel="noopener" href="https://npm.taobao.org/mirrors/node">Node.js淘宝镜像源</a>。需要注意的是，Node.js有长期支持版和当前发布版两个版本。当前发布版版本较新，相应配套组件更新不及时，后续安装使用Hexo会出现一些未知错误，因此注意下载使用<strong>长期支持版</strong>。现阶段长期支持版已经更新到14.15，这个版本还是太新，在后续操作中会引起一些报错（具体报错内容可参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/136552969">此文</a>），建议安装<strong>12版本左右的长期支持版</strong>
 。安装过程中除了可以自定义安装路径外，其余选项建议都采用默认方式。</p>
 <p>npm是node.js自带的一个包管理器，后续安装hexo博客和插件时会经常用到。npm仓库是国外的地址，国内下载速度可能较慢，更换为国内镜像源后可大幅提高使用体验。在Win10系统的菜单栏里有<code>命令提示符</code>（即cmd）和<code>Windows PowerShell</code>（以下简称Shell）的快捷链接，打开任意一个均可，此处以Shell演示。</p>
-<p><img src="https://s1.ax1x.com/2020/05/18/Yhsvcj.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/Shell.png" srcset="/img/loading.gif" lazyload></p>
 <p>在打开的Shell窗口输入以下命令，即可把npm仓库源更换为淘宝仓库源：</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm config set registry https://registry.npm.taobao.org/<br></code></pre></td></tr></tbody></table></figure>
 <p>然后在Shell窗口输入以下命令，如果出现下图中红框部分表示更换成功：</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm config ls<br></code></pre></td></tr></tbody></table></figure>
-<p><img src="https://s1.ax1x.com/2020/05/28/tes0gg.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/npm.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="hexo的安装">1.2 Hexo的安装</h2>
 <p>在Shell窗口输入下面这条指令安装Hexo框架：</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm install -g hexo-cli<br></code></pre></td></tr></tbody></table></figure>
-<p>在进行下一步之前，先要决定博客文件存放的位置，比如我想把所有的博客文件存放于D盘的blog文件夹中，那首先需要使用指令<code>cd d:</code>切换当前位置，如下图：</p>
-<p><img src="https://s1.ax1x.com/2020/05/19/YIGqu8.png" srcset="/img/loading.gif" lazyload></p>
+<p>在进行下一步之前，先要决定博客文件存放的位置，比如我想把所有的博客文件存放于D盘的blog文件夹中，那首先需要使用指令
+<code>cd d:</code> 切换当前位置，如下图：</p>
+<p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/cd.png" srcset="/img/loading.gif" lazyload></p>
 <p>按照上图切换成功后，输入下面的指令建立自己的blog文件夹（这条指令会自动创建一个名为blog的文件夹，不需要额外创建文件夹）。</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">hexo init blog<br></code></pre></td></tr></tbody></table></figure>
 <p>此外，因为后续工作需要，还需要分别安装 hexo-server 和 <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-deployer-git">hexo-deployer-git</a>
 ，安装命令如下：</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm install hexo-server --save<br>npm install hexo-deployer-git --save<br></code></pre></td></tr></tbody></table></figure>
 <p>至此，博客框架已经安装完毕。切换至博客文件夹路径，执行<code>hexo server</code>或<code>hexo s</code>，如果返回下图信息，表示博客本地环境成功运行：</p>
-<p><img src="https://s1.ax1x.com/2020/05/20/Y7awFK.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/hexos.png" srcset="/img/loading.gif" lazyload></p>
 <p>在电脑浏览器打开<code>http://localhost:4000</code>可以看到默认的博客界面。</p>
-<p><img src="https://s1.ax1x.com/2020/07/15/UdMdxA.png" srcset="/img/loading.gif" lazyload style="zoom:50%;"></p>
+<p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/hexos2.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="安装过程中遇到的坑">1.3 安装过程中遇到的坑</h2>
 <ul>
 <li>第一个坑 <span class="github-emoji"><span>⚠</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8" srcset="/img/loading.gif" lazyload aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></li>
 </ul>
 <p>在执行<code>hexo init blog</code>指令时，遇到”无法加载文件脚本“的问题，下面贴出解决过程，以供参考。</p>
-<p><img src="https://s1.ax1x.com/2020/05/19/YIYdY9.png" srcset="/img/loading.gif" lazyload style="zoom: 80%;"></p>
+<p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/bug1.png" srcset="/img/loading.gif" lazyload></p>
 <p>解决思路来自博客<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43190355/article/details/100552569">webpack
 :
 无法加载文件</a>。首先以管理员身份打开<code>Windows PowerShell</code>，输入<code>get-ExecutionPolicy</code>，返回显示Restricted（表示状态是禁止的），然后输入<code>set-ExecutionPolicy RemoteSigned</code>更改策略，输入<code>A</code>选择<code>全是</code>，再次输入<code>get-ExecutionPolicy</code>可以看到已经更改成功，再次执行hexo命令即可正常执行。</p>
-<p><img src="https://s1.ax1x.com/2020/05/19/YIt1tH.png" srcset="/img/loading.gif" lazyload style="zoom:80%;"></p>
+<p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/bug2.png" srcset="/img/loading.gif" lazyload></p>
 <ul>
 <li>第二个坑 <span class="github-emoji"><span>⚠</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8" srcset="/img/loading.gif" lazyload aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></li>
 </ul>
@@ -375,9 +329,9 @@
 按照提示查看了相关要求才发现竟然还有那么多要求！在网上看到有个网友分享，先后起了两个名称都被拒绝，后来随便取了一个“健康快乐每一天”，没想到第二天竟然顺利通过了……
 <span class="github-emoji"><span>😂</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f602.png?v8" srcset="/img/loading.gif" lazyload aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>
 关于网站名称的问题，不用煞费苦心的想一步到位给网站起个好名字，因为备案时的网站名与网站搭建后对外开放的名称是没有关系的。本站备案时的名称是“汤圆薄荷”（不要问我为什么哈哈哈哈<span class="github-emoji"><span>😆</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8" srcset="/img/loading.gif" lazyload aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>……），现在网站名称为“理乐志”，二者互不影响。</p>
-<p><img src="https://s1.ax1x.com/2020/05/25/tCYAqx.png" srcset="/img/loading.gif" lazyload style="zoom:80%;"></p>
+<p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/name.png" srcset="/img/loading.gif" lazyload></p>
 <p>为了与服务器连接，还需要对域名进行<strong>解析</strong>，在阿里云官网登陆后，点击右上角的<code>控制台</code>，进入域名列表界面后点击<code>解析</code>进入域名解析页面，按照下图进行配置：</p>
-<p><img src="https://s1.ax1x.com/2020/06/01/tJ2LGV.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/ip.png" srcset="/img/loading.gif" lazyload></p>
 <p>上图中服务器公网IP需要购买云服务器后才能知道，云服务器的购买与配置见下一小节。</p>
 <h2 id="云服务器的购买与连接">2.2 云服务器的购买与连接</h2>
 <h3 id="云服务器的购买与配置">2.2.1 云服务器的购买与配置</h3>
@@ -386,20 +340,20 @@
 的，但用来部署一个博客网站已经绰绰有余了。目前云服务器厂商很多，阿里云、腾讯云、华为云、七牛云等等，各个厂家为了争夺市场会不定期做一些活动，很多厂商还会针对学生用户有更大力度的折扣活动，大家尽可以选好时机再下手。</p>
 <p>云服务器购买后首先安装一个Linux系统（不建议使用Windows），我安装的是64位的CentOS
 8.0。在<code>安全设置</code>一栏有设置密钥和自定义密码两种选项，不同选项在远程连接服务器时进行安全验证的方式不同。为了方便，本人使用的是自定义密码方式。</p>
-<p><img src="https://s1.ax1x.com/2020/05/27/tE1wjJ.png" srcset="/img/loading.gif" lazyload style="zoom: 80%;"></p>
+<p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/ces1.png" srcset="/img/loading.gif" lazyload></p>
 <p>安装后首先需要配置一下安全组规则，进入云服务器管理页面后，在<code>网络与安全</code>下找到<code>安全组</code>，点击进入后<code>添加安全组规则</code>，配置如下：</p>
-<p><img src="https://s1.ax1x.com/2020/05/26/tFs54J.png" srcset="/img/loading.gif" lazyload style="zoom:80%;"></p>
+<p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/safe.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="云服务器的连接">2.2.2 云服务器的连接</h3>
 <p>阿里云的管理页面提供了Workbench和VNC两种方式远程连接，但实际体验并不好，这里推荐在本地电脑使用Xshell工具远程连接，个人用户可以使用<a target="_blank" rel="noopener" href="https://www.netsarang.com/zh/free-for-home-school/">Xshell免费版</a>
 ，安装过程不再赘述。</p>
 <p>使用Xshell与服务器连接有两种方式，与前面安装服务器系统时选择的<code>安全设置</code>选项有关，因为我使用的是自定义密码的形式，下面以此连接方式展示。在<strong>本地电脑</strong>打开Xshell点击<code>新建</code>，在弹出的对话框按照下图设置后连接。</p>
-<p><img src="https://s1.ax1x.com/2020/05/27/tEGTER.png" srcset="/img/loading.gif" lazyload style="zoom: 80%;"></p>
+<p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/xshell.png" srcset="/img/loading.gif" lazyload></p>
 <p>连接后看到下图红框信息表示连接成功。</p>
-<p><img src="https://s1.ax1x.com/2020/05/27/tEYrYq.png" srcset="/img/loading.gif" lazyload style="zoom:80%;"></p>
+<p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/connect.png" srcset="/img/loading.gif" lazyload></p>
 <p>上图中<code>WARNING</code>信息不影响使用，也可以通过设置消除。依次点击XShell的
 “文件” → “当前会话属性” → “隧道”，取消 “转发X11连接到”
 之前的对勾。断开后再次连接，就不会有此错误提示了。</p>
-<p><img src="https://s1.ax1x.com/2020/05/27/tEtyEd.png" srcset="/img/loading.gif" lazyload style="zoom: 67%;"></p>
+<p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/xshell2.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="nginx的安装与配置">2.3 Nginx的安装与配置</h2>
 <p>Nginx是一款Web服务器，可以托管博客网站的静态资源，实现快速访问。在安装Nginx之前还需要做一些准备工作，首先更新一下系统，然后创建一个目录作为博客网站的根目录：</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum update -y    # 更新系统（非必需）<br>mkdir /home/blog    # 在home文件夹下创建一个blog文件夹，作为博客根目录<br>chown -R git:git /home/blog    # 变更该目录的所有者<br>chmod -R 755 /home/blog    # 修改目录权限<br></code></pre></td></tr></tbody></table></figure>
@@ -433,7 +387,7 @@ Bash”，输入自己在GitHub上注册的用户名和邮箱：</p>
 <p>然后输入生成ssh公钥的指令：</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ssh-keygen -t rsa<br></code></pre></td></tr></tbody></table></figure>
 <p>在生成公钥过程中会弹出一些选项，不需要更改，一直按回车即可，部分结果下图：</p>
-<p><img src="https://s1.ax1x.com/2020/06/02/ttQ5MF.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/ssh.png" srcset="/img/loading.gif" lazyload></p>
 <p>生成之后就可以在上图提示的文件路径中找到一个“.ssh”的文件夹，文件夹中有“id_rsa”和“id_rsa.pub”两个文件，其中“id_rsa.pub”就是用于连接本地和云服务器的公钥，相当于本地电脑有了一把访问服务器的“钥匙”，接下来的工作就是要把这个公钥配置到云服务器上。</p>
 <h2 id="云服务器环境安装并配置git">3.2 云服务器环境安装并配置Git</h2>
 <p>在云服务器上安装并配置git：</p>
@@ -456,7 +410,7 @@ Bash”，输入自己在GitHub上注册的用户名和邮箱：</p>
 <p>下面测试一下连接是否成功。在<strong>本地电脑</strong>打开<code>Windows PowerShell</code>，输入以下指令：</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ssh -v git@云服务器的公网IP    # 连接时把@后面的文字替换为云服务器的公网IP<br></code></pre></td></tr></tbody></table></figure>
 <p>出现以下界面表示连接成功：</p>
-<p><img src="https://s1.ax1x.com/2020/06/02/ttQxMD.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/connect2.png" srcset="/img/loading.gif" lazyload></p>
 <p>至此，连接工作已经做完。</p>
 <h2 id="自动化部署">3.4 自动化部署</h2>
 <p>上面的工作已经实现本地与云端环境的连接，但还没有完成自动化部署。在<strong>Xshell</strong>连接<strong>云服务器</strong>的窗口中，输入以下指令以切换至root用户，在“home”文件夹下创建一个“git”文件夹：</p>
@@ -496,7 +450,6 @@ Hexo + NexT + GitHub Pages 的超深度优化</a></p></li>
 </ul>
 <p>这些大佬们的文章写的文章已经很清晰了，按照以上步骤基本可以完成主题的美化。不过需要注意的是，这些博客写的时间比较早，是基于老版本的NexT进行优化的。目前NexT已经更新到7.8版，有些优化过程不再像以前那样繁琐，甚至可能会不适用。下面记录一下我基于
 NexT 7.8 版本的优化过程。</p>
-<p><img src="https://s3.ax1x.com/2021/01/26/sjHY8g.md.png" srcset="/img/loading.gif" lazyload></p>
 <p>在开始之前再次强调，Hexo 中有两份主要的配置文件，其名称都是
 <code>_config.yml</code>。一份位于站点根目录（~blog）下，是 Hexo
 本身的配置；另一份位于主题目录（~blog）下，主要用于配置主题相关的选项；一般前者称为
@@ -506,12 +459,12 @@ NexT 7.8 版本的优化过程。</p>
 <p>在 <strong>主题配置文件</strong>
 中修改以下内容可更改菜单，也就是网站页面抬头：</p>
 <figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">menu:</span><br>  <span class="hljs-attr">home:</span> <span class="hljs-string">/</span> <span class="hljs-string">||</span> <span class="hljs-string">fa</span> <span class="hljs-string">fa-home</span><br>  <span class="hljs-attr">categories:</span> <span class="hljs-string">/categories/</span> <span class="hljs-string">||</span> <span class="hljs-string">fa</span> <span class="hljs-string">fa-th</span><br>  <span class="hljs-attr">archives:</span> <span class="hljs-string">/archives/</span> <span class="hljs-string">||</span> <span class="hljs-string">fa</span> <span class="hljs-string">fa-archive</span><br>  <span class="hljs-attr">about:</span> <span class="hljs-string">/about/</span> <span class="hljs-string">||</span> <span class="hljs-string">fa</span> <span class="hljs-string">fa-user</span><br><br><span class="hljs-comment"># Enable / Disable menu icons / item badges.</span><br><span class="hljs-attr">menu_settings:</span><br>  <span class="hljs-attr">icons:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">badges:</span> <span class="hljs-literal">false</span><br></code></pre></td></tr></tbody></table></figure>
-<p><img src="https://s3.ax1x.com/2021/01/18/s677J1.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/menu1.png" srcset="/img/loading.gif" lazyload></p>
 <p>各个menu选项从上到下的顺序也就是网站页面抬头从左到右的顺序，可自行调节更改。<code>||</code>
 之后的字符表示图标，NexT 使用的是 <a target="_blank" rel="noopener" href="http://fontawesome.io/">Font
 Awesome</a> 提供的图标，更改字符即可变换为自己喜欢的图标：</p>
 <figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">menu:</span><br>  <span class="hljs-attr">home:</span> <span class="hljs-string">/</span> <span class="hljs-string">||</span> <span class="hljs-string">fa</span> <span class="hljs-string">fa-house-user</span><br>  <span class="hljs-attr">categories:</span> <span class="hljs-string">/categories/</span> <span class="hljs-string">||</span> <span class="hljs-string">fa</span> <span class="hljs-string">fa-th-list</span><br>  <span class="hljs-attr">archives:</span> <span class="hljs-string">/archives/</span> <span class="hljs-string">||</span> <span class="hljs-string">fa</span> <span class="hljs-string">fa-folder</span><br>  <span class="hljs-attr">about:</span> <span class="hljs-string">/about/</span> <span class="hljs-string">||</span> <span class="hljs-string">fa</span> <span class="hljs-string">fa-user-astronaut</span><br></code></pre></td></tr></tbody></table></figure>
-<p><img src="https://s3.ax1x.com/2021/01/18/s6vmut.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/menu2.png" srcset="/img/loading.gif" lazyload></p>
 <p>如果不想展示图标可在<code>menu_settings</code>项中，把icons设为false。badges设为true时会在菜单后添加数字。</p>
 <p>以上设置只是在页面显示的效果，如果点击“分类”进入页面，会有<code>Cannot GET /categories/</code>的错误提示，这是因为还没有创建该页面。本地shell端执行以下命令创建页面：</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd d:\blog<br>hexo new page categories<br></code></pre></td></tr></tbody></table></figure>
@@ -522,7 +475,7 @@ Awesome</a> 提供的图标，更改字符即可变换为自己喜欢的图标�
 <p>在 <strong>站点配置文件</strong> 中，文章链接<code>permalink</code>
 默认是以日期+文章名的形式展现的，默认代码和效果如下：</p>
 <figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">permalink:</span> <span class="hljs-string">:year/:month/:day/:title/</span><br><span class="hljs-attr">permalink_defaults:</span><br><span class="hljs-attr">pretty_urls:</span><br>  <span class="hljs-attr">trailing_index:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># Set to false to remove trailing 'index.html' from permalinks</span><br>  <span class="hljs-attr">trailing_html:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># Set to false to remove trailing '.html' from permalinks</span><br></code></pre></td></tr></tbody></table></figure>
-<p><img src="https://s3.ax1x.com/2021/01/18/scN8J0.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/link.png" srcset="/img/loading.gif" lazyload></p>
 <p>这种 url
 结构不太稳定，一旦修改了文章的文件名，就相应会修改其路径，无法保证链接的永久性。<a target="_blank" rel="noopener" href="https://github.com/Rozbo/hexo-abbrlink">hexo-abbrlink</a>
 插件可以很好的解决这一问题。首先安装此插件，在本地电脑shell端执行以下命令：</p>
@@ -530,7 +483,7 @@ Awesome</a> 提供的图标，更改字符即可变换为自己喜欢的图标�
 <p>然后在<strong>站点配置文件</strong>中进行如下修改：</p>
 <figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-comment"># abbrlink config</span><br><span class="hljs-attr">permalink:</span> <span class="hljs-string">posts/:abbrlink/</span><br><span class="hljs-attr">permalink_defaults:</span><br><span class="hljs-attr">abbrlink:</span><br>  <span class="hljs-attr">alg:</span> <span class="hljs-string">crc32</span>      <span class="hljs-comment">#support crc16(default) and crc32</span><br>  <span class="hljs-attr">rep:</span> <span class="hljs-string">hex</span>        <span class="hljs-comment">#support dec(default) and hex</span><br></code></pre></td></tr></tbody></table></figure>
 <p>修改后效果为：</p>
-<p><img src="https://s3.ax1x.com/2021/01/18/scUa1f.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/link2.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="添加emoji表情-smile-v">4.3 添加emoji表情 <span class="github-emoji"><span>😄</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8" srcset="/img/loading.gif" lazyload aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> <span class="github-emoji"><span>✌</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/270c.png?v8" srcset="/img/loading.gif" lazyload aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></h2>
 <p>Github上有一个专门用于hexo的emoji表情插件：<a target="_blank" rel="noopener" href="https://github.com/crimx/hexo-filter-github-emojis">hexo-filter-github-emojis</a>
 。首先安装此插件：</p>
@@ -549,7 +502,7 @@ Awesome</a> 提供的图标，更改字符即可变换为自己喜欢的图标�
 ：</p>
 <figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-comment"># Define custom file paths.</span><br><span class="hljs-comment"># Create your custom files in site directory `source/_data` and uncomment needed files below.</span><br><span class="hljs-attr">custom_file_path:</span><br>  <span class="hljs-attr">postBodyEnd:</span> <span class="hljs-string">source/_data/post-body-end.swig</span><br></code></pre></td></tr></tbody></table></figure>
 <p>最终效果如下：</p>
-<p><img src="https://s3.ax1x.com/2021/01/19/s2DzVK.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/end.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="添加站点运行时间">4.5 添加站点运行时间</h2>
 <p>在<code>_data</code>
 文件夹（<code>blog\source\_data</code>）下创建一个<code>footer.swig</code>文件，在该文件中添加以下代码：</p>
@@ -562,7 +515,7 @@ Awesome</a> 提供的图标，更改字符即可变换为自己喜欢的图标�
 <p>最后在<strong>主题配置文件</strong>中启用<code>footer.swig</code>文件：</p>
 <figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-comment"># Define custom file paths.</span><br><span class="hljs-comment"># Create your custom files in site directory `source/_data` and uncomment needed files below.</span><br><span class="hljs-attr">custom_file_path:</span><br>  <span class="hljs-attr">footer:</span> <span class="hljs-string">source/_data/footer.swig</span><br></code></pre></td></tr></tbody></table></figure>
 <p>最终效果图：</p>
-<p><img src="https://s3.ax1x.com/2021/01/19/s2gjrd.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/runtime.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="添加二次元看板娘">4.6 添加二次元看板娘</h2>
 <p>该功能由 <a target="_blank" rel="noopener" href="https://github.com/EYHN/hexo-helper-live2d">hexo-helper-live2d</a>
 插件支持，该插件提供多个 <a target="_blank" rel="noopener" href="https://huaji8.top/post/live2d-plugin-2.0/">模型</a>
@@ -597,7 +550,7 @@ Fonts 已支持思源宋体！</a></li>
 <p>首先在 <a target="_blank" rel="noopener" href="https://fonts.google.com/">Google Fonts</a> 上找到
 Noto Serif SC
 ，进入字体页面后选择样式，然后复制网页右侧<code>link</code>中的内容。</p>
-<p><img src="https://s3.ax1x.com/2021/01/22/s5EWSe.md.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/font.png" srcset="/img/loading.gif" lazyload></p>
 <p>在<code>~blog\source\_data</code>文件夹下新建一个<code>head.swig</code>文件，把复制的<code>link</code>内容粘贴其中并保存。在<strong>站点配置文件</strong>
 中启用此文件：</p>
 <figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">custom_file_path:</span><br>  <span class="hljs-attr">head:</span> <span class="hljs-string">source/_data/head.swig</span><br></code></pre></td></tr></tbody></table></figure>
@@ -619,7 +572,7 @@ NexT 主题已经内置了置顶样式，只需要安装一下 <a target="_blank
 0）。数字越大，文章越靠前。</p>
 <figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">title:</span> <span class="hljs-string">Hexo博客之主题美化</span><br><span class="hljs-string">……</span><br><span class="hljs-attr">sticky:</span> <span class="hljs-number">10</span><br></code></pre></td></tr></tbody></table></figure>
 <p>这个方法虽然简单，但效果却有点简陋，简单粗暴的在标题前添加了一个与标题文字很不协调的符号。</p>
-<p><img src="https://s3.ax1x.com/2021/01/24/sbvh4O.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/sticky.png" srcset="/img/loading.gif" lazyload></p>
 <p>下面对其进行美化，把置顶符移到文章元数据一栏。打开<code>post.swig</code>
 文件，定位到<code>{%- if post.sticky &gt; 0 %}</code>
 字段，把以下命令行直接删除（一共有两处）：</p>
@@ -629,7 +582,7 @@ NexT 主题已经内置了置顶样式，只需要安装一下 <a target="_blank
 <p>因为NexT内置样式对置顶符号添加了30度的角度旋转，因此还需要把角度改一下：</p>
 <figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-comment">// 文件路径：blog/themes/next/source/CSS/_common/post/post.styl</span><br><br><span class="hljs-selector-class">.post-sticky-flag</span> {<br>  <span class="hljs-attribute">display</span>: inline-block;<br>  <span class="hljs-attribute">transform</span>: rotate(<span class="hljs-number">0deg</span>);   <span class="hljs-comment">//原角度为30deg</span><br>}<br></code></pre></td></tr></tbody></table></figure>
 <p>最终效果如下：</p>
-<p><img src="https://s3.ax1x.com/2021/01/25/sqWC1U.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/sticky2.png" srcset="/img/loading.gif" lazyload></p>
 <p>此外，hexo-generator-indexed
 插件还具有隐藏文章、隐藏特定分类文章的功能，具体可参考其github页面。</p>
 <h2 id="更换back-to-top按钮">4.10 更换back-to-top按钮</h2>
@@ -658,27 +611,32 @@ NexT 主题已经内置了置顶样式，只需要安装一下 <a target="_blank
 中启用<code>styles.styl</code>文件：</p>
 <figure class="highlight yml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">custom_file_path:</span><br>  <span class="hljs-attr">variable:</span> <span class="hljs-string">source/_data/variables.styl</span><br></code></pre></td></tr></tbody></table></figure>
 <p>最终效果对比：</p>
-<p><img src="https://s3.ax1x.com/2021/01/28/yCCOud.md.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/radius.png" srcset="/img/loading.gif" lazyload></p>
 <h1 id="参考资料-books">参考资料 <span class="github-emoji"><span>📚</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4da.png?v8" srcset="/img/loading.gif" lazyload aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></h1>
-<p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo官方文档</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/896043488029600">廖雪峰的官方网站-Git教程</a></p>
-<p><a target="_blank" rel="noopener" href="http://linux.vbird.org/">鸟哥的Linux私房菜</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26625249">GitHub+Hexo
-搭建个人网站详细教程</a></p>
-<p><a target="_blank" rel="noopener" href="https://juejin.im/post/5d54f29af265da03cc08b45a">从零搭建Hexo博客并部署阿里云服务器</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41154636/article/details/99685965?ops_request_misc=%7B%22request%5Fid%22%3A%22158264129319724835830278%22%2C%22scm%22%3A%2220140713.130056874..%22%7D&amp;request_id=158264129319724835830278&amp;biz_id=0&amp;utm_source=distribute.pc_search_result.none-task">Hexo部署云服务器的全过程</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/0f9dfa9c141b">阿里云Centos7+Nginx部署Hexo静态博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yb411a7ty">手把手教你从0开始搭建自己的个人博客
-|无坑版视频教程| hexo</a></p>
-<p><a target="_blank" rel="noopener" href="http://theme-next.iissnan.com/">NexT官方教程</a></p>
-<p><a target="_blank" rel="noopener" href="http://yearito.cn/tags/Hexo/">Hexo 搭建个人博客系列</a></p>
-<p><a target="_blank" rel="noopener" href="https://houmin.cc/posts/a63a603e/">Hexo NexT深度定制</a></p>
-<p><a target="_blank" rel="noopener" href="https://io-oi.me/tech/hexo-next-optimization/">打造个性超赞博客
-Hexo + NexT + GitHub Pages 的超深度优化</a></p>
-<p><a target="_blank" rel="noopener" href="https://bestzuo.cn/tags/hexo.html">Sanarous's Blog</a></p>
-<p><a target="_blank" rel="noopener" href="https://co5.me/">少女癌的博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.antmoe.com/tags/Hexo/">小康博客</a></p>
-<p><a target="_blank" rel="noopener" href="http://shenzekun.cn/tags/hexo/">hexo的next主题个性化教程:打造炫酷网站</a></p>
+<ol type="1">
+<li><p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo官方文档</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/896043488029600">廖雪峰的官方网站-Git教程</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="http://linux.vbird.org/">鸟哥的Linux私房菜</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26625249">GitHub+Hexo
+搭建个人网站详细教程</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://juejin.im/post/5d54f29af265da03cc08b45a">从零搭建Hexo博客并部署阿里云服务器</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41154636/article/details/99685965?ops_request_misc=%7B%22request%5Fid%22%3A%22158264129319724835830278%22%2C%22scm%22%3A%2220140713.130056874..%22%7D&amp;request_id=158264129319724835830278&amp;biz_id=0&amp;utm_source=distribute.pc_search_result.none-task">Hexo部署云服务器的全过程</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/0f9dfa9c141b">阿里云Centos7+Nginx部署Hexo静态博客</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yb411a7ty">手把手教你从0开始搭建自己的个人博客
+|无坑版视频教程| hexo</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="http://theme-next.iissnan.com/">NexT官方教程</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="http://yearito.cn/tags/Hexo/">Hexo
+搭建个人博客系列</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://houmin.cc/posts/a63a603e/">Hexo
+NexT深度定制</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://io-oi.me/tech/hexo-next-optimization/">打造个性超赞博客
+Hexo + NexT + GitHub Pages 的超深度优化</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://bestzuo.cn/tags/hexo.html">Sanarous's
+Blog</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://co5.me/">少女癌的博客</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://www.antmoe.com/tags/Hexo/">小康博客</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="http://shenzekun.cn/tags/hexo/">hexo的next主题个性化教程:打造炫酷网站</a></p></li>
+</ol>
 
               
             </div>

@@ -20,24 +20,22 @@
   
     <meta name="description" content="记录使用 Github + PicGo 软件免费搭建图床的过程。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GitHub + PicGo 搭建图床.md">
+<meta property="og:title" content="GitHub + PicGo 搭建图床">
 <meta property="og:url" content="http://chihchao.cn/posts/e46fe834/index.html">
 <meta property="og:site_name" content="理乐志">
 <meta property="og:description" content="记录使用 Github + PicGo 软件免费搭建图床的过程。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/token.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/token2.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/picgo.png">
+<meta property="og:image" content="http://chihchao.cn/img/GithubPicgo.png">
 <meta property="article:published_time" content="2022-05-28T02:52:02.000Z">
 <meta property="article:modified_time" content="2022-05-28T02:52:02.000Z">
 <meta property="article:author" content="chihchao">
 <meta property="article:tag" content="Github">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/token.png">
+<meta name="twitter:image" content="http://chihchao.cn/img/GithubPicgo.png">
   
   
   
-  <title>GitHub + PicGo 搭建图床.md - 理乐志</title>
+  <title>GitHub + PicGo 搭建图床 - 理乐志</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -195,7 +193,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">GitHub + PicGo 搭建图床.md</span>
+            <span id="subtitle">GitHub + PicGo 搭建图床</span>
           
         </div>
 
@@ -256,7 +254,7 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">GitHub + PicGo 搭建图床.md</h1>
+            <h1 style="display: none">GitHub + PicGo 搭建图床</h1>
             
             <div class="markdown-body">
               
@@ -272,16 +270,15 @@ Github 了，毕竟全球最大的托管平台。</p>
 GitHub 的 "settings" -&gt; "Developer settings" -&gt; "Personal access
 tokens"，点击 "Generate new token" 创建一个新的令牌。<br>
 <img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/token.png" srcset="/img/loading.gif" lazyload></p>
-<p>创建令牌时，有两个需要注意的地方。一是有效期
-"Expiration"，我选择了时间较长的 90 天，也可以选择无期限 "No
-expiration"，不过 GitHub 会弹出安全提示。二是 "Select scopes"
-中，网上有些教程说要全部勾选，也有的说只勾选了 "repo" 即可。我只勾选了
-"repo"
-发现也可以正常使用。生成令牌后注意<strong>一定要先复制保存</strong>，因为这个令牌只会出现一次！</p>
+<p>创建令牌时，有效期 "Expiration"
+自行选择，到期后再就行，也可以选择无期限 "No expiration"，不过 GitHub
+会弹出安全提示。"Select scopes" 中，只勾选 "repo"
+即可。生成令牌后注意<strong>一定要复制保存</strong>，因为这个令牌只会出现一次！</p>
 <p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/token2.png" srcset="/img/loading.gif" lazyload></p>
-<p>电脑上下载并安装最新稳定版本的 <a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo">PicGo</a>。在软件中配置
-Github 图床，仓库名格式：username/reponame，分支为
-"main"，再把上一步生成的令牌粘贴在 Token 中就大功告成了。</p>
+<p>电脑上下载并安装最新稳定版本的 <a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo">PicGo</a>。<a target="_blank" rel="noopener" href="https://picgo.github.io/PicGo-Doc/">PicGo用户手册</a>有详细的使用说明。在软件中配置
+Github 图床，仓库名格式：username/repo，分支为
+"main"，再把上一步生成的令牌粘贴在 Token
+中就大功告成了。存储路径不过不填的话，图片会传到仓库的根目录下。为了方便管理，我会根据文章的分类，分别建立相应类别的子目录，这样就可以对图片分类管理了。</p>
 <p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/picgo.png" srcset="/img/loading.gif" lazyload></p>
 
               
