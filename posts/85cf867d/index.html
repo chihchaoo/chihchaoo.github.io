@@ -260,44 +260,43 @@
               
               <p>总结一下单颗粒气溶胶质谱仪的工作原理及系统构造。</p>
 <span id="more"></span>
-<h1 id="spams系统组成及工作原理">SPAMS系统组成及工作原理</h1>
 <p>单颗粒气溶胶质谱仪以ATOFM和SPAMS为代表，两者原理大体相通。SPAMS为国产化仪器，下面围绕SPAMS进行介绍。</p>
 <p>SPAMS由进样系统、粒径检测系统、汽化离子化系统、质量分析检测系统四个部分组成，此外，还有真空系统和计算机控制及数据处理系统。此外，还有真空系统和计算机控制及数据处理系统。SPAMS结构示意图和实体图如图1所示。</p>
 <p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/MS/SPAMS.jpg" srcset="/img/loading.gif" lazyload></p>
 <center>
 图1 （a）SPAMS结构示意图；（b）SPAMS实体照片
 </center>
-<h2 id="进样系统">进样系统</h2>
+<h1 id="进样系统">进样系统</h1>
 <p>进样系统的主要作用有三个：将样品引进仪器；实现不同粒径粒子的速度分级；排除空气的干扰。</p>
 <p>SPAMS采用空气动力学透镜（Aerodynamic
 Lens）组成进样系统。空气动力学透镜是由一系列不同内径和厚度的圆孔（透镜孔）组成，在气溶胶质谱仪中这些透镜孔以相距一定、内径逐渐减小的顺序依次排列，透镜中压力逐渐递减，气体和颗粒物经过透镜的速率逐渐增加。气体在经过每一个孔时形成压缩-扩张的流场，而颗粒物会从气体流场中偏离，其偏离程度取决于斯托克斯参数(St)。St等于零，颗粒物跟随流场流线；St大于零，颗粒物将偏离流线；若St约等于1，则颗粒物接近中心线。经过一系列空隙，颗粒物越来越靠近中心线，最终在出口处形成高质量的准直颗粒束。</p>
 <p>目前尚没有一种进样装置能够实现对所有粒径段粒子的百分百进样，空气动力学透镜进样也不例外。在空气动力学进样系统的流场中，粒径较小的粒子会出现径向偏移现象，粒径较大的粒子受准直装置和真空系统的共同作用会在出口处出现交叉粒子束。经计算和实验证明，空气动力学透镜对0.2~2.0
 μm范围内颗粒物的传输效率最高。</p>
-<h2 id="粒径检测系统">粒径检测系统</h2>
+<h1 id="粒径检测系统">粒径检测系统</h1>
 <p>粒径分析系统依据颗粒物空气动力学和光散射特性，采用飞行时间测量原理和高速电子学信号处理与存储技术，实现大气气溶胶颗粒物的空气动力学粒径及数浓度分布的连续、实时、在线测量。</p>
 <p>经过进样系统后，颗粒物带有一定的速度。不同粒径的颗粒物所获得的速度不同，因此其飞过固定距离的两束激光（532nm）所用的时间也不同，根据时间和粒径的标准曲线，就可以得到颗粒物的粒径。在SPAMS中，采用两束Nd:YAG激光相距6cm排列的方式，两束激光分别连接两个光电倍增管。颗粒物对激光的散射信号被相应的光电倍增管检测到后分别计时并得出其飞行时间。在仪器开始测量之前，使用一系列已知粒径的标准聚苯乙烯胶乳(PolyStyrene-Latex,
 PSL)小球标定，从而得出粒径和飞行时间的标准曲线，根据此标准曲线即可得知待测颗粒物的粒径。</p>
-<h2 id="汽化离子化系统">汽化离子化系统</h2>
-<p>汽化离子化系统的目的是将颗粒物转变为离子。有两种实现方式，一是粒子的汽化和离子化同时进行，如激光解析电离；二是先将粒子汽化，再对其离子化。汽化技术有红外激光、热解析等；离子化技术有化学电离、紫外光电离、电子碰撞电离和表面电离等。根据具体样品分析需要选择适当的汽化离子化方式，主要遵循以下原则：
--
-单颗粒分析主要采用激光解析电离，气溶胶总体分析采用先汽化再离子化的方式；
--
-不耐热的气溶胶颗粒物采用热解析汽化，耐热气溶胶颗粒则需选择其他方式如红外激光解析；
-- 化学电离的方式更有利于定量分析； -
-有时需要对化合物进行结构分析则需要更多的离子碎片峰，此时不适宜采用化学电离，而更适宜采用电子碰撞电离技术。</p>
+<h1 id="汽化离子化系统">汽化离子化系统</h1>
+<p>汽化离子化系统的目的是将颗粒物转变为离子。有两种实现方式，一是粒子的汽化和离子化同时进行，如激光解析电离；二是先将粒子汽化，再对其离子化。汽化技术有红外激光、热解析等；离子化技术有化学电离、紫外光电离、电子碰撞电离和表面电离等。根据具体样品分析需要选择适当的汽化离子化方式，主要遵循以下原则：</p>
+<ul>
+<li>单颗粒分析主要采用激光解析电离，气溶胶总体分析采用先汽化再离子化的方式；</li>
+<li>不耐热的气溶胶颗粒物采用热解析汽化，耐热气溶胶颗粒则需选择其他方式如红外激光解析；</li>
+<li>化学电离的方式更有利于定量分析；</li>
+<li>有时需要对化合物进行结构分析则需要更多的离子碎片峰，此时不适宜采用化学电离，而更适宜采用电子碰撞电离技术。</li>
+</ul>
 <p>SPAMS的汽化离子化系统采用激光解析电离技术（laser desorption
 ionlization，LDI），具体使用Nd:YAG紫外脉冲激光（266nm，0.5mJ/次）。该技术最大的优点在于能够对几乎所有种类的化学组分进行电离，特别是对盐类和金属类颗粒物的电离效率非常高（<a target="_blank" rel="noopener" href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CDFD&amp;dbname=CDFDLAST2015&amp;filename=1014418857.nh&amp;v=MzA2NDdmWk9adUZ5emxVN3JCVkYyNkdyZTVGdG5KcUpFYlBJUjhlWDFMdXhZUzdEaDFUM3FUcldNMUZyQ1VSN3E=">李磊，2014</a>）。</p>
-<h2 id="质量分析检测系统">质量分析检测系统</h2>
+<h1 id="质量分析检测系统">质量分析检测系统</h1>
 <p>常用的有质量分析检测系统离子飞行时间质谱仪、四极杆和离子阱。不同质谱仪有各自的优缺点，需要根据检测目的合理选择。SPAMS采用飞行时间质谱仪，其原理为：离子经加速电压加速后进入一个长度一定的无场空间，加速飞出的离子具有相同的动能，但不同质荷比的离子到达检测器的时间：</p>
 <p><span class="math display">\[qU = \frac{1}{2}·mv^2\]</span> <span class="math display">\[t = \frac{L}{v}\]</span></p>
 <p>由上面两个公式可得出：</p>
 <p><span class="math display">\[\frac{m}{q} =
 \frac{2U}{L^2}·t^2\]</span></p>
 <p>由此可知，质荷比与时间的平方成正比，即m/z越大，飞行时间就越长。随着时间的漂移，不同质荷比的离子在无场空间中逐渐分开，先后达到离子检测区并被微通道检测板检测到，根据飞行时间即可计算得出该离子的质荷比。</p>
-<h2 id="真空系统">真空系统</h2>
+<h1 id="真空系统">真空系统</h1>
 <p>质谱仪的离子源、质量分析器及检测器都必须处于高真空状态下，若真空度较低，则会带来很多危害，如大量氧会烧坏离子源的灯丝；使图谱本底增高，干扰质谱图；引起额外的离子-分子反应，改变裂解模型，使质谱解释复杂化；干扰离子源中电子束的正常调节；用作加速离子的几千伏高压会引起放电等。</p>
 <p>要想达到高真空状态，一般采用低真空泵（如机械泵）预抽真空后，再用高效率扩散泵连续地运行以保持真空，现代的质谱仪采用分子泵可获得更高的真空度。低真空泵有两个用途，一是作为高真空泵的前级泵，提供高真空泵正常工作所需要的前级真空；二是预抽真空，为进样系统、离子源或整个仪器暴露大气后预抽真空。低真空泵一般指机械泵，高真空泵有扩散泵、涡轮分子泵等。SPAMS使用三级差动真空构造，配有一个前级泵和三个分子泵，以满足离子源、质量分析器和检测器正常工作状态下所需要的高真空要求。</p>
-<h2 id="数据处理">数据处理</h2>
+<h1 id="数据处理">数据处理</h1>
 <p>由于单颗粒气溶胶质谱仪是实时采集颗粒物，每秒都会有仪器运行状态、颗粒物粒径和正负离子质谱图信息等数据的产生，因此，往往一个观测周期结束后会积累庞大的数据量。为了能更快速、高效、合理的处理这些数据，需要借助专门的数据分析工具<a href="www.yaada.org">YAADA</a>,这是一个基于Matlab平台开发的开放式软件包。YAADA
 中主要包含了数据导入、搜寻、作图、定量分析函数，用户可以通过matlab自己修改或编写函数来扩展其应用。通过YAADA软件对采集的颗粒进行分类通常有两种方法，特征离子提取法和自适应共振理论神经网络算法（Adaptive
 Resonance Theorybased Neural Network，ART-2a）（<a target="_blank" rel="noopener" href="https://pubs.acs.org/doi/abs/10.1021/ac9809682">Song
@@ -343,7 +342,7 @@ International Journal of Mass Spectrometry, 2011, 303（2–3）:
     
       <span class="category-chain">
         
-  <a href="/categories/MS/" class="category-chain-item">MS</a>
+  <a href="/categories/%E5%A4%A7%E6%B0%94%E7%8E%AF%E5%A2%83%E7%A7%91%E5%AD%A6/" class="category-chain-item">大气环境科学</a>
   
   
 
@@ -434,41 +433,53 @@ International Journal of Mass Spectrometry, 2011, 303（2–3）:
   <footer>
     <div class="footer-inner">
   
+  
     <div class="footer-content">
        <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
     </div>
   
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      冀ICP备20003094号-2
-    </a>
-  </span>
-  
-    
-      <span>
-        <a
-          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=50010902000951"
-          rel="nofollow noopener"
-          class="beian-police"
-          target="_blank"
-        >
-          
-            <span style="visibility: hidden; width: 0">|</span>
-            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
-          
-          <span>渝公网安备50010902000951号</span>
-        </a>
-      </span>
-    
-  
-</div>
 
   
+
   
+
+  
+
+  
+    <!-- 站点运行时间 -->
+    <div class="runtime">
+    <span id="timeDate">载入天数...</span>
+    <span id="times">载入时分秒...</span>
+    <script>
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("02/25/2020 09:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){
+                  mnum = "0" + mnum;
+        }
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){
+                  snum = "0" + snum;
+        }
+        document.getElementById("timeDate").innerHTML = "理乐志已运行 " + dnum + " 天 ";  //此次自定义显示内容
+        document.getElementById("times").innerHTML = hnum + " 时 " + mnum + " 分 " + snum + " 秒";
+    }  //此次自定义显示内容
+    setInterval("createtime()",250);
+    </script>
+</div>
+  
+
 </div>
 
   </footer>

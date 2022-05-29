@@ -304,7 +304,7 @@ Jimi Lee Hooker</code></pre>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">build_person</span>(<span class="hljs-params">first_name, last_name, age=<span class="hljs-string">''</span></span>):<br>    person = {<span class="hljs-string">'first_name'</span>:first_name, <span class="hljs-string">'last_name'</span>:last_name}<br>    <span class="hljs-keyword">if</span> age:<br>        person[<span class="hljs-string">'age'</span>] = age<br>    <span class="hljs-keyword">return</span> person<br><br>musician = build_person(<span class="hljs-string">'jimi'</span>, <span class="hljs-string">'hendrix'</span>, <span class="hljs-number">18</span>)<br><span class="hljs-built_in">print</span>(musician)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">{'first_name': 'jimi', 'last_name': 'hendrix', 'age': 18}</code></pre>
 <p>把函数和while循环结合使用，可以完成更多更复杂的任务。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_formatted_name</span>(<span class="hljs-params">first_name, last_name, middle_name=<span class="hljs-string">''</span></span>):<br>    <span class="hljs-keyword">if</span> middle_name:<br>        full_name = <span class="hljs-string">' '</span>.join([first_name,middle_name,last_name])<br>    <span class="hljs-keyword">else</span>:<br>        full_name = <span class="hljs-string">' '</span>.join([first_name,last_name])<br>    <span class="hljs-keyword">return</span> full_name.title()<br><br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">'\nPlease tell me your name: '</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"(enter 'q' at anytime to quit)"</span>)<br>    <br>    first_name = <span class="hljs-built_in">input</span>(<span class="hljs-string">'First name: '</span>)<br>    <span class="hljs-keyword">if</span> first_name == <span class="hljs-string">'q'</span>:<br>        <span class="hljs-keyword">break</span><br>    <br>    middle_name = <span class="hljs-built_in">input</span>(<span class="hljs-string">"Middle name(nothing to input if you don't have): "</span>)<br>    <span class="hljs-keyword">if</span> middle_name == <span class="hljs-string">'q'</span>:<br>        <span class="hljs-keyword">break</span><br>    <br>    last_name = <span class="hljs-built_in">input</span>(<span class="hljs-string">'Last name: '</span>)<br>    <span class="hljs-keyword">if</span> last_name == <span class="hljs-string">'q'</span>:<br>        <span class="hljs-keyword">break</span><br>    <br>    formatede_name = get_formatted_name(first_name, last_name, middle_name)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f"\nHello, <span class="hljs-subst">{formatede_name}</span>!"</span>)<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_formatted_name</span>(<span class="hljs-params">first_name, last_name, middle_name=<span class="hljs-string">''</span></span>):<br>    <span class="hljs-keyword">if</span> middle_name:<br>        full_name = <span class="hljs-string">' '</span>.join([first_name,middle_name,last_name])<br>    <span class="hljs-keyword">else</span>:<br>        full_name = <span class="hljs-string">' '</span>.join([first_name,last_name])<br>    <span class="hljs-keyword">return</span> full_name.title()<br><br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">'\nPlease tell me your name: '</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"(enter 'q' at anytime to quit)"</span>)<br><br>    first_name = <span class="hljs-built_in">input</span>(<span class="hljs-string">'First name: '</span>)<br>    <span class="hljs-keyword">if</span> first_name == <span class="hljs-string">'q'</span>:<br>        <span class="hljs-keyword">break</span><br><br>    middle_name = <span class="hljs-built_in">input</span>(<span class="hljs-string">"Middle name(nothing to input if you don't have): "</span>)<br>    <span class="hljs-keyword">if</span> middle_name == <span class="hljs-string">'q'</span>:<br>        <span class="hljs-keyword">break</span><br><br>    last_name = <span class="hljs-built_in">input</span>(<span class="hljs-string">'Last name: '</span>)<br>    <span class="hljs-keyword">if</span> last_name == <span class="hljs-string">'q'</span>:<br>        <span class="hljs-keyword">break</span><br><br>    formatede_name = get_formatted_name(first_name, last_name, middle_name)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f"\nHello, <span class="hljs-subst">{formatede_name}</span>!"</span>)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">Please tell me your name: 
 (enter 'q' at anytime to quit)
 
@@ -330,7 +330,7 @@ Hello, John Lee Hooker!</p>
 First name:  q</code></pre>
 <h2 id="传递列表">1.3 传递列表</h2>
 <p>将列表传递给函数后，函数就可对访问、修改列表。在函数中对列表所做的任何修改都是永久性的，这有助于高效的处理大量数据。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">greet_user</span>(<span class="hljs-params">names</span>):<br>    <span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> names:<br>        message = <span class="hljs-string">"Hello, "</span> + name.title() + <span class="hljs-string">'!'</span><br>        <span class="hljs-built_in">print</span>(message)<br>        <br>usernames = [<span class="hljs-string">'jack'</span>, <span class="hljs-string">'tom'</span>, <span class="hljs-string">'john'</span>]<br>greet_user(usernames)<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">greet_user</span>(<span class="hljs-params">names</span>):<br>    <span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> names:<br>        message = <span class="hljs-string">"Hello, "</span> + name.title() + <span class="hljs-string">'!'</span><br>        <span class="hljs-built_in">print</span>(message)<br><br>usernames = [<span class="hljs-string">'jack'</span>, <span class="hljs-string">'tom'</span>, <span class="hljs-string">'john'</span>]<br>greet_user(usernames)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">Hello, Jack!
 Hello, Tom!
 Hello, John!</code></pre>
@@ -345,7 +345,7 @@ The following models have been printed:
  -  robot phone
  -  iphone case</code></pre>
 <p>下面使用两个函数进行处理：</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python">unprited_designs = [<span class="hljs-string">'iphone case'</span>, <span class="hljs-string">'robot phone'</span>, <span class="hljs-string">'android phone'</span>]<br>completed_models = []<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">print_models</span>(<span class="hljs-params">unprinted_designs, completed_models</span>):<br>    <span class="hljs-keyword">while</span> unprinted_designs:<br>        current_design = unprinted_designs.pop()<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">"Printing model: "</span>, current_design)<br>        completed_models.append(current_design)<br>        <br><span class="hljs-keyword">def</span> <span class="hljs-title function_">show_completed_models</span>(<span class="hljs-params">completed_models</span>):<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"\nThe following models have been printed:"</span>)<br>    <span class="hljs-keyword">for</span> completed_model <span class="hljs-keyword">in</span> completed_models:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">' - '</span>, completed_model)<br><br><br>print_models(unprited_designs, completed_models)<br>show_completed_models(completed_models)<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python">unprited_designs = [<span class="hljs-string">'iphone case'</span>, <span class="hljs-string">'robot phone'</span>, <span class="hljs-string">'android phone'</span>]<br>completed_models = []<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">print_models</span>(<span class="hljs-params">unprinted_designs, completed_models</span>):<br>    <span class="hljs-keyword">while</span> unprinted_designs:<br>        current_design = unprinted_designs.pop()<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">"Printing model: "</span>, current_design)<br>        completed_models.append(current_design)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">show_completed_models</span>(<span class="hljs-params">completed_models</span>):<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"\nThe following models have been printed:"</span>)<br>    <span class="hljs-keyword">for</span> completed_model <span class="hljs-keyword">in</span> completed_models:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">' - '</span>, completed_model)<br><br><br>print_models(unprited_designs, completed_models)<br>show_completed_models(completed_models)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">Printing model:  android phone
 Printing model:  robot phone
 Printing model:  iphone case
@@ -467,16 +467,16 @@ None，则返回最接近输入值的整数。</p></li>
 <h2 id="类型转换">2.2 类型转换</h2>
 <h3 id="数字类型">2.2.1 数字类型</h3>
 <ul>
-<li><p><strong><code>int(x, base)</code></strong>
-返回一个使用数字或字符串 x 生成的整数对象。x 有两种类型 int 和 str。若 x
-为纯数字，则不能有 base 参数，否则报错，其作用为对入参 x 取整。若 x 为
-str，则 base 可略可有：base 存在时，视 x 为 base 类型数字，并将其转换为
-10 进制数字；若 x 不符合 base 规则，则报错，str需为整数。</p></li>
-<li><p><strong><code>float(x)</code></strong> 返回从数字或字符串 x
-生成的浮点数。</p></li>
-<li><p><strong><code>complex(real, imag)</code></strong> 返回值为 real +
+<li><strong><code>int(x, base)</code></strong> 返回一个使用数字或字符串
+x 生成的整数对象。x 有两种类型 int 和 str。若 x 为纯数字，则不能有 base
+参数，否则报错，其作用为对入参 x 取整。若 x 为 str，则 base
+可略可有：base 存在时，视 x 为 base 类型数字，并将其转换为 10
+进制数字；若 x 不符合 base 规则，则报错，str需为整数。</li>
+<li><strong><code>float(x)</code></strong> 返回从数字或字符串 x
+生成的浮点数。</li>
+<li><strong><code>complex(real, imag)</code></strong> 返回值为 real +
 imag*1j
-的复数，或将字符串或数字转换为复数。imag为可选项，则默认值为零。</p></li>
+的复数，或将字符串或数字转换为复数。imag为可选项，则默认值为零。</li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">a = <span class="hljs-built_in">int</span>(<span class="hljs-number">2.6</span>)        <span class="hljs-comment"># 取整</span><br>b = <span class="hljs-built_in">int</span>(<span class="hljs-string">'1001'</span>)     <span class="hljs-comment"># 不指定base，则把'1001'默认为10进制数字</span><br>c = <span class="hljs-built_in">int</span>(<span class="hljs-string">'1001'</span>, <span class="hljs-number">2</span>)  <span class="hljs-comment"># 指定base，表示'1001'为2进制数字</span><br>d = <span class="hljs-built_in">int</span>(<span class="hljs-string">'123'</span>, <span class="hljs-number">8</span>)   <span class="hljs-comment"># 指定base，表示'123'为8进制数字</span><br>e = <span class="hljs-built_in">int</span>(<span class="hljs-string">'0xa'</span>, <span class="hljs-number">16</span>)  <span class="hljs-comment"># 指定base，表示'0xa'为16进制数字</span><br><span class="hljs-built_in">print</span>(a, b, c, d, e)  <br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">2 1001 9 83 10</code></pre>
@@ -633,10 +633,11 @@ True，流会被强制刷新。</li>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 修改file参数让 print() 函数输出到特定文件中</span><br><br>f = <span class="hljs-built_in">open</span>(<span class="hljs-string">'print_test.txt'</span>,<span class="hljs-string">'w'</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'This is a print test.'</span>, file = f)<br>f.close()<br><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">'print_test.txt'</span>) <span class="hljs-keyword">as</span> f_obj:<br>    contents = f_obj.read()<br>    <span class="hljs-built_in">print</span>(contents)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">This is a print test.</code></pre>
 <p>​</p>
-<p>在上面的例子中: </p><figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">f = <span class="hljs-built_in">open</span>(<span class="hljs-string">'print_test.txt'</span>,<span class="hljs-string">'w'</span>)<br><span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-string">'This is a print test.'</span>, file = f)</span></span><br></code></pre></td></tr></tbody></table></figure>
-如果只执行这两行代码，运行后打开print_test.txt文件，会发现“This is a
+<p>在上面的例子中:</p>
+<figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">f = <span class="hljs-built_in">open</span>(<span class="hljs-string">'print_test.txt'</span>,<span class="hljs-string">'w'</span>)<br><span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-string">'This is a print test.'</span>, file = f)</span></span><br></code></pre></td></tr></tbody></table></figure>
+<p>如果只执行这两行代码，运行后打开print_test.txt文件，会发现“This is a
 print test.”并未被写入，文件内容为空。这是因为print()
-函数会把内容放到内存中，内存中的内容并不会及时刷新到文件中，只有f.close()后才将内容写进文件中。使用flush=True之后，会在print结束之后，立即将内存中的东西显示到文件上，清空缓存。可以把flush参数理解为刷新功能。<p></p>
+函数会把内容放到内存中，内存中的内容并不会及时刷新到文件中，只有f.close()后才将内容写进文件中。使用flush=True之后，会在print结束之后，立即将内存中的东西显示到文件上，清空缓存。可以把flush参数理解为刷新功能。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">f = <span class="hljs-built_in">open</span>(<span class="hljs-string">'print_test2.txt'</span>,<span class="hljs-string">'w'</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'This is a print test, too.'</span>, file = f, flush = <span class="hljs-literal">True</span>)<br></code></pre></td></tr></tbody></table></figure>
 <p>此时，不需要f.close()，打开文件print_test2.txt也可看到需要打印的内容。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># flush 参数的拓展应用</span><br><span class="hljs-comment"># 通过flush=True实现动态loading......效果</span><br><span class="hljs-keyword">import</span> time                                                                           <br><span class="hljs-built_in">print</span>(<span class="hljs-string">"Loading"</span>,end = <span class="hljs-string">""</span>)<br><br><span class="hljs-comment"># 在Loading同一行后面每0.2秒输出1个点号，总共6个</span><br><span class="hljs-comment"># 如果不开启flush=True，则程序运行结果则是6x0.2秒后1次性输出Loading……</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">6</span>):<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"."</span>,end = <span class="hljs-string">''</span>,flush = <span class="hljs-literal">True</span>)<br>    time.sleep(<span class="hljs-number">0.2</span>)<br></code></pre></td></tr></tbody></table></figure>
@@ -667,7 +668,7 @@ encoding:
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python">file = <span class="hljs-built_in">open</span>(<span class="hljs-string">'print_test.txt'</span>, <span class="hljs-string">'a'</span>)<br>file.write(<span class="hljs-string">'This is a write test.'</span>)<br>file.close()<br><br>file = <span class="hljs-built_in">open</span>(<span class="hljs-string">'print_test.txt'</span>)<br>lines = file.readlines()<br><span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> lines:<br>    <span class="hljs-built_in">print</span>(line.rstrip())<br>file.close()<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">This is a print test.
 This is a write test.</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 使用with打开文件，with语句执行结束后内部会自动关闭并释放文件资源。</span><br><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">'print_test.txt'</span>, <span class="hljs-string">'a'</span>) <span class="hljs-keyword">as</span> file:<br>    file.write(<span class="hljs-string">"\nThis is a 'with' test."</span>)<br>    <br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">'print_test.txt'</span>) <span class="hljs-keyword">as</span> file:<br>    <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> file.readlines():<br>        <span class="hljs-built_in">print</span>(line.rstrip())<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 使用with打开文件，with语句执行结束后内部会自动关闭并释放文件资源。</span><br><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">'print_test.txt'</span>, <span class="hljs-string">'a'</span>) <span class="hljs-keyword">as</span> file:<br>    file.write(<span class="hljs-string">"\nThis is a 'with' test."</span>)<br><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">'print_test.txt'</span>) <span class="hljs-keyword">as</span> file:<br>    <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> file.readlines():<br>        <span class="hljs-built_in">print</span>(line.rstrip())<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">This is a print test.
 This is a write test.
 This is a 'with' test.</code></pre>
@@ -686,7 +687,7 @@ This is a 'with' test.</code></pre>
 
 ceil(x, /)
     Return the ceiling of x as an Integral.
-    
+
     This is the smallest integer &gt;= x.</code></pre>
 <h2 id="其他">2.5 其他</h2>
 <ul>
@@ -890,41 +891,53 @@ I'll be 20 two years later.</code></pre>
   <footer>
     <div class="footer-inner">
   
+  
     <div class="footer-content">
        <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
     </div>
   
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      冀ICP备20003094号-2
-    </a>
-  </span>
-  
-    
-      <span>
-        <a
-          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=50010902000951"
-          rel="nofollow noopener"
-          class="beian-police"
-          target="_blank"
-        >
-          
-            <span style="visibility: hidden; width: 0">|</span>
-            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
-          
-          <span>渝公网安备50010902000951号</span>
-        </a>
-      </span>
-    
-  
-</div>
 
   
+
   
+
+  
+
+  
+    <!-- 站点运行时间 -->
+    <div class="runtime">
+    <span id="timeDate">载入天数...</span>
+    <span id="times">载入时分秒...</span>
+    <script>
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("02/25/2020 09:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){
+                  mnum = "0" + mnum;
+        }
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){
+                  snum = "0" + snum;
+        }
+        document.getElementById("timeDate").innerHTML = "理乐志已运行 " + dnum + " 天 ";  //此次自定义显示内容
+        document.getElementById("times").innerHTML = hnum + " 时 " + mnum + " 分 " + snum + " 秒";
+    }  //此次自定义显示内容
+    setInterval("createtime()",250);
+    </script>
+</div>
+  
+
 </div>
 
   </footer>

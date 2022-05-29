@@ -493,7 +493,7 @@ a\)</span></td>
 <ul>
 <li>强可变组分</li>
 </ul>
-<table>
+<table style="width:100%;">
 
 <thead>
 <tr class="header">
@@ -571,7 +571,8 @@ SiF_4 <span class="math inline">\(）和氟化氢（HF）进入大气；磷肥�
 <span class="math inline">\(g/cm^3\)</span>的球体直径。</p>
 <p><span class="math display">\[
 D_P = D_g·K·\sqrt{\frac{\rho_p}{\rho_0}}
-\]</span> 式中，<span class="math inline">\(D_g\)</span>表示几何直径；K表示形状系数，当粒子为球状时，K=1.0；<span class="math inline">\(\rho_p\)</span>表示忽略浮力效应的粒子密度；<span class="math inline">\(\rho_0\)</span>为参考密度（<span class="math inline">\(\rho_0\)</span>=1<span class="math inline">\(g/cm^3\)</span>）。</p>
+\]</span></p>
+<p>式中，<span class="math inline">\(D_g\)</span>表示几何直径；K表示形状系数，当粒子为球状时，K=1.0；<span class="math inline">\(\rho_p\)</span>表示忽略浮力效应的粒子密度；<span class="math inline">\(\rho_0\)</span>为参考密度（<span class="math inline">\(\rho_0\)</span>=1<span class="math inline">\(g/cm^3\)</span>）。</p>
 <p>空气动力学等效直径与颗粒的空气动力学行为密切相关，是采样和除尘技术中应用最多的直径表示方法，一般文献中如果没有特殊声明，用的也都是空气动力学等效直径。</p>
 <p>根据粒径大小，可以将大气气溶胶分为以下几类：</p>
 <ul>
@@ -700,41 +701,53 @@ particulates）：指空气动力学当量直径≤2.5μm的颗粒物，又叫<s
   <footer>
     <div class="footer-inner">
   
+  
     <div class="footer-content">
        <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
     </div>
   
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      冀ICP备20003094号-2
-    </a>
-  </span>
-  
-    
-      <span>
-        <a
-          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=50010902000951"
-          rel="nofollow noopener"
-          class="beian-police"
-          target="_blank"
-        >
-          
-            <span style="visibility: hidden; width: 0">|</span>
-            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
-          
-          <span>渝公网安备50010902000951号</span>
-        </a>
-      </span>
-    
-  
-</div>
 
   
+
   
+
+  
+
+  
+    <!-- 站点运行时间 -->
+    <div class="runtime">
+    <span id="timeDate">载入天数...</span>
+    <span id="times">载入时分秒...</span>
+    <script>
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("02/25/2020 09:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){
+                  mnum = "0" + mnum;
+        }
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){
+                  snum = "0" + snum;
+        }
+        document.getElementById("timeDate").innerHTML = "理乐志已运行 " + dnum + " 天 ";  //此次自定义显示内容
+        document.getElementById("times").innerHTML = hnum + " 时 " + mnum + " 分 " + snum + " 秒";
+    }  //此次自定义显示内容
+    setInterval("createtime()",250);
+    </script>
+</div>
+  
+
 </div>
 
   </footer>

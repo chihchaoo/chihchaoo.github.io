@@ -348,6 +348,20 @@ domain" 中已经填入了域名：</p>
 。如果下载压缩包的话，需要把解压后文件夹的路径添加到系统环境变量中。重启电脑，在终端输入
 <code>pandoc --version</code>，如果能正常返回 pandoc.exe
 的版本号才算安装成功。<p></p>
+<h2 id="添加站点运行时间">添加站点运行时间</h2>
+<p>在网站查到的添加运行时间的脚本都是“ejs”代码。<a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/">Fluid
+用户手册</a>中有两个方法，一是导入“自定义JS/CSS/HTML”，二是注入“ejs”代码。可惜两种方法反复实验了几次均以失败告终，最后只能老老实实用一种最笨的办法实现了。</p>
+<p>首先在 <code>/themes/fluid/layout/_partials/footer</code>
+文件夹下创建一个 <code>runtime.ejs</code> 文件，写入以下代码：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&lt;div class="runtime"&gt;<br>    &lt;span id="timeDate"&gt;载入天数...&lt;/span&gt;<br>    &lt;span id="times"&gt;载入时分秒...&lt;/span&gt;<br>    &lt;script&gt;<br>    var now = new Date();<br>    function createtime(){<br>        var grt= new Date("02/25/2020 09:00:00");//此处修改你的建站时间或者网站上线时间<br>        now.setTime(now.getTime()+250);<br>        days = (now - grt ) / 1000 / 60 / 60 / 24;<br>        dnum = Math.floor(days);<br>        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);<br>        hnum = Math.floor(hours);<br>        if(String(hnum).length ==1 ){<br>            hnum = "0" + hnum;<br>        }<br>        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);<br>        mnum = Math.floor(minutes);<br>        if(String(mnum).length ==1 ){<br>                  mnum = "0" + mnum;<br>        }<br>        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);<br>        snum = Math.round(seconds);<br>        if(String(snum).length ==1 ){<br>                  snum = "0" + snum;<br>        }<br>        document.getElementById("timeDate").innerHTML = "理乐志已运行 " + dnum + " 天 ";  //此次自定义显示内容<br>        document.getElementById("times").innerHTML = hnum + " 时 " + mnum + " 分 " + snum + " 秒";<br>    }  //此次自定义显示内容<br>    setInterval("createtime()",250);<br>    &lt;/script&gt;<br>&lt;/div&gt;<br></code></pre></td></tr></tbody></table></figure>
+<p>在 <code>/themes/fluid/layout/_partials</code> 文件夹下找到
+<code>footer.ejs</code> 文件，添加以下内容：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs ejs">&lt;div class="footer-inner"&gt;<br>  ...<br>  &lt;% if (theme.footer.runtime.enable) { %&gt;<br>    &lt;!-- 站点运行时间 --&gt;<br>    &lt;%- partial('_partials/footer/runtime.ejs') %&gt;<br>  &lt;% } %&gt;<br>&lt;/div&gt;<br></code></pre></td></tr></tbody></table></figure>
+<p>最后在主题配置文件 <code>_config.fluid.yml</code> 中的
+<code>footer</code> 参数添加：</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">footer:</span><br>  <span class="hljs-comment"># 站点运行时间</span><br>  <span class="hljs-attr">runtime:</span><br>    <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br></code></pre></td></tr></tbody></table></figure>
+<p>大功告成</p>
+<p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/runtime2.png" srcset="/img/loading.gif" lazyload></p>
 <h1 id="参考资料">参考资料</h1>
 <ol type="1">
 <li><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo 官方文档</a></li>
@@ -356,6 +370,8 @@ domain" 中已经填入了域名：</p>
 搭建个人网站详细教程</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lfri/p/12219608.html">如何让Hexo不渲染某些文件</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.likecs.com/show-30474.html">github怎么绑定自己的域名</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.erenship.com/posts/40222.html">Hexo's Fluid
+主题私人定制（持续更新）</a></li>
 </ol>
 
               
@@ -467,41 +483,53 @@ domain" 中已经填入了域名：</p>
   <footer>
     <div class="footer-inner">
   
+  
     <div class="footer-content">
        <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
     </div>
   
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      冀ICP备20003094号-2
-    </a>
-  </span>
-  
-    
-      <span>
-        <a
-          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=50010902000951"
-          rel="nofollow noopener"
-          class="beian-police"
-          target="_blank"
-        >
-          
-            <span style="visibility: hidden; width: 0">|</span>
-            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
-          
-          <span>渝公网安备50010902000951号</span>
-        </a>
-      </span>
-    
-  
-</div>
 
   
+
   
+
+  
+
+  
+    <!-- 站点运行时间 -->
+    <div class="runtime">
+    <span id="timeDate">载入天数...</span>
+    <span id="times">载入时分秒...</span>
+    <script>
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("02/25/2020 09:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){
+                  mnum = "0" + mnum;
+        }
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){
+                  snum = "0" + snum;
+        }
+        document.getElementById("timeDate").innerHTML = "理乐志已运行 " + dnum + " 天 ";  //此次自定义显示内容
+        document.getElementById("times").innerHTML = hnum + " 时 " + mnum + " 分 " + snum + " 秒";
+    }  //此次自定义显示内容
+    setInterval("createtime()",250);
+    </script>
+</div>
+  
+
 </div>
 
   </footer>
