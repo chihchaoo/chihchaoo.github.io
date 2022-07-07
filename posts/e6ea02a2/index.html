@@ -1,0 +1,918 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo-star-bg-1200.png">
+  <link rel="icon" href="/img/logo-star-bg-1200.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="chihchao">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="\(PM_{2.5}\)源解析：高时间分辨率化学组分监测数据 + 受体模型(PMF) + 空气质量模型(NAQPMS) + 足迹模型(footprint model)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文献阅读笔记：Liu-2019-ACP">
+<meta property="og:url" content="http://chihchao.cn/posts/e6ea02a2/index.html">
+<meta property="og:site_name" content="理乐志">
+<meta property="og:description" content="\(PM_{2.5}\)源解析：高时间分辨率化学组分监测数据 + 受体模型(PMF) + 空气质量模型(NAQPMS) + 足迹模型(footprint model)">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://chihchao.cn/img/notes.jpg">
+<meta property="article:published_time" content="2022-06-27T01:32:28.000Z">
+<meta property="article:modified_time" content="2022-06-27T01:32:28.000Z">
+<meta property="article:author" content="chihchao">
+<meta property="article:tag" content="APHH">
+<meta property="article:tag" content="源解析">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://chihchao.cn/img/notes.jpg">
+  
+  
+  
+  <title>文献阅读笔记：Liu-2019-ACP - 理乐志</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"chihchao.cn","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":" ","loop":false,"scope":"home"},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>理乐志</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">文献阅读笔记：Liu-2019-ACP</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        chihchao
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-06-27 09:32" pubdate>
+          2022年6月27日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">文献阅读笔记：Liu-2019-ACP</h1>
+            
+            <div class="markdown-body">
+              
+              <p><span class="math inline">\(PM_{2.5}\)</span>源解析：高时间分辨率化学组分监测数据
++ 受体模型(PMF) + 空气质量模型(NAQPMS) + 足迹模型(footprint model)</p>
+<span id="more"></span>
+<h1 id="information-for-the-paper">Information for the paper</h1>
+<p>Title: High-time-resolution source apportionment of <span class="math inline">\(PM_{2.5}\)</span> in Beijing with multiple
+models</p>
+<p>Author: Liu Yue</p>
+<p>Year: 2019</p>
+<p>Journal: Atmospheric Chemistry and Physics</p>
+<p>URL: <a target="_blank" rel="noopener" href="https://doi.org/10.5194/acp-19-6595-2019" class="uri">https://doi.org/10.5194/acp-19-6595-2019</a></p>
+<h1 id="introduction">Introduction</h1>
+<ol type="1">
+<li>Therefore, it is important to have a better understanding of the
+major source types and their contribution to <span class="math inline">\(PM_{2.5}\)</span> in order to formulate effective
+sciencebased policies and regulations.</li>
+<li>Receptor models, including the chemical mass balance model (CMB) and
+positive matrix factorization model (PMF), are the most commonly used
+methods of source apportionment in China and are implemented by
+application of mathematical methods to measurements of chemical
+composition of fine particles at receptor sites (Cooper et al., 1980;
+Gao et al., 2016; Lv et al., 2016; Zheng et al., 2005).</li>
+<li>Previous studies have indicated that <span class="math inline">\(PM_{2.5}\)</span> pollution in Beijing has been
+significantly influenced by regional transport and meteorological
+conditions (Han et al., 2015; D. Li et al., 2017; Zhao et al.,
+2013).</li>
+<li>Li et al. (2016) found that regional transport highly contributed to
+the rapid increase stage of <span class="math inline">\(PM_{2.5}\)</span>, with the transport height
+ranging from 200 to 700m above ground level with application of the
+Nested Air Quality Prediction Model System (NAQPMS).</li>
+<li>Han and Zhang (2018) used a regional air quality modeling system
+coupling with ISAM (integrated source apportionment method) and found
+that air pollutants derived from Hebei and Shandong provinces were major
+contributors to <span class="math inline">\(PM_{2.5}\)</span> in
+Beijing, with contributions up to 25% and 10 %, respectively.</li>
+<li><strong>The goal of the study</strong> is to link the contribution
+of different sources by PMF with the source regions by footprint and the
+regional transport contribution by NAQPMS. The combination of multiple
+models gives greater power to identify specific sources and source
+regions.</li>
+</ol>
+<h1 id="materials-and-methods">Materials and methods</h1>
+<h2 id="online-measurements-of-pm_2.5">Online measurements of <span class="math inline">\(PM_{2.5}\)</span></h2>
+<ol type="1">
+<li>Online <span class="math inline">\(PM_{2.5}\)</span> mass
+concentrations were continuously measured using a tapered element
+oscillating microbalance (TEOM 1405F, Thermo Fisher Scientific
+Inc.).</li>
+<li>Organic carbon (OC) and elemental carbon (EC) were simultaneously
+monitored by a semi-continuous OCEC carbon aerosol analyzer (Sunset
+Laboratory Inc.) with 1 h time resolution.</li>
+<li>An in situ Gas and Aerosol Compositions monitor (IGAC, Model S-611,
+Fortelice International Co. Ltd.), which collects both gases and
+particles simultaneously, was applied to measure water-soluble ions
+online with 1 h time resolution in this study.</li>
+<li>Twenty-three trace elements in <span class="math inline">\(PM_{2.5}\)</span> were measured by an Xact 625
+Ambient Metal Monitor (Cooper Environmental Services LLC, USA) with a 1
+h time resolution.</li>
+<li>Organic matter (OM) was calculated as OM = 1.6×OC (Turpin and Lim,
+2001).</li>
+<li>Mineral species was calculated as mineral = 1.89 Al + 2.14 Si + 1.4
+Ca + 1.43 Fe + 1.66 Mg (Zhang et al., 2003). The concentrations of Al,
+Si, Fe and Mg were calculated by the concentration of Ca and the
+composition of urban soils of Beijing: Al = 1.7 Ca, Si = 7.3 Ca, Fe =
+0.7 Ca and Mg = 0.3 Ca (An et al., 2016).</li>
+<li>“Others” were calculated by subtracting OM, EC, mineral and
+secondary inorganic aerosol (SIA, including <span class="math inline">\(SO_4^{2-}\)</span>, <span class="math inline">\(NO_3^{-}\)</span> , $NH_4^{+}) concentration from
+total <span class="math inline">\(PM_{2.5}\)</span> concentration.</li>
+</ol>
+<h2 id="positive-matrix-factorization-pmf">Positive matrix factorization
+(PMF)</h2>
+<ol type="1">
+<li>The principle and detailed information of USEPA PMF 5.0 model can be
+found in Paterson et al. (1999) and the EPA 5.0 Fundamentals and User
+Guide.</li>
+</ol>
+<h2 id="footprint-analysis-model">Footprint analysis model</h2>
+<ol type="1">
+<li>The footprint model developed by Peking University was used to
+simulate the potential source region of air pollution. The footprint is
+a transfer function in a diffusion problem linking the source and the
+measurement result at a point (receptor) (Pasquill and Smith,
+1977).</li>
+<li>The meteorological data used to drive the footprint model were
+provided by the Weather Research and Forecasting model (WRF-ARWv3.6.1)
+(http://www.wrf-model.org/), initialized using the Final Analysis (FNL)
+data from the United States National Centers for Environmental
+Prediction (NCEP).</li>
+</ol>
+<h2 id="the-nested-air-quality-prediction-model-system-naqpms">The
+Nested Air Quality Prediction Model System (NAQPMS)</h2>
+<ol type="1">
+<li>NAQPMS is a 3-D Eulerian chemical transport model with
+terrain-following coordinates, developed by the Institute of Atmospheric
+Physics, Chinese Academy of Sciences (IAP/CAS) and has been validated by
+the Ministry of Environmental Protection of China (CMEP, 2013).</li>
+<li>The MIX (http://www.meicmodel.org/dataset-mix.html) anthropogenic
+emission inventory was used (M. Li et al., 2017), with the original
+resolution of 0.25° (about 25 km at midlatitudes) and the year of
+2010.</li>
+</ol>
+<h2 id="the-combination-of-multiple-models">The combination of multiple
+models</h2>
+<ol type="1">
+<li>The footprint model was used to provide the direction of source
+regions, while the NAQPMS model was run to calculate the contribution of
+local emission and regional transport.</li>
+<li>Based on online measurements of <span class="math inline">\(PM_{2.5}\)</span> species including specific
+source tracers, the receptor model (PMF) can be used to obtain precise
+source apportionment results but with no information on regional
+transport. Therefore, the footprint and NAQPMS model were simultaneously
+conducted and combined with the PMF model to link the source type and
+contribution to <span class="math inline">\(PM_{2.5}\)</span> in Beijing
+by receptor models with different source regions.</li>
+</ol>
+<h1 id="results-and-discussion">Results and discussion</h1>
+<h2 id="mass-concentration-and-chemical-composition-of-pm_2.5">Mass
+concentration and chemical composition of <span class="math inline">\(PM_{2.5}\)</span></h2>
+<ol type="1">
+<li>Figure 1 shows that SIA and OM were the predominant <span class="math inline">\(PM_{2.5}\)</span> components in winter in Beijing,
+accounting for 57% and 24% of total <span class="math inline">\(PM_{2.5}\)</span> mass, respectively.</li>
+</ol>
+<figure>
+<img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/PaperNotes/Liu-2019-ACP-Fig1.png" srcset="/img/loading.gif" lazyload alt="Fig1">
+<figcaption aria-hidden="true">Fig1</figcaption>
+</figure>
+<ol start="2" type="1">
+<li>The OC/EC ratio is often used to indicate the contribution of
+primary emission sources and secondary organic aerosols (SOAs) (Lim and
+Turpin, 2002; Zheng et al., 2014). In this study, the OC/EC ratio ranged
+from 1.36 to 7.92 with an average ratio of 3.91±0.91, which was lower
+than that in the winter of Beijing in 2013 (5.73±2.47) (Yan et al.,
+2015).</li>
+<li>In general, the large contribution of SIA and OM, as well as the
+high OC/EC ratio, indicated the importance of secondary formation in
+winter in Beijing (Y. Sun et al., 2016), while the high concentration of
+species like <span class="math inline">\(SO_4^{2-}\)</span> and K
+suggested a significant contribution of combustion sources including
+coal combustion and biomass burning to <span class="math inline">\(PM_{2.5}\)</span>.</li>
+<li>Taken together, all these variations of source specific <span class="math inline">\(PM_{2.5}\)</span> compositions suggested a more
+significant influence of combustion sources to <span class="math inline">\(PM_{2.5}\)</span> in haze episodes and relatively
+higher contributions of dust sources in nonhaze periods.</li>
+</ol>
+<h2 id="source-apportionment-during-haze-and-nonhaze-periods">Source
+apportionment during haze and nonhaze periods</h2>
+<ol type="1">
+<li>Factor 2 was highly loaded on metal species including Mn, Fe, Cu and
+Zn, which were mostly used as indicators for industrial sources.</li>
+<li>Factor 4 was mostly loaded by EC, OC and moderately loaded by Cu and
+Zn, which were mainly emitted from lubricant additive of vehicles and
+wear of brake and tyre.</li>
+<li>In previous studies, cooking was one of the important sources of
+<span class="math inline">\(PM_{2.5}\)</span>, contributing to about 10%
+on average in East Asia (Chafe et al., 2014; Sun et al., 2013), but in
+this study, cooking sources were not identified by PMF due to the lack
+of organic tracers.</li>
+<li>During the campaign, the source contribution in Beijing ranked as
+secondary sources (44%) &gt; traffic sources (18%) &gt; coal combustion
+(16%) &gt; biomass burning (9%) &gt; industrial sources (8%) &gt; dust
+(5%).</li>
+</ol>
+<figure>
+<img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/PaperNotes/Liu-2019-ACP-Fig3.png" srcset="/img/loading.gif" lazyload alt="Fig3">
+<figcaption aria-hidden="true">Fig3</figcaption>
+</figure>
+<ol start="5" type="1">
+<li>The four pollution episodes were characterized by low wind speed
+around 2 m/s and high relative humidity (RH) compared to nonhaze
+periods.</li>
+<li>The chemical composition and sources of the four pollution episodes
+varied from each other, but relatively high contributions of secondary
+sources were observed in all episodes (32%–57%), and the contribution
+increased with <span class="math inline">\(PM_{2.5}\)</span>
+concentration (see Fig. 2).</li>
+<li>The contribution of coal combustion and industrial sources in EP1
+(14–19 November) was the most significant compared with other episodes,
+which were 22% and 17 %.</li>
+<li>The traffic source contributions in EP2 (24–27 November) and EP3
+(1–5 December) were higher than other pollution episodes, accounting for
+about 22%.</li>
+<li>Generally, secondary sources were predominant (~ 50 %) to <span class="math inline">\(PM_{2.5}\)</span> in pollution episodes, while
+traffic sources (~ 30 %) became more important in nonhaze periods.</li>
+<li>However, source contributions of <span class="math inline">\(PM_{2.5}\)</span> could vary from episode to
+episode. EP1 was more influenced by primary sources, while EP4 was
+characterized by high secondary source contributions (57 %).</li>
+</ol>
+<h2 id="evolution-of-different-types-of-haze-episodes">Evolution of
+different types of haze episodes</h2>
+<ol type="1">
+<li>It can be seen that EP1 was characterized with high local
+contributions (69%–89%) and primary source contributions to <span class="math inline">\(PM_{2.5}\)</span>.</li>
+<li>The contribution of primary sources, especially for traffic sources,
+increased when footprints were primarily located in the local area.</li>
+<li>The above results confirmed that high-time-resolution source
+apportionment result can be integrated with footprint and NAQPMS model
+to identify the rapid evolution of different episodes – EP1 was mainly
+caused by local emission from transportation and coal combustion, while
+EP4 was typical of regional transport from southwestern areas of Beijing
+with increasing contributions of secondary sources.</li>
+</ol>
+<h1 id="relationship-of-pm_2.5-sources-by-pmf-with-regional-transport-estimated-by-naqpms">Relationship
+of <span class="math inline">\(PM_{2.5}\)</span> sources by PMF with
+regional transport estimated by NAQPMS</h1>
+<ol type="1">
+<li>Receptor models which are used for source apportionment have the
+limitation that they cannot quantify the local or regional transport
+contribution.</li>
+<li>Comparing with Fig. 8 b and c, the two primary combustion sources
+showed the opposite relationship to the local contribution, indicating
+that the pollutants from biomass burning were mainly transported from
+the surrounding areas of Beijing, while those from coal combustion were
+more influenced by local emission.</li>
+<li>The results suggested that locally emitted coal combustion
+contributed significantly to <span class="math inline">\(PM_{2.5}\)</span> in Beijing in winter 2016 and
+the strict control strategies for coal combustion were essential to
+improving air quality in Beijing. In the meantime, more control of
+biomass burning and precursors of secondary sources in surrounding areas
+are also needed to mitigate air pollution in Beijing.</li>
+<li>The local footprint was predominant in winter in Beijing (N = 79)
+with the contribution of 38%, followed by northern and southern
+footprint (N = 51, 45).</li>
+<li>It can be seen that local footprint was characterized by traffic
+(23%) and coal combustion sources (25%), while the contribution of
+secondary sources (26 %) was the lowest among the four types. On the
+contrary, secondary sources were predominant in southern footprint cases
+with the contribution of 53%, while the contribution of traffic sources
+decreased to 15%.</li>
+<li>The northern footprint was characterized by the highest contribution
+of dust sources (11%), which could be influenced by dust transported
+from Inner Mongolia.</li>
+<li>Eastern footprint, which mainly covered heavy industrial areas such
+as Tangshan and Shenyang, showed higher contribution of industrial
+sources (10%) and coal combustion sources (18%).</li>
+</ol>
+<h1 id="future-prospects">Future prospects</h1>
+<ol type="1">
+<li>In previous studies based on online measurements, organic tracers
+are also not commonly used due to current technical difficulties in
+carrying out online and quantitative measurements of organic species
+with high-time resolution.</li>
+<li>However, some organic tracers are believed to be more specific for
+certain sources, such as levoglucosan for biomass burning, hopane and
+sterane for traffic sources and cholesterol for cooking sources.</li>
+<li>Therefore, future online measurements of organic species could be
+conducted, which will be very helpful in identifying sources.</li>
+<li>In the future, the integration of ambient measurements with the air
+quality model should be considered at a vertical level as well.</li>
+</ol>
+<h1 id="conclusions">Conclusions</h1>
+<ol type="1">
+<li>As the predominant sources of <span class="math inline">\(PM_{2.5}\)</span> in Beijing, secondary and
+biomass burning sources were more influenced by regional transport,
+while coal combustion sources increased with local contribution.</li>
+</ol>
+<h1 id="总结与启发">总结与启发</h1>
+<ol type="1">
+<li>SIA 和 OM 是北京冬季<span class="math inline">\(PM_{2.5}\)</span>的主要成分。高占比的 SIA 和
+OM，结合高比值的 OC/EC
+表明次生气溶胶的重要性。高浓度的钾和硫酸根离子表明燃烧源（煤炭燃烧和生物质燃烧）的贡献较大。</li>
+<li>污染期表现出低风速和高湿度的气象特征。</li>
+<li>北京城区冬季来源解析表明，二次源 (44%) &gt; 交通源 (18%) &gt; 燃煤源
+(16%) &gt; 生物质燃烧源 (9%) &gt; 工业源 (8%) &gt; 扬尘源 (5%).</li>
+<li>在不同的污染事件中，颗粒物的化学组成比例和污染源贡献比例会有所不同。但是，在所有污染事件中，次生源的贡献都相对较高，且其贡献占比随着<span class="math inline">\(PM_{2.5}\)</span>浓度的增加而增加。除了次生源，燃烧源在灰霾天的贡献较大，交通源和扬尘源在非灰霾天的贡献增加。</li>
+<li>煤炭燃烧和生物质燃烧，这两种重要的燃烧源的来源区域不同。煤炭燃烧主要来自北京本地，而生物质燃烧更可能来自周边区域。</li>
+</ol>
+<h1 id="扩展阅读">扩展阅读</h1>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://doi.org/10.1080/00022470.1980.10465157">Cooper-1980-Journal
+of the Air Pollution Control Association</a>: 受体模型介绍</li>
+<li><a target="_blank" rel="noopener" href="https://doi.org/10.1021/es980605j">Paterson-1999-EST</a>:
+PMF模型</li>
+<li><a target="_blank" rel="noopener" href="https://doi.org/10.1038/srep27151">Sun-2016-SR</a>:
+灰霾的快速形成和爆发</li>
+<li><a target="_blank" rel="noopener" href="https://www.ncbi.nlm.nih.gov/pubmed/25192243">Chafe-2014-EHP</a>:
+使用固体燃料家庭烹饪对细颗粒物和疾病的影响</li>
+</ul>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" class="category-chain-item">文献阅读</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/APHH/">#APHH</a>
+      
+        <a href="/tags/%E6%BA%90%E8%A7%A3%E6%9E%90/">#源解析</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <!-- 站点运行时间 -->
+    <div class="runtime">
+    <span id="timeDate">载入天数...</span>
+    <span id="times">载入时分秒...</span>
+    <script>
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("02/25/2020 09:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){
+                  mnum = "0" + mnum;
+        }
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){
+                  snum = "0" + snum;
+        }
+        document.getElementById("timeDate").innerHTML = "理乐志已运行 " + dnum + " 天 ";  //此次自定义显示内容
+        document.getElementById("times").innerHTML = hnum + " 时 " + mnum + " 分 " + snum + " 秒";
+    }  //此次自定义显示内容
+    setInterval("createtime()",250);
+    </script>
+</div>
+  
+
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

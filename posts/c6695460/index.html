@@ -1,0 +1,859 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo-star-bg-1200.png">
+  <link rel="icon" href="/img/logo-star-bg-1200.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="chihchao">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="正矩阵分解（PMF）解析北京城市和乡村\(PM_{2.5}\)来源。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文献阅读笔记：Srivastava-2021-ACP">
+<meta property="og:url" content="http://chihchao.cn/posts/c6695460/index.html">
+<meta property="og:site_name" content="理乐志">
+<meta property="og:description" content="正矩阵分解（PMF）解析北京城市和乡村\(PM_{2.5}\)来源。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://chihchao.cn/img/notes.jpg">
+<meta property="article:published_time" content="2022-06-24T07:57:15.000Z">
+<meta property="article:modified_time" content="2022-06-24T07:57:15.000Z">
+<meta property="article:author" content="chihchao">
+<meta property="article:tag" content="APHH">
+<meta property="article:tag" content="源解析">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://chihchao.cn/img/notes.jpg">
+  
+  
+  
+  <title>文献阅读笔记：Srivastava-2021-ACP - 理乐志</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"chihchao.cn","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":" ","loop":false,"scope":"home"},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>理乐志</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">文献阅读笔记：Srivastava-2021-ACP</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        chihchao
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-06-24 15:57" pubdate>
+          2022年6月24日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">文献阅读笔记：Srivastava-2021-ACP</h1>
+            
+            <div class="markdown-body">
+              
+              <p>正矩阵分解（PMF）解析北京城市和乡村<span class="math inline">\(PM_{2.5}\)</span>来源。</p>
+<span id="more"></span>
+<h1 id="information-for-the-paper">Information for the paper</h1>
+<p>Title: Insight into <span class="math inline">\(PM_{2.5}\)</span>
+sources by applying positive matrix factorization (PMF) at urban and
+rural sites of Beijing</p>
+<p>Author: Deepchandra Srivastava</p>
+<p>Year: 2021</p>
+<p>Journal: Atmospheric Chemistry and Physics</p>
+<p>URL: <a target="_blank" rel="noopener" href="https://doi.org/10.5194/acp-21-14703-2021" class="uri">https://doi.org/10.5194/acp-21-14703-2021</a></p>
+<h1 id="introduction">Introduction</h1>
+<ol type="1">
+<li>Receptor models are widely used for source apportionment of <span class="math inline">\(PM_{2.5}\)</span>. These methods include positive
+matrix factorization (PMF), principal component analysis (PCA), chemical
+mass balance (CMB), and UNMIX.</li>
+<li>These source apportionment studies have predominantly used OC
+(organic carbon), EC (elemental carbon), water-soluble ions, and metals
+as the input data matrix to explore the co-variances between species and
+their associated sources, but to the best of our knowledge, the use of
+organic markers in PMF has not been explored extensively in Beijing. The
+use of organic molecular markers in PMF has enhanced our understanding
+of the PM fraction as they can be source specific and could potentially
+offer a clearer link between factors and sources.</li>
+<li>In addition, one or two punches of <span class="math inline">\(PM_{2.5}\)</span> filter sample were also analysed
+offline using AMS to investigate the water-soluble OA (WSOA) mass
+spectra following the procedure explained previously (Qiu et al.,
+2019).</li>
+</ol>
+<h1 id="overview-of-pm-sources-in-beijing-based-on-the-current-source-apportionment-study">Overview
+of PM sources in Beijing based on the current source apportionment
+study</h1>
+<ol type="1">
+<li>Based on the factor profiles, we identified traffic emissions,
+biomass burning, road dust, soil dust, coal combustion, oil combustion,
+and secondary inorganics.</li>
+<li>Overall, secondary inorganics, biomass burning, and coal combustion
+sources were the main contributors to the total <span class="math inline">\(PM_{2.5}\)</span> mass during winter.</li>
+<li>Secondary inorganics, road dust, and coal combustion showed the
+highest contribution during summer at PG, while <span class="math inline">\(PM_{2.5}\)</span> particles were mainly composed
+of soil dust and secondary inorganics at IAP.</li>
+</ol>
+<figure>
+<img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/PaperNotes/PMF-Beijing.png" srcset="/img/loading.gif" lazyload alt="PMF">
+<figcaption aria-hidden="true">PMF</figcaption>
+</figure>
+<h2 id="coal-combustion">Coal combustion</h2>
+<ol type="1">
+<li>Coal combustion was identified based on it accounting for a high
+proportion of PAHs (27%–78%), especially picene (78%) as a specific
+marker of coal combustion, together with significant amounts of OC (45
+%) and EC (29 %).</li>
+<li>This factor also made a substantial contribution to n-alkanes
+(28%–58%), stearic acid (64%), and hopanes (53%–56%), as these compounds
+are also abundant in coal smoke.</li>
+<li>Due to a lack of infrastructure at the rural site PG, the residents
+still used coal for cooking and heating purposes at the time of
+sampling.</li>
+<li>Levoglucosan, a major pyrolysis product of cellulose, has been
+proposed as a molecular marker of biomass burning aerosols (Simoneit,
+1999).</li>
+<li>A study conducted in China suggested that residential coal
+combustion can also contribute significantly to levoglucosan emissions,
+based on both source testing and ambient measurements (Yan et al.,
+2018).</li>
+<li>High concentrations of this source and levoglucosan were observed at
+low wind speeds, indicating the significant role of local
+activities.</li>
+</ol>
+<h2 id="oil-combustion">Oil combustion</h2>
+<ol type="1">
+<li>V and Ni are widely used markers for oil combustion in residential,
+commercial, and industrial applications.</li>
+<li>The V/Ni ratio obtained in this study was 0.9, close to the
+previously obtained ratio for residual oil used in power plants.</li>
+<li>Results suggest this source might be attributed to residual oil
+combustion linked to industrial activities as a large number of highly
+polluting industries are still located in the Beijing
+neighbourhood.</li>
+</ol>
+<h2 id="biomass-burning">Biomass burning</h2>
+<ol type="1">
+<li>The biomass burning factor was characterized by high contributions
+to <span class="math inline">\(Cl^-\)</span> (74%), <span class="math inline">\(K^+\)</span> (27%), and levoglucosan (25%). This
+factor also made significant contributions to PAHs and followed a clear
+seasonal variation with a higher contribution in winter.</li>
+<li>It accounted for 36% and 30% of the <span class="math inline">\(PM_{2.5}\)</span> mass during the wintertime at
+IAP and PG, respectively, while the contribution during the summertime
+was extremely low.</li>
+<li>Biomass burning is an important natural source of <span class="math inline">\(NH_3\)</span> (Zhou et al., 2020) which rapidly
+reacts with <span class="math inline">\(HNO_3\)</span> to form <span class="math inline">\(NH_4NO_3\)</span> aerosols. The presence of <span class="math inline">\(NH_4NO_3\)</span> aerosols in biomass burning
+plumes has also been reported previously (Paulot et al., 2017; Zhao et
+al., 2020).</li>
+<li><span class="math inline">\(Cl^-\)</span> can be emitted from both
+coal combustion and biomass burning, especially during the cold period
+in Beijing (Sun et al., 2006).</li>
+</ol>
+<h2 id="secondary-inorganics">Secondary inorganics</h2>
+<ol type="1">
+<li>This factor showed a temporal variation, with remarkably high
+concentrations observed during the period of high RH and low ozone
+concentration in the winter.</li>
+<li>The heterogeneous reactions on pre-existing particles in the
+polluted environment under high-RH and low-ozone conditions have been
+shown to play a key role in the formation of secondary aerosols compared
+to gas-phase photochemical processes (Sun et al., 2013; Niu et al.,
+2016; Ma et al., 2017b). Therefore, aqueous-phase processes may be the
+major formation pathway for secondary inorganic aerosols in Beijing
+during the study period.</li>
+</ol>
+<h2 id="traffic-emmisions">Traffic emmisions</h2>
+<ol type="1">
+<li>The traffic emissions factor showed relatively high contributions to
+metallic elements, such as Zn (47%), Pb (57%), Mn (27%), and Fe
+(22%).</li>
+<li>Zn is a major additive to lubricant oil. Zn and Fe can also
+originate from tyre abrasion, brake linings, lubricants, and corrosion
+of vehicular parts and tailpipe emission (Pant and Harrison, 2012, 2013;
+Grigoratos and Martini, 2015; Piscitello et al., 2021).</li>
+<li>As the use of Pb additives in gasoline has been banned since 1997 in
+Beijing, the observed Pb emissions may be associated with wear
+(tyre/brake) rather than fuel combustion (Smichowski et al., 2007).</li>
+<li>We noticed that OC and EC contribution in this factor is relatively
+low, while it may be higher in traffic emissions. However, given the
+modern gasoline fleet in Beijing (Jing et al., 2016), it is not
+unexpected to observe low OC and EC contributions.</li>
+<li>Metallic elements such as Mn, Fe, and Zn were also used previously
+to indicate industrial activities.</li>
+<li>These observations suggest that indeed this factor contains traffic
+aerosols, though a significant influence of industrial emissions cannot
+be ruled out.</li>
+</ol>
+<h2 id="road-dust">Road dust</h2>
+<ol type="1">
+<li>This factor makes a major contribution to crustal species, such as
+<span class="math inline">\(Na^+\)</span>, Al, and Fe (60%, 48%, and 34%
+of species in this factor, respectively), suggesting this factor may
+represent the characteristics of a dust-related source as reported
+previously.</li>
+<li>Na is a major element of sea salt, sea spray, and marine aerosols
+(Viana et al., 2008) and has also been found to be enriched in fine
+particulates from coal combustion (Takuwa et al., 2006). However, the
+significant influence of marine activities was not expected as Beijing
+is far away from the sea.</li>
+<li>High concentrations of Zn and Pb have also been reported for
+particles emitted from asphalt pavement.</li>
+<li>In addition, the ratio of Fe/Al observed in the factor chemical
+profile was 1.26, much higher than the value observed in the earth’s
+crust (0.6), suggesting an anthropogenic origin of some Fe (Sun et al.,
+2005).</li>
+<li>These metals (Fe and Al) can also have industrial sources as already
+reported in the Beijing area.</li>
+<li>Fe is a characteristic component of iron and steel industry
+emissions (Li et al., 2019), while Al may also come from metal
+processing (Yu et al., 2013). However, disentangling the influence of
+industrial emissions would require further investigation.</li>
+</ol>
+<h2 id="soil-dust">Soil dust</h2>
+<ol type="1">
+<li>This factor mainly represents wind-blown soils and was typically
+characterized by a high contribution to crustal elements, such as Ti
+(63%), <span class="math inline">\(Ca^{2+}\)</span> (41 %), Fe (27 %),
+and Al (17 %).</li>
+<li>In addition, the contributions to Mn and Zn in the factor profile
+suggest that the given source also included resuspended road dust
+<strong>but probably to a lesser extent</strong>.</li>
+<li>In addition, other previous studies (Yu et al., 2013; Zhang et al.,
+2013) also reported a significant contribution of soil dust to <span class="math inline">\(PM_{2.5}\)</span> mass, suggesting that soil dust
+is an important contributor to PM2:5 mass in the Beijing area.</li>
+<li>It is also expected as Beijing is in a semi-arid region and there
+are sparsely vegetated surfaces both within and outside the city.</li>
+</ol>
+<h1 id="comparison-of-filter-based-pmf-results-with-other-receptor-modelling-approaches-on-the-same-dataset">Comparison
+of filter-based PMF results with other receptor modelling approaches on
+the same dataset</h1>
+<ol type="1">
+<li>This suggests that the biomass burning factor in PMF may contain
+<strong>a substantial amount of</strong> aged aerosols since carbon
+emitted during biomass burning is in some cases oxygenated and water
+soluble (Lee et al., 2008b) and is subject to rapid oxidation in the
+atmosphere.</li>
+<li>The formation of both secondary inorganic aerosol and oxygenated
+organic aerosol is dependent upon largely the same set of oxidant
+species, <strong>notably but not solely</strong> the hydroxyl and
+nitrate radicals.</li>
+<li>In both cases there are also both homogeneous and heterogeneous
+(aqueous-phase) pathways, so conditions which promote the formation of
+oxidized organic aerosol will also favour formation of secondary
+inorganic aerosol, and hence a correlation is to be expected and is
+often observed (Hu et al., 2016; Zhang et al., 2011).</li>
+<li>In addition, both oxygenated fractions were also found to be
+correlated with biomass burning aerosols. This further highlights a
+potentially important role of biomass burning activity in SOA formation
+at IAP.</li>
+<li>High Cl associated with fine aerosols in winter is a distinctive
+feature in Beijing and even around inland China, which is ascribed to
+coal combustion (Wang et al., 2008).</li>
+<li>For example, Zn, Cu, and Pb including sometimes EC were most often
+used to characterize traffic emissions among all previous studies.</li>
+<li>Thus, it is clear that these metals could belong to several sources,
+and their proper assignment to respective sources is difficult in the
+complex environment.</li>
+</ol>
+<h1 id="总结与思考">总结与思考</h1>
+<ol type="1">
+<li>作者使用有机标记物对正矩阵分解（PMF）源解析的方法进行改进</li>
+<li>离线采样的滤膜同样可以用在气溶胶质谱仪的分析中。</li>
+<li>左旋葡聚糖一般被认为是生物质燃烧的特征物，然而在中国进行的最新研究表明，居民燃煤同样会排放左旋葡聚糖。</li>
+<li>高湿度、低臭氧浓度的条件下，在已有颗粒物上发生的多相反应比气相光化学反应在次生气溶胶形成过程中扮演了更重要的角色。</li>
+</ol>
+<h1 id="扩展阅读">扩展阅读</h1>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://doi.org/10.1021/acs.est.7b05858">Yan-2018-EST</a>:
+住宅燃煤产生左旋葡聚糖</li>
+<li><a target="_blank" rel="noopener" href="https://doi.org/10.1021/es7023059">Lee-2008-EST</a>:
+老化的燃烧气溶胶</li>
+</ul>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" class="category-chain-item">文献阅读</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/APHH/">#APHH</a>
+      
+        <a href="/tags/%E6%BA%90%E8%A7%A3%E6%9E%90/">#源解析</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <!-- 站点运行时间 -->
+    <div class="runtime">
+    <span id="timeDate">载入天数...</span>
+    <span id="times">载入时分秒...</span>
+    <script>
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("02/25/2020 09:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){
+                  mnum = "0" + mnum;
+        }
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){
+                  snum = "0" + snum;
+        }
+        document.getElementById("timeDate").innerHTML = "理乐志已运行 " + dnum + " 天 ";  //此次自定义显示内容
+        document.getElementById("times").innerHTML = hnum + " 时 " + mnum + " 分 " + snum + " 秒";
+    }  //此次自定义显示内容
+    setInterval("createtime()",250);
+    </script>
+</div>
+  
+
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
