@@ -1,0 +1,878 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo-star-bg-1200.png">
+  <link rel="icon" href="/img/logo-star-bg-1200.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="chihchao">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="基于现场的方法确定 ATOFMS 仪器对铵和硝酸盐的敏感性。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文献阅读笔记：Bhave-2002-EST">
+<meta property="og:url" content="http://chihchao.cn/posts/5184c018/index.html">
+<meta property="og:site_name" content="理乐志">
+<meta property="og:description" content="基于现场的方法确定 ATOFMS 仪器对铵和硝酸盐的敏感性。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://chihchao.cn/img/notes.jpg">
+<meta property="article:published_time" content="2022-07-31T13:05:25.000Z">
+<meta property="article:modified_time" content="2022-07-31T13:05:25.000Z">
+<meta property="article:author" content="chihchao">
+<meta property="article:tag" content="SPAMS">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://chihchao.cn/img/notes.jpg">
+  
+  
+  
+  <title>文献阅读笔记：Bhave-2002-EST - 理乐志</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"chihchao.cn","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":" ","loop":false,"scope":"home"},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>理乐志</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">文献阅读笔记：Bhave-2002-EST</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        chihchao
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-07-31 21:05" pubdate>
+          2022年7月31日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">文献阅读笔记：Bhave-2002-EST</h1>
+            
+            <div class="markdown-body">
+              
+              <p>基于现场的方法确定 ATOFMS 仪器对铵和硝酸盐的敏感性。</p>
+<span id="more"></span>
+<h1 id="information-for-the-paper">Information for the paper</h1>
+<p>Title: A Field-Based Approach for Determining ATOFMS Instrument
+Sensitivities to Ammonium and Nitrate</p>
+<p>Author: Bhave, Prakash V.</p>
+<p>Year: 2002</p>
+<p>Journal: Environmental Science &amp; Technology</p>
+<p>URL: <a target="_blank" rel="noopener" href="https://doi.org/10.1021/es015823i" class="uri">https://doi.org/10.1021/es015823i</a></p>
+<h1 id="introduction">Introduction</h1>
+<ol type="1">
+<li><p>A commonly cited limitation of single-particle mass spectrometry
+instruments is that the chemical composition measurements are not
+quantitative. There are two main obstacles to quantitation. First, the
+ion signal intensities produced by laser ablation/ionization of
+nominally identical particles vary greatly from shot-to-shot, primarily
+because of inhomogeneities in the ablation/ionization laser beam.
+Second, instrument sensitivities to different aerosol-phase chemical
+species are largely unknown.</p></li>
+<li><p>In the present work, instrument sensitivity is defined as the ion
+signal intensity per unit mass of a chemical species, averaged over a
+particle ensemble.</p></li>
+<li><p>It has been reported that shot-to-shot variations in the ion
+signal intensities can be mitigated by using very high laser
+irradiances, but molecular information is lost due to fragmentation of
+polyatomic ions. For example, laser irradiances &gt; <span class="math inline">\(2 \times 10^{10} \ W cm^{-2}\)</span> have been
+shown to fragment pure ammonium sulfate particles into monatomic N, H,
+S, and O. To retain molecular information, most singleparticle mass
+spectrometry techniques use moderate laser irradiances ($ ~ 10^7 - 10^9
+&nbsp;W cm^{-2}$).</p></li>
+<li><p>Instrument sensitivities can vary dramatically from one chemical
+species to another, due to chemically specific differences in ionization
+efficiency.</p></li>
+<li><p>To date, all efforts to determine instrument sensitivities have
+been based on particles generated in laboratory environments. These
+laboratory-generated particles are typically monodisperse, spherical,
+and have nominally identical chemical compositions.</p></li>
+<li><p>Recent studies revealed that instrument sensitivities can be
+affected substantially by the size of the individual particle being
+sampled, trace impurities in the particle matrix, and relative humidity
+of the background gas.</p></li>
+<li><p>Although a field-based approach for determining instrument
+sensitivity is appealing, <strong>it is subject to three
+limitations</strong> which are not encountered in a laboratory-based
+approach. <strong>First</strong>, a field-based approach requires
+quantitative reference measurements of the chemical species of interest
+to be taken in parallel with the single-particle measurements, because
+the chemical composition of an atmospheric aerosol is unknownat the time
+of sampling. Consequently, the accuracy of instrument sensitivities
+determined from a field-based approach is limited by the precision of
+the reference measurements. <strong>Second</strong>, a field-based
+approach requires the collection of a much larger number of
+single-particle spectra than are needed for most laboratory-based
+approaches, to obtain a statistically significant number of nominally
+identical particles from the complex mixture of particle types in the
+atmosphere. <strong>Third</strong>, particle detection efficiencies of
+the single-particle instrument must be well characterized to ensure the
+success of a field-based approach.</p></li>
+</ol>
+<h1 id="experimental-method">Experimental Method</h1>
+<ol type="1">
+<li><p>Operating principles of the ATOFMS instrument stationed at
+Riverside during the IOPs are described in detail elsewhere, so only a
+brief overview is given here.</p></li>
+<li><p>The time difference between scattering pulses is also used to
+actuate the firing of a high power pulse from a Nd:YAG laser, operating
+at 266 nm wavelength and $ 2 ^7 - 4 ^8 &nbsp;W cm^{-2} $ irradiance, upon the
+particle’s arrival in the source region of a time-of- flight mass
+spectrometer.</p></li>
+</ol>
+<h2 id="atofms-data-treatment">ATOFMS Data Treatment</h2>
+<p>Before ATOFMS and impactor measurements can be compared with each
+other, the measurements which best represent ATOFMS instrument responses
+to <span class="math inline">\(NH_4^+\)</span> and <span class="math inline">\(NO_3^-\)</span> must be selected, and the ATOFMS
+data must be corrected for certain sampling biases.</p>
+<h3 id="atofms-response-functions">ATOFMS Response Functions</h3>
+<ol type="1">
+<li>To compare ATOFMS data with quantitative measurements of <span class="math inline">\(NH_4^+\)</span> and <span class="math inline">\(NO_3^-\)</span>, a measure of the ATOFMS
+instrument’s response to <span class="math inline">\(NH_4^+\)</span> and
+<span class="math inline">\(NO_3^-\)</span> must be precisely
+defined.</li>
+</ol>
+<ul>
+<li><p>Ion signals indicating the presence of <span class="math inline">\(NH_4^+\)</span> in an individual particle are
+detected most often at mass-to-charge (m/z) ratio 18, when sampling
+Riverside aerosols by ATOFMS. The ion signal at m/z 30 (<span class="math inline">\(NO^+\)</span>) is an established measure of
+aerosol nitrate at Riverside. Ion signals at other m/z ratios (e.g. m/z
+35 (<span class="math inline">\(NH_4NH_3^+\)</span>), m/z 46 (<span class="math inline">\(NO_2^+\)</span>), and m/z 108 (<span class="math inline">\(Na_2NO_3^+\)</span>)) also indicate the presence
+of <span class="math inline">\(NH_4^+\)</span> and <span class="math inline">\(NO_3^-\)</span> in atmospheric particles.</p></li>
+<li><p>In ATOFMS positive ion spectra, the presence of particulate <span class="math inline">\(H_2O\)</span> is typically indicated by a peak at
+m/z 19 (<span class="math inline">\(H_3O^+\)</span>) and therefore does
+not augment the <span class="math inline">\(NH_4^+\)</span> signal at
+m/z 18.</p></li>
+<li><p>Ion signals at m/z 18 and 30 are also detected when the
+ablation/ionization laser fragments certain nitrogen-containing organic
+compounds. However, <span class="math inline">\(NH_4NO_3\)</span>
+typically comprises the largest fraction of fine particle mass sampled
+at Riverside, so we expect the contributions of fragmented
+nitrogen-containing organic compounds to the ion signals at m/z 18 and
+30 to be negligible relative to the contributions from <span class="math inline">\(NH_4^+\)</span> and <span class="math inline">\(NO_3^-\)</span>.</p></li>
+</ul>
+<ol start="2" type="1">
+<li>Although there are several possible measures of ion signal
+intensity, absolute area and relative area are the most appropriate for
+quantification of mass spectrometry data.</li>
+</ol>
+<ul>
+<li><p>In laboratory ATOFMS studies of nominally identical particles,
+shot-to-shot variations caused the absolute areas of specific ion
+signals to vary by an average of 59%. During the same studies, relative
+areas, defined as the absolute area of the ion signal of interest
+divided by the total area of the mass spectrum, varied by an average of
+only 16%. This evidence suggests that relative areas should be used for
+quantification of ATOFMS data.</p></li>
+<li><p>However, when sampling a polydisperse multicomponent aerosol,
+such as that found in an urban atmosphere, relative area measurements
+can be affected greatly by the presence of additional chemical species
+in the particle. For example, the relative area of an ion signal at m/z
+18 produced from ablation/ionization of a pure <span class="math inline">\(NH_4NO_3\)</span> particle will likely be larger
+than the relative area at m/z 18 measured from an identical particle
+that also contains a trace amount of potassium, because potassium is
+efficiently ionized and will therefore increase the total area of the
+mass spectrum.</p></li>
+<li><p>Hence, relative area is not a stable measure of ion signal
+intensity when determining instrument sensitivities by a field-based
+approach. Instead, absolute area is selected as the measure of ion
+signal intensity in the present work.</p></li>
+</ul>
+<h1 id="results-and-discussion">Results and discussion</h1>
+<ol type="1">
+<li><p>The ratio of a data point's vertical coordinate to its horizontal
+coordinate is generally largest for particle ensembles in the 0.32-0.56
+μm <span class="math inline">\(D_a\)</span> range and smallest for
+ensembles in the 1.0-1.8 μm range, for both <span class="math inline">\(NH_4^+\)</span> and <span class="math inline">\(NO_3^-\)</span>.</p></li>
+<li><p>This suggests that the ion signal intensity produced by laser
+ablation/ionization of a unit mass of either species (<span class="math inline">\(NH_4^+\)</span> or <span class="math inline">\(NO_3^-\)</span>) decreases as particle aerodynamic
+diameter increases over the 0.32-1.8 μm range. In other words, ATOFMS
+instruments are more sensitive to <span class="math inline">\(NH_4^+\)</span> and <span class="math inline">\(NO_3^-\)</span> when sampling smaller
+particles.</p></li>
+<li><p>The increased instrument sensitivity to chemical species in
+smaller particles is presumed to be due to (1) a greater volume fraction
+of small particles being vaporized by the ablation/ionization laser
+relative to larger particles and (2) a lower probability of
+positive-negative charge recombination in the ablation plume of small
+particles relative to larger ones.</p></li>
+<li><p>Similar trends have been reported in single particle mass
+spectrometry analyses of pure, laboratory-generated <span class="math inline">\(RbNO_3\)</span>, <span class="math inline">\((NH_4)_2SO_4\)</span>, <span class="math inline">\(NaCl\)</span>, and <span class="math inline">\(KCl\)</span> particles, but this is the first such
+observation in atmospheric aerosol measurements.</p></li>
+</ol>
+<h2 id="particle-size-dependent-parametrization-of-instrument-sensitivity">Particle
+Size-Dependent Parametrization of Instrument Sensitivity</h2>
+<ol start="5" type="1">
+<li><p>A result of <span class="math inline">\(0&lt; \delta_k
+&lt;3\)</span> might suggest that small particles are completely
+vaporized, while particles at the upper end of the 0.32-1.8 μm Da range
+are only partially vaporized ... Hence, we expect best-fit values of
+<span class="math inline">\(NH_4^+\)</span> and <span class="math inline">\(NO_3^-\)</span> to fall in the intermediate range
+(<span class="math inline">\(0&lt; \delta_k &lt;3\)</span>) ... When a
+particle is partially vaporized by the ablation/ionization laser, the
+ATOFMS instrument is more likely to detect material near the particle
+surface than material in the particle core.</p></li>
+<li><p><span class="math inline">\(NH_4^+\)</span> and <span class="math inline">\(NO_3^-\)</span> are believed to have similar
+spatial distributions within the individual particle matrices studied
+here, because the origin of these two species in Riverside aerosols is
+largely attributed to the condensation of gas-phase ammonia and nitric
+acid molecules on the surface of pre-existing particles.</p></li>
+<li><p>Relative sensitivity factors (RSFs) are typically defined on a
+molar basis and are often used to correct for differences between the
+instrument sensitivities to two chemical species of interest, when
+analyzing the composition of a multicomponent sample (Gross, et.al
+2000).</p></li>
+</ol>
+<p><span class="math display">\[
+RSF \left( \frac{NH_4^+}{NO_3^-} \right) = \frac{18}{62} \cdot
+\frac{\gamma_{NH_4^+}}{\gamma_{NO_3^-}}
+\]</span></p>
+<ol start="8" type="1">
+<li>The RSF of <span class="math inline">\(NH_4^+\)</span> versus <span class="math inline">\(NO_3^-\)</span> under sampling conditions is 0.5
+and lies in the 0.4-0.7 range with 95% confidence. This implies that
+ATOFMS measurements of particles containing equimolar concentrations of
+<span class="math inline">\(NH_4^+\)</span> and <span class="math inline">\(NO_3^-\)</span> should yield larger ion signals at
+m/z 30 than at m/z 18, by a factor of approximately two.</li>
+</ol>
+<h2 id="scaled-atofms-measurements-of-nh_4-and-no_3-">Scaled ATOFMS
+Measurements of <span class="math inline">\(NH_4^+\)</span> and <span class="math inline">\(NO_3^-\)</span></h2>
+<p>These high correlation coefficients indicate that the most
+influential factor governing ATOFMS instrument sensitivities to <span class="math inline">\(NH_4^+\)</span> and <span class="math inline">\(NO_3^-\)</span> is particle aerodynamic diameter,
+under the sampling conditions encountered at Riverside.</p>
+<h1 id="conlusion">Conlusion</h1>
+<ol type="1">
+<li>The comparison reveals that ATOFMS instrument sensitivities to both
+<span class="math inline">\(NH_4^+\)</span> and <span class="math inline">\(NO_3^-\)</span> decline with increasing particle
+aerodynamic diameter over a 0.32-1.8 µm calibration range.</li>
+</ol>
+<h1 id="总结与思考">总结与思考</h1>
+<p>Volatilization of <span class="math inline">\(NH_4NO_3\)</span> from
+impaction substrates during sampling is favored at high temperatures and
+low relative humidities and has been shown to result in 7-8% losses of
+fine particulate nitrate under hot (35°C) and dry (18% relative
+humidity) conditions.</p>
+<h1 id="扩展阅读">扩展阅读</h1>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://doi.org/10.1080/027868200410859">Liu-2000-AST</a>:
+Nitrate-Containing Particles</p></li>
+<li><p><a target="_blank" rel="noopener" href="https://doi.org/10.1021/ac010022j">Fergenson-2001-AC</a>:
+Quantification of ATOFMS Data</p></li>
+<li><p><a target="_blank" rel="noopener" href="https://doi.org/10.1021/ac990434g">Gross-2000-AC</a>:
+Relative Sensitivity Factors for Alkali Metal and Ammonium Cations in
+ATOFMS</p></li>
+</ul>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" class="category-chain-item">文献阅读</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/SPAMS/">#SPAMS</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+
+  
+
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      冀ICP备20003094号-2
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=50010902000951"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+          
+          <span>渝公网安备50010902000951号</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+
+  
+
+  
+    <!-- 站点运行时间 -->
+    <div class="runtime">
+    <span id="timeDate">载入天数...</span>
+    <span id="times">载入时分秒...</span>
+    <script>
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("02/25/2020 09:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){
+                  mnum = "0" + mnum;
+        }
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){
+                  snum = "0" + snum;
+        }
+        document.getElementById("timeDate").innerHTML = "理乐志已运行 " + dnum + " 天 ";  //此次自定义显示内容
+        document.getElementById("times").innerHTML = hnum + " 时 " + mnum + " 分 " + snum + " 秒";
+    }  //此次自定义显示内容
+    setInterval("createtime()",250);
+    </script>
+</div>
+  
+
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
