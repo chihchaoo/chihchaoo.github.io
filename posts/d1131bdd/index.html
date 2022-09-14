@@ -1,0 +1,1438 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo-star-bg-1200.png">
+  <link rel="icon" href="/img/logo-star-bg-1200.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="chihchao">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="矿尘气溶胶在实际大气中老化过程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文献阅读笔记：Sullivan-2007-ACP">
+<meta property="og:url" content="http://chihchao.cn/posts/d1131bdd/index.html">
+<meta property="og:site_name" content="理乐志">
+<meta property="og:description" content="矿尘气溶胶在实际大气中老化过程">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://chihchao.cn/img/notes.jpg">
+<meta property="article:published_time" content="2022-08-25T02:19:50.000Z">
+<meta property="article:modified_time" content="2022-08-25T02:19:50.000Z">
+<meta property="article:author" content="chihchao">
+<meta property="article:tag" content="Dust">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://chihchao.cn/img/notes.jpg">
+  
+  
+  
+  <title>文献阅读笔记：Sullivan-2007-ACP - 理乐志</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"chihchao.cn","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":" ","loop":false,"scope":"home"},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>理乐志</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">文献阅读笔记：Sullivan-2007-ACP</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        chihchao
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-08-25 10:19" pubdate>
+          2022年8月25日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">文献阅读笔记：Sullivan-2007-ACP</h1>
+            
+            <div class="markdown-body">
+              
+              <p>矿尘气溶胶在实际大气中老化过程</p>
+<span id="more"></span>
+<h1 id="information-for-the-paper">Information for the paper</h1>
+<p>Title: Direct observations of the atmospheric processing of Asian
+mineral dust</p>
+<p>Author: R.C.Sullivan</p>
+<p>Year: 2007</p>
+<p>Journal: Atmos. Chem. Phys.</p>
+<p>URL: <a target="_blank" rel="noopener" href="https://acp.copernicus.org/articles/7/1213/2007/" class="uri">https://acp.copernicus.org/articles/7/1213/2007/</a></p>
+<h1 id="introduction">Introduction</h1>
+<ol type="1">
+<li><p>The Asian Pacific Regional Aerosol Characterization Experiment
+(ACE-Asia) in 2001 was designed to study the impact these spring dust
+events have on the physical, chemical and radiative properties of the
+Asian aerosol as it is transported over the mainland and the Pacific
+Ocean. ... In April 2001, a major dust storm event transported highly
+elevated levels of dust particles to the various ground, ship, and
+aircraft sampling platforms during ACE-Asia. The principal source
+regions of the dust during these events were the Taklimakan desert in
+Xinjiang Province, China and the desert regions in Mongolia, including
+the Gobi desert.</p></li>
+<li><p>Mineral dust represents the second largest component of primary
+particle emissions by mass, with an estimated global source strength of
+1000 to 3000 Mt/yr. Laboratory studies have demonstrated the uptake of
+reactive gases including <span class="math inline">\(O_3\)</span>, <span class="math inline">\(NO_x\)</span>, <span class="math inline">\(NO_y
+(e.g. HNO_3, NO_3, N_2O_5)\)</span>, <span class="math inline">\(SO_2\)</span>, and organics on dust particles.
+Dust particles present a large surface area for heterogeneous reactions
+to occur on, and alter radiative transfer and rates of photolysis. Thus
+dust influences the chemical composition of the troposphere, as
+demonstrated by numerous field and modeling studies.</p></li>
+<li><p>Mineral dust particles can become internally mixed with secondary
+species such as ammonium sulphate, ammonium nitrate, hydrochloric acid,
+sea salt, and biomass burning particles through coagulation, cloud
+processing, and heterogeneous reactions. These processes modify the
+chemical composition of the <u>dust-laden aerosol</u> and this can alter
+the radiative properties of the dust aerosol. The addition of
+water-soluble secondary species to a dust particle can affect its
+ability to act as a cloud or ice nucleus and thus influences the
+indirect climate forcing of dust.</p></li>
+<li><p>Asian mineral dust particles at their original source location
+are <u> primarily composed of </u> mixtures of quartz, clays, micas,
+feldspars, carbonates (primarily calcite, <span class="math inline">\(CaCO_3\)</span>), and other minor minerals. The
+high carbonate fraction of Chinese dust is significant and this alkaline
+mineral has been shown to react readily with acidic species such as
+<span class="math inline">\(HNO_3\)</span> to form <span class="math inline">\(Ca(NO_3)_2\)</span> and liberate <span class="math inline">\(CO_2(g)\)</span>.</p></li>
+</ol>
+<h1 id="methods-and-instrumentation">Methods and instrumentation</h1>
+<h2 id="instrumentation">Instrumentation</h2>
+<ol type="1">
+<li><p>The aerosol sampled by the ATOFMS was drawn through a 6 m sample
+mast from ~18 m above sea level. The bottom 1.5 m of the mast was heated
+to maintain the relative humidity of the aerosol at 55±5%.</p></li>
+<li><p>This velocity is converted to an aerodynamic diameter (Da) using
+a calibration curve generated with polystyrene latex spheres of discrete
+diameters.</p></li>
+<li><p>The ATOFMS employed during ACE-Asia was capable of efficiently
+detecting particles between Da 0.2 and 3.0 μm.</p></li>
+<li><p>A wide variety of mineral dust samples from Asian desert regions
+were collected in 2001. Mass spectra from each dust sample were obtained
+after the campaign by placing each dust sample into a flask in a
+sonicator to create a suspension of dust particles under nitrogen gas
+flow. The aerosol was then directed into the ATOFMS inlet for analysis
+and at least 2400 single-particle mass spectra were collected per
+sample.</p></li>
+</ol>
+<h2 id="atofms-data">ATOFMS data</h2>
+<h3 id="filtering-criteria-details">Filtering criteria details</h3>
+<ol type="1">
+<li><p>The mineral dust particles classified by the ART-2a algorithm
+were further filtered to remove incorrectly classified biomass-burning
+particles and internal mixtures of dust and sea salt.</p></li>
+<li><p>Particles produced by biomass burning typically produce intense
+<span class="math inline">\(^{39}K^+\)</span> signals, in addition to
+organic and elemental carbon fragments. The presence of large metal ion
+peaks such as <span class="math inline">\(^{39}K^+\)</span> can cause
+biomass particles to be incorrectly placed in mineral dust clusters by
+the ART-2a algorithm. To correct for this, the mineral dust particles
+sorted by ART-2a were further filtered using a peak area <span class="math inline">\(^{27}Al^+ &gt; 5000\)</span> criteria to eliminate
+incorrectly sorted biomass particles. The <span class="math inline">\(^{27}Al^+\)</span> criteria was chosen because Al
+is generally regarded as the most common single marker for mineral dust
+particles and is readily detected in mineral dust by ATOFMS. From
+previous source studies, we have determined that biomass particles do
+not produce peak areas &gt; 5000 at m/z 27 from <span class="math inline">\(^{27}[C_2H_3]^+\)</span> or other organic
+fragments.</p></li>
+<li><p>Mineral dust particles that were internally mixed with sea salt
+were queried using a peak area &gt;100 units for <span class="math inline">\(^{81}[Na_2^{35}Cl]^+\)</span> criterion. The <span class="math inline">\([Na_2Cl]^+\)</span> ion is an ideal marker for
+various particle types internally mixed with sea salt that was not
+present in the Asian dust source spectra.</p></li>
+<li><p>The final set of properly-calibrated dust particles that
+satisfied both the <span class="math inline">\(^{27}Al^+ &gt;
+5000\)</span> and <span class="math inline">\(^{81}[Na_2^{35}Cl]^+ &lt;
+100\)</span> peak area criteria is herein referred to as "filtered dust
+particles".</p></li>
+<li><p>Metals and metal oxides from minerals typical of dust particles
+are clearly evident in both the positive and negative ion spectra and
+their peak assignments are listed in Table 1, based on previous ATOFMS
+measurements.</p>
+<ul>
+<li><p>Mineral Dust (Positive): <span class="math inline">\(^{7}[Li]^+\)</span>, <span class="math inline">\(^{23}[Na]^+\)</span>, <span class="math inline">\(^{24}[Mg]^+\)</span>, <span class="math inline">\(^{27}[Al]^+\)</span>, <span class="math inline">\(^{39}[K]^+\)</span>, <span class="math inline">\(^{40}[Ca]^+\)</span>, <span class="math inline">\(^{41}[K]^+\)</span> or <span class="math inline">\(^{41}[Na(H_2O)]^+\)</span>, <span class="math inline">\(^{48}[Ti]^+\)</span>, <span class="math inline">\(^{54}[Fe]^+\)</span>, <span class="math inline">\(^{56}[Fe]^+\)</span> or <span class="math inline">\(^{56}[CaO]^+\)</span>, <span class="math inline">\(^{64}[TiO]^+\)</span>, <span class="math inline">\(^{96}[Ca_2O]^+\)</span>, <span class="math inline">\(^{112}[(CaO)_2]^+\)</span>, <span class="math inline">\(^{113}[(CaO)_2H]^+\)</span></p></li>
+<li><p>Mineral Dust (Negative): <span class="math inline">\(^{16}[O]^-\)</span>, <span class="math inline">\(^{17}[OH]^-\)</span>, <span class="math inline">\(^{26}[CN]^-\)</span>, <span class="math inline">\(^{42}[CNO]^-\)</span>, <span class="math inline">\(^{43}[AlO]^-\)</span>, <span class="math inline">\(^{60}[AlO(OH)]^-\)</span> or <span class="math inline">\([SiO_2]^-\)</span>, <span class="math inline">\(^{63}[PO_2]^-\)</span>, <span class="math inline">\(^{76}[AlO_2(OH)]^-\)</span> or <span class="math inline">\(^{76}[^{28}SiO_3]^-\)</span>, <span class="math inline">\(^{77}[^{29}SiO_3]^-\)</span> or <span class="math inline">\(^{77}[H^{28}SiO_3]^-\)</span>, <span class="math inline">\(^{79}[PO_3]^-\)</span>, <span class="math inline">\(^{88}[Si_2O_2]^-\)</span> or <span class="math inline">\(^{88}[FeO_2]\)</span></p></li>
+<li><p>Secondary species: <span class="math inline">\(^{18}[NH_4]^+\)</span>, <span class="math inline">\(^{30}[NO]^+\)</span>, <span class="math inline">\(^{32}[S]^-\)</span>, <span class="math inline">\(^{35}[Cl]^-\)</span>, <span class="math inline">\(^{37}[Cl]^-\)</span>, <span class="math inline">\(^{46}[NO_2]^-\)</span>, <span class="math inline">\(^{48}[SO]^-\)</span>, <span class="math inline">\(^{62}[NO_3]^-\)</span>, <span class="math inline">\(^{64}[SO_2]^-\)</span>, <span class="math inline">\(^{80}[SO_3]^-\)</span>, <span class="math inline">\(^{97}[HSO_4]^-\)</span></p></li>
+</ul></li>
+</ol>
+<h3 id="secondary-species">Secondary species</h3>
+<ol type="1">
+<li><p>The mass spectra contain ions corresponding to ammonium,
+chloride, nitrate, or sulphate ions referred to as "secondary species".
+... Some of these species could be present in the dust at the source as
+minerals such as halite (<span class="math inline">\(NaCl\)</span>) and
+gypsum (<span class="math inline">\(CaSO_4\)</span>).</p></li>
+<li><p>Asian dust samples from various source regions were collected
+during ACE-Asia and analyzed using an ATOFMS to create reference spectra
+of unprocessed mineral dust. ... Similarities between mineral cations
+and anions for both source and ambient dust particles, as listed in
+Table 1, are readily apparent. However, when compared to the ambient
+dust spectra, the source dust particles have much lower frequencies and
+ion intensities from the secondary species ammonium, chloride, nitrate,
+and sulphate.</p></li>
+<li><p>Typical ranges of peak areas for secondary species measured in
+the source and aged dust are given in Appendix A. Thus, the source dust
+spectra provide a benchmark for the very low background amounts of these
+secondary species in Asian dust, a threshold above which peak areas and
+detection frequencies can serve as indications of atmospheric processing
+during transport.</p>
+<ul>
+<li>Peaks with areas &lt;25 are generally considered to be in the
+noise.</li>
+<li>For the secondary inorganic species, an area &lt;500 is not
+considered large and is of the magnitude that can be measured in source
+dust spectra. This does not apply to ammonium, however, which is not
+commonly measured in the source dust with a peak area &gt;50.</li>
+<li>A peak area &gt;20 000 for secondary inorganics is a very large
+value that is never observed in the source dust and is not commonly seen
+in the ambient aged dust spectra. Thus, it reflects a very large amount
+of a secondary inorganic species, likely due to extensive aging. Peak
+areas up to and exceeding 40 000 have been observed (see Fig. 5 for
+example).</li>
+<li>The peak area of 5000, though not yet quantified, represents a
+significant amount of secondary inorganic material beyond that detected
+in any source sample.</li>
+</ul></li>
+<li><p>To estimate the fraction of mineral dust particles internally
+mixed with chloride, nitrate, or sulphate, a peak area criterion
+&gt;5000 units for either <span class="math inline">\(^{35}Cl^-\)</span>, <span class="math inline">\(^{62}[NO_3]-\)</span> or <span class="math inline">\(^{97}[HSO_4]^-\)</span> was used to define a
+mineral dust particle as significantly mixed with one of these secondary
+species. This subset will be referred to as "reacted dust particles".
+This peak area criterion was chosen because it is much larger than peak
+areas for these ions in the original Asian source dust and ensures that
+only mineral dust particles that have become significantly aged during
+transport will be selected. ... This peak area is relatively large and
+thus <u>these results represent a conservative estimate of the degree to
+which</u> mineral dust particles were processed and mixed with nitrate,
+chloride, and/or sulphate.</p></li>
+</ol>
+<h3 id="ammonium-in-dust-queries">Ammonium in dust queries</h3>
+<ol type="1">
+<li><p>To investigate if ammonium was only associated with dust
+particles which also contained nitrate, sulphate, or chloride, all
+filtered dust particles with a peak area &gt;1000 for <span class="math inline">\(^{18}[NH_4]^+\)</span> were queried, returning
+8870 particles for DOY 98–105.</p></li>
+<li><p>4208 of these were dust particles also mixed with nitrate, 1846
+were mixed with sulphate, and 1087 were mixed with chloride. Together
+dust mixed with one or more of the three acids accounted for 73% of the
+ammonium-containing dust. ... The remaining ammonium-dust particles can
+be explained by having significant signals for chloride, nitrate, and
+sulphate (i.e. peak area &gt;1000) that did not exceed the 5000 peak
+area threshold.</p></li>
+<li><p>There were no indications in the average mass spectra that the
+ammonium was present in dust particles that did not also contain
+secondary acids to some extent. This was also confirmed by peak area
+searches within this subset. ... Therefore, ammonium was only found in
+dust particles that also contained acidic species such as nitric,
+sulphuric, and, to a lesser extent, hydrochloric acids.</p></li>
+<li><p>The temporal correlations of chloride-dust and dust mixed with
+both ammonium and chloride (not shown), thus containing ammonium
+chloride, were not as significant as those for ammonium sulphate or
+ammonium nitrate. There were two time periods when ammonium
+chloride-dust was detected and these both occurred when chloride-dust
+dominated.</p></li>
+</ol>
+<h1 id="results-and-discussion">Results and discussion</h1>
+<h2 id="mineral-dust-mass-spectra">Mineral dust mass spectra</h2>
+<ol type="1">
+<li><p>A total of 731 309 single-particle mass spectra were collected
+<u>over the course of the campaign</u>. <u>Out of all of these
+particles</u>, 220 806 were classified as mineral dust upon sorting the
+particles into chemically similar groups using the ART-2a clustering
+algorithm.</p></li>
+<li><p>The average digital mass spectrum for filtered mineral dust
+particles detected during the dust storm frontal passage (DOY
+100.8–101.3) is shown in Fig. 1. The digital mass spectrum displays the
+fraction of particles that produced a peak area for each ion within a
+specified range (The height of each peak indicates the fraction of
+particles for which each ion was detected, while the colour corresponds
+to the peak area range measured for that fraction of particles). It
+reflects the range and homogeneity in the ion signal produced for a
+particular ion by an ensemble of particles.</p></li>
+</ol>
+<figure>
+<img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/PaperNotes/Sullivan-2007-ACP-Fig1MS.png" srcset="/img/loading.gif" lazyload alt="Fig1">
+<figcaption aria-hidden="true">Fig1</figcaption>
+</figure>
+<ol start="3" type="1">
+<li>The large fraction (&gt;80%) of particles containing calcium marker
+ions (m/z +40, +56, +96) agrees with the high calcium carbonate fraction
+typical of Asian mineral dust. ... Ca was determined to be mostly from
+carbonate minerals including calcite (<span class="math inline">\(CaCO_3\)</span>) and dolomite (<span class="math inline">\(CaMg(CO_3)_2\)</span>). ... The carbonate anion,
+<span class="math inline">\(CO_3^{2-}\)</span>, generally occurs in low
+abundance in the mass spectrum and <u>is obscured by the more abundant
+isobars</u> <span class="math inline">\(SiO_2^-\)</span> and <span class="math inline">\(AlO_2H^-\)</span> at m/z -60 in mineral particles.
+Thus, carbonate from calcite and dolomite cannot be directly determined
+using m/z -60. The presence of <span class="math inline">\(CaCO_3\)</span> can be reliably inferred from
+Ca-containing cations including <span class="math inline">\(^{40}[Ca]^+\)</span>, <span class="math inline">\(^{56}[CaO]^+\)</span>, <span class="math inline">\(^{96}[Ca_2O]^+\)</span>, and <span class="math inline">\(^{113}[(CaO)_2H]^+\)</span>. The <span class="math inline">\(^{56}[CaO]^+\)</span> cation is likely formed via
+<span class="math inline">\([CaCO_3]^+ \rightarrow [CaO]^+ +
+CO_2\)</span>.</li>
+</ol>
+<h2 id="detection-of-secondary-inorganic-species-in-dust-particles">Detection
+of secondary inorganic species in dust particles</h2>
+<ol type="1">
+<li><p>Nitrate, sulphate, and chloride were the most commonly observed
+anions in the mineral dust and correspond to the products expected from
+mineral dust particles that have mixed with secondary acids, as well as
+acid anhydrides including <span class="math inline">\(N_2O_5\)</span>,
+<span class="math inline">\(SO_2\)</span>, <span class="math inline">\(NO_x\)</span>, etc. Although the exact mechanism
+that leads to the accumulation of these secondary species cannot be
+determined from this study, the presence of chloride, nitrate, and
+sulphate on dust is most likely due to the formation of hydrochloric,
+nitric, and sulphuric acids on the dust. This could be the result of
+reactive gases (e.g. <span class="math inline">\(SO_2\)</span>, <span class="math inline">\(NO_2\)</span>) adsorbing on the dust and then
+being oxidised to their acidic forms, or from the direct uptake of
+acidic gases (e.g. <span class="math inline">\(HCl\)</span>, <span class="math inline">\(HNO_3\)</span>, <span class="math inline">\(H_2SO_4\)</span>) or their ammonium salts (e.g.
+<span class="math inline">\(NH_4NO_3\)</span>, <span class="math inline">\((NH_4)_2SO_4\)</span>). After the acids
+formed/adsorbed on the dust, they can be fully or partially neutralised
+by alkaline species in the dust (e.g <span class="math inline">\(CaCO_3\)</span>) or by alkaline gases (e.g. <span class="math inline">\(NH_3\)</span>).</p></li>
+<li><p>The ions formed from these secondary species by the ATOFMS cannot
+directly indicate if the species are acidic (i.e. protonated) or not.
+Therefore, we will refer to them as "secondary acid products" or simply
+"secondary acids" throughout our discussion, indicating that the
+chloride, nitrate, and sulphate found on the dust <u>were most likely
+initially due to</u> the formation/accumulation of secondary acids on
+the dust.</p></li>
+<li><p>For this analysis chloride, nitrate, and sulphate were primarily
+determined using peaks at m/z −35, −62, and −97, respectively. The peak
+at <span class="math inline">\(^{62}[NO_3]^-\)</span> is used instead of
+the <span class="math inline">\(^{46}[NO_2]^-\)</span> nitrate fragment
+because m/z -62 is not detected in the Asian dust source spectra. Thus,
+by using m/z −62 to detect nitrate in dust, we preclude any significant
+contribution from nitrate (or nitrite) that is already present in the
+dust before it is injected into the atmosphere.</p></li>
+<li><p>Peaks typical of mineral dust particles discussed above and
+listed in Table 1 are clearly evident, and <u>a large increase is
+observed in the fraction of particles producing ions indicative of
+secondary acid products including</u> m/z +30, −35, −46, −62, −80, and
+−97. These peaks were not significant in the source dust
+spectra.</p></li>
+<li><p>The peak area for a particular m/z is divided by that particle's
+peak area at m/z 27 (<span class="math inline">\(Al^+\)</span>) to
+account for shot-to-shot variations in the LDI laser power and the
+amount of laser energy absorbed by each particle. The peak area ratio is
+evaluated for each individual particle before the hourly average is
+calculated. Al was chosen as an internal standard because it is the most
+commonly detected species in mineral dust by ATOFMS and has been shown
+to remain stable as a function of particle size during atmospheric
+transport.</p></li>
+<li><p>The relative sensitivities of the ATOFMS to different compounds
+in mineral dust and other matrices have not been thoroughly evaluated.
+If, however, the particle matrix is not changing significantly, as is
+the case for the Asian mineral dust particles discussed in this paper,
+then it is valid to compare the intensity of a particular peak from one
+particle to another and draw conclusions about the relative amounts of
+that specific species present in each particle.</p></li>
+</ol>
+<h2 id="temporal-evolution-of-secondary-species-in-asian-dust">Temporal
+evolution of secondary species in Asian dust</h2>
+<ol type="1">
+<li>Changes in the relative amounts of four secondary inorganic species
+in the mineral dust particles are evaluated by averaging the peak area
+ratio for each species from all filtered dust particles detected in one
+hour, as shown in Fig. 2 for DOY 98–105, encompassing the prefrontal and
+postfrontal time periods.</li>
+</ol>
+<figure>
+<img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/PaperNotes/Fig2%26Fig3a.png" srcset="/img/loading.gif" lazyload alt="Fig2and3a">
+<figcaption aria-hidden="true">Fig2and3a</figcaption>
+</figure>
+<ol start="2" type="1">
+<li><p>From DOY 98–105, the average (<span class="math inline">\(±1
+\sigma\)</span>) fractions of dust particles mixed with nitrate,
+sulphate, or chloride were 25.9±9.6%, 17.5±8.5%, and 18.4±10.5%,
+respectively. ... Previous analyses of Asian mineral dust particles near
+their source show they typically have low concentrations of nitrate,
+sulphate and chloride. Thus, we conclude that these mineral dust
+particles accumulated secondary acids as they were transported from the
+desert regions over the polluted mainland and marine regions to the RHB,
+by either direct heterogeneous uptake, cloud processing, or coagulation
+with other secondary-containing aerosols such as ammonium
+nitrate/sulphate particles.</p></li>
+<li><p>From DOY 98 to 105, <u>a substantial, though highly variable
+fraction of</u> mineral dust was mixed with the secondary species
+chloride, nitrate, or sulphate. Just before the dust front, from DOY
+100–100.8, there were elevated levels of both sulphate and ammonium
+corresponding to the Polluted Volcano air mass. From approximately DOY
+100.8–102, the relative amount of chloride in the mineral dust increased
+dramatically, coinciding with the arrival of the dust front, while the
+amount of ammonium simultaneously decreased. The amount of nitrate and
+ammonium both increased noticeably from DOY 102–103.</p></li>
+<li><p>Dividing the peak areas of these species by a stable dust
+component, aluminium, provides further evidence for a secondary source
+of these four species. If these compounds were present in the dust
+particles at the source, we would expect their peak area ratios to
+remain constant as long as the dust source regions were not changing
+over short time periods. Clear temporal changes in the relative amounts
+of the secondary species associated with the dust are evident.</p></li>
+<li><p>A very large increase in the chloride area ratio in dust (Fig.2)
+was observed during the dust front's arrival, <u>along with an increase
+in the total chloride mass concentration by a factor of nine</u>. ...
+The availability of HCl(g) for reaction with the mineral dust was likely
+strongly influenced by the release of <span class="math inline">\(SO_2(g)\)</span> from the nearby Miyakejima
+volcano. The sea salt particles in the prefrontal air mass were highly
+aged and resulted in a depletion of 77±12% of the total chloride in the
+sea salt. Thus, there were likely elevated levels of HCl(g) in the
+marine boundary layer just prior to the dust front's arrival. This
+liberated HCl(g) then mixed with the incoming dust front as it subsided
+while there were depleted levels of <span class="math inline">\(HNO_3(g)\)</span> and <span class="math inline">\(SO_2/H_2SO_4(g)\)</span>, due to their prior
+reaction with sea salt, permitting <u>substantial</u> chloride uptake
+onto the mineral dust.</p></li>
+<li><p>Figures 2 and 3 clearly show an increase in the amount of
+chloride in dust and a simultaneous decrease in the amount of nitrate
+and sulphate in dust during the Dust Front period. Had nitrate and/or
+sulphate formed on the dust particles during the dust front, this would
+have displaced much of the chloride to the gas-phase, or prevented its
+uptake in the first place. Thus, we hypothesize that the significant
+uptake of chloride by dust during the dust front occurred due to both
+the reduced mixing ratios of <span class="math inline">\(NO_y\)</span>
+and <span class="math inline">\(SO_x\)</span>, caused by their prior
+reaction with sea salt in the prefrontal air mass, and the subsequent
+release of HCl(g) from the highly aged sea salt particles.</p></li>
+<li><p>In Fig.3b the hourly counts of dust mixed with one of the
+secondary species are plotted versus the total hourly dust counts
+measured by ATOFMS. Sulphate-dust has a very weak dependence on the
+total dust counts while nitrate-dust and chloride-dust have much
+stronger correlations over the DOY 98–105 time period. Thus, the mixing
+of dust with sulphate does not appear to be controlled by the total dust
+concentrations available, while the number of dust particles mixed with
+nitrate or chloride increases with increasing total dust
+concentrations.</p></li>
+<li><p><u>An explanation for this behaviour is that</u> sulphate becomes
+<u>preferentially</u> mixed with dust. This could be the result of dust
+reacting with <span class="math inline">\(SO_2/H_2SO_4\)</span> more
+efficiently, and/or because the dust plume encounters elevated sulphate
+precursors before encountering nitrate and chloride precursors. If dust
+mixes with sulphate first and becomes acidified then, in general,
+nitrate and chloride will only be able to become significantly mixed
+with dust if there is an abundance of additional, mostly unreacted dust
+surface area available for reaction with nitrate and chloride
+precursors. There would therefore be a dependence on total dust loadings
+for nitrate- and chloride-dust, as shown in Fig.3b. The degree to which
+the mineral dust becomes internally mixed with a particular acid is
+likely predominantly controlled by the history of the air mass.</p></li>
+</ol>
+<h2 id="mixing-state-of-secondary-acids-in-mineral-dust">Mixing state of
+secondary acids in mineral dust</h2>
+<ol type="1">
+<li>Nitrate- and sulphate-dust together accounted for 13754 particles
+from DOY 98–105, yet only 142 (1.03%) of these dust particles satisfied
+the peak area &gt;5000 criterion for both <span class="math inline">\(^{62}[NO_3]^−\)</span> and <span class="math inline">\(^{97}[HSO_4]^−\)</span>. Thus, significant amounts
+of both nitrate and sulphate did not accumulate on the same mineral dust
+particles. Similarly, <u>only 98 out of 12272 (0.80%)</u> chloride-dust
+and sulphate-dust particles satisfied the peak area criteria for both
+<span class="math inline">\(^{35}Cl^-\)</span> and <span class="math inline">\(^{97}HSO_4^-\)</span>, <u>demonstrating</u> that
+secondary chloride and sulphate were also externally mixed in the
+mineral dust. Nitrate and chloride, however, were present in the same
+mineral dust particles <u>to a large extent</u>; 14.8% of chloride-dust
+and nitrate-dust particles had peak areas &gt;5000 for both <span class="math inline">\(^{35}Cl^-\)</span> and <span class="math inline">\(^{62}[NO_3]^−\)</span>. ... Further mixing state
+statistics for prefrontal and postfrontal air masses are provided in
+Fig.4, demonstrating the very low fractions of dust particles that
+contained significant amounts of both sulphate and nitrate or chloride
+in several different air masses.</li>
+</ol>
+<figure>
+<img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/PaperNotes/Fig4.png" srcset="/img/loading.gif" lazyload alt="Fig4">
+<figcaption aria-hidden="true">Fig4</figcaption>
+</figure>
+<ol start="2" type="1">
+<li>The relative amounts of the three secondary species on all reacted
+dust particles during two time periods are shown in Fig.5. In the
+ternary plot (three major secondary acid peaks with areas &gt;5000), a
+dust particle containing primarily sulphate would appear at the top
+vertex, primarily nitrate at the right vertex, and primarily chloride at
+the left vertex. ... The majority of particles lie along the bottom
+nitrate-chloride axis, indicating a wide range of internal mixing
+between nitrate and chloride in individual dust particles. A smaller but
+still substantial group of particles is found at the top sulphate
+vertex, indicating that these dust particles contain primarily sulphate
+and relatively little nitrate or chloride. The lack of a significant
+number of particles lying along the sulphate-chloride or
+sulphate-nitrate axes, or found in the centre of the ternary plot,
+<u>further demonstrates that</u> <strong>sulphate in aged mineral dust
+particles is externally mixed from both nitrate and chloride</strong>.
+... Nitrate and sulphate are found in the same dust particle but with
+peak areas much lower than the 5000 threshold, representing less
+chemically aged dust.</li>
+</ol>
+<figure>
+<img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/PaperNotes/Fig5.png" srcset="/img/loading.gif" lazyload alt="Fig5">
+<figcaption aria-hidden="true">Fig5</figcaption>
+</figure>
+<ol start="3" type="1">
+<li><p>The colour of each point reflects that dust particle's ammonium
+absolute peak area. The largest ammonium signals were found in dust
+particles also containing nitrate or sulphate while chloride-dust
+particles had lower but still significant amounts of ammonium.</p></li>
+<li><p>The ternary plots of dust particles detected during the Polluted
+Volcano and Dust Front periods share these general features but there
+are more particles from the sulphate-only group in the Polluted Volcano
+period and more in the nitrate-chloride group during the Dust Front
+period. This agrees with the temporal changes displayed in Figs 2 and 3
+that show a larger fraction of sulphate-dust before the dust front and a
+larger nitrate-dust and chloride-dust fraction during the dust
+storm.</p></li>
+<li><p>This segregation of sulphate from nitrate and chloride is further
+demonstrated by the scatter plots in Fig.5a for the Dust Front period.
+... The scatter plots show the absolute areas for a set of two secondary
+acids for the same set of reacted dust particles used to generate the
+ternary plot. The large number of particles found along either axis in
+the sulphate-nitrate and sulphate-chloride scatter plots agrees with the
+segregation of sulphate from nitrate and chloride shown in the ternary
+plot. The large number of particles found near the centre of the
+nitrate-chloride scatter plot, however, further supports the substantial
+and variable internal mixing of these two secondary acids in the mineral
+dust. The reduced number of particles around the origin is caused by the
+peak area &gt;5000 criterion for <span class="math inline">\(^{35}Cl^−\)</span>, <span class="math inline">\(^{62}NO_3^−\)</span>, or <span class="math inline">\(^{97}HSO_4^−\)</span>.</p></li>
+</ol>
+<h2 id="uptake-of-ammonia-by-acidified-dust">Uptake of ammonia by
+acidified dust</h2>
+<ol type="1">
+<li>The presence of ammonium nitrate and/or ammonium sulphate in
+individual mineral dust particles is demonstrated in Fig.6. The large
+cluster of particles lying along the ammonium-sulphate axis on the left
+indicates the presence of ammonium sulphate in mineral dust particles,
+while the smaller cluster of particles along the bottom ammoniumnitrate
+axis represents ammonium nitrate in dust. The fact that these particles
+appear primarily along one of these two axes indicates that the ammonium
+sulphate- or ammonium nitrate-dust particles do not also contain a
+significant nitrate or sulphate signal, respectively. This is expected
+based on the external mixing of nitrate and sulphate in dust presented
+above. The much larger spread in the ammonium sulphate dust particles
+along the ammonium-sulphate axis compared to the ammonium nitrate
+cluster may be due to the variable <span class="math inline">\(NH_4:SO_4\)</span> molar ratio caused by
+partitioning between <span class="math inline">\((NH_4)_2SO_4\)</span>,
+<span class="math inline">\(NH_4HSO_4\)</span>, and <span class="math inline">\(H_2SO_4\)</span>.</li>
+</ol>
+<figure>
+<img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/PaperNotes/Fig6.png" srcset="/img/loading.gif" lazyload alt="Fig6">
+<figcaption aria-hidden="true">Fig6</figcaption>
+</figure>
+<ol start="2" type="1">
+<li><p>Since a particle should first contain some acidic species in
+order for ammonia to partition to it, we would predict that the number
+of dust particles that contained ammonium would increase when the number
+of particles containing nitrate or sulphate increased. This would also
+be true if the mixing of dust with ammonium was caused by coagulation
+with or heterogeneous nucleation by ammonium nitrate/sulphate particles.
+Figure 7 shows how the fraction of reacted dust particles that contained
+ammonium tracked the temporal changes in the fractions of dust particles
+mixed with either nitrate or sulphate. The linear correlations between
+the hourly counts of dust that contained ammonium nitrate/sulphate and
+those that were mixed with nitrate/sulphate showed excellent agreement
+with <span class="math inline">\(R^2\)</span> =0.808 and 0.814,
+respectively. This is an impressive degree of correlation considering
+that these queries were performed on all reacted dust particles,
+regardless of mineralogy, for seven days of ambient sampling which
+included several changes in the air mass source regions. The slopes of
+these correlations indicate the average fraction of nitrate-dust or
+sulphate-dust particles which also contained ammonium over this time
+period were 43% and 32%, respectively.</p></li>
+<li><p>We are not able to directly determine the degree to which
+available alkalinity in the dust has been neutralised by the secondary
+acids. However, we do find that <strong>ammonium was only in dust
+particles that also contained secondary acids</strong> in the form of
+nitrate, sulphate or, to a lesser extent, chloride. Taking the sum of
+the nitrate (m/z=−62/27) and sulphate (m/z=−97/27) hourly peak area
+ratios as a measure of the available acid in the dust and plotting this
+versus ammonium (m/z=18/27) in Fig.8 reveals a strong temporal trend
+between the amount of acid in the dust and the amount of ammonium, as
+expected. Note the strong anti-correlation of ammonium and the two other
+acids with chloride (m/z=−35/27) in the dust, particularly on DOY 101.
+However, on DOY 104 the peak area ratios for chloride, and the two acids
+all stabilize.</p></li>
+<li><p>In the troposphere, ammonium sulphate is the most stable and thus
+preferred ammonium salt, followed by ammonium nitrate. Ammonium
+chloride, while the least preferred, is also a realistic ammonium salt
+in the troposphere. Dust containing ammonium chloride was detected
+during two distinct time periods (DOY 108.88–102.38 and 103.0–105.0).
+Thus, the amount of ammonium in dust should track the amount of
+chloride, in addition to sulphate and nitrate on dust. This should be
+especially true when the stronger sulphuric and nitric acids are not
+available to neutralise ammonia first, as was the case for the Dust
+Front period. If chloride is also included in the sum of the peak area
+ratios (Fig. 8), the <span class="math inline">\(R^2\)</span> is greatly
+improved from 0.574 to 0.881. This result was found despite the strong
+anti-correlation between the peak area ratio of chloride and ammonium.
+This could reflect the fact that ammonium chloride-dust was only
+detected in two periods and at low concentrations, the first of which
+occurred when both sulphate-dust and nitrate-dust were greatly reduced.
+Thus, by including chloride, this time period of ammonium mixed with
+dust that would not be explained by sulphate or nitrate was captured.
+The overall anti-correlation of chloride and ammonium on dust may simply
+be a reflection of an anti-correlation of <span class="math inline">\(HCl(g)\)</span> and <span class="math inline">\(NH_3(g)\)</span> mixing ratios, as the two likely
+have very different sources for this area. It does not necessarily
+reflect an inefficient process for ammonia to react with dust acidified
+by <span class="math inline">\(HCl\)</span>.</p></li>
+<li><p>We have clearly demonstrated that ammonium sulphate was
+internally mixed with dust particles during ACE-Asia, particularly in
+the submicron dust (Fig.6). Thus, the assumption of externally mixed
+ammonium sulphate and dust particles during ACE-Asia at sea level should
+be re-evaluated. In the future, single particle measurements can be used
+to unambiguously determine the exact aerosol mixing state.</p></li>
+</ol>
+<h2 id="effect-of-dust-mineralogy-on-chemical-processing">Effect of dust
+mineralogy on chemical processing</h2>
+<ol type="1">
+<li><p>The role that dust particle mineralogy plays in its interactions
+with secondary acids and their precursors was investigated by comparing
+dust particles with high amounts of Ca to dust with high amounts of Al.
+These types broadly represent dust particles rich in calcite or
+aluminosilicates, respectively. This was achieved by searching within
+the filtered dust for particles with a relative peak area &gt;10% for
+either <span class="math inline">\(^{27}Al^+\)</span> or <span class="math inline">\(^{40}Ca^+\)</span>. Together these two types of
+dust account for 55.2±5.7% of the total filtered dust counts.</p></li>
+<li><p>Clear differences between these two types of dust are shown in
+the temporal changes of the hourly peak area ratios for the three major
+secondary acid reaction products in Fig.9. Most notable is a large spike
+in the sulphate area ratio at DOY 100.5 in the high-Al dust that does
+not occur in the high-Ca dust. The sulphate peak area ratio also
+increases from DOY 103.5–105 in the high-Al dust but remains mostly
+unchanged in the high-Ca dust.</p></li>
+<li><p>There are also noticeable differences in the increases in the
+chloride area ratio from DOY 101–102 for the two types of dust. The
+majority of chloride uptake during the Dust Front period, beginning on
+DOY 100.8, took place on the high-Ca dust particles, suggesting reaction
+with calcite in the dust.</p></li>
+<li><p>Figure 10 provides further evidence for this mineralogy
+dependence. The ternary plot displays the relative distribution of three
+major dust mineral components: aluminium, calcium, and iron. The <span class="math inline">\(^{54}Fe\)</span> isotope was selected for iron to
+avoid interference from <span class="math inline">\(^{56}[CaO]^+\)</span>. ... The sulphate-rich dust
+particles predominantly lie near the aluminium vertex and extend towards
+the iron vertex, indicating an association with aluminosilicate-dust
+particles and their associated enriched iron content. The nitrate-dust
+particles are mostly located towards the calcium vertex, being
+associated with calcite- and dolomite-rich dust. An analogous ternary
+plot using the chloride peak area (not shown) displays very similar
+behaviour to the nitrate ternary plot (Fig. 10b), with the largest
+chloride peak areas being found on Ca-rich dust particles, while Al-rich
+particles contain much lower chloride signals. ... These figures show
+dramatically different mixing behaviour for nitrate versus sulphate and
+are virtually complete opposites of one and other. This reflects the
+segregation of large amounts of nitrate and sulphate in dust particles.
+<strong>These results imply that sulphate is more strongly associated
+with aluminosilicate-rich dust particles while nitrate and chloride are
+more associated with calcite-rich dust.</strong></p></li>
+</ol>
+<figure>
+<img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/PaperNotes/Fig10.png" srcset="/img/loading.gif" lazyload alt="Fig10">
+<figcaption aria-hidden="true">Fig10</figcaption>
+</figure>
+<ol start="5" type="1">
+<li><p>The carbonate portion of Asian mineral dust is typically
+considered to be the principle component controlling the uptake of
+acidic vapours by dust due to its alkalinity. Both <span class="math inline">\(HNO_3\)</span> and <span class="math inline">\(HCl\)</span> are mineral acids with an acidic
+proton that can be readily neutralised upon reaction with alkaline
+species such as carbonate. <span class="math inline">\(SO_2\)</span>,
+however, is an acid anhydride and does not contain acidic protons until
+it is hydrated and oxidized to S(VI). <strong>The strong association of
+nitrate and chloride with calcium-rich dust could be due to the ability
+of <span class="math inline">\(HNO_3\)</span>, <span class="math inline">\(HCl\)</span> and other precursors to react with
+carbonates through simple acid-base chemistry. <span class="math inline">\(SO_2\)</span>, not initially containing any acidic
+protons, is unable to react with calcium carbonates in this direct
+manner. This would explain why sulphate is not enriched in calcium-rich
+dust.</strong></p></li>
+<li><p>Since our data suggest that sulphate accumulates in the dust
+first, it appears sulphate will react with the mineral component for
+which it has the highest affinity. We <u>propose</u> that the
+association of sulphate with Al- and Fe-rich dust is due to the
+iron-catalyzed oxidation of <span class="math inline">\(SO_2\)</span> to
+<span class="math inline">\(H_2SO_4\)</span>. The majority of the
+oxidation by this process is thought to occur in the aqueous phase
+containing dissolved metal ions (i.e. a homogeneous reaction), but the
+role of surface-catalyzed heterogeneous reactions involving metals may
+also play an important role. The solubility of the metal ions is a key
+factor controlled by the aerosol's pH and the presence of organic
+compounds that could chelate the metals. The solubility of iron in dust
+aerosols is an important but poorly understood factor at present. The
+rate of this reaction is accelerated at higher pH and thus this sulphate
+formation pathway is self-quenching. The alkaline nature of Asian
+mineral dust could enhance the role of iron in the oxidation of sulphur
+by buffering the pH and increasing this pathway's reaction rate compared
+to other major pathways such as oxidation by <span class="math inline">\(H_2O_2\)</span>. Relativity humidity has been
+found to be an important factor for the uptake of acids by dust in both
+lab and recent field studies, however our data set does not allow us to
+directly investigate this important issue.</p></li>
+</ol>
+<h2 id="mechanism-of-secondary-acid-uptake-size-dependence">Mechanism of
+secondary acid uptake: size dependence</h2>
+<ol type="1">
+<li><p>The distribution of secondary species as a function of dust
+particle size provides important insights into the mechanisms for the
+accumulation of acids in dust. ... In general, the accumulation of
+sulphate by particles through reaction with <span class="math inline">\(SO_2/H_2SO_4\)</span> is diffusion limited. Thus,
+it occurs preferentially in the particle size mode with the greatest
+surface area, which is typically the accumulation mode (Da=0.1–1.0 μm).
+As sulphuric acid is essentially non-volatile and a stronger acid than
+both nitric or hydrochloric acid, the accumulation of sulphuric acid in
+a particle will prevent additional uptake of <span class="math inline">\(HCl\)</span>, <span class="math inline">\(HNO_3\)</span>, <span class="math inline">\(NO_2\)</span>, etc. These gases will instead react
+with the less-acidic supermicron dust that represents a larger alkaline
+sink by mass for these acids. The accumulation of sulphuric acid in
+submicron dust will also displace any preexisting nitrate or chloride
+back to the gas-phase as these are weaker acids and more volatile than
+<span class="math inline">\(H_2SO_4\)</span>. Nitric acid and
+hydrochloric acid in the gas-phase can then re-partition to supermicron
+dust particles that have not already been acidified.</p></li>
+<li><p>Thus, the <u>irreversible</u> uptake of <span class="math inline">\(SO_2\)</span> and <span class="math inline">\(H_2SO_4\)</span> is kinetically limited while the
+uptake of the more-volatile HCl and HNO3 is thermodynamically
+controlled. Therefore, sulphate will accumulate in submicron dust while
+nitrate and chloride will accumulate in supermicron dust particles. The
+uptake of ammonia is typically determined by the preceding <span class="math inline">\(SO_2/H_2SO_4\)</span> uptake, and thus ammonium
+predominantly accumulates in submicron dust.</p></li>
+<li><p>In Fig.11a, the average peak area ratios for sulphate and
+ammonium clearly peak in the submicron filtered dust particles. Nitrate
+and chloride both peak in the supermicron dust particle mode. ...
+Similar results are shown in Fig.11b, this time plotting the fraction of
+filtered dust particles previously classified as mixed with chloride,
+nitrate, sulphate (peak area &gt;5000), or ammonium (peak area &gt;1000)
+as a function of size. Again, sulphate-dust peaks in the submicron mode
+while nitrate- and chloride-dust peak in the supermicron. Ammonium-dust
+has two modes, the largest in the submicron mode along with
+sulphate-dust and a smaller one in the supermicron mode along with
+nitrate and chloride-dust. Taken together, these size plots indicate
+that ammonium accumulates in both the submicron sulphate-dust and the
+supermicron nitrate/chloride-dust, but the relative amount of ammonium
+per dust particle is greater in the submicron sulphate-dust
+mode.</p></li>
+</ol>
+<figure>
+<img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/PaperNotes/Fig11.png" srcset="/img/loading.gif" lazyload alt="Fig11">
+<figcaption aria-hidden="true">Fig11</figcaption>
+</figure>
+<ol start="4" type="1">
+<li>The internal mixing of nitrate and chloride is a result of the
+greater alkaline mass in the supermicron dust that can neutralize both
+acids and allow them to exist internally mixed to some degree in the
+same dust particle. The volatile nature of these two inorganic species
+allows them both to be displaced to the gas-phase, if displacement is
+occurring, and then re-partition back to the supermicron dust particles
+where they are less volatile.</li>
+</ol>
+<h2 id="segregation-of-sulphate-from-nitrate-and-chloride">Segregation
+of sulphate from nitrate and chloride</h2>
+<ol type="1">
+<li><p>In both these reports, the detection of nitrate and sulphate in
+each particle was purely qualitative and the detection limits for
+nitrate and sulphate on the coated collection substrates were <span class="math inline">\(10^{−14}\)</span> and <span class="math inline">\(10^{−17}\)</span> g, respectively. Thus, a mineral
+dust particle containing even a small amount of nitrate and/or sulphate
+would be reported as internally mixed with nitrate and
+sulphate.</p></li>
+<li><p>The segregation therefore indicates that sulphate accumulated in
+the dust first. This could be the result of a faster kinetic rate for
+the formation of sulphate in dust compared to nitrate and chloride,
+and/or the dust plume encountering sulphate precursors prior to those of
+nitrate and chloride.</p></li>
+<li><p>Numerous laboratories studies have measured reaction
+probabilities for various acidic gases with mineral dust surfaces. ...
+While <span class="math inline">\(HNO_3\)</span> and <span class="math inline">\(HCl\)</span> exhibit much higher reaction
+probabilities than <span class="math inline">\(SO_2\)</span> or <span class="math inline">\(NO_2\)</span>, the latter two gases are typically
+present in much higher concentrations in the lower atmosphere than
+either <span class="math inline">\(HNO_3\)</span> or <span class="math inline">\(HCl\)</span>, and thus the actual rate of reaction
+of these four gases with dust may be quite similar. ... The fact that
+sulphate appears to accumulate first in the aged dust (Fig.3b) despite
+the fact that the reaction probability for <span class="math inline">\(SO_2\)</span> with dust is 1–2 orders of magnitude
+less than for <span class="math inline">\(HNO_3\)</span> or <span class="math inline">\(HCl\)</span> indicates that kinetics is not the
+major factor controlling which acids the dust reacts with
+preferentially.</p></li>
+<li><p>Thus, it is reasonable to assume that mineral dust particles
+being transported eastward from the interior by a cold front first
+encounter elevated <span class="math inline">\(SO_2\)</span>, followed
+by both <span class="math inline">\(SO_2\)</span> and <span class="math inline">\(NO_x\)</span> in polluted coastal regions, and
+finally elevated <span class="math inline">\(HCl\)</span> once over
+marine areas. This causes sulphate to mix with dust first, before
+nitrate or chloride, and explains the weak dependence of sulphate-dust
+concentrations on the total dust loadings (Fig.3b).</p></li>
+<li><p>The displacement of nitrate and chloride back to the gas-phase
+due to the uptake of <span class="math inline">\(SO_2/H_2SO_4\)</span>,
+a stronger acid, is one possible explanation for the segregation of
+sulphate in mineral dust from nitrate and chloride in dust presented in
+Fig. 5. Mineral dust that has accumulated enough <span class="math inline">\(SO_2/H_2SO_4\)</span> to neutralize any alkaline
+components of the dust (likely <span class="math inline">\(CaCO_3\)</span>) and acidify the particle will
+also prevent any further uptake of nitric or hydrochloric acids by that
+dust particle. If uptake of sulphate versus nitrate and chloride were a
+displacement process, numerous dust particles should appear between the
+100% <span class="math inline">\(HSO4^-\)</span> vertex and the 100%
+<span class="math inline">\(NO3^-\)</span> or 100% <span class="math inline">\(Cl^-\)</span> vertex. Figure 5 clearly shows a
+lack of significant numbers of particles in these areas. This indicates
+that the earlier mixing of dust with sulphate precursors was the likely
+cause of this segregation, not displacement.</p></li>
+</ol>
+<h1 id="总结与启发">总结与启发</h1>
+<h2 id="知识点总结">知识点总结</h2>
+<ol type="1">
+<li><p>在识别矿尘气溶胶时，作者使用 <span class="math inline">\(^{27}Al^+ &gt; 5000\)</span>
+进行初步筛选，一方面是因为 <span class="math inline">\(^{27}Al^+\)</span>
+是矿尘颗粒的一个特征离子，二是因为质荷比27同样可以解析为有机离子 <span class="math inline">\(^[C_2H_3]^+\)</span>，生物质燃烧是该有机离子的一个主要来源，但是作者发现不管是生物质燃烧还是其他来源，<span class="math inline">\(^[C_2H_3]^+\)</span> 的峰面积都不会超过
+5000。因此使用 <span class="math inline">\(^{27}Al^+ &gt; 5000\)</span>
+可以初步排除生物质燃烧对识别矿尘气溶胶的影响。此外，<span class="math inline">\(^{81}[Na_2^{35}Cl]^+\)</span>
+是海盐气溶胶的一个典型特征离子，作者通过使用 <span class="math inline">\(^{81}[Na_2^{35}Cl]^+ &lt; 100\)</span>
+来排除海盐气溶胶。虽然具体的峰面积数值（5000或100）不一定适用于国内，但这种筛选方法非常值得借鉴。</p></li>
+<li><p>作者把铵离子、氯离子、硝酸离子和硫酸离子归为次生离子，但也客观指出了有些矿物颗粒物本身就含有这些离子，比如岩盐（主要化学成分为NaCl），石膏（主要化学成分为<span class="math inline">\(CaSO_4\)</span>）。作者对这些矿尘来源物质中二次无机离子的峰面积进行了统计，发现峰面积小于500的次生无机离子信号同样可以在来源物质中检测到。这个统计结果不包含铵根离子，因为在矿尘气溶胶来源物质中很难发现峰面积大于50的铵根离子。在实际大气中老化的dust颗粒物，很难发现峰面积大于
+20000 的次生无机离子，但是本文中却发现了峰面积大于 40000
+的情况，作者因此推断dust颗粒物发生了"extensive
+aging"。虽然未经定量验证，作者认为在任何来源物质中次生无机离子的峰面积都不会超过
+5000。因此，最终使用峰面积 5000
+来作为识别氯离子、硝酸离子和硫酸离子是否为次生无机离子的标准，使用峰面积
+1000
+来作为识别铵离子是否为次生无机离子的标准。在识别硝酸离子时，作者使用质荷比
+m/z -62 而不是 -46，是因为在矿尘气溶胶离子中没有检测到 m/z
+-62，这样就更能排除矿尘源本身的影响。这个筛选方法同样非常值得借鉴，虽然在实际大气环境中，来自源本身的铵离子、氯离子、硝酸离子和硫酸离子相较于次生形成的离子可能较少，但仍然不可忽视。在研究其他气溶胶或物种时，这种筛选方法也可以借鉴。</p></li>
+<li><p>典型的矿质气溶胶离子有：钠离子（m/z 23），铝离子（m/z
+27），钾离子（m/z 39），钙簇离子（m/z
+40、44、56、96、112、113），铁离子（m/z 54、56、-88），钛离子（m/z
+48、60），氢氧根离子（m/z -16、-17），硅酸盐离子（m/z
+-60、-76、-88、-119），磷酸盐离子（m/z
+-63、-79）等。以往的研究表明，亚洲地区矿尘气溶胶中碳酸钙的含量较高，作者统计发现超过80%的矿质气溶胶含有钙簇离子，佐证了这一结论。同时，作者对于
+<span class="math inline">\(^{56}[CaO]^+\)</span>
+的来源提出了一个推测：<span class="math inline">\([CaCO_3]^+ \rightarrow
+[CaO]^+ + CO_2\)</span></p></li>
+<li><p>在讨论次生离子时间变化时，作者并没有直接绘制这些次生离子峰面积的时间序列图，而是采用了次生离子峰面积分别与铝离子（m/z
+27）峰面积的比值方式。这种比值可以消除每一束 LDI
+出射激光能量变化的影响，以及每个颗粒物吸收能量大小差异所带来的影响。此外，在分析时间序列图时，这种比值对于判断铵离子、氯离子、硝酸离子和硫酸离子是否为次生离子也起到了关键作用。如果这些离子是矿尘气溶胶自带的离子，那么这种比值应该保持不变，而实际观测中发现这种比值随时间变化有明显的起伏，这就说明铵离子、氯离子、硝酸离子和硫酸离子是在实际大气中发生一系列次生反应而累积在矿尘气溶胶上的次生离子。</p></li>
+<li><p>作者统计发现，同时满足硫酸根离子（m/z -97）和硝酸根离子（m/z
+-62）峰面积大于 5000 的颗粒物仅有 1%，同时满足硫酸根离子（m/z
+-97）和氯离子（m/z -35）峰面积大于 5000 的颗粒物仅占
+0.8%，说明大部分次生硫酸与次生硝酸，大部分次生硫酸与次生氯化物都是
+“外混合”
+的状态。相反，同时满足硝酸和氯峰面积的颗粒物占比则达到14.8%。通过详细统计（Fig4）结合三元图（Fig5）分析，进一步证明了次生硫酸与次生硝酸、次生氯化物的外混状态，次生硝酸与次生氯化物的内混状态。次生硫酸与另外两种酸的这种“分离”现象，后续还会有具体解释。</p></li>
+<li><p>通过对铵盐的分析发现，铵离子仅出现在含有次生酸（硫酸、硝酸、盐酸）的颗粒物中。在铵-硫酸-硝酸的三元图（图6）中，硫酸铵与硝酸铵再次表现出“分离”现象。硫酸铵沿“硫酸-铵”轴的分散分布，可能是由于铵与硫酸分子比的不同导致，即可能存在硫酸铵、硫酸氢氨等多种形式。</p></li>
+<li><p>矿尘颗粒物本身的特性（mineralogy）对矿尘颗粒物在大气中的行为也有影响。作者通过使用相对峰面积大于10%的条件分别筛选出富铝矿尘和富钙矿尘颗粒物。时间序列（图9）和三元图（图10）分析表明，硫酸盐倾向于与富铝矿物颗粒物混合，而硝酸盐和氯盐则更易于与富钙颗粒物（如方解石，<span class="math inline">\(CaCO_3\)</span>）混合。对于这个现象，作者给出的解释为，硝酸盐和氯盐与富钙颗粒物的反应，可能是硝酸或盐酸通过酸碱反应直接发生的，而
+<span class="math inline">\(SO_2\)</span>
+因为不含酸性质子所以不能直接与富钙颗粒物反应。图10a中显示，硫酸峰面积高值从铝顶点延申至铁顶点，因此作者认为硅铝酸盐矿物质中的铁通过催化氧化，把
+<span class="math inline">\(SO_2\)</span> 变为 <span class="math inline">\(H_2SO_4\)</span>，才导致硫酸积聚在硅铝酸盐矿物质中。因为亚洲矿尘颗粒物的碱性特征，碱性物质会中和酸性物质（硫）从而促进铁催化氧化过程，作者认为此过程甚至可能比其他氧化剂（如
+<span class="math inline">\(H_2O_2\)</span>）的反应速率还要高。</p></li>
+<li><p>次生酸与矿尘气溶胶的反应与其粒径大小密切相关。粒径分布（图11）显示，次生硫酸盐（峰面积和含硫酸的矿尘颗粒物）主要分布在亚微米范围，而次生硝酸盐和盐酸盐主要分布在超微米范围。从反应机理上讲，比表面积越大的矿尘颗粒物越有利于与二氧化硫或硫酸的反应，这类颗粒物主要是积聚模态（0.1-1.0
+μm）。硫酸酸性较强，加之其不易挥发的特性，亚微米矿尘气溶胶优先与其反应，即便这些矿尘气溶胶已经与硝酸或盐酸反应，硫酸也很容易将其替换。未参与反应或被替换出来的硝酸和盐酸就会与超微米矿尘颗粒物反应。因此，二氧化硫和硫酸与矿尘颗粒物的不可逆反应受反应动力学限制，而易于挥发的硝酸和盐酸更易于受热力学控制。</p></li>
+<li><p>对于次生硫酸盐与硝酸盐和氯盐“分离”的现象有两种解释，一种是含矿尘颗粒物的气团先遇到了含硫气团，加之次生硫酸盐的强酸性和不易挥发的特性，导致此现象的发生。另一种解释是，含硫酸因为酸性较强，把矿尘颗粒物中的硝酸和盐酸替换出来。作者通过分析认为，替换反应不会进行的非常彻底，那么就应该有硫酸与硝酸、盐酸混合的情况，而三种酸的三元图（图5）表明，次生硫酸盐与其余两种酸盐混合的情况非常少，所以第一种解释更为合理。这种气团传输思路同样可以解释时间序列中，次生盐酸在
+DOY101
+阶段短暂快速增长的现象（图2）。海盐气溶胶因为在大气中发生老化，释放出大量的盐酸，含矿尘气溶胶气团到达后，与这些盐酸反应，导致矿尘颗粒物中氯离子快速增长。作者也因此在文中提出，矿尘气溶胶与哪种酸混合，受气团历史运行轨迹的影响更多（先前有一些研究是从化学反应角度解释）。</p></li>
+</ol>
+<h2 id="疑问">疑问</h2>
+<ol type="1">
+<li><p>文中 3.6
+小节的文字描述结合图8（上）的时间序列可知，铵离子与（硝酸+硫酸）正相关，文中原话
+“The degree of correlation between the hourly peak area ratios for
+nitrate + sulphate, and ammonium has a <span class="math inline">\(R^2\)</span> =0.574.”
+也就是说，铵离子与（硝酸+硫酸）的正相关系数为0.574。铵离子与氯离子是呈负相关的，这一点从图8（上）的时间序列和图8（右下）的散点图可以看出，铵与氯的相关系数为-0.545.
+那么，据此可以推断，铵与（硝酸+硫酸+氯）的相关系数，应该比铵与（硝酸+硫酸）的相关系数低才对（因为铵与氯是负相关的）。但是，图8铵与（硝酸+硫酸+氯）的散点图（左下）显示二者相关系数为0.881，要高于0.574。这一点似乎有点不合逻辑？作者对此解释大致是，当大气中的硫酸和硝酸不足以中和全部铵盐时，剩余铵盐会与盐酸反应，所以，铵与三种酸（硝酸+硫酸+氯）的相关系数要高于铵与两种酸（硝酸+硫酸）的相关系数的。这个解释是很容易理解的。至于铵与氯的负相关性，文中原句
+“The overall anti-correlation of chloride and ammonium on dust may
+simply be a reflection of an anti-correlation of HCl(g) and NH3(g)
+mixing ratios, as the two likely have very different sources for this
+area. It does not necessarily reflect an inefficient process for ammonia
+to react with dust acidified by HCl.”
+这句话我只能认可前半句，如作者分析，有一部分HCl来自海盐是释放，与铵的来源不同是可以理解的。但是，后半句中，作者说这种负相关不一定是反映氨与盐酸的反应效率，那是不是也可以认为，正相关也不能反映氨与（硝酸+硫酸）的反应效率？</p></li>
+<li><p>为了消除激光等因素的影响，作者多次采用了次生酸峰面积与铝峰面积比值的方法。这个比值的方法值得借鉴。但是，这个方法也并一定在各处都适用。在分析矿尘颗粒物本身特性对化学反应过程的影响（3.7部分）时，作者使用相对峰面积大于10%的条件分别提取了含铝矿尘和含钙矿尘。10%
+这个比例还是很高的，所以提取出的含铝矿尘中，铝的绝对峰面积应该都是很高的数值，次生酸的峰面积与铝离子峰面积的比值自然就会较小，所以在图9(a)中，纵坐标轴最大值只有
+0.2。而在含钙矿尘中，铝的绝对峰面积就会相对小一些，次生酸的峰面积与铝离子峰面积的比值就会较大，从图9(b)也可以看出，纵坐标轴最大值高达0.7。这种纵坐标轴最大值的差异会给理解带来误导。比如，文中原句
+“Most notable is a large spike in the sulphate area ratio at DOY 100.5
+in the high-Al dust that does not occur in the high-Ca dust.”
+作者的意思是在含铝矿尘（图9a）中，<span class="math inline">\(HSO_4/Al\)</span>
+比值有个较大的涨幅，而在同时间段的含钙矿尘中没有发现类似的涨幅。这句话也是对的，但会带来认知误差。仔细观察就可以看出，含铝矿尘在
+DOY100.5 这个时间段 <span class="math inline">\(HSO_4/Al\)</span>
+比值大约从 0.05 升高到
+0.18，涨幅不过0.13左右。在含钙矿尘中（图9b），这个比值虽然在同时间段没有出现，在其他时间段，比如
+DOY99.5
+阶段，这个比值涨幅约0.17。之所以在图9b中不明显，只不过是坐标轴范围太大，把这个变化给掩盖了而已。同样的认知误差还体现在“The
+sulphate peak area ratio also increases from DOY 103.5–105 in the
+high-Al dust but remains mostly unchanged in the high-Ca dust.”
+认真对比一下二者涨幅的具体数值就会发现，其实没有多大差别，完全是纵坐标轴范围不同带来的视觉差异而已。暨南大学吴老师在他的《大气观测数据处理及可视化入门》课程的<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1pQ4y1y7Pn?share_source=copy_web&amp;vd_source=e6abd6b89a5860c9c1e8d6b5ac218e7e">第二讲</a>（大概27:00）
+中就提到了绘图时坐标轴的差异给视觉所带来的误差判断。</p></li>
+</ol>
+<h2 id="优点与槽点">优点与槽点</h2>
+<p>这篇文章有很多亮点值得学习借鉴，各个物质离子的提取原则，峰面积比值法，三元图的绘制及解读，对矿尘气溶胶中次生酸的分析也相当透彻，至少目前的我是做不到分析这么透彻的。但是，这篇文章真的是太长长长长长长……了<span class="github-emoji"><span>😢</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f622.png?v8" srcset="/img/loading.gif" lazyload aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>
+不算参考文献都足足有19页！我的阅读速度本来就慢，加之这篇文章又长，阅读过程中差不多读到后边就要忘了前面。总体算下来，将近花费了两周的时间从头到尾读了两遍才简单梳理好这篇文章。虽然从本文学到了很多东西，但两周的时间也确实导致我原本的工作计划延后，以后遇到这种类型长篇文章，一是要先判断文章是否值得读（本文就值得一读），二是最好是选个空闲时间段来读，不然真的太影响工作计划了<span class="github-emoji"><span>😢</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f622.png?v8" srcset="/img/loading.gif" lazyload aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p>
+<h1 id="扩展阅读">扩展阅读</h1>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://doi.org/10.1029/2001JD900099">Guazzotti-2001-JGR-A</a>:
+dust 颗粒物鉴别</li>
+<li><a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.atmosenv.2004.07.010">Krueger-2004-AE</a>:
+硝酸钙</li>
+<li><a target="_blank" rel="noopener" href="https://doi.org/10.1016/S1352-2310(03)00393-5">Pastor-2003-AE</a>:
+综合观测</li>
+</ul>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" class="category-chain-item">文献阅读</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Dust/">#Dust</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <!-- 站点运行时间 -->
+    <div class="runtime">
+    <span id="timeDate">载入天数...</span>
+    <span id="times">载入时分秒...</span>
+    <script>
+    var now = new Date();
+    function createtime(){
+        var grt= new Date("02/25/2020 09:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if(String(mnum).length ==1 ){
+                  mnum = "0" + mnum;
+        }
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if(String(snum).length ==1 ){
+                  snum = "0" + snum;
+        }
+        document.getElementById("timeDate").innerHTML = "理乐志已运行 " + dnum + " 天 ";  //此次自定义显示内容
+        document.getElementById("times").innerHTML = hnum + " 时 " + mnum + " 分 " + snum + " 秒";
+    }  //此次自定义显示内容
+    setInterval("createtime()",250);
+    </script>
+</div>
+  
+
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
