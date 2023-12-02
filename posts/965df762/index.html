@@ -88,7 +88,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
 
@@ -265,8 +265,7 @@
               <p>math库是Python中的一个基本库，在以后数据处理过程中会经常用到。本章节先学习math库，再尝试使用Python解决一些典型的数学问题。</p>
 <span id="more"></span>
 <h1 id="math库">1 math库</h1>
-<p>Python的math库包含很多函数，通过 <code>import</code>
-语句导入即可使用。总体可分为以下常量、幂函数与对数函数、角度转换与三角函数、数论与表示函数等几大类。</p>
+<p>Python的math库包含很多函数，通过 <code>import</code> 语句导入即可使用。总体可分为以下常量、幂函数与对数函数、角度转换与三角函数、数论与表示函数等几大类。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> math<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">dir</span>(math))<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">['__doc__', '__loader__', '__name__', '__package__', '__spec__', 'acos', 'acosh', 'asin', 'asinh', 'atan', 'atan2', 'atanh', 'ceil', 'comb', 'copysign', 'cos', 'cosh', 'degrees', 'dist', 'e', 'erf', 'erfc', 'exp', 'expm1', 'fabs', 'factorial', 'floor', 'fmod', 'frexp', 'fsum', 'gamma', 'gcd', 'hypot', 'inf', 'isclose', 'isfinite', 'isinf', 'isnan', 'isqrt', 'ldexp', 'lgamma', 'log', 'log10', 'log1p', 'log2', 'modf', 'nan', 'perm', 'pi', 'pow', 'prod', 'radians', 'remainder', 'sin', 'sinh', 'sqrt', 'tan', 'tanh', 'tau', 'trunc']</code></pre>
 <h2 id="常量">1.1 常量</h2>
@@ -279,18 +278,13 @@ inf:  inf
 NaN:  nan</code></pre>
 <h2 id="幂函数与对数函数">1.2 幂函数与对数函数</h2>
 <ul>
-<li><strong><code>math.pow(x,y)</code></strong> 求 x 的 y 次幂。与内置的
-** 运算符不同， math.pow() 将其参数转换为 float 类型。pow(1.0, y) 和
-pow(x, 0.0) 总是返回 1.0。 如果 x 和 y 都是有限的， x 是负数， y
-不是整数，那么 pow(x, y) 是未定义的，并且引发 ValueError 。</li>
+<li><strong><code>math.pow(x,y)</code></strong> 求 x 的 y 次幂。与内置的 ** 运算符不同， math.pow() 将其参数转换为 float 类型。pow(1.0, y) 和 pow(x, 0.0) 总是返回 1.0。 如果 x 和 y 都是有限的， x 是负数， y 不是整数，那么 pow(x, y) 是未定义的，并且引发 ValueError 。</li>
 </ul>
 <p>当x为常量e（2.718281...）时，可使用以下函数：</p>
 <ul>
 <li><p><strong><code>math.exp(y)</code></strong> 返回e的y次幂</p></li>
-<li><p><strong><code>math.expm1(y)</code></strong>
-返回e的y次幂减1，该函数比math.exp(x)-1的精度更高。</p></li>
-<li><p><strong><code>math.sqrt(x)</code></strong>
-返回x的平方根。求n次根，可使用pow(x,1/n)</p></li>
+<li><p><strong><code>math.expm1(y)</code></strong> 返回e的y次幂减1，该函数比math.exp(x)-1的精度更高。</p></li>
+<li><p><strong><code>math.sqrt(x)</code></strong> 返回x的平方根。求n次根，可使用pow(x,1/n)</p></li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python">a = math.<span class="hljs-built_in">pow</span>(<span class="hljs-number">3</span>,<span class="hljs-number">4</span>)  <span class="hljs-comment"># 求2的3次幂</span><br>b = math.exp(<span class="hljs-number">2</span>)  <span class="hljs-comment"># 求e的2次幂</span><br>c = math.expm1(<span class="hljs-number">2</span>)  <span class="hljs-comment"># 求e的2次幂再减1</span><br>d = math.sqrt(<span class="hljs-number">9</span>)  <span class="hljs-comment"># 求9的平方根</span><br>e = math.<span class="hljs-built_in">pow</span>(<span class="hljs-number">27</span>, <span class="hljs-number">1</span>/<span class="hljs-number">3</span>) <span class="hljs-comment"># 求27的3次根</span><br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'3的4次幂:'</span>, a)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'e的2次幂:'</span>, b)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'e的2次幂再减1:'</span>, c)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'9的平方根：'</span>, d)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'27的3次根：'</span>, e)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">3的4次幂: 81.0
@@ -299,14 +293,10 @@ e的2次幂再减1: 6.38905609893065
 9的平方根： 3.0
 27的3次根： 3.0</code></pre>
 <ul>
-<li><p><strong><code>math.log(x, base)</code></strong>
-求以base为底x的对数。base为可选参数，若不输入，则默认为自然对数（底为e）</p></li>
-<li><p><strong><code>math.log2(x)</code></strong>
-求以2为底x的对数，这通常比log(x,2)更准确</p></li>
-<li><p><strong><code>math.log10(x)</code></strong>
-求以10为底x的对数，这通常比log(x,10)更准确</p></li>
-<li><p><strong><code>math.log1p(x)</code></strong>
-求以e为底(1+x)的对数，对于接近零的 x 精确的方式计算结果</p></li>
+<li><p><strong><code>math.log(x, base)</code></strong> 求以base为底x的对数。base为可选参数，若不输入，则默认为自然对数（底为e）</p></li>
+<li><p><strong><code>math.log2(x)</code></strong> 求以2为底x的对数，这通常比log(x,2)更准确</p></li>
+<li><p><strong><code>math.log10(x)</code></strong> 求以10为底x的对数，这通常比log(x,10)更准确</p></li>
+<li><p><strong><code>math.log1p(x)</code></strong> 求以e为底(1+x)的对数，对于接近零的 x 精确的方式计算结果</p></li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python">a = math.log(<span class="hljs-number">81</span>,<span class="hljs-number">3</span>)<br>b = math.log(<span class="hljs-number">7.389</span>)<br>c = math.log2(<span class="hljs-number">8</span>)<br>d = math.log10(<span class="hljs-number">100</span>)<br>e = math.log1p(<span class="hljs-number">0.0003</span>)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'以3为底81的对数：'</span>, a)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'以e为底7.389的对数：'</span>, b)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'以2为底8的对数：'</span>, c)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'以10为底100的对数：'</span>, d)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'以e为底1.0003的对数：'</span>, e)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">以3为底81的对数： 4.0
@@ -316,28 +306,19 @@ e的2次幂再减1: 6.38905609893065
 以e为底1.0003的对数： 0.00029995500899797546</code></pre>
 <h2 id="角度转换函数与三角函数">1.3 角度转换函数与三角函数</h2>
 <ul>
-<li><p><strong><code>math.degrees(x)</code></strong> 将 x
-从弧度转换为度数</p></li>
-<li><p><strong><code>math.radians(x)</code></strong> 将 x
-从度数转换为弧度</p></li>
+<li><p><strong><code>math.degrees(x)</code></strong> 将 x 从弧度转换为度数</p></li>
+<li><p><strong><code>math.radians(x)</code></strong> 将 x 从度数转换为弧度</p></li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">a = math.degrees(math.pi)<br>b = math.radians(<span class="hljs-number">180</span>)<br><span class="hljs-built_in">print</span>(a, b)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">180.0 3.141592653589793</code></pre>
 <ul>
-<li><p><strong><code>math.sin(x)</code></strong>
-求弧度x的正弦值</p></li>
-<li><p><strong><code>math.cos(x)</code></strong>
-求弧度x的余弦值</p></li>
-<li><p><strong><code>math.tan(x)</code></strong>
-求弧度x的正切值</p></li>
-<li><p><strong><code>math.asin(x)</code></strong>
-求弧度x的反正弦值</p></li>
-<li><p><strong><code>math.acos(x)</code></strong>
-求弧度x的反余弦值</p></li>
-<li><p><strong><code>math.atan(x)</code></strong>
-求弧度x的反正切值</p></li>
-<li><p><strong><code>math.hypot(x,y)</code></strong>
-求欧几里德范数，从原点到点 (x, y) 的向量长度</p></li>
+<li><p><strong><code>math.sin(x)</code></strong> 求弧度x的正弦值</p></li>
+<li><p><strong><code>math.cos(x)</code></strong> 求弧度x的余弦值</p></li>
+<li><p><strong><code>math.tan(x)</code></strong> 求弧度x的正切值</p></li>
+<li><p><strong><code>math.asin(x)</code></strong> 求弧度x的反正弦值</p></li>
+<li><p><strong><code>math.acos(x)</code></strong> 求弧度x的反余弦值</p></li>
+<li><p><strong><code>math.atan(x)</code></strong> 求弧度x的反正切值</p></li>
+<li><p><strong><code>math.hypot(x,y)</code></strong> 求欧几里德范数，从原点到点 (x, y) 的向量长度</p></li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">a = math.sin(math.pi/<span class="hljs-number">2</span>)<br>b = math.degrees(math.asin(<span class="hljs-number">1</span>))<br><span class="hljs-built_in">print</span>(a, b)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">1.0 90.0</code></pre>
@@ -345,14 +326,10 @@ e的2次幂再减1: 6.38905609893065
 <pre><code class="hljs">1.4142135623730951</code></pre>
 <h2 id="其他">1.4 其他</h2>
 <ul>
-<li><p><strong><code>math.fabs(x)</code></strong> 返回 x
-的绝对值</p></li>
-<li><p><strong><code>math.ceil(x)</code></strong> x
-向上取整，即大于或者等于 x 的最小整数</p></li>
-<li><p><strong><code>math.floor(x)</code></strong> x
-向下取整，小于或等于 x 的最大整数</p></li>
-<li><p><strong><code>math.modf(x)</code></strong> 返回 x
-的小数和整数部分，两个结果都带有 x 的符号并且是浮点数</p></li>
+<li><p><strong><code>math.fabs(x)</code></strong> 返回 x 的绝对值</p></li>
+<li><p><strong><code>math.ceil(x)</code></strong> x 向上取整，即大于或者等于 x 的最小整数</p></li>
+<li><p><strong><code>math.floor(x)</code></strong> x 向下取整，小于或等于 x 的最大整数</p></li>
+<li><p><strong><code>math.modf(x)</code></strong> 返回 x 的小数和整数部分，两个结果都带有 x 的符号并且是浮点数</p></li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(math.fabs(-<span class="hljs-number">3.6</span>))<br><span class="hljs-built_in">print</span>(math.ceil(<span class="hljs-number">3.6</span>))<br><span class="hljs-built_in">print</span>(math.floor(<span class="hljs-number">3.6</span>))<br><span class="hljs-built_in">print</span>(math.modf(<span class="hljs-number">3.6</span>))<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">3.6
@@ -360,22 +337,16 @@ e的2次幂再减1: 6.38905609893065
 3
 (0.6000000000000001, 3.0)</code></pre>
 <ul>
-<li><p><strong><code>math.gcd(x, y)</code></strong> 求 x 和 y
-的最大公约数。如果 x 或 y 之一非零，则 gcd(x, y) 的值是能同时整除 a 和 b
-的最大正整数，gcd(0, 0) 返回 0</p></li>
-<li><p><strong><code>math.factorial(x)</code></strong> 以一个整数返回 x
-的阶乘。 如果 x 不是整数或为负数时则将引发 ValueError</p></li>
+<li><p><strong><code>math.gcd(x, y)</code></strong> 求 x 和 y 的最大公约数。如果 x 或 y 之一非零，则 gcd(x, y) 的值是能同时整除 a 和 b 的最大正整数，gcd(0, 0) 返回 0</p></li>
+<li><p><strong><code>math.factorial(x)</code></strong> 以一个整数返回 x 的阶乘。 如果 x 不是整数或为负数时则将引发 ValueError</p></li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(math.gcd(<span class="hljs-number">2</span>,<span class="hljs-number">4</span>))<br><span class="hljs-built_in">print</span>(math.factorial(<span class="hljs-number">5</span>))<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">2
 120</code></pre>
 <ul>
-<li><p><strong><code>math.isinf(x)</code></strong> 如果 x
-是正或负无穷大，则返回 True ，否则返回 False</p></li>
-<li><p><strong><code>math.isnan(x)</code></strong> 如果 x
-是正或负无穷大，则返回 True ，否则返回 False</p></li>
-<li><p><strong><code>math.isfinite(x)</code></strong> 如果 x
-既不是无穷大也不是NaN，则返回 True ，否则返回 False "</p></li>
+<li><p><strong><code>math.isinf(x)</code></strong> 如果 x 是正或负无穷大，则返回 True ，否则返回 False</p></li>
+<li><p><strong><code>math.isnan(x)</code></strong> 如果 x 是正或负无穷大，则返回 True ，否则返回 False</p></li>
+<li><p><strong><code>math.isfinite(x)</code></strong> 如果 x 既不是无穷大也不是NaN，则返回 True ，否则返回 False "</p></li>
 </ul>
 <h1 id="数学运算">2 数学运算</h1>
 <h2 id="求-12345...100">2.1 求 1+2+3+4+5+...+100</h2>
@@ -396,14 +367,12 @@ e的2次幂再减1: 6.38905609893065
 <pre><code class="hljs">5.187377517639621</code></pre>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 方法五：使用匿名函数结合内置函数map()创建1/n列表</span><br><br>a = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">101</span>))<br>b = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">map</span>(<span class="hljs-keyword">lambda</span> x:<span class="hljs-number">1</span>/x, a))<br>sum_b = <span class="hljs-built_in">sum</span>(b)<br><span class="hljs-built_in">print</span>(sum_b)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">5.187377517639621</code></pre>
-<h2 id="求-1---12-13---14-...---1100">2.3 求 1 - 1/2 + 1/3 - 1/4 + ... -
-1/100</h2>
+<h2 id="求-1---12-13---14-...---1100">2.3 求 1 - 1/2 + 1/3 - 1/4 + ... - 1/100</h2>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 方法一：以分母判断正负</span><br><br>s = <span class="hljs-number">0</span><br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">101</span>):<br>    <span class="hljs-keyword">if</span> i%<span class="hljs-number">2</span> == <span class="hljs-number">1</span>:<br>        s += <span class="hljs-number">1</span>/i<br>    <span class="hljs-keyword">elif</span> i%<span class="hljs-number">2</span> == <span class="hljs-number">0</span>:<br>        s -= <span class="hljs-number">1</span>/i<br>        <br><span class="hljs-built_in">print</span>(s)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">0.688172179310195</code></pre>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 方法二：以分子判断正负</span><br><br>s = <span class="hljs-number">0</span><br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">101</span>):<br>    s += <span class="hljs-built_in">pow</span>(-<span class="hljs-number">1</span>,i+<span class="hljs-number">1</span>)/i<br><br><span class="hljs-built_in">print</span>(s)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">0.688172179310195</code></pre>
-<h2 id="一元二次方程-y-ax2-bx-c">2.4 一元二次方程 y = ax**2 + bx +
-c</h2>
+<h2 id="一元二次方程-y-ax2-bx-c">2.4 一元二次方程 y = ax**2 + bx + c</h2>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> math <span class="hljs-keyword">import</span> sqrt<br><br>a = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">'Enter a: '</span>))<br>b = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">'Enter b: '</span>))<br>c = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">'Enter c: '</span>))<br><br>delt = <span class="hljs-built_in">pow</span>(b,<span class="hljs-number">2</span>) - <span class="hljs-number">4</span>*a*c<br><br><span class="hljs-keyword">if</span> delt &gt; <span class="hljs-number">0</span>:<br>    x1 = (-b + sqrt(delt)) / (<span class="hljs-number">2</span>*a)<br>    x2 = (-b - sqrt(delt)) / (<span class="hljs-number">2</span>*a)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f"There are two solutions: <span class="hljs-subst">{x1}</span> and <span class="hljs-subst">{x2}</span>."</span>)<br><span class="hljs-keyword">elif</span> delt == <span class="hljs-number">0</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f"There is only one solution: <span class="hljs-subst">{x1}</span>."</span>)<br><span class="hljs-keyword">else</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"There is no solution."</span>)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">Enter a:  1
 Enter b:  1

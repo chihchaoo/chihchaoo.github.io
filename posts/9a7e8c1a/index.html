@@ -88,7 +88,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
 
@@ -264,34 +264,24 @@
               
               <p>NumPy，整个Python数据科学工具生态系统的核心。</p>
 <span id="more"></span>
-<p>NumPy，是Numerical
-Python的简称，提供了高效存储和操作密集数据缓存的接口。在某些方面，NumPy数据与Python内置的列表类型非常相似。但是随着数组在维度上变大，NumPy数组提供了更加高效的存储和数据操作。<strong>NumPy数组几乎是整个Python数据科学工具生态系统的核心</strong>。
-因此，不管你对数据科学的哪个方面感兴趣，花点时间学习如何有效地使用NumPy都是非常值得的。</p>
-<p>在开始学习NumPy之前，需要先理解NumPy的优势，这涉及到数据是如何被存储和操作的。标准的Python语言是用C语言编写的。这意味着每一个Python对象都是一个聪明的伪C语言结构体，该结构体不仅包含其值，还有其他信息。例如，当我们在Python中定义一个整型，如
-x =
-10，这里x并不是一个“原生”整型，而是一个指针，指向一个C语言的复合结构体，这个结构体包含内存位置、可以转换成整型的字节等大量额外的信息。正是由于这些大量额外的信息，Python可以自由、动态的编码。但这些额外信息也成为其负担，在多个对象组合的结构体中尤其明显。Python中标准可变的元素容器是列表，列表是灵活的，因为一个列表中既可以包含同一种类型元素，也可以包含不同类型。为了获得这些灵活的类型，列表中的每一项必须包含各自的类型信息、引用计数和其他信息；也就是说，每一项都是一个完整的Python对象。如果列表中的所有变量都是同一类型的，那么很多信息都会显得多余，这时候，把数据存储在固定类型的数组中会更高效。<strong>NumPy就是一种固定类型的数组，它要求数组必须包含同一类型的数据，虽然这样失去了灵活性，但可以更有效地存储和操作数据。</strong></p>
+<p>NumPy，是Numerical Python的简称，提供了高效存储和操作密集数据缓存的接口。在某些方面，NumPy数据与Python内置的列表类型非常相似。但是随着数组在维度上变大，NumPy数组提供了更加高效的存储和数据操作。<strong>NumPy数组几乎是整个Python数据科学工具生态系统的核心</strong>。 因此，不管你对数据科学的哪个方面感兴趣，花点时间学习如何有效地使用NumPy都是非常值得的。</p>
+<p>在开始学习NumPy之前，需要先理解NumPy的优势，这涉及到数据是如何被存储和操作的。标准的Python语言是用C语言编写的。这意味着每一个Python对象都是一个聪明的伪C语言结构体，该结构体不仅包含其值，还有其他信息。例如，当我们在Python中定义一个整型，如 x = 10，这里x并不是一个“原生”整型，而是一个指针，指向一个C语言的复合结构体，这个结构体包含内存位置、可以转换成整型的字节等大量额外的信息。正是由于这些大量额外的信息，Python可以自由、动态的编码。但这些额外信息也成为其负担，在多个对象组合的结构体中尤其明显。Python中标准可变的元素容器是列表，列表是灵活的，因为一个列表中既可以包含同一种类型元素，也可以包含不同类型。为了获得这些灵活的类型，列表中的每一项必须包含各自的类型信息、引用计数和其他信息；也就是说，每一项都是一个完整的Python对象。如果列表中的所有变量都是同一类型的，那么很多信息都会显得多余，这时候，把数据存储在固定类型的数组中会更高效。<strong>NumPy就是一种固定类型的数组，它要求数组必须包含同一类型的数据，虽然这样失去了灵活性，但可以更有效地存储和操作数据。</strong></p>
 <p>NumPy并非Python内置模块，因此在使用前需要先导入，一般使用np作为NumPy的别名：</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br></code></pre></td></tr></tbody></table></figure>
 <h1 id="创建数组">1 创建数组</h1>
-<p>创建数组经常使用的函数有<code>np.array()</code>
-、<code>np.reshape()</code>、<code>np.arange()</code>、<code>np.linspace()</code>、<code>np.logspace()</code>、<code>np.random()</code>、<code>np.ones()</code>、<code>np.ones_like()</code>、<code>np.zeros()</code>、<code>np.zeros_like()</code>、<code>np.empty()</code>、<code>np.empty_like()</code>、<code>np.full()</code>、<code>np.full_like()</code>、<code>np.eye()</code>
-等。</p>
-<h2 id="np.array-和np.reshape">1.1 <code>np.array()</code>
-和<code>np.reshape()</code></h2>
+<p>创建数组经常使用的函数有<code>np.array()</code> 、<code>np.reshape()</code>、<code>np.arange()</code>、<code>np.linspace()</code>、<code>np.logspace()</code>、<code>np.random()</code>、<code>np.ones()</code>、<code>np.ones_like()</code>、<code>np.zeros()</code>、<code>np.zeros_like()</code>、<code>np.empty()</code>、<code>np.empty_like()</code>、<code>np.full()</code>、<code>np.full_like()</code>、<code>np.eye()</code> 等。</p>
+<h2 id="np.array-和np.reshape">1.1 <code>np.array()</code> 和<code>np.reshape()</code></h2>
 <ul>
 <li><code>np.array()</code></li>
 </ul>
-<p>是创建数据最常用的函数，完整函数和参数为：<code>np.array(object, dtype=None, *, copy=True, order='K', subok=False, ndmin=0)</code>
-其中，object只能是列表或元组，dtype决定数据类型，ndim表示数组的维度；copy、order、subok三个参数并不常用，暂时不深入学习。</p>
+<p>是创建数据最常用的函数，完整函数和参数为：<code>np.array(object, dtype=None, *, copy=True, order='K', subok=False, ndmin=0)</code> 其中，object只能是列表或元组，dtype决定数据类型，ndim表示数组的维度；copy、order、subok三个参数并不常用，暂时不深入学习。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.array([<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:'</span>, a, a.dtype)<br><br>b = np.array((<span class="hljs-number">2.2</span>, <span class="hljs-number">5.0</span>, <span class="hljs-number">7.1</span>, <span class="hljs-number">6.6</span>))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'b:'</span>, b, b.dtype)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">a: [1 4 2 3] int32
 b: [2.2 5.  7.1 6.6] float64</code></pre>
-<p><strong>注意:</strong>
-根据前面的介绍可知，不同于Python列表，NumPy要求数组必须包含同一类型的数据。如果类型不匹配，NumPy将会向上转换为同一类型数据（如果可行）。在下面这个例子中，整型被转换为浮点型：</p>
+<p><strong>注意:</strong> 根据前面的介绍可知，不同于Python列表，NumPy要求数组必须包含同一类型的数据。如果类型不匹配，NumPy将会向上转换为同一类型数据（如果可行）。在下面这个例子中，整型被转换为浮点型：</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.array([<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">2.0</span>, <span class="hljs-number">5</span>, <span class="hljs-number">3</span>])<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:'</span>, a, a.dtype)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">a: [1. 4. 2. 5. 3.] float64</code></pre>
-<p>NumPy数组可以是一维的、二维的，也可以是多维的。数组的维度一般用<code>ndim</code>函数，形状用<code>shape</code>函数，此外还有大小<code>size</code>
-、数据类型<code>dtype</code> 等。</p>
+<p>NumPy数组可以是一维的、二维的，也可以是多维的。数组的维度一般用<code>ndim</code>函数，形状用<code>shape</code>函数，此外还有大小<code>size</code> 、数据类型<code>dtype</code> 等。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 一维数组</span><br>a = np.array([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>])<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:\n'</span>, a, <span class="hljs-string">'\na_nidm:'</span>, a.ndim, <span class="hljs-string">'\na_shape:'</span>, a.shape)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">a:
  [1 2 3 4] 
@@ -319,8 +309,7 @@ c_shape: (3, 2, 4)</code></pre>
 <ul>
 <li><code>np.reshape</code></li>
 </ul>
-<p><code>np.reshape(a, newshape, order='C')</code>
-返回一个数组a的新形状，但不改变其数据。此函数一般用于数组的变形，较为常用。</p>
+<p><code>np.reshape(a, newshape, order='C')</code> 返回一个数组a的新形状，但不改变其数据。此函数一般用于数组的变形，较为常用。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">data = [i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-number">13</span>)]<br><br>a = np.array(data)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:\n'</span>, a)<br><br>b = np.reshape(a, (<span class="hljs-number">3</span>, <span class="hljs-number">4</span>))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'b:\n'</span>, b)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">a:
  [ 1  2  3  4  5  6  7  8  9 10 11 12]
@@ -338,17 +327,14 @@ b:
 <ul>
 <li><code>np.arange()</code></li>
 </ul>
-<p><code>np.arange()</code>
-与Python中的<code>arange()</code>用法相似，但可以生成浮点数，完整函数与参数为：<code>arange(start, stop, step, dtype=None)</code></p>
+<p><code>np.arange()</code> 与Python中的<code>arange()</code>用法相似，但可以生成浮点数，完整函数与参数为：<code>arange(start, stop, step, dtype=None)</code></p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.arange(<span class="hljs-number">5</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:'</span>, a, a.dtype)<br><br>b = np.arange(<span class="hljs-number">1</span>, <span class="hljs-number">5</span>, <span class="hljs-number">0.5</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'b:'</span>, b, b.dtype)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">a: [0 1 2 3 4] int32
 b: [1.  1.5 2.  2.5 3.  3.5 4.  4.5] float64</code></pre>
 <ul>
 <li><code>np.linspace()</code></li>
 </ul>
-<p><code>np.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None, axis=0)</code>
-该函数返回一个等差数列。数列范围为“[start,
-stop]”，数据数量由参数“num”决定，区间结束端点“stop”默认包含其中，也可由参数“endpoint”更改。参数“retstep”决定是否返回等差值。</p>
+<p><code>np.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None, axis=0)</code> 该函数返回一个等差数列。数列范围为“[start, stop]”，数据数量由参数“num”决定，区间结束端点“stop”默认包含其中，也可由参数“endpoint”更改。参数“retstep”决定是否返回等差值。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 在[2,3]的闭区间内生成5个等间隔数据</span><br>a = np.linspace(<span class="hljs-number">2.0</span>, <span class="hljs-number">3.0</span>, num=<span class="hljs-number">5</span>)<br><br><span class="hljs-comment"># 在[2,3)的左开右闭区间内生成5个等间隔数据</span><br>b = np.linspace(<span class="hljs-number">2.0</span>, <span class="hljs-number">3.0</span>, num=<span class="hljs-number">5</span>, endpoint=<span class="hljs-literal">False</span>)<br><br><span class="hljs-comment"># 在[2,3]的闭区间内生成5个等间隔数据，并返回间隔值</span><br>c = np.linspace(<span class="hljs-number">2.0</span>, <span class="hljs-number">3.0</span>, num=<span class="hljs-number">5</span>, retstep=<span class="hljs-literal">True</span>)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:'</span>, a, <span class="hljs-string">'\nb:'</span>, b, <span class="hljs-string">'\nc:'</span>, c)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">a: [2.   2.25 2.5  2.75 3.  ] 
 b: [2.  2.2 2.4 2.6 2.8] 
@@ -356,18 +342,14 @@ c: (array([2.  , 2.25, 2.5 , 2.75, 3.  ]), 0.25)</code></pre>
 <ul>
 <li><code>np.logspace()</code></li>
 </ul>
-<p><code>np.logspace(start,stop,num=50,endpoint=True,base=10.0,dtype=None,axis=0)</code>
-该函数返回一个对数刻度上的等比数列。数列范围为“[<span class="math inline">\(base^{start}\)</span>，<span class="math inline">\(base^{stop}\)</span>]”，“base”默认为10。</p>
+<p><code>np.logspace(start,stop,num=50,endpoint=True,base=10.0,dtype=None,axis=0)</code> 该函数返回一个对数刻度上的等比数列。数列范围为“[<span class="math inline">\(base^{start}\)</span>，<span class="math inline">\(base^{stop}\)</span>]”，“base”默认为10。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 在区间[10,100]内生成一个包含5个数据的等比数列</span><br>a = np.logspace(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, num=<span class="hljs-number">5</span>)<br><br><span class="hljs-comment"># 在区间[4,8]内生成一个包含4个数据的等比数列</span><br>b = np.logspace(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, base=<span class="hljs-number">2</span>, num=<span class="hljs-number">4</span>)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:'</span>, a, <span class="hljs-string">'\nb:'</span>, b)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">a: [ 10.          17.7827941   31.6227766   56.23413252 100.        ] 
 b: [4.         5.0396842  6.34960421 8.        ]</code></pre>
 <h2 id="创建规模数组">1.3 创建规模数组</h2>
-<h3 id="np.zeros-和-np.zeros_like">1.3.1 <code>np.zeros</code> 和
-<code>np.zeros_like</code></h3>
-<p><code>np.zeros(shape, dtype=float, order='C')</code>
-该函数返回一个全为0的数组。数组形状由参数“shape”决定，“shape”可以是整数也可以是一个元组，当shape为整数时返回一个一维数组。</p>
-<p><code>np.zeros_like(a, dtype=None, order='K', subok=True, shape=None)</code>
-该函数返回一个数据全为0，但与数组“a”具有相同形状和数据类型的新数组。</p>
+<h3 id="np.zeros-和-np.zeros_like">1.3.1 <code>np.zeros</code> 和 <code>np.zeros_like</code></h3>
+<p><code>np.zeros(shape, dtype=float, order='C')</code> 该函数返回一个全为0的数组。数组形状由参数“shape”决定，“shape”可以是整数也可以是一个元组，当shape为整数时返回一个一维数组。</p>
+<p><code>np.zeros_like(a, dtype=None, order='K', subok=True, shape=None)</code> 该函数返回一个数据全为0，但与数组“a”具有相同形状和数据类型的新数组。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.zeros(<span class="hljs-number">10</span>)<br>b = np.zeros((<span class="hljs-number">2</span>, <span class="hljs-number">3</span>))<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:\n'</span>, a, <span class="hljs-string">'\nb:\n'</span>, b)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">a:
  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.] 
@@ -383,12 +365,9 @@ b:
  [[0 0 0 0]
  [0 0 0 0]
  [0 0 0 0]]</code></pre>
-<h3 id="np.ones-和-np.ones_like">1.3.2 <code>np.ones</code> 和
-<code>np.ones_like</code></h3>
-<p><code>np.ones(shape, dtype=None, order='C')</code>
-该函数返回一个全为1的数组。</p>
-<p><code>np.ones_like(a, dtype=None, order='K', subok=True, shape=None)</code>
-该函数返回一个数据全为1，但与数组“a”具有相同形状和数据类型的新数组。</p>
+<h3 id="np.ones-和-np.ones_like">1.3.2 <code>np.ones</code> 和 <code>np.ones_like</code></h3>
+<p><code>np.ones(shape, dtype=None, order='C')</code> 该函数返回一个全为1的数组。</p>
+<p><code>np.ones_like(a, dtype=None, order='K', subok=True, shape=None)</code> 该函数返回一个数据全为1，但与数组“a”具有相同形状和数据类型的新数组。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.ones(<span class="hljs-number">5</span>)<br>b = np.ones((<span class="hljs-number">3</span>, <span class="hljs-number">4</span>))<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:\n'</span>, a, <span class="hljs-string">'\nb:\n'</span>, b)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">a:
  [1. 1. 1. 1. 1.] 
@@ -405,12 +384,9 @@ b:
  [[1 1 1 1]
  [1 1 1 1]
  [1 1 1 1]]</code></pre>
-<h3 id="np.full-和-np.full_like">1.3.3 <code>np.full()</code> 和
-<code>np.full_like()</code></h3>
-<p><code>np.full(shape, fill_value, dtype=None, order='C')</code>
-返回一个给定形状和数据类型的新数组，数组数据全为给定值“fill_value”。</p>
-<p><code>np.full_like(a, fill_value, dtype=None, order='K', subok=True, shape=None)</code>
-返回一个数据全为值“fill_value”，但与数组“a”具有相同形状和数据类型的新数组。</p>
+<h3 id="np.full-和-np.full_like">1.3.3 <code>np.full()</code> 和 <code>np.full_like()</code></h3>
+<p><code>np.full(shape, fill_value, dtype=None, order='C')</code> 返回一个给定形状和数据类型的新数组，数组数据全为给定值“fill_value”。</p>
+<p><code>np.full_like(a, fill_value, dtype=None, order='K', subok=True, shape=None)</code> 返回一个数据全为值“fill_value”，但与数组“a”具有相同形状和数据类型的新数组。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.full(<span class="hljs-number">5</span>, <span class="hljs-number">3.14</span>)<br>b = np.full((<span class="hljs-number">2</span>, <span class="hljs-number">3</span>), <span class="hljs-number">3.14</span>)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:\n'</span>, a, <span class="hljs-string">'\nb:\n'</span>, b)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">a:
  [3.14 3.14 3.14 3.14 3.14] 
@@ -426,9 +402,7 @@ b:
  [[3 3 3 3]
  [3 3 3 3]
  [3 3 3 3]]</code></pre>
-<p><strong>注意：</strong> <code>zeros_like</code>
-、<code>ones_like</code> 和<code>full_like</code>
-都只能产生与所给数组具有相同数据类型的数组。</p>
+<p><strong>注意：</strong> <code>zeros_like</code> 、<code>ones_like</code> 和<code>full_like</code> 都只能产生与所给数组具有相同数据类型的数组。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.arange(<span class="hljs-number">1</span>, <span class="hljs-number">13</span>).reshape(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>)<br>b = np.arange(<span class="hljs-number">1</span>, <span class="hljs-number">7</span>, <span class="hljs-number">0.5</span>).reshape(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a_dtype:'</span>, a.dtype, <span class="hljs-string">'\nb_dtype:'</span>, b.dtype)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">a_dtype: int32 
 b_dtype: float64</code></pre>
@@ -439,8 +413,7 @@ c_b_dtype: float64</code></pre>
 <pre><code class="hljs">d_a_dtype: int32 
 d_b_dtype: float64</code></pre>
 <h3 id="np.eye">1.3.4 <code>np.eye()</code></h3>
-<p><code>np.eye(N, M=None, k=0, dtype=&lt;class 'float'&gt;, order='C')</code>
-返回一个N×M的二维数组，数组对角线值为1，其余为0。M默认等于N，k为对角线的索引，默认为0。</p>
+<p><code>np.eye(N, M=None, k=0, dtype=&lt;class 'float'&gt;, order='C')</code> 返回一个N×M的二维数组，数组对角线值为1，其余为0。M默认等于N，k为对角线的索引，默认为0。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.eye(<span class="hljs-number">3</span>)<br>b = np.eye(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>)<br>c = np.eye(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, k=<span class="hljs-number">1</span>)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:\n'</span>, a, <span class="hljs-string">'\nb:\n'</span>, b, <span class="hljs-string">'\nc:\n'</span>, c)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">a:
  [[1. 0. 0.]
@@ -455,12 +428,9 @@ c:
  [0. 0. 1. 0.]
  [0. 0. 0. 1.]]</code></pre>
 <h3 id="np.random">1.3.5 <code>np.random()</code></h3>
-<p><code>random</code>
-是NumPy的一个模块，内含诸多函数，较为常用的由rand、randn、randint、random、normal、seed
-等函数。</p>
+<p><code>random</code> 是NumPy的一个模块，内含诸多函数，较为常用的由rand、randn、randint、random、normal、seed 等函数。</p>
 <ul>
-<li><code>np.random.rand(d0, d1, ..., dn)</code>
-返回一个指定维度、数据介于[0,1)的数组，参数d为维度。</li>
+<li><code>np.random.rand(d0, d1, ..., dn)</code> 返回一个指定维度、数据介于[0,1)的数组，参数d为维度。</li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 生成一个一维随机数组 a</span><br><br>a = np.random.rand(<span class="hljs-number">5</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:\n'</span>, a, <span class="hljs-string">'\na_nidm:'</span>, a.ndim, <span class="hljs-string">'\na_shape:'</span>, a.shape)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">a:
@@ -485,9 +455,7 @@ b_shape: (2, 3)</code></pre>
 c_nidm: 3 
 c_shape: (2, 3, 4)</code></pre>
 <ul>
-<li><code>np.random.randint(low, high=None, size=None, dtype=int)</code>
-返回一个随机整数数组，数据范围[low,high)，如果“
-high”为“无”（默认值），则结果来自[0,low）。参数“size”决定数组的维度。参数“low”和“high”既可以是整数，也可以是元组。</li>
+<li><code>np.random.randint(low, high=None, size=None, dtype=int)</code> 返回一个随机整数数组，数据范围[low,high)，如果“ high”为“无”（默认值），则结果来自[0,low）。参数“size”决定数组的维度。参数“low”和“high”既可以是整数，也可以是元组。</li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 从[0,100)范围内生成一个一维的随机整数数组</span><br><br>a = np.random.randint(<span class="hljs-number">100</span>, size=<span class="hljs-number">5</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:\n'</span>, a)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">a:
@@ -507,8 +475,7 @@ high”为“无”（默认值），则结果来自[0,low）。参数“size”
  [[ 3  4  7  8]
  [ 1 19  9 14]]</code></pre>
 <ul>
-<li><code>np.random.random(size=None)</code>
-返回一个随机浮点数数组，数据范围为[0,1)</li>
+<li><code>np.random.random(size=None)</code> 返回一个随机浮点数数组，数据范围为[0,1)</li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 生成一个二维随机浮点数数组</span><br><br>a = np.random.random((<span class="hljs-number">3</span>, <span class="hljs-number">3</span>))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:\n'</span>, a)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">a:
@@ -516,17 +483,14 @@ high”为“无”（默认值），则结果来自[0,low）。参数“size”
  [0.63682168 0.80479305 0.67311453]
  [0.77075207 0.61300261 0.41127895]]</code></pre>
 <ul>
-<li><code>np.random.normal(loc=0.0, scale=1.0, size=None)</code>
-从正态（高斯）分布中抽取随机样本。参数“loc”表示概率分布的均值，对应着整个分布的中心cente；“scale"表示概率分布的标准差，对应于分布的宽度，scale越大越矮胖，scale越小，越瘦高；“loc”和“scale"都必须是浮点数或浮点数组成的元组</li>
+<li><code>np.random.normal(loc=0.0, scale=1.0, size=None)</code> 从正态（高斯）分布中抽取随机样本。参数“loc”表示概率分布的均值，对应着整个分布的中心cente；“scale"表示概率分布的标准差，对应于分布的宽度，scale越大越矮胖，scale越小，越瘦高；“loc”和“scale"都必须是浮点数或浮点数组成的元组</li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 创建均值为0、标准差为1的二维（2×3）正态分布随机数组</span><br><br>a = np.random.normal(<span class="hljs-number">0.0</span>, <span class="hljs-number">1.0</span>, (<span class="hljs-number">2</span>, <span class="hljs-number">3</span>))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:\n'</span>, a)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">a:
  [[ 1.25935466  0.59439736 -0.16857579]
  [ 1.08024485  0.77929309  0.96025698]]</code></pre>
 <ul>
-<li><code>np.random.seed(self, seed=None)</code>
-生成一个随机数种子，用于指定随机数生成时所用算法开始的整数值。如果使用相同的seed(
-)值，则每次生成的随即数都相同；如果不设置这个值，则系统根据时间来自己选择这个值，此时每次生成的随机数因时间差异而不同。设置的seed()值仅一次有效。</li>
+<li><code>np.random.seed(self, seed=None)</code> 生成一个随机数种子，用于指定随机数生成时所用算法开始的整数值。如果使用相同的seed( )值，则每次生成的随即数都相同；如果不设置这个值，则系统根据时间来自己选择这个值，此时每次生成的随机数因时间差异而不同。设置的seed()值仅一次有效。</li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 使用相同的seed，生成的随机数相同</span><br><br>num = <span class="hljs-number">0</span><br><span class="hljs-keyword">while</span>(num &lt; <span class="hljs-number">5</span>):<br>    np.random.seed(<span class="hljs-number">3</span>)<br>    <span class="hljs-built_in">print</span>(np.random.random())<br>    num += <span class="hljs-number">1</span><br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">0.5507979025745755
@@ -640,10 +604,7 @@ b:
  [8 8 7]]</code></pre>
 <h1 id="数组的变形">3 数组的变形</h1>
 <h2 id="一维变二维">3.1 一维变二维</h2>
-<p>数组变形最为常用的方法是通过 <code>reshape()</code>
-函数来实现，该函数在上一小节“创建数组”中已经介绍过。此处讲解另一种变形模式是将一个一维数组转变为二维的行或列的矩阵。此变形既可以通过
-reshape 来实现，也可以通过 <code>newaxis</code>
-关键字实现对数组的变形。</p>
+<p>数组变形最为常用的方法是通过 <code>reshape()</code> 函数来实现，该函数在上一小节“创建数组”中已经介绍过。此处讲解另一种变形模式是将一个一维数组转变为二维的行或列的矩阵。此变形既可以通过 reshape 来实现，也可以通过 <code>newaxis</code> 关键字实现对数组的变形。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.array([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:\n'</span>, a, <span class="hljs-string">'\na_nidm:'</span>, a.ndim, <span class="hljs-string">'\na_shape:'</span>, a.shape)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">a:
  [1 2 3] 
@@ -659,10 +620,7 @@ b_shape: (1, 3)</code></pre>
  [[1 2 3]] 
 c_nidm: 2 
 c_shape: (1, 3)</code></pre>
-<p>在上面的例子中，数组a是一维的，经过 reshape 和 newaxis
-后变为二维数组，原数组a成为新数组的一行。从上面的例子可以看出，<code>np.newaxis</code>
-的作用就是在其所在位置增加一个维度。也可以使用 reshape 和 newaxis
-让原数组a成为新数组的一列：</p>
+<p>在上面的例子中，数组a是一维的，经过 reshape 和 newaxis 后变为二维数组，原数组a成为新数组的一行。从上面的例子可以看出，<code>np.newaxis</code> 的作用就是在其所在位置增加一个维度。也可以使用 reshape 和 newaxis 让原数组a成为新数组的一列：</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">d = a.reshape((<span class="hljs-number">3</span>, <span class="hljs-number">1</span>))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'d:\n'</span>, d, <span class="hljs-string">'\nd_nidm:'</span>, d.ndim, <span class="hljs-string">'\nd_shape:'</span>, d.shape)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">d:
  [[1]
@@ -678,10 +636,7 @@ d_shape: (3, 1)</code></pre>
 e_nidm: 2 
 e_shape: (3, 1)</code></pre>
 <h2 id="数组的转置">3.2 数组的转置</h2>
-<p>另一种变形是数组的转置，NumPy提供了三种转置方法T、transpose和swapaxes。如果只对一、二维数组转置，可使用T方法，相对较为简单，只需在需要转置的数组后加<code>.T</code>
-即可。高维数组的转置则需要使用transpose和swapaxes。transpose语法为：<code>np.transpose(a, axes=None)</code>
-。swapaxes语法为：<code>np.swapaxes(a, axis1, axis2)</code> ，axis1 和
-axis2 分别表示需要转换的两个轴。三维以上数组的转置暂时不深入学习。</p>
+<p>另一种变形是数组的转置，NumPy提供了三种转置方法T、transpose和swapaxes。如果只对一、二维数组转置，可使用T方法，相对较为简单，只需在需要转置的数组后加<code>.T</code> 即可。高维数组的转置则需要使用transpose和swapaxes。transpose语法为：<code>np.transpose(a, axes=None)</code> 。swapaxes语法为：<code>np.swapaxes(a, axis1, axis2)</code> ，axis1 和 axis2 分别表示需要转换的两个轴。三维以上数组的转置暂时不深入学习。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.arange(<span class="hljs-number">1</span>, <span class="hljs-number">13</span>).reshape(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a:\n'</span>, a)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">a:
  [[ 1  2  3  4]
@@ -704,15 +659,11 @@ d:
  [ 3  7 11]
  [ 4  8 12]]</code></pre>
 <h1 id="数组的拼接">4 数组的拼接</h1>
-<p>数组的拼接主要由<code>np.concatenate</code>
-、<code>np.column_stack</code> 、<code>np.vstack</code>
-、<code>np.hstack</code> 来实现。</p>
+<p>数组的拼接主要由<code>np.concatenate</code> 、<code>np.column_stack</code> 、<code>np.vstack</code> 、<code>np.hstack</code> 来实现。</p>
 <ul>
 <li><code>np.concatenate</code></li>
 </ul>
-<p>完整函数为 <code>concatenate((a1, a2, ...), axis=0, out=None)</code>
-。a1, a2, ...
-是序列，各个序列应具有相同的大小，或经过axis参数后具有相同的大小。axis默认为0，表示沿第一个轴拼接，为1时表示沿第二个轴拼接。</p>
+<p>完整函数为 <code>concatenate((a1, a2, ...), axis=0, out=None)</code> 。a1, a2, ... 是序列，各个序列应具有相同的大小，或经过axis参数后具有相同的大小。axis默认为0，表示沿第一个轴拼接，为1时表示沿第二个轴拼接。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.array([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])<br>b = np.array([<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>])<br>c = np.array([<span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>])<br><br>d = np.concatenate((a, b, c))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'d:\n'</span>, d)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">d:
  [1 2 3 4 5 6 7 8 9]</code></pre>
@@ -733,8 +684,7 @@ d:
 <ul>
 <li><code>np.column_stack</code></li>
 </ul>
-<p><code>np.column_stack(tup)</code>
-可以把一维数组变为二维数组的列。</p>
+<p><code>np.column_stack(tup)</code> 可以把一维数组变为二维数组的列。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.array([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])<br>b = np.array([<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>])<br>c = np.array([<span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>])<br><br>d = np.column_stack((a, b, c))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'d:\n'</span>, d)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">d:
  [[1 4 7]
@@ -743,10 +693,7 @@ d:
 <ul>
 <li><code>np.vstack</code> 和 <code>np.hstack</code></li>
 </ul>
-<p>如果是沿着固定维度处理数组时，使用 np.vstack（垂直栈）和
-np.hstack（水平栈）函数会更简洁。二者参数相同，完整函数为<code>np.vstack(tup)</code>
-和 <code>np.hstack(tup)</code> 。其中，tup
-表示元组，也就是说把待处理的数组放进一个元组中作为整体。</p>
+<p>如果是沿着固定维度处理数组时，使用 np.vstack（垂直栈）和 np.hstack（水平栈）函数会更简洁。二者参数相同，完整函数为<code>np.vstack(tup)</code> 和 <code>np.hstack(tup)</code> 。其中，tup 表示元组，也就是说把待处理的数组放进一个元组中作为整体。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.array([[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]])<br>b = np.array([[<span class="hljs-number">5</span>, <span class="hljs-number">6</span>]])<br><br>e = np.vstack((a, b))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'e:\n'</span>, e)<br><br>f = np.hstack((a, b.T))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'\nf:\n'</span>, f)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">e:
  [[1 2]
@@ -757,9 +704,7 @@ f:
  [[1 2 5]
  [3 4 6]]</code></pre>
 <h1 id="数组的分割">5 数组的分割</h1>
-<p>与拼接相反的过程是分割，分割可以通过<code>np.split</code>
-、<code>np.vsplit</code>、<code>np.hsplit</code>
-来实现。分割数组时需要向函数传递一个索引列表作为参数，索引列表记录的是分割点位置。</p>
+<p>与拼接相反的过程是分割，分割可以通过<code>np.split</code> 、<code>np.vsplit</code>、<code>np.hsplit</code> 来实现。分割数组时需要向函数传递一个索引列表作为参数，索引列表记录的是分割点位置。</p>
 <ul>
 <li><code>np.split</code></li>
 </ul>
@@ -796,9 +741,7 @@ c:
 <ul>
 <li><code>np.vsplit</code> 与 <code>np.hsplit</code></li>
 </ul>
-<p>如果沿固定维度分割，可使用
-<code>np.vsplit(ary, indices_or_sections)</code> 或
-<code>np.hsplit(ary, indices_or_sections)</code></p>
+<p>如果沿固定维度分割，可使用 <code>np.vsplit(ary, indices_or_sections)</code> 或 <code>np.hsplit(ary, indices_or_sections)</code></p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">b, c, d = np.vsplit(a, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>])<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'b:\n'</span>, b)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'c:\n'</span>, c)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'d:\n'</span>, d)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">b:
  [[0 1 2 3]]
@@ -821,8 +764,7 @@ c:
 <ol type="1">
 <li><p><a target="_blank" rel="noopener" href="https://book.douban.com/subject/27667378/">Python数据科学手册</a></p></li>
 <li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Q441187wR">3小时教你入门Numpy</a></p></li>
-<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ex411L7oT?from=search&amp;seid=8811664039681764975">Numpy
-&amp; Pandas(莫烦Python数据处理教程)</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ex411L7oT?from=search&amp;seid=8811664039681764975">Numpy &amp; Pandas(莫烦Python数据处理教程)</a></p></li>
 <li><p><a target="_blank" rel="noopener" href="https://www.imooc.com/learn/1237">Numpy基础入门</a></p></li>
 </ol>
 

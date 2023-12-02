@@ -88,7 +88,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
 
@@ -411,8 +411,7 @@ from module_name import *
 <pre><code class="hljs">Making a 16-inch pizza with the following toppings:
  -  pepperoni
  -  extra cheese</code></pre>
-<h3 id="使用as给模块或为函数指定别名">1.5.3
-使用as给模块或为函数指定别名</h3>
+<h3 id="使用as给模块或为函数指定别名">1.5.3 使用as给模块或为函数指定别名</h3>
 <p>如果要导入的模块或函数名称太长或可能与程序中现有的名称冲突，可以指定简短的别名。只需在import语句中使用关键字as即可。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> pizza <span class="hljs-keyword">as</span> p<br>p.make_pizza(<span class="hljs-number">16</span>, <span class="hljs-string">'pepperoni'</span>, <span class="hljs-string">'extra cheese'</span>)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">Making a 16-inch pizza with the following toppings:
@@ -426,34 +425,14 @@ from module_name import *
 <p>为了方便大家使用，Python开发者在Python程序中已经内置了一些函数，可以直接使用。<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.7/library/functions.html">Python内置函数（3.7版本）</a>共有69个，大致可分为数学运算类、类型转换类、容器类型及操作类、交互操作类、文件操作类、对象操作类等几大类型。</p>
 <h2 id="数学运算类">2.1 数学运算类</h2>
 <ul>
-<li><p><strong><code>max()</code></strong>
-返回可迭代对象中最大的元素，或者返回两个及以上实参中最大的。如果有多个最大元素，则此函数将返回第一个找到的。</p></li>
-<li><p><strong><code>min()</code></strong>
-返回可迭代对象中最小的元素，或者返回两个及以上实参中最小的。如果有多个最小元素，则此函数将返回第一个找到的。</p></li>
-<li><p><strong><code>sum(iterable, start)</code></strong> 对 iterable
-中的项求和后再与 start
-相加，最后返回总计值。注意传入sum()函数的必须是可迭代对象，不能是实参，iterable
-的项通常为数字，开始值则不允许为字符串。start 为可选项，默认为 0
-。对某些用例来说，存在 sum() 的更好替代。
-拼接字符串序列的更好更快方式是调用 ''.join(sequence)。
-要以扩展精度对浮点值求和，请参阅 math.fsum()。
-要拼接一系列可迭代对象，请考虑使用itertools.chain()。</p></li>
-<li><p><strong><code>len()</code></strong>
-返回对象的长度（元素个数）。实参可以是序列（如
-string、bytes、tuple、list 或 range 等）或集合（如 dictionary、set 或
-frozen set 等）。</p></li>
-<li><p><strong><code>abs()</code></strong>
-返回一个数的绝对值。实参可以是整数或浮点数。如果实参是一个复数，返回它的模。</p></li>
-<li><p><strong><code>round(number, ndigits)</code></strong> 返回 number
-舍入到小数点后 ndigits 位精度的值。 任何整数值都可作为有效的 ndigits
-(正数、零或负数)。如果 ndigits 被省略或为
-None，则返回最接近输入值的整数。</p></li>
-<li><p><strong><code>pow(x, y, z)</code></strong> 返回 x 的 y 次幂。z
-为可选参数，如果 z 存在，则对 z 取余（比直接 pow(x, y) % z
-计算更高效）。</p></li>
-<li><p><strong><code>divmod(a, b)</code></strong>
-它将两个（非复数）数字作为实参，并在执行整数除法时返回一个包含商和余数的元组(a
-// b, a % b)</p></li>
+<li><p><strong><code>max()</code></strong> 返回可迭代对象中最大的元素，或者返回两个及以上实参中最大的。如果有多个最大元素，则此函数将返回第一个找到的。</p></li>
+<li><p><strong><code>min()</code></strong> 返回可迭代对象中最小的元素，或者返回两个及以上实参中最小的。如果有多个最小元素，则此函数将返回第一个找到的。</p></li>
+<li><p><strong><code>sum(iterable, start)</code></strong> 对 iterable 中的项求和后再与 start 相加，最后返回总计值。注意传入sum()函数的必须是可迭代对象，不能是实参，iterable 的项通常为数字，开始值则不允许为字符串。start 为可选项，默认为 0 。对某些用例来说，存在 sum() 的更好替代。 拼接字符串序列的更好更快方式是调用 ''.join(sequence)。 要以扩展精度对浮点值求和，请参阅 math.fsum()。 要拼接一系列可迭代对象，请考虑使用itertools.chain()。</p></li>
+<li><p><strong><code>len()</code></strong> 返回对象的长度（元素个数）。实参可以是序列（如 string、bytes、tuple、list 或 range 等）或集合（如 dictionary、set 或 frozen set 等）。</p></li>
+<li><p><strong><code>abs()</code></strong> 返回一个数的绝对值。实参可以是整数或浮点数。如果实参是一个复数，返回它的模。</p></li>
+<li><p><strong><code>round(number, ndigits)</code></strong> 返回 number 舍入到小数点后 ndigits 位精度的值。 任何整数值都可作为有效的 ndigits (正数、零或负数)。如果 ndigits 被省略或为 None，则返回最接近输入值的整数。</p></li>
+<li><p><strong><code>pow(x, y, z)</code></strong> 返回 x 的 y 次幂。z 为可选参数，如果 z 存在，则对 z 取余（比直接 pow(x, y) % z 计算更高效）。</p></li>
+<li><p><strong><code>divmod(a, b)</code></strong> 它将两个（非复数）数字作为实参，并在执行整数除法时返回一个包含商和余数的元组(a // b, a % b)</p></li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 传入一个可迭代对象，取其最大元素值。</span><br>alist = [-<span class="hljs-number">5</span>, -<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>]<br>max_number = <span class="hljs-built_in">max</span>(alist)<br>max_abs_number = <span class="hljs-built_in">max</span>(alist, key=<span class="hljs-built_in">abs</span>)  <span class="hljs-comment"># 求绝对值最大的元素</span><br><span class="hljs-built_in">print</span>(max_number, max_abs_number)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">3 -5</code></pre>
@@ -471,40 +450,26 @@ None，则返回最接近输入值的整数。</p></li>
 <h2 id="类型转换">2.2 类型转换</h2>
 <h3 id="数字类型">2.2.1 数字类型</h3>
 <ul>
-<li><strong><code>int(x, base)</code></strong> 返回一个使用数字或字符串
-x 生成的整数对象。x 有两种类型 int 和 str。若 x 为纯数字，则不能有 base
-参数，否则报错，其作用为对入参 x 取整。若 x 为 str，则 base
-可略可有：base 存在时，视 x 为 base 类型数字，并将其转换为 10
-进制数字；若 x 不符合 base 规则，则报错，str需为整数。</li>
-<li><strong><code>float(x)</code></strong> 返回从数字或字符串 x
-生成的浮点数。</li>
-<li><strong><code>complex(real, imag)</code></strong> 返回值为 real +
-imag*1j
-的复数，或将字符串或数字转换为复数。imag为可选项，则默认值为零。</li>
+<li><strong><code>int(x, base)</code></strong> 返回一个使用数字或字符串 x 生成的整数对象。x 有两种类型 int 和 str。若 x 为纯数字，则不能有 base 参数，否则报错，其作用为对入参 x 取整。若 x 为 str，则 base 可略可有：base 存在时，视 x 为 base 类型数字，并将其转换为 10 进制数字；若 x 不符合 base 规则，则报错，str需为整数。</li>
+<li><strong><code>float(x)</code></strong> 返回从数字或字符串 x 生成的浮点数。</li>
+<li><strong><code>complex(real, imag)</code></strong> 返回值为 real + imag*1j 的复数，或将字符串或数字转换为复数。imag为可选项，则默认值为零。</li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">a = <span class="hljs-built_in">int</span>(<span class="hljs-number">2.6</span>)        <span class="hljs-comment"># 取整</span><br>b = <span class="hljs-built_in">int</span>(<span class="hljs-string">'1001'</span>)     <span class="hljs-comment"># 不指定base，则把'1001'默认为10进制数字</span><br>c = <span class="hljs-built_in">int</span>(<span class="hljs-string">'1001'</span>, <span class="hljs-number">2</span>)  <span class="hljs-comment"># 指定base，表示'1001'为2进制数字</span><br>d = <span class="hljs-built_in">int</span>(<span class="hljs-string">'123'</span>, <span class="hljs-number">8</span>)   <span class="hljs-comment"># 指定base，表示'123'为8进制数字</span><br>e = <span class="hljs-built_in">int</span>(<span class="hljs-string">'0xa'</span>, <span class="hljs-number">16</span>)  <span class="hljs-comment"># 指定base，表示'0xa'为16进制数字</span><br><span class="hljs-built_in">print</span>(a, b, c, d, e)  <br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">2 1001 9 83 10</code></pre>
 <h3 id="进制类型">2.2.2 进制类型</h3>
 <ul>
-<li><p><strong><code>bin(x)</code></strong>
-将一个整数转变为一个前缀为“0b”的二进制字符串。</p></li>
-<li><p><strong><code>oct(x)</code></strong>
-将一个整数转变为一个前缀为“0o”的八进制字符串。</p></li>
-<li><p><strong><code>hex(x)</code></strong>
-将整数转换为以“0x”为前缀的小写十六进制字符串。</p></li>
+<li><p><strong><code>bin(x)</code></strong> 将一个整数转变为一个前缀为“0b”的二进制字符串。</p></li>
+<li><p><strong><code>oct(x)</code></strong> 将一个整数转变为一个前缀为“0o”的八进制字符串。</p></li>
+<li><p><strong><code>hex(x)</code></strong> 将整数转换为以“0x”为前缀的小写十六进制字符串。</p></li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">a = <span class="hljs-built_in">bin</span>(<span class="hljs-number">9</span>)<br>b = <span class="hljs-built_in">oct</span>(<span class="hljs-number">83</span>)<br>c = <span class="hljs-built_in">hex</span>(<span class="hljs-number">10</span>)<br><span class="hljs-built_in">print</span>(a, b, c)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">0b1001 0o123 0xa</code></pre>
 <h3 id="其他转换">2.2.3 其他转换</h3>
 <ul>
-<li><p><strong><code>bool(x)</code></strong> 返回一个布尔值，True 或者
-False。数值0、空序列、空元组、空字典等值为False。</p></li>
-<li><p><strong><code>str(x)</code></strong>
-返回一个对象的字符串表现形式。</p></li>
-<li><p><strong><code>chr(i)</code></strong>
-返回整数所对应的Unicode字符。</p></li>
-<li><p><strong><code>ord(c)</code></strong>
-返回Unicode字符对应的整数。</p></li>
+<li><p><strong><code>bool(x)</code></strong> 返回一个布尔值，True 或者 False。数值0、空序列、空元组、空字典等值为False。</p></li>
+<li><p><strong><code>str(x)</code></strong> 返回一个对象的字符串表现形式。</p></li>
+<li><p><strong><code>chr(i)</code></strong> 返回整数所对应的Unicode字符。</p></li>
+<li><p><strong><code>ord(c)</code></strong> 返回Unicode字符对应的整数。</p></li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(<span class="hljs-built_in">chr</span>(<span class="hljs-number">97</span>))<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">ord</span>(<span class="hljs-string">'a'</span>))<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">a
@@ -512,17 +477,10 @@ False。数值0、空序列、空元组、空字典等值为False。</p></li>
 <h2 id="容器类型及操作">2.3 容器类型及操作</h2>
 <h3 id="四种容器类型">2.3.1 四种容器类型</h3>
 <ul>
-<li><p>列表： <strong><code>list()</code></strong> 虽然被称为函数，list
-实际上是一种可变序列类型，通常用于存放同类项目的集合。</p></li>
-<li><p>元组： <strong><code>tuple()</code></strong> 虽然被称为函数，但
-tuple
-实际上是一个不可变的序列类型，通常用于储存异构数据的多项集</p></li>
-<li><p>字典： <strong><code>dict()</code></strong>
-创建一个新的字典。dict 对象是一个字典类。</p></li>
-<li><p>集合： <strong><code>set([iterable])</code></strong>
-、<strong><code>frozenset([iterable])</code></strong> 返回一个新的 set
-或 frozenset 对象，可以选择带有从 iterable 获取的元素。frozenset
-产生一个不可变的set。</p></li>
+<li><p>列表： <strong><code>list()</code></strong> 虽然被称为函数，list 实际上是一种可变序列类型，通常用于存放同类项目的集合。</p></li>
+<li><p>元组： <strong><code>tuple()</code></strong> 虽然被称为函数，但 tuple 实际上是一个不可变的序列类型，通常用于储存异构数据的多项集</p></li>
+<li><p>字典： <strong><code>dict()</code></strong> 创建一个新的字典。dict 对象是一个字典类。</p></li>
+<li><p>集合： <strong><code>set([iterable])</code></strong> 、<strong><code>frozenset([iterable])</code></strong> 返回一个新的 set 或 frozenset 对象，可以选择带有从 iterable 获取的元素。frozenset 产生一个不可变的set。</p></li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">a = <span class="hljs-built_in">dict</span>(one=<span class="hljs-number">1</span>, two=<span class="hljs-number">2</span>, three=<span class="hljs-number">3</span>)<br>b = {<span class="hljs-string">'one'</span>: <span class="hljs-number">1</span>, <span class="hljs-string">'two'</span>: <span class="hljs-number">2</span>, <span class="hljs-string">'three'</span>: <span class="hljs-number">3</span>}<br>c = <span class="hljs-built_in">dict</span>(<span class="hljs-built_in">zip</span>([<span class="hljs-string">'one'</span>, <span class="hljs-string">'two'</span>, <span class="hljs-string">'three'</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]))<br>d = <span class="hljs-built_in">dict</span>([(<span class="hljs-string">'two'</span>, <span class="hljs-number">2</span>), (<span class="hljs-string">'one'</span>, <span class="hljs-number">1</span>), (<span class="hljs-string">'three'</span>, <span class="hljs-number">3</span>)])<br>e = <span class="hljs-built_in">dict</span>({<span class="hljs-string">'three'</span>: <span class="hljs-number">3</span>, <span class="hljs-string">'one'</span>: <span class="hljs-number">1</span>, <span class="hljs-string">'two'</span>: <span class="hljs-number">2</span>})<br>a == b == c == d == e<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">True</code></pre>
@@ -531,35 +489,22 @@ tuple
  frozenset({0, 1, 2, 3, 4, 5, 6, 7, 8, 9})</code></pre>
 <h3 id="应用于容器的其他操作函数">2.3.2 应用于容器的其他操作函数</h3>
 <ul>
-<li><strong><code>range(start, stop, step)</code></strong>
-虽然被称为函数，但 range
-实际上是一个不可变的序列类型。step为可选参数，默认为1。该函数只能产生整数序列，不能产生浮点数。</li>
+<li><strong><code>range(start, stop, step)</code></strong> 虽然被称为函数，但 range 实际上是一个不可变的序列类型。step为可选参数，默认为1。该函数只能产生整数序列，不能产生浮点数。</li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(<span class="hljs-built_in">list</span>(<span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>)))<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">tuple</span>(<span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>, <span class="hljs-number">2</span>)))<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">set</span>(<span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, -<span class="hljs-number">10</span>, -<span class="hljs-number">2</span>)))<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 (0, 2, 4, 6, 8)
 {0, -8, -6, -4, -2}</code></pre>
 <ul>
-<li><strong><code>enumerate(iterable, start=0)</code></strong>
-返回一个枚举对象。iterable 必须是一个序列，或
-iterator，或其他支持迭代的对象。 enumerate() 返回的迭代器的
-<code>__next__()</code> 方法返回一个元组，里面包含一个计数值（从 start
-开始，默认为 0）和通过迭代 iterable 获得的值。</li>
+<li><strong><code>enumerate(iterable, start=0)</code></strong> 返回一个枚举对象。iterable 必须是一个序列，或 iterator，或其他支持迭代的对象。 enumerate() 返回的迭代器的 <code>__next__()</code> 方法返回一个元组，里面包含一个计数值（从 start 开始，默认为 0）和通过迭代 iterable 获得的值。</li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">seasons = [<span class="hljs-string">'Spring'</span>, <span class="hljs-string">'Summer'</span>, <span class="hljs-string">'Fall'</span>, <span class="hljs-string">'Winter'</span>]<br><span class="hljs-built_in">list</span>(<span class="hljs-built_in">enumerate</span>(seasons))<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">[(0, 'Spring'), (1, 'Summer'), (2, 'Fall'), (3, 'Winter')]</code></pre>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">list</span>(<span class="hljs-built_in">enumerate</span>(seasons, start = <span class="hljs-number">1</span>))<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">[(1, 'Spring'), (2, 'Summer'), (3, 'Fall'), (4, 'Winter')]</code></pre>
 <ul>
-<li><p><strong><code>sorted(iterable, *, key=None, reverse=False)</code></strong>
-根据 iterable
-中的项返回一个新的已排序列表。具有两个可选参数，它们都必须指定为关键字参数。key
-指定带有单个参数的函数，用于从 iterable
-的每个元素中提取用于比较的键，默认值为 None (直接比较元素)。reverse
-为一个布尔值。 如果设为
-True，则每个列表元素将按反向顺序比较进行排序</p></li>
-<li><p><strong><code>reversed(seq)</code></strong> 返回一个反向的
-iterator。</p></li>
+<li><p><strong><code>sorted(iterable, *, key=None, reverse=False)</code></strong> 根据 iterable 中的项返回一个新的已排序列表。具有两个可选参数，它们都必须指定为关键字参数。key 指定带有单个参数的函数，用于从 iterable 的每个元素中提取用于比较的键，默认值为 None (直接比较元素)。reverse 为一个布尔值。 如果设为 True，则每个列表元素将按反向顺序比较进行排序</p></li>
+<li><p><strong><code>reversed(seq)</code></strong> 返回一个反向的 iterator。</p></li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python">a = [<span class="hljs-number">5</span>,<span class="hljs-number">7</span>,<span class="hljs-number">6</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>]<br>b = <span class="hljs-built_in">sorted</span>(a)<br>c = <span class="hljs-built_in">sorted</span>(a,reverse=<span class="hljs-literal">True</span>)<br>d = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">reversed</span>(a))<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'a: '</span>, a)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'b: '</span>, b)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'c: '</span>, c)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'d: '</span>, d)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">a:  [5, 7, 6, 3, 4, 1, 2]
@@ -571,31 +516,19 @@ d:  [2, 1, 4, 3, 6, 7, 5]</code></pre>
 ['a', 'boy', 'bruce', 'handsome', 'is']
 ['a', 'is', 'boy', 'bruce', 'handsome']</code></pre>
 <ul>
-<li><strong><code>map(function, iterable, ...)</code></strong>
-返回一个将 function 应用于 iterable
-中每一项并输出其结果的迭代器。如果传入了额外的 iterable 参数，function
-必须接受相同个数的实参并被应用于从所有可迭代对象中并行获取的项。
-当有多个可迭代对象时，最短的可迭代对象耗尽则整个迭代就将结束。map()函数不改变原有的
-list，而是返回一个新的 list。利用map()函数，可以把一个 list 转换为另一个
-list，只需要传入转换函数。<strong>map()函数是一个非常有用的功能强大的内置函数，需要引起重视。</strong></li>
+<li><strong><code>map(function, iterable, ...)</code></strong> 返回一个将 function 应用于 iterable 中每一项并输出其结果的迭代器。如果传入了额外的 iterable 参数，function 必须接受相同个数的实参并被应用于从所有可迭代对象中并行获取的项。 当有多个可迭代对象时，最短的可迭代对象耗尽则整个迭代就将结束。map()函数不改变原有的 list，而是返回一个新的 list。利用map()函数，可以把一个 list 转换为另一个 list，只需要传入转换函数。<strong>map()函数是一个非常有用的功能强大的内置函数，需要引起重视。</strong></li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">squ</span>(<span class="hljs-params">x</span>):<br>    <span class="hljs-keyword">return</span> x ** <span class="hljs-number">2</span><br><br>a = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">6</span>))<br>b = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">map</span>(squ, a))<br><span class="hljs-built_in">print</span>(a)<br><span class="hljs-built_in">print</span>(b)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">[1, 2, 3, 4, 5]
 [1, 4, 9, 16, 25]</code></pre>
 <ul>
-<li><strong><code>filter(function, iterable)</code></strong> 用 iterable
-中函数 function 返回真的那些元素，构建一个新的迭代器。iterable
-可以是一个序列，一个支持迭代的容器，或一个迭代器。如果 function 是 None
-，则会假设它是一个身份函数，即 iterable
-中所有返回假的元素会被移除。通俗来讲，filter()函数就是使用指定方法过滤可迭代对象的元素。<strong>filter()函数是一个非常有用的功能强大的内置函数，需要引起重视。</strong></li>
+<li><strong><code>filter(function, iterable)</code></strong> 用 iterable 中函数 function 返回真的那些元素，构建一个新的迭代器。iterable 可以是一个序列，一个支持迭代的容器，或一个迭代器。如果 function 是 None ，则会假设它是一个身份函数，即 iterable 中所有返回假的元素会被移除。通俗来讲，filter()函数就是使用指定方法过滤可迭代对象的元素。<strong>filter()函数是一个非常有用的功能强大的内置函数，需要引起重视。</strong></li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">if_odd</span>(<span class="hljs-params">x</span>):<br>    <span class="hljs-keyword">return</span> x % <span class="hljs-number">2</span> == <span class="hljs-number">1</span><br><br>a = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">11</span>))<br>b = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">filter</span>(if_odd, a))<br><span class="hljs-built_in">print</span>(a)<br><span class="hljs-built_in">print</span>(b)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 [1, 3, 5, 7, 9]</code></pre>
 <ul>
-<li><strong><code>zip(*iterables)</code></strong>
-创建一个聚合了来自每个可迭代对象中的元素的迭代器。当所输入可迭代对象中最短的一个被耗尽时，迭代器将停止迭代。zip()
-与 * 运算符相结合可以用来拆解一个列表，可简单理解为解压。</li>
+<li><strong><code>zip(*iterables)</code></strong> 创建一个聚合了来自每个可迭代对象中的元素的迭代器。当所输入可迭代对象中最短的一个被耗尽时，迭代器将停止迭代。zip() 与 * 运算符相结合可以用来拆解一个列表，可简单理解为解压。</li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">x = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]<br>y = [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>]<br><br>zipped_xy = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">zip</span>(x, y))<br><span class="hljs-built_in">print</span>(zipped_xy)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">[(1, 4), (2, 5), (3, 6)]</code></pre>
@@ -603,26 +536,20 @@ list，只需要传入转换函数。<strong>map()函数是一个非常有用的
 <pre><code class="hljs">(1, 2, 3)
 (4, 5, 6)</code></pre>
 <ul>
-<li><strong><code>all(iterable)</code></strong> 如果 iterable
-的所有元素为真（或迭代器为空），返回 True</li>
-<li><strong><code>any(iterable)</code></strong> 如果 iterable
-的任一元素为真则返回 True。 如果迭代器为空，返回 False。</li>
+<li><strong><code>all(iterable)</code></strong> 如果 iterable 的所有元素为真（或迭代器为空），返回 True</li>
+<li><strong><code>any(iterable)</code></strong> 如果 iterable 的任一元素为真则返回 True。 如果迭代器为空，返回 False。</li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#空字典</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">all</span>({})) <br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">any</span>({}))<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">True
 False</code></pre>
-<h2 id="交互操作文件操作对象操作类">2.4
-交互操作/文件操作/对象操作类</h2>
+<h2 id="交互操作文件操作对象操作类">2.4 交互操作/文件操作/对象操作类</h2>
 <ul>
 <li><strong><code>print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)</code></strong><br>
-objects -- 复数，表示可以一次输出多个对象。输出多个对象时，需要用 ,
-分隔。<br>
+objects -- 复数，表示可以一次输出多个对象。输出多个对象时，需要用 , 分隔。<br>
 sep -- 用来间隔多个对象，默认值是一个空格。<br>
 end -- 用来设定以什么结尾。默认值是换行符 ，可以换成其他字符串。<br>
-file -- 要写入的文件对象。默认值为
-sys.stdout，代表了系统标准输出，也就是打印到当前屏幕。<br>
-flush -- 输出是否被缓存通常决定于 file，但如果 flush 关键字参数为
-True，流会被强制刷新。</li>
+file -- 要写入的文件对象。默认值为 sys.stdout，代表了系统标准输出，也就是打印到当前屏幕。<br>
+flush -- 输出是否被缓存通常决定于 file，但如果 flush 关键字参数为 True，流会被强制刷新。</li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 打印多个对象，默认间隔为一个空格</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'iamgzc'</span>, <span class="hljs-string">'wang'</span>) <br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">iamgzc wang</code></pre>
@@ -639,16 +566,13 @@ True，流会被强制刷新。</li>
 <p>​</p>
 <p>在上面的例子中:</p>
 <figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">f = <span class="hljs-built_in">open</span>(<span class="hljs-string">'print_test.txt'</span>,<span class="hljs-string">'w'</span>)<br><span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-string">'This is a print test.'</span>, file = f)</span></span><br></code></pre></td></tr></tbody></table></figure>
-<p>如果只执行这两行代码，运行后打开print_test.txt文件，会发现“This is a
-print test.”并未被写入，文件内容为空。这是因为print()
-函数会把内容放到内存中，内存中的内容并不会及时刷新到文件中，只有f.close()后才将内容写进文件中。使用flush=True之后，会在print结束之后，立即将内存中的东西显示到文件上，清空缓存。可以把flush参数理解为刷新功能。</p>
+<p>如果只执行这两行代码，运行后打开print_test.txt文件，会发现“This is a print test.”并未被写入，文件内容为空。这是因为print() 函数会把内容放到内存中，内存中的内容并不会及时刷新到文件中，只有f.close()后才将内容写进文件中。使用flush=True之后，会在print结束之后，立即将内存中的东西显示到文件上，清空缓存。可以把flush参数理解为刷新功能。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">f = <span class="hljs-built_in">open</span>(<span class="hljs-string">'print_test2.txt'</span>,<span class="hljs-string">'w'</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'This is a print test, too.'</span>, file = f, flush = <span class="hljs-literal">True</span>)<br></code></pre></td></tr></tbody></table></figure>
 <p>此时，不需要f.close()，打开文件print_test2.txt也可看到需要打印的内容。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># flush 参数的拓展应用</span><br><span class="hljs-comment"># 通过flush=True实现动态loading......效果</span><br><span class="hljs-keyword">import</span> time                                                                           <br><span class="hljs-built_in">print</span>(<span class="hljs-string">"Loading"</span>,end = <span class="hljs-string">""</span>)<br><br><span class="hljs-comment"># 在Loading同一行后面每0.2秒输出1个点号，总共6个</span><br><span class="hljs-comment"># 如果不开启flush=True，则程序运行结果则是6x0.2秒后1次性输出Loading……</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">6</span>):<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"."</span>,end = <span class="hljs-string">''</span>,flush = <span class="hljs-literal">True</span>)<br>    time.sleep(<span class="hljs-number">0.2</span>)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">Loading......</code></pre>
 <ul>
-<li><strong><code>input([prompt])</code></strong> 如果存在 prompt
-实参，则将其写入标准输出，末尾不带换行符。接下来，该函数从输入中读取一行，将其转换为字符串（除了末尾的换行符）并返回。</li>
+<li><strong><code>input([prompt])</code></strong> 如果存在 prompt 实参，则将其写入标准输出，末尾不带换行符。接下来，该函数从输入中读取一行，将其转换为字符串（除了末尾的换行符）并返回。</li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">s = <span class="hljs-built_in">input</span>(<span class="hljs-string">'please input your name:'</span>)<br><span class="hljs-built_in">print</span>(s)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">please input your name: Jack
@@ -658,13 +582,8 @@ Jack</code></pre>
 <ul>
 <li><strong><code>open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)</code></strong><br>
 打开 file 并返回对应的 file object。<br>
-file: 是一个 path-like
-object，表示将要打开的文件的路径（绝对路径或者当前工作目录的相对路径）。<br>
-mode: 是一个可选字符串，用于指定打开文件的模式。默认值是 'rt'
-，表示以文本模式(t)打开并读取(r)。常用的其他模式还有：
-'w'--写入，如果文件存在内容会被清空。'a'--追加写入，如果文件存在内容则在末尾追加。'b'--以二进制模式打开文件。
-encoding:
-是用于解码或编码文件的编码的名称。这应该只在文本模式下使用。默认编码是依赖于平台的。一般可设置为encoding='utf-8'。</li>
+file: 是一个 path-like object，表示将要打开的文件的路径（绝对路径或者当前工作目录的相对路径）。<br>
+mode: 是一个可选字符串，用于指定打开文件的模式。默认值是 'rt' ，表示以文本模式(t)打开并读取(r)。常用的其他模式还有： 'w'--写入，如果文件存在内容会被清空。'a'--追加写入，如果文件存在内容则在末尾追加。'b'--以二进制模式打开文件。 encoding: 是用于解码或编码文件的编码的名称。这应该只在文本模式下使用。默认编码是依赖于平台的。一般可设置为encoding='utf-8'。</li>
 </ul>
 <p>学习open()函数就有必要学习一些文件操作的相关指令。close()--关闭文件；read()--读取文件所有内容；readline()--以行的形式读取文件所有内容；write()--写入文件；</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">file = <span class="hljs-built_in">open</span>(<span class="hljs-string">'print_test.txt'</span>)<br>file_contents = file.read()<br><span class="hljs-built_in">print</span>(file_contents)<br>file.close()<br></code></pre></td></tr></tbody></table></figure>
@@ -697,22 +616,14 @@ ceil(x, /)
 <ul>
 <li><strong><code>eval(expression, globals, locals)</code></strong></li>
 </ul>
-<p>实参是一个字符串，以及可选的 globals 和 locals。globals
-实参必须是一个字典。locals 可以是任何映射对象。使用 globals 和 locals
-字典作为全局和局部命名空间。 expression -- 表达式； globals --
-变量作用域，全局命名空间，如果被提供，则必须是一个字典对象； locals --
-变量作用域，局部命名空间，如果被提供，可以是任何映射对象。eval()函数用来执行一个字符串表达式，并返回表达式的值。还可以把字符串转化为list、tuple、dict。</p>
+<p>实参是一个字符串，以及可选的 globals 和 locals。globals 实参必须是一个字典。locals 可以是任何映射对象。使用 globals 和 locals 字典作为全局和局部命名空间。 expression -- 表达式； globals -- 变量作用域，全局命名空间，如果被提供，则必须是一个字典对象； locals -- 变量作用域，局部命名空间，如果被提供，可以是任何映射对象。eval()函数用来执行一个字符串表达式，并返回表达式的值。还可以把字符串转化为list、tuple、dict。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># eval()返回表达式的值</span><br>a = <span class="hljs-built_in">eval</span>(<span class="hljs-string">"pow(2,3)"</span>)<br><span class="hljs-built_in">print</span>(a)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">8</code></pre>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># eval()实现字符串转换成列表</span><br><span class="hljs-built_in">str</span> = <span class="hljs-string">"[1, 2, 3, 4, 5]"</span><br>alist = <span class="hljs-built_in">eval</span>(<span class="hljs-built_in">str</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(alist))<br><span class="hljs-built_in">print</span>(alist)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">&lt;class 'list'&gt;
 [1, 2, 3, 4, 5]</code></pre>
 <ul>
-<li><strong><code>exec(object, globals, locals)</code></strong>
-这个函数支持动态执行 Python 代码。object
-必须是字符串或者代码对象。如果是字符串，那么该字符串将被解析为一系列
-Python
-语句并执行（除非发生语法错误）。注意：exec函数的返回值永远为None.<strong>exec()是一个十分有趣且实用的内置函数，值得重视。</strong><br>
+<li><strong><code>exec(object, globals, locals)</code></strong> 这个函数支持动态执行 Python 代码。object 必须是字符串或者代码对象。如果是字符串，那么该字符串将被解析为一系列 Python 语句并执行（除非发生语法错误）。注意：exec函数的返回值永远为None.<strong>exec()是一个十分有趣且实用的内置函数，值得重视。</strong><br>
 注意区分eval()函数与exec()函数的区别：eval()函数只能计算单个表达式的值，而exec()函数可以动态运行代码段；eval()函数可以有返回值，而exec()函数返回值永远为None。</li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 执行简单的python代码</span><br>a = <span class="hljs-built_in">exec</span>(<span class="hljs-string">"pow(2,3)"</span>)<br><span class="hljs-built_in">print</span>(a) <span class="hljs-comment"># 返回值为None</span><br><span class="hljs-built_in">exec</span>(<span class="hljs-string">"print(pow(2,3))"</span>)<br></code></pre></td></tr></tbody></table></figure>
@@ -749,9 +660,7 @@ Phil's favorite language are:
     Python
     Haskell</code></pre>
 <ul>
-<li><strong><code>format(value, format_spec)</code></strong> 将 value
-转换为 format_spec 控制的“格式化”表示。用法：'string{}
-string{}'.format(参数1,参数2)&nbsp;</li>
+<li><strong><code>format(value, format_spec)</code></strong> 将 value 转换为 format_spec 控制的“格式化”表示。用法：'string{} string{}'.format(参数1,参数2)&nbsp;</li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 不设置指定位置，按默认顺序</span><br><span class="hljs-string">"{} {}"</span>.<span class="hljs-built_in">format</span>(<span class="hljs-string">"hello"</span>, <span class="hljs-string">'world'</span>)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">'hello world'</code></pre>
@@ -771,9 +680,7 @@ string{}'.format(参数1,参数2)&nbsp;</li>
 314.16%
 3.14e+03</code></pre>
 <ul>
-<li>在Python3.6中新引入一种字符串格式化方法，<strong><code>f-string</code></strong>，亦称为格式化字符串常量（formatted
-string
-literals）。主要目的是使格式化字符串的操作更加简便。f-string在本质上并不是字符串常量，而是一个在运行时运算求值的表达式。f-string在功能方面不逊于传统的%-formatting语句和str.format()函数，同时性能又优于二者，且使用起来也更加简洁明了，因此对于Python3.6及以后的版本，推荐使用f-string进行字符串格式化。</li>
+<li>在Python3.6中新引入一种字符串格式化方法，<strong><code>f-string</code></strong>，亦称为格式化字符串常量（formatted string literals）。主要目的是使格式化字符串的操作更加简便。f-string在本质上并不是字符串常量，而是一个在运行时运算求值的表达式。f-string在功能方面不逊于传统的%-formatting语句和str.format()函数，同时性能又优于二者，且使用起来也更加简洁明了，因此对于Python3.6及以后的版本，推荐使用f-string进行字符串格式化。</li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 简单使用</span><br>name = <span class="hljs-string">'Jack'</span><br>age = <span class="hljs-number">18</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f"My name is <span class="hljs-subst">{name}</span>, I'm <span class="hljs-subst">{age}</span> years old."</span>)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">My name is Jack, I'm 18 years old.</code></pre>

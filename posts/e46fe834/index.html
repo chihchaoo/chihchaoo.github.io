@@ -88,7 +88,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
 
@@ -264,25 +264,12 @@
               
               <p>记录使用 Github + PicGo 软件免费搭建图床的过程。</p>
 <span id="more"></span>
-<p>搭建博客以及使用 markdown
-写作的一大痛点就是插入图片的问题。不像word或pdf，图片插入后就会跟随文档一起。markdown
-中插入本地图片也是可以的，但是一旦文档或图片位置发生变化，或把文档传到博客网站上，插入的本地图片就失效了。解决方法就是把图片传到图床中，再以链接的形式插入
-markdown
-中。所谓图床就是一个专门用来存储图片的服务器。图床既可以自己搭建，也可以使用市面上现有的图床。最稳妥的方法当然是购买一个云硬盘然后自行搭建，但是贫穷如我，当然是没得银子去购买昂贵的云存储服务器了。免费的图床也有很多，各有优势，这里就不再赘述。目前来看，免费而又相对稳妥的解决方法就是使用
-Github 了，毕竟全球最大的托管平台。</p>
-<p>首先创建一个<strong>公开</strong>仓库，专门用来存放图片。依次进入
-GitHub 的 "settings" -&gt; "Developer settings" -&gt; "Personal access
-tokens"，点击 "Generate new token" 创建一个新的令牌。<br>
+<p>搭建博客以及使用 markdown 写作的一大痛点就是插入图片的问题。不像word或pdf，图片插入后就会跟随文档一起。markdown 中插入本地图片也是可以的，但是一旦文档或图片位置发生变化，或把文档传到博客网站上，插入的本地图片就失效了。解决方法就是把图片传到图床中，再以链接的形式插入 markdown 中。所谓图床就是一个专门用来存储图片的服务器。图床既可以自己搭建，也可以使用市面上现有的图床。最稳妥的方法当然是购买一个云硬盘然后自行搭建，但是贫穷如我，当然是没得银子去购买昂贵的云存储服务器了。免费的图床也有很多，各有优势，这里就不再赘述。目前来看，免费而又相对稳妥的解决方法就是使用 Github 了，毕竟全球最大的托管平台。</p>
+<p>首先创建一个<strong>公开</strong>仓库，专门用来存放图片。依次进入 GitHub 的 "settings" -&gt; "Developer settings" -&gt; "Personal access tokens"，点击 "Generate new token" 创建一个新的令牌。<br>
 <img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/token.png" srcset="/img/loading.gif" lazyload></p>
-<p>创建令牌时，有效期 "Expiration"
-自行选择，到期后再更换就行，也可以选择无期限 "No expiration"，不过
-GitHub 会弹出安全提示。"Select scopes" 中，只勾选 "repo"
-即可。生成令牌后注意<strong>一定要复制保存</strong>，因为这个令牌只会出现一次！</p>
+<p>创建令牌时，有效期 "Expiration" 自行选择，到期后再更换就行，也可以选择无期限 "No expiration"，不过 GitHub 会弹出安全提示。"Select scopes" 中，只勾选 "repo" 即可。生成令牌后注意<strong>一定要复制保存</strong>，因为这个令牌只会出现一次！</p>
 <p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/token2.png" srcset="/img/loading.gif" lazyload></p>
-<p>电脑上下载并安装最新稳定版本的 <a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo">PicGo</a>。<a target="_blank" rel="noopener" href="https://picgo.github.io/PicGo-Doc/">PicGo用户手册</a>有详细的使用说明。在软件中配置
-Github 图床，仓库名格式：username/repo，分支为
-"main"，再把上一步生成的令牌粘贴在 Token
-中就大功告成了。存储路径不填的话，图片会传到仓库的根目录下。为了方便管理，我会根据文章的分类，分别建立相应类别的子目录，这样就可以对图片分类管理了。</p>
+<p>电脑上下载并安装最新稳定版本的 <a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo">PicGo</a>。<a target="_blank" rel="noopener" href="https://picgo.github.io/PicGo-Doc/">PicGo用户手册</a>有详细的使用说明。在软件中配置 Github 图床，仓库名格式：username/repo，分支为 "main"，再把上一步生成的令牌粘贴在 Token 中就大功告成了。存储路径不填的话，图片会传到仓库的根目录下。为了方便管理，我会根据文章的分类，分别建立相应类别的子目录，这样就可以对图片分类管理了。</p>
 <p><img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/Blog/picgo.png" srcset="/img/loading.gif" lazyload></p>
 
               

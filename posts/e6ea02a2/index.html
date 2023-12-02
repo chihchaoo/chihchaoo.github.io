@@ -89,7 +89,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
 
@@ -263,284 +263,125 @@
             
             <div class="markdown-body">
               
-              <p>细颗粒物源解析：高时间分辨率化学组分监测数据 + 受体模型(PMF) +
-空气质量模型(NAQPMS) + 足迹模型(footprint model)</p>
+              <p>细颗粒物源解析：高时间分辨率化学组分监测数据 + 受体模型(PMF) + 空气质量模型(NAQPMS) + 足迹模型(footprint model)</p>
 <span id="more"></span>
 <h1 id="information-for-the-paper">Information for the paper</h1>
-<p>Title: High-time-resolution source apportionment of PM<sub>2.5</sub>
-in Beijing with multiple models</p>
+<p>Title: High-time-resolution source apportionment of PM<sub>2.5</sub> in Beijing with multiple models</p>
 <p>Author: Liu Yue</p>
 <p>Year: 2019</p>
 <p>Journal: Atmospheric Chemistry and Physics</p>
 <p>URL: <a target="_blank" rel="noopener" href="https://doi.org/10.5194/acp-19-6595-2019" class="uri">https://doi.org/10.5194/acp-19-6595-2019</a></p>
 <h1 id="introduction">Introduction</h1>
 <ol type="1">
-<li>Therefore, it is important to have a better understanding of the
-major source types and their contribution to PM<sub>2.5</sub> in order
-to formulate effective sciencebased policies and regulations.</li>
-<li>Receptor models, including the chemical mass balance model (CMB) and
-positive matrix factorization model (PMF), are the most commonly used
-methods of source apportionment in China and are implemented by
-application of mathematical methods to measurements of chemical
-composition of fine particles at receptor sites (Cooper et al., 1980;
-Gao et al., 2016; Lv et al., 2016; Zheng et al., 2005).</li>
-<li>Previous studies have indicated that PM<sub>2.5</sub> pollution in
-Beijing has been significantly influenced by regional transport and
-meteorological conditions (Han et al., 2015; D. Li et al., 2017; Zhao et
-al., 2013).</li>
-<li>Li et al. (2016) found that regional transport highly contributed to
-the rapid increase stage of PM<sub>2.5</sub>, with the transport height
-ranging from 200 to 700m above ground level with application of the
-Nested Air Quality Prediction Model System (NAQPMS).</li>
-<li>Han and Zhang (2018) used a regional air quality modeling system
-coupling with ISAM (integrated source apportionment method) and found
-that air pollutants derived from Hebei and Shandong provinces were major
-contributors to PM<sub>2.5</sub> in Beijing, with contributions up to
-25% and 10 %, respectively.</li>
-<li><strong>The goal of the study</strong> is to link the contribution
-of different sources by PMF with the source regions by footprint and the
-regional transport contribution by NAQPMS. The combination of multiple
-models gives greater power to identify specific sources and source
-regions.</li>
+<li>Therefore, it is important to have a better understanding of the major source types and their contribution to PM<sub>2.5</sub> in order to formulate effective sciencebased policies and regulations.</li>
+<li>Receptor models, including the chemical mass balance model (CMB) and positive matrix factorization model (PMF), are the most commonly used methods of source apportionment in China and are implemented by application of mathematical methods to measurements of chemical composition of fine particles at receptor sites (Cooper et al., 1980; Gao et al., 2016; Lv et al., 2016; Zheng et al., 2005).</li>
+<li>Previous studies have indicated that PM<sub>2.5</sub> pollution in Beijing has been significantly influenced by regional transport and meteorological conditions (Han et al., 2015; D. Li et al., 2017; Zhao et al., 2013).</li>
+<li>Li et al. (2016) found that regional transport highly contributed to the rapid increase stage of PM<sub>2.5</sub>, with the transport height ranging from 200 to 700m above ground level with application of the Nested Air Quality Prediction Model System (NAQPMS).</li>
+<li>Han and Zhang (2018) used a regional air quality modeling system coupling with ISAM (integrated source apportionment method) and found that air pollutants derived from Hebei and Shandong provinces were major contributors to PM<sub>2.5</sub> in Beijing, with contributions up to 25% and 10 %, respectively.</li>
+<li><strong>The goal of the study</strong> is to link the contribution of different sources by PMF with the source regions by footprint and the regional transport contribution by NAQPMS. The combination of multiple models gives greater power to identify specific sources and source regions.</li>
 </ol>
 <h1 id="materials-and-methods">Materials and methods</h1>
-<h2 id="online-measurements-of-pm2.5">Online measurements of
-PM<sub>2.5</sub></h2>
+<h2 id="online-measurements-of-pm2.5">Online measurements of PM<sub>2.5</sub></h2>
 <ol type="1">
-<li>Online PM<sub>2.5</sub> mass concentrations were continuously
-measured using a tapered element oscillating microbalance (TEOM 1405F,
-Thermo Fisher Scientific Inc.).</li>
-<li>Organic carbon (OC) and elemental carbon (EC) were simultaneously
-monitored by a semi-continuous OCEC carbon aerosol analyzer (Sunset
-Laboratory Inc.) with 1 h time resolution.</li>
-<li>An in situ Gas and Aerosol Compositions monitor (IGAC, Model S-611,
-Fortelice International Co. Ltd.), which collects both gases and
-particles simultaneously, was applied to measure water-soluble ions
-online with 1 h time resolution in this study.</li>
-<li>Twenty-three trace elements in PM<sub>2.5</sub> were measured by an
-Xact 625 Ambient Metal Monitor (Cooper Environmental Services LLC, USA)
-with a 1 h time resolution.</li>
-<li>Organic matter (OM) was calculated as OM = 1.6×OC (Turpin and Lim,
-2001).</li>
-<li>Mineral species was calculated as mineral = 1.89 Al + 2.14 Si + 1.4
-Ca + 1.43 Fe + 1.66 Mg (Zhang et al., 2003). The concentrations of Al,
-Si, Fe and Mg were calculated by the concentration of Ca and the
-composition of urban soils of Beijing: Al = 1.7 Ca, Si = 7.3 Ca, Fe =
-0.7 Ca and Mg = 0.3 Ca (An et al., 2016).</li>
-<li>“Others” were calculated by subtracting OM, EC, mineral and
-secondary inorganic aerosol (SIA, including SO<sub>4</sub><sup>2-</sup>,
-NO<sub>3</sub><sup>-</sup>, NH<sub>4</sub><sup>+</sup>) concentration
-from total PM<sub>2.5</sub> concentration.</li>
+<li>Online PM<sub>2.5</sub> mass concentrations were continuously measured using a tapered element oscillating microbalance (TEOM 1405F, Thermo Fisher Scientific Inc.).</li>
+<li>Organic carbon (OC) and elemental carbon (EC) were simultaneously monitored by a semi-continuous OCEC carbon aerosol analyzer (Sunset Laboratory Inc.) with 1 h time resolution.</li>
+<li>An in situ Gas and Aerosol Compositions monitor (IGAC, Model S-611, Fortelice International Co. Ltd.), which collects both gases and particles simultaneously, was applied to measure water-soluble ions online with 1 h time resolution in this study.</li>
+<li>Twenty-three trace elements in PM<sub>2.5</sub> were measured by an Xact 625 Ambient Metal Monitor (Cooper Environmental Services LLC, USA) with a 1 h time resolution.</li>
+<li>Organic matter (OM) was calculated as OM = 1.6×OC (Turpin and Lim, 2001).</li>
+<li>Mineral species was calculated as mineral = 1.89 Al + 2.14 Si + 1.4 Ca + 1.43 Fe + 1.66 Mg (Zhang et al., 2003). The concentrations of Al, Si, Fe and Mg were calculated by the concentration of Ca and the composition of urban soils of Beijing: Al = 1.7 Ca, Si = 7.3 Ca, Fe = 0.7 Ca and Mg = 0.3 Ca (An et al., 2016).</li>
+<li>“Others” were calculated by subtracting OM, EC, mineral and secondary inorganic aerosol (SIA, including SO<sub>4</sub><sup>2-</sup>, NO<sub>3</sub><sup>-</sup>, NH<sub>4</sub><sup>+</sup>) concentration from total PM<sub>2.5</sub> concentration.</li>
 </ol>
-<h2 id="positive-matrix-factorization-pmf">Positive matrix factorization
-(PMF)</h2>
+<h2 id="positive-matrix-factorization-pmf">Positive matrix factorization (PMF)</h2>
 <ol type="1">
-<li>The principle and detailed information of USEPA PMF 5.0 model can be
-found in Paterson et al. (1999) and the EPA 5.0 Fundamentals and User
-Guide.</li>
+<li>The principle and detailed information of USEPA PMF 5.0 model can be found in Paterson et al. (1999) and the EPA 5.0 Fundamentals and User Guide.</li>
 </ol>
 <h2 id="footprint-analysis-model">Footprint analysis model</h2>
 <ol type="1">
-<li>The footprint model developed by Peking University was used to
-simulate the potential source region of air pollution. The footprint is
-a transfer function in a diffusion problem linking the source and the
-measurement result at a point (receptor) (Pasquill and Smith,
-1977).</li>
-<li>The meteorological data used to drive the footprint model were
-provided by the Weather Research and Forecasting model (<a target="_blank" rel="noopener" href="http://www.wrf-model.org/">WRF-ARWv3.6.1</a>), initialized using
-the Final Analysis (FNL) data from the United States National Centers
-for Environmental Prediction (NCEP).</li>
+<li>The footprint model developed by Peking University was used to simulate the potential source region of air pollution. The footprint is a transfer function in a diffusion problem linking the source and the measurement result at a point (receptor) (Pasquill and Smith, 1977).</li>
+<li>The meteorological data used to drive the footprint model were provided by the Weather Research and Forecasting model (<a target="_blank" rel="noopener" href="http://www.wrf-model.org/">WRF-ARWv3.6.1</a>), initialized using the Final Analysis (FNL) data from the United States National Centers for Environmental Prediction (NCEP).</li>
 </ol>
-<h2 id="the-nested-air-quality-prediction-model-system-naqpms">The
-Nested Air Quality Prediction Model System (NAQPMS)</h2>
+<h2 id="the-nested-air-quality-prediction-model-system-naqpms">The Nested Air Quality Prediction Model System (NAQPMS)</h2>
 <ol type="1">
-<li>NAQPMS is a 3-D Eulerian chemical transport model with
-terrain-following coordinates, developed by the Institute of Atmospheric
-Physics, Chinese Academy of Sciences (IAP/CAS) and has been validated by
-the Ministry of Environmental Protection of China (CMEP, 2013).</li>
-<li>The <a target="_blank" rel="noopener" href="http://www.meicmodel.org/dataset-mix.html">MIX</a>
-anthropogenic emission inventory was used (M. Li et al., 2017), with the
-original resolution of 0.25° (about 25 km at midlatitudes) and the year
-of 2010.</li>
+<li>NAQPMS is a 3-D Eulerian chemical transport model with terrain-following coordinates, developed by the Institute of Atmospheric Physics, Chinese Academy of Sciences (IAP/CAS) and has been validated by the Ministry of Environmental Protection of China (CMEP, 2013).</li>
+<li>The <a target="_blank" rel="noopener" href="http://www.meicmodel.org/dataset-mix.html">MIX</a> anthropogenic emission inventory was used (M. Li et al., 2017), with the original resolution of 0.25° (about 25 km at midlatitudes) and the year of 2010.</li>
 </ol>
-<h2 id="the-combination-of-multiple-models">The combination of multiple
-models</h2>
+<h2 id="the-combination-of-multiple-models">The combination of multiple models</h2>
 <ol type="1">
-<li>The footprint model was used to provide the direction of source
-regions, while the NAQPMS model was run to calculate the contribution of
-local emission and regional transport.</li>
-<li>Based on online measurements of PM<sub>2.5</sub> species including
-specific source tracers, the receptor model (PMF) can be used to obtain
-precise source apportionment results but with no information on regional
-transport. Therefore, the footprint and NAQPMS model were simultaneously
-conducted and combined with the PMF model to link the source type and
-contribution to PM<sub>2.5</sub> in Beijing by receptor models with
-different source regions.</li>
+<li>The footprint model was used to provide the direction of source regions, while the NAQPMS model was run to calculate the contribution of local emission and regional transport.</li>
+<li>Based on online measurements of PM<sub>2.5</sub> species including specific source tracers, the receptor model (PMF) can be used to obtain precise source apportionment results but with no information on regional transport. Therefore, the footprint and NAQPMS model were simultaneously conducted and combined with the PMF model to link the source type and contribution to PM<sub>2.5</sub> in Beijing by receptor models with different source regions.</li>
 </ol>
 <h1 id="results-and-discussion">Results and discussion</h1>
-<h2 id="mass-concentration-and-chemical-composition-of-pm2.5">Mass
-concentration and chemical composition of PM<sub>2.5</sub></h2>
+<h2 id="mass-concentration-and-chemical-composition-of-pm2.5">Mass concentration and chemical composition of PM<sub>2.5</sub></h2>
 <ol type="1">
-<li>Figure 1 shows that SIA and OM were the predominant PM<sub>2.5</sub>
-components in winter in Beijing, accounting for 57% and 24% of total
-PM<sub>2.5</sub> mass, respectively.</li>
+<li>Figure 1 shows that SIA and OM were the predominant PM<sub>2.5</sub> components in winter in Beijing, accounting for 57% and 24% of total PM<sub>2.5</sub> mass, respectively.</li>
 </ol>
 <figure>
-<img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/PaperNotes/Liu-2019-ACP-Fig1.png" srcset="/img/loading.gif" lazyload alt="Fig1">
-<figcaption aria-hidden="true">Fig1</figcaption>
+<img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/PaperNotes/Liu-2019-ACP-Fig1.png" srcset="/img/loading.gif" lazyload alt="Fig1"><figcaption aria-hidden="true">Fig1</figcaption>
 </figure>
 <ol start="2" type="1">
-<li>The OC/EC ratio is often used to indicate the contribution of
-primary emission sources and secondary organic aerosols (SOAs) (Lim and
-Turpin, 2002; Zheng et al., 2014). In this study, the OC/EC ratio ranged
-from 1.36 to 7.92 with an average ratio of 3.91±0.91, which was lower
-than that in the winter of Beijing in 2013 (5.73±2.47) (Yan et al.,
-2015).</li>
-<li>In general, the large contribution of SIA and OM, as well as the
-high OC/EC ratio, indicated the importance of secondary formation in
-winter in Beijing (Y. Sun et al., 2016), while the high concentration of
-species like SO<sub>4</sub><sup>2-</sup> and K suggested a significant
-contribution of combustion sources including coal combustion and biomass
-burning to PM<sub>2.5</sub>.</li>
-<li>Taken together, all these variations of source specific
-PM<sub>2.5</sub> compositions suggested a more significant influence of
-combustion sources to PM<sub>2.5</sub> in haze episodes and relatively
-higher contributions of dust sources in nonhaze periods.</li>
+<li>The OC/EC ratio is often used to indicate the contribution of primary emission sources and secondary organic aerosols (SOAs) (Lim and Turpin, 2002; Zheng et al., 2014). In this study, the OC/EC ratio ranged from 1.36 to 7.92 with an average ratio of 3.91±0.91, which was lower than that in the winter of Beijing in 2013 (5.73±2.47) (Yan et al., 2015).</li>
+<li>In general, the large contribution of SIA and OM, as well as the high OC/EC ratio, indicated the importance of secondary formation in winter in Beijing (Y. Sun et al., 2016), while the high concentration of species like SO<sub>4</sub><sup>2-</sup> and K suggested a significant contribution of combustion sources including coal combustion and biomass burning to PM<sub>2.5</sub>.</li>
+<li>Taken together, all these variations of source specific PM<sub>2.5</sub> compositions suggested a more significant influence of combustion sources to PM<sub>2.5</sub> in haze episodes and relatively higher contributions of dust sources in nonhaze periods.</li>
 </ol>
-<h2 id="source-apportionment-during-haze-and-nonhaze-periods">Source
-apportionment during haze and nonhaze periods</h2>
+<h2 id="source-apportionment-during-haze-and-nonhaze-periods">Source apportionment during haze and nonhaze periods</h2>
 <ol type="1">
-<li>Factor 2 was highly loaded on metal species including Mn, Fe, Cu and
-Zn, which were mostly used as indicators for industrial sources.</li>
-<li>Factor 4 was mostly loaded by EC, OC and moderately loaded by Cu and
-Zn, which were mainly emitted from lubricant additive of vehicles and
-wear of brake and tyre.</li>
-<li>In previous studies, cooking was one of the important sources of
-PM<sub>2.5</sub>, contributing to about 10% on average in East Asia
-(Chafe et al., 2014; Sun et al., 2013), but in this study, cooking
-sources were not identified by PMF due to the lack of organic
-tracers.</li>
-<li>During the campaign, the source contribution in Beijing ranked as
-secondary sources (44%) &gt; traffic sources (18%) &gt; coal combustion
-(16%) &gt; biomass burning (9%) &gt; industrial sources (8%) &gt; dust
-(5%).</li>
+<li>Factor 2 was highly loaded on metal species including Mn, Fe, Cu and Zn, which were mostly used as indicators for industrial sources.</li>
+<li>Factor 4 was mostly loaded by EC, OC and moderately loaded by Cu and Zn, which were mainly emitted from lubricant additive of vehicles and wear of brake and tyre.</li>
+<li>In previous studies, cooking was one of the important sources of PM<sub>2.5</sub>, contributing to about 10% on average in East Asia (Chafe et al., 2014; Sun et al., 2013), but in this study, cooking sources were not identified by PMF due to the lack of organic tracers.</li>
+<li>During the campaign, the source contribution in Beijing ranked as secondary sources (44%) &gt; traffic sources (18%) &gt; coal combustion (16%) &gt; biomass burning (9%) &gt; industrial sources (8%) &gt; dust (5%).</li>
 </ol>
 <figure>
-<img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/PaperNotes/Liu-2019-ACP-Fig3.png" srcset="/img/loading.gif" lazyload alt="Fig3">
-<figcaption aria-hidden="true">Fig3</figcaption>
+<img src="https://raw.githubusercontent.com/chihchaoo/blog_img/main/PaperNotes/Liu-2019-ACP-Fig3.png" srcset="/img/loading.gif" lazyload alt="Fig3"><figcaption aria-hidden="true">Fig3</figcaption>
 </figure>
 <ol start="5" type="1">
-<li>The four pollution episodes were characterized by low wind speed
-around 2 m/s and high relative humidity (RH) compared to nonhaze
-periods.</li>
-<li>The chemical composition and sources of the four pollution episodes
-varied from each other, but relatively high contributions of secondary
-sources were observed in all episodes (32%–57%), and the contribution
-increased with PM<sub>2.5</sub> concentration (see Fig. 2).</li>
-<li>The contribution of coal combustion and industrial sources in EP1
-(14–19 November) was the most significant compared with other episodes,
-which were 22% and 17 %.</li>
-<li>The traffic source contributions in EP2 (24–27 November) and EP3
-(1–5 December) were higher than other pollution episodes, accounting for
-about 22%.</li>
-<li>Generally, secondary sources were predominant (~ 50 %) to
-PM<sub>2.5</sub> in pollution episodes, while traffic sources (~ 30 %)
-became more important in nonhaze periods.</li>
-<li>However, source contributions of PM<sub>2.5</sub> could vary from
-episode to episode. EP1 was more influenced by primary sources, while
-EP4 was characterized by high secondary source contributions (57
-%).</li>
+<li>The four pollution episodes were characterized by low wind speed around 2 m/s and high relative humidity (RH) compared to nonhaze periods.</li>
+<li>The chemical composition and sources of the four pollution episodes varied from each other, but relatively high contributions of secondary sources were observed in all episodes (32%–57%), and the contribution increased with PM<sub>2.5</sub> concentration (see Fig. 2).</li>
+<li>The contribution of coal combustion and industrial sources in EP1 (14–19 November) was the most significant compared with other episodes, which were 22% and 17 %.</li>
+<li>The traffic source contributions in EP2 (24–27 November) and EP3 (1–5 December) were higher than other pollution episodes, accounting for about 22%.</li>
+<li>Generally, secondary sources were predominant (~ 50 %) to PM<sub>2.5</sub> in pollution episodes, while traffic sources (~ 30 %) became more important in nonhaze periods.</li>
+<li>However, source contributions of PM<sub>2.5</sub> could vary from episode to episode. EP1 was more influenced by primary sources, while EP4 was characterized by high secondary source contributions (57 %).</li>
 </ol>
-<h2 id="evolution-of-different-types-of-haze-episodes">Evolution of
-different types of haze episodes</h2>
+<h2 id="evolution-of-different-types-of-haze-episodes">Evolution of different types of haze episodes</h2>
 <ol type="1">
-<li>It can be seen that EP1 was characterized with high local
-contributions (69%–89%) and primary source contributions to
-PM<sub>2.5</sub>.</li>
-<li>The contribution of primary sources, especially for traffic sources,
-increased when footprints were primarily located in the local area.</li>
-<li>The above results confirmed that high-time-resolution source
-apportionment result can be integrated with footprint and NAQPMS model
-to identify the rapid evolution of different episodes – EP1 was mainly
-caused by local emission from transportation and coal combustion, while
-EP4 was typical of regional transport from southwestern areas of Beijing
-with increasing contributions of secondary sources.</li>
+<li>It can be seen that EP1 was characterized with high local contributions (69%–89%) and primary source contributions to PM<sub>2.5</sub>.</li>
+<li>The contribution of primary sources, especially for traffic sources, increased when footprints were primarily located in the local area.</li>
+<li>The above results confirmed that high-time-resolution source apportionment result can be integrated with footprint and NAQPMS model to identify the rapid evolution of different episodes – EP1 was mainly caused by local emission from transportation and coal combustion, while EP4 was typical of regional transport from southwestern areas of Beijing with increasing contributions of secondary sources.</li>
 </ol>
-<h1 id="relationship-of-pm2.5-sources-by-pmf-with-regional-transport-estimated-by-naqpms">Relationship
-of PM<sub>2.5</sub> sources by PMF with regional transport estimated by
-NAQPMS</h1>
+<h1 id="relationship-of-pm2.5-sources-by-pmf-with-regional-transport-estimated-by-naqpms">Relationship of PM<sub>2.5</sub> sources by PMF with regional transport estimated by NAQPMS</h1>
 <ol type="1">
-<li>Receptor models which are used for source apportionment have the
-limitation that they cannot quantify the local or regional transport
-contribution.</li>
-<li>Comparing with Fig. 8 b and c, the two primary combustion sources
-showed the opposite relationship to the local contribution, indicating
-that the pollutants from biomass burning were mainly transported from
-the surrounding areas of Beijing, while those from coal combustion were
-more influenced by local emission.</li>
-<li>The results suggested that locally emitted coal combustion
-contributed significantly to PM<sub>2.5</sub> in Beijing in winter 2016
-and the strict control strategies for coal combustion were essential to
-improving air quality in Beijing. In the meantime, more control of
-biomass burning and precursors of secondary sources in surrounding areas
-are also needed to mitigate air pollution in Beijing.</li>
-<li>The local footprint was predominant in winter in Beijing (N = 79)
-with the contribution of 38%, followed by northern and southern
-footprint (N = 51, 45).</li>
-<li>It can be seen that local footprint was characterized by traffic
-(23%) and coal combustion sources (25%), while the contribution of
-secondary sources (26 %) was the lowest among the four types. On the
-contrary, secondary sources were predominant in southern footprint cases
-with the contribution of 53%, while the contribution of traffic sources
-decreased to 15%.</li>
-<li>The northern footprint was characterized by the highest contribution
-of dust sources (11%), which could be influenced by dust transported
-from Inner Mongolia.</li>
-<li>Eastern footprint, which mainly covered heavy industrial areas such
-as Tangshan and Shenyang, showed higher contribution of industrial
-sources (10%) and coal combustion sources (18%).</li>
+<li>Receptor models which are used for source apportionment have the limitation that they cannot quantify the local or regional transport contribution.</li>
+<li>Comparing with Fig. 8 b and c, the two primary combustion sources showed the opposite relationship to the local contribution, indicating that the pollutants from biomass burning were mainly transported from the surrounding areas of Beijing, while those from coal combustion were more influenced by local emission.</li>
+<li>The results suggested that locally emitted coal combustion contributed significantly to PM<sub>2.5</sub> in Beijing in winter 2016 and the strict control strategies for coal combustion were essential to improving air quality in Beijing. In the meantime, more control of biomass burning and precursors of secondary sources in surrounding areas are also needed to mitigate air pollution in Beijing.</li>
+<li>The local footprint was predominant in winter in Beijing (N = 79) with the contribution of 38%, followed by northern and southern footprint (N = 51, 45).</li>
+<li>It can be seen that local footprint was characterized by traffic (23%) and coal combustion sources (25%), while the contribution of secondary sources (26 %) was the lowest among the four types. On the contrary, secondary sources were predominant in southern footprint cases with the contribution of 53%, while the contribution of traffic sources decreased to 15%.</li>
+<li>The northern footprint was characterized by the highest contribution of dust sources (11%), which could be influenced by dust transported from Inner Mongolia.</li>
+<li>Eastern footprint, which mainly covered heavy industrial areas such as Tangshan and Shenyang, showed higher contribution of industrial sources (10%) and coal combustion sources (18%).</li>
 </ol>
 <h1 id="future-prospects">Future prospects</h1>
 <ol type="1">
-<li>In previous studies based on online measurements, organic tracers
-are also not commonly used due to current technical difficulties in
-carrying out online and quantitative measurements of organic species
-with high-time resolution.</li>
-<li>However, some organic tracers are believed to be more specific for
-certain sources, such as levoglucosan for biomass burning, hopane and
-sterane for traffic sources and cholesterol for cooking sources.</li>
-<li>Therefore, future online measurements of organic species could be
-conducted, which will be very helpful in identifying sources.</li>
-<li>In the future, the integration of ambient measurements with the air
-quality model should be considered at a vertical level as well.</li>
+<li>In previous studies based on online measurements, organic tracers are also not commonly used due to current technical difficulties in carrying out online and quantitative measurements of organic species with high-time resolution.</li>
+<li>However, some organic tracers are believed to be more specific for certain sources, such as levoglucosan for biomass burning, hopane and sterane for traffic sources and cholesterol for cooking sources.</li>
+<li>Therefore, future online measurements of organic species could be conducted, which will be very helpful in identifying sources.</li>
+<li>In the future, the integration of ambient measurements with the air quality model should be considered at a vertical level as well.</li>
 </ol>
 <h1 id="conclusions">Conclusions</h1>
 <ol type="1">
-<li>As the predominant sources of PM<sub>2.5</sub> in Beijing, secondary
-and biomass burning sources were more influenced by regional transport,
-while coal combustion sources increased with local contribution.</li>
+<li>As the predominant sources of PM<sub>2.5</sub> in Beijing, secondary and biomass burning sources were more influenced by regional transport, while coal combustion sources increased with local contribution.</li>
 </ol>
 <h1 id="总结与启发">总结与启发</h1>
 <ol type="1">
-<li>SIA 和 OM 是北京冬季PM<sub>2.5</sub>的主要成分。高占比的 SIA 和
-OM，结合高比值的 OC/EC
-表明次生气溶胶的重要性。高浓度的钾和硫酸根离子表明燃烧源（煤炭燃烧和生物质燃烧）的贡献较大。</li>
+<li>SIA 和 OM 是北京冬季PM<sub>2.5</sub>的主要成分。高占比的 SIA 和 OM，结合高比值的 OC/EC 表明次生气溶胶的重要性。高浓度的钾和硫酸根离子表明燃烧源（煤炭燃烧和生物质燃烧）的贡献较大。</li>
 <li>污染期表现出低风速和高湿度的气象特征。</li>
-<li>北京城区冬季来源解析表明，二次源 (44%) &gt; 交通源 (18%) &gt; 燃煤源
-(16%) &gt; 生物质燃烧源 (9%) &gt; 工业源 (8%) &gt; 扬尘源 (5%).</li>
+<li>北京城区冬季来源解析表明，二次源 (44%) &gt; 交通源 (18%) &gt; 燃煤源 (16%) &gt; 生物质燃烧源 (9%) &gt; 工业源 (8%) &gt; 扬尘源 (5%).</li>
 <li>在不同的污染事件中，颗粒物的化学组成比例和污染源贡献比例会有所不同。但是，在所有污染事件中，次生源的贡献都相对较高，且其贡献占比随着PM<sub>2.5</sub>浓度的增加而增加。除了次生源，燃烧源在灰霾天的贡献较大，交通源和扬尘源在非灰霾天的贡献增加。</li>
 <li>煤炭燃烧和生物质燃烧，这两种重要的燃烧源的来源区域不同。煤炭燃烧主要来自北京本地，而生物质燃烧更可能来自周边区域。</li>
 </ol>
 <h1 id="扩展阅读">扩展阅读</h1>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://doi.org/10.1080/00022470.1980.10465157">Cooper-1980-Journal
-of the Air Pollution Control Association</a>: 受体模型介绍</li>
-<li><a target="_blank" rel="noopener" href="https://doi.org/10.1021/es980605j">Paterson-1999-EST</a>:
-PMF模型</li>
-<li><a target="_blank" rel="noopener" href="https://doi.org/10.1038/srep27151">Sun-2016-SR</a>:
-灰霾的快速形成和爆发</li>
-<li><a target="_blank" rel="noopener" href="https://www.ncbi.nlm.nih.gov/pubmed/25192243">Chafe-2014-EHP</a>:
-使用固体燃料家庭烹饪对细颗粒物和疾病的影响</li>
+<li><a target="_blank" rel="noopener" href="https://doi.org/10.1080/00022470.1980.10465157">Cooper-1980-Journal of the Air Pollution Control Association</a>: 受体模型介绍</li>
+<li><a target="_blank" rel="noopener" href="https://doi.org/10.1021/es980605j">Paterson-1999-EST</a>: PMF模型</li>
+<li><a target="_blank" rel="noopener" href="https://doi.org/10.1038/srep27151">Sun-2016-SR</a>: 灰霾的快速形成和爆发</li>
+<li><a target="_blank" rel="noopener" href="https://www.ncbi.nlm.nih.gov/pubmed/25192243">Chafe-2014-EHP</a>: 使用固体燃料家庭烹饪对细颗粒物和疾病的影响</li>
 </ul>
 
               
