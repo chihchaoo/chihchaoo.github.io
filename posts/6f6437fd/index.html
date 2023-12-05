@@ -265,7 +265,9 @@
               <p>本章节学习Python列表、元组和字典。</p>
 <span id="more"></span>
 <h1 id="python列表">1 Python列表</h1>
-<p>列表是一种可变序列类型，用方括号<code>[]</code>包围，使用函数 <strong><code>list()</code></strong> 表示。列表的数据项不需要具有相同的类型，创建一个列表，只要把逗号分隔的不同的数据项使用方括号括起来即可。</p>
+<p>列表是一种可变序列类型，用方括号<code>[]</code>包围，使用函数
+<strong><code>list()</code></strong>
+表示。列表的数据项不需要具有相同的类型，创建一个列表，只要把逗号分隔的不同的数据项使用方括号括起来即可。</p>
 <h2 id="创建列表">1.1 创建列表</h2>
 <ul>
 <li>直接创建列表</li>
@@ -275,7 +277,9 @@
 <ul>
 <li>使用函数创建数值列表</li>
 </ul>
-<p>在创建列表中，最常用的函数是 <strong><code>range(start, stop, step)</code></strong> 。不过，range()函数只能创建整数列表，不能生成浮点数。</p>
+<p>在创建列表中，最常用的函数是
+<strong><code>range(start, stop, step)</code></strong>
+。不过，range()函数只能创建整数列表，不能生成浮点数。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(<span class="hljs-built_in">list</span>(<span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>)))<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">list</span>(<span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>, <span class="hljs-number">2</span>)))<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">list</span>(<span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, -<span class="hljs-number">10</span>, -<span class="hljs-number">2</span>)))<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 [0, 2, 4, 6, 8]
@@ -286,9 +290,12 @@
 <p>列表解析式是Python的一大亮点，可大大缩短代码。下面分别使用普通方法和列表解析式的创建一个平方数列表。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">squares = []<br><span class="hljs-keyword">for</span> value <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">11</span>):<br>    square = value**<span class="hljs-number">2</span><br>    squares.append(square)<br><span class="hljs-built_in">print</span>(squares)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</code></pre>
-<p>使用列表解析式则简单明了： </p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">squares = [value**<span class="hljs-number">2</span> <span class="hljs-keyword">for</span> value <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">11</span>)]<br><span class="hljs-built_in">print</span>(squares)<br></code></pre></td></tr></tbody></table></figure> [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]<p></p>
+<p>使用列表解析式则简单明了： </p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">squares = [value**<span class="hljs-number">2</span> <span class="hljs-keyword">for</span> value <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">11</span>)]<br><span class="hljs-built_in">print</span>(squares)<br></code></pre></td></tr></tbody></table></figure> [1, 4, 9, 16, 25, 36, 49,
+64, 81, 100]<p></p>
 <h2 id="列表的索引">1.2 列表的索引</h2>
-<p>只需知道列表中某元素的位置或索引就可以访问该元素了。列表使用方括号[ ]来标识。如果某个列表有N个元素，那么列表的正向访问顺序为 0 到 N-1，列表的逆向访问则为 -N 到 -1。</p>
+<p>只需知道列表中某元素的位置或索引就可以访问该元素了。列表使用方括号[
+]来标识。如果某个列表有N个元素，那么列表的正向访问顺序为 0 到
+N-1，列表的逆向访问则为 -N 到 -1。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">Languages = [<span class="hljs-string">'Python'</span>, <span class="hljs-string">'C'</span>, <span class="hljs-string">'C++'</span>, <span class="hljs-string">'Java'</span>, <span class="hljs-string">'JavaScript'</span>]<br><span class="hljs-built_in">print</span>(Languages[<span class="hljs-number">0</span>])<br><span class="hljs-built_in">print</span>(Languages[<span class="hljs-number">0</span>:<span class="hljs-number">3</span>])<br><span class="hljs-built_in">print</span>(Languages[-<span class="hljs-number">1</span>])<br><span class="hljs-built_in">print</span>(Languages[-<span class="hljs-number">3</span>:-<span class="hljs-number">1</span>])<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">Python
 ['Python', 'C', 'C++']
@@ -300,13 +307,15 @@ JavaScript
 ['Fortran', 'C', 'C++', 'Java', 'JavaScript']</code></pre>
 <h2 id="添加元素">1.4 添加元素</h2>
 <ul>
-<li>使用方法 <strong><code>append()</code></strong> 在列表末尾添加新的元素</li>
+<li>使用方法 <strong><code>append()</code></strong>
+在列表末尾添加新的元素</li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">Languages = [<span class="hljs-string">'Python'</span>, <span class="hljs-string">'C'</span>, <span class="hljs-string">'C++'</span>, <span class="hljs-string">'Java'</span>, <span class="hljs-string">'JavaScript'</span>]<br><span class="hljs-built_in">print</span>(Languages)<br>Languages.append(<span class="hljs-string">'Fortran'</span>)<br><span class="hljs-built_in">print</span>(Languages)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">['Python', 'C', 'C++', 'Java', 'JavaScript']
 ['Python', 'C', 'C++', 'Java', 'JavaScript', 'Fortran']</code></pre>
 <ul>
-<li>使用方法 <strong><code>insert()</code></strong> 在列表的任何位置添加新元素</li>
+<li>使用方法 <strong><code>insert()</code></strong>
+在列表的任何位置添加新元素</li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">Languages = [<span class="hljs-string">'Python'</span>, <span class="hljs-string">'C'</span>, <span class="hljs-string">'C++'</span>, <span class="hljs-string">'Java'</span>, <span class="hljs-string">'JavaScript'</span>]<br><span class="hljs-built_in">print</span>(Languages)<br>Languages.insert(<span class="hljs-number">1</span>, <span class="hljs-string">'Fortran'</span>)<br><span class="hljs-built_in">print</span>(Languages)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">['Python', 'C', 'C++', 'Java', 'JavaScript']
@@ -319,14 +328,16 @@ JavaScript
 <pre><code class="hljs">['Python', 'C', 'C++', 'Java', 'JavaScript']
 ['Python', 'C++', 'Java', 'JavaScript']</code></pre>
 <ul>
-<li>使用方法 <strong><code>pop()</code></strong> 根据索引删除列表中的某元素,如果不指定索引则默认删除列表最后一个元素。需要注意的是，方法<code>pop()</code>在删除元素后，可以让你接着使用它</li>
+<li>使用方法 <strong><code>pop()</code></strong>
+根据索引删除列表中的某元素,如果不指定索引则默认删除列表最后一个元素。需要注意的是，方法<code>pop()</code>在删除元素后，可以让你接着使用它</li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">Languages = [<span class="hljs-string">'Python'</span>, <span class="hljs-string">'C'</span>, <span class="hljs-string">'C++'</span>, <span class="hljs-string">'Java'</span>, <span class="hljs-string">'JavaScript'</span>]<br><span class="hljs-built_in">print</span>(Languages)<br>poped_Lang = Languages.pop(<span class="hljs-number">0</span>)<br><span class="hljs-built_in">print</span>(poped_Lang)<br><span class="hljs-built_in">print</span>(Languages)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">['Python', 'C', 'C++', 'Java', 'JavaScript']
 Python
 ['C', 'C++', 'Java', 'JavaScript']</code></pre>
 <ul>
-<li>使用方法 <strong><code>remove()</code></strong> 该方法是根据值而非索引来实现删除操作的。<code>remove()</code>方法在删除元素后，并不能让你接着使用它。此外，<code>remove()</code>只删除列表中第一个出现的该元素，如果列表中有多个此元素，则需要使用其他方法。</li>
+<li>使用方法 <strong><code>remove()</code></strong>
+该方法是根据值而非索引来实现删除操作的。<code>remove()</code>方法在删除元素后，并不能让你接着使用它。此外，<code>remove()</code>只删除列表中第一个出现的该元素，如果列表中有多个此元素，则需要使用其他方法。</li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">Languages = [<span class="hljs-string">'Python'</span>, <span class="hljs-string">'C'</span>, <span class="hljs-string">'C++'</span>, <span class="hljs-string">'Java'</span>, <span class="hljs-string">'JavaScript'</span>]<br><span class="hljs-built_in">print</span>(Languages)<br>removed_Lang = Languages.remove(<span class="hljs-string">'Python'</span>)<br><span class="hljs-built_in">print</span>(removed_Lang)<br><span class="hljs-built_in">print</span>(Languages)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">['Python', 'C', 'C++', 'Java', 'JavaScript']
@@ -336,7 +347,8 @@ None
 <pre><code class="hljs">['JavaScript', 'C', 'Java', 'Python', 'C++']</code></pre>
 <h2 id="排列列表">1.6 排列列表</h2>
 <ul>
-<li>使用方法 <strong><code>sort()</code></strong> 对列表进行永久性排序</li>
+<li>使用方法 <strong><code>sort()</code></strong>
+对列表进行永久性排序</li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">cars = [<span class="hljs-string">'bmw'</span>,<span class="hljs-string">'audi'</span>,<span class="hljs-string">'toyota'</span>,<span class="hljs-string">'subaru'</span>]<br><span class="hljs-built_in">print</span>(cars)<br>cars.sort() <span class="hljs-comment"># 方法sort.()永久性修改了列表元素的排列顺序</span><br><span class="hljs-built_in">print</span>(cars)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">['bmw', 'audi', 'toyota', 'subaru']
@@ -344,8 +356,15 @@ None
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 按照与字母顺序相反的顺序排列</span><br>cars.sort(reverse=<span class="hljs-literal">True</span>)<br><span class="hljs-built_in">print</span>(cars)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">['toyota', 'subaru', 'bmw', 'audi']</code></pre>
 <ul>
-<li><p>使用函数 <strong><code>sorted()</code></strong> 对列表进行临时排序 <strong><code>sorted(iterable, *, key=None, reverse=False)</code></strong></p>
-<p>根据 iterable 中的项返回一个新的已排序列表。具有两个可选参数，它们都必须指定为关键字参数。key 指定带有单个参数的函数，用于从 iterable 的每个元素中提取用于比较的键 (例如 key=str.lower)。 默认值为 None (直接比较元素)。reverse 为一个布尔值。 如果设为 True，则每个列表元素将按反向顺序比较进行排序</p></li>
+<li><p>使用函数 <strong><code>sorted()</code></strong>
+对列表进行临时排序
+<strong><code>sorted(iterable, *, key=None, reverse=False)</code></strong></p>
+<p>根据 iterable
+中的项返回一个新的已排序列表。具有两个可选参数，它们都必须指定为关键字参数。key
+指定带有单个参数的函数，用于从 iterable 的每个元素中提取用于比较的键
+(例如 key=str.lower)。 默认值为 None (直接比较元素)。reverse
+为一个布尔值。 如果设为
+True，则每个列表元素将按反向顺序比较进行排序</p></li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">alist = [<span class="hljs-string">'a'</span>,<span class="hljs-string">'b'</span>,<span class="hljs-string">'d'</span>,<span class="hljs-string">'c'</span>,<span class="hljs-string">'B'</span>,<span class="hljs-string">'A'</span>]<br><span class="hljs-built_in">print</span>(alist)<br><span class="hljs-comment"># 函数sorted()对列表的排序不影响原始列表</span><br><span class="hljs-comment"># 默认按字符ascii码排序</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">sorted</span>(alist))<br><span class="hljs-built_in">print</span>(alist)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">['a','b','d','c','B','A']
@@ -386,8 +405,15 @@ I can't wait to see your next trick, David.
 Carolina, that was a great trick!
 I can't wait to see your next trick, Carolina.</code></pre>
 <ul>
-<li><p>使用Python内置函数map()遍历列表 <strong><code>map(function, iterable, ...)</code></strong></p>
-<p>返回一个将 function 应用于 iterable 中每一项并输出其结果的迭代器。如果传入了额外的 iterable 参数，function 必须接受相同个数的实参并被应用于从所有可迭代对象中并行获取的项。 当有多个可迭代对象时，最短的可迭代对象耗尽则整个迭代就将结束。map()函数不改变原有的 list，而是返回一个新的 list。利用map()函数，可以把一个 list 转换为另一个 list，只需要传入转换函数。 <strong>map()函数是一个非常有用的功能强大的内置函数，需要引起重视。</strong></p></li>
+<li><p>使用Python内置函数map()遍历列表
+<strong><code>map(function, iterable, ...)</code></strong></p>
+<p>返回一个将 function 应用于 iterable
+中每一项并输出其结果的迭代器。如果传入了额外的 iterable 参数，function
+必须接受相同个数的实参并被应用于从所有可迭代对象中并行获取的项。
+当有多个可迭代对象时，最短的可迭代对象耗尽则整个迭代就将结束。map()函数不改变原有的
+list，而是返回一个新的 list。利用map()函数，可以把一个 list 转换为另一个
+list，只需要传入转换函数。
+<strong>map()函数是一个非常有用的功能强大的内置函数，需要引起重视。</strong></p></li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">squ</span>(<span class="hljs-params">x</span>):<br>    <span class="hljs-keyword">return</span> x ** <span class="hljs-number">2</span><br><br>a = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">6</span>))<br>b = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">map</span>(squ, a))<br><span class="hljs-built_in">print</span>(a)<br><span class="hljs-built_in">print</span>(b)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">[1, 2, 3, 4, 5]
@@ -395,22 +421,30 @@ I can't wait to see your next trick, Carolina.</code></pre>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 使用lambda匿名函数，</span><br><span class="hljs-comment"># 提供了两个列表，对相同位置的列表数据进行相加</span><br><span class="hljs-built_in">list</span>(<span class="hljs-built_in">map</span>(<span class="hljs-keyword">lambda</span> x, y: x + y, a, b))<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">[2, 6, 12, 20, 30]</code></pre>
 <ul>
-<li><p>使用Python内置函数filter()过滤列表 <strong><code>filter(function, iterable)</code></strong></p>
-<p>用 iterable 中函数 function 返回真的那些元素，构建一个新的迭代器。iterable 可以是一个序列，一个支持迭代的容器，或一个迭代器。如果 function 是 None ，则会假设它是一个身份函数，即 iterable 中所有返回假的元素会被移除。通俗来讲，filter()函数就是使用指定方法过滤可迭代对象的元素。 <strong>filter()函数是一个非常有用的功能强大的内置函数，需要引起重视。</strong></p></li>
+<li><p>使用Python内置函数filter()过滤列表
+<strong><code>filter(function, iterable)</code></strong></p>
+<p>用 iterable 中函数 function
+返回真的那些元素，构建一个新的迭代器。iterable
+可以是一个序列，一个支持迭代的容器，或一个迭代器。如果 function 是 None
+，则会假设它是一个身份函数，即 iterable
+中所有返回假的元素会被移除。通俗来讲，filter()函数就是使用指定方法过滤可迭代对象的元素。
+<strong>filter()函数是一个非常有用的功能强大的内置函数，需要引起重视。</strong></p></li>
 </ul>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">if_odd</span>(<span class="hljs-params">x</span>):<br>    <span class="hljs-keyword">return</span> x % <span class="hljs-number">2</span> == <span class="hljs-number">1</span><br><br>a = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">11</span>))<br>b = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">filter</span>(if_odd, a))<br><span class="hljs-built_in">print</span>(a)<br><span class="hljs-built_in">print</span>(b)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 [1, 3, 5, 7, 9]</code></pre>
 <h2 id="合并列表">1.8 合并列表</h2>
 <p><strong><code>zip(*iterables)</code></strong></p>
-<p>创建一个聚合了来自每个可迭代对象中的元素的迭代器。当所输入可迭代对象中最短的一个被耗尽时，迭代器将停止迭代。zip() 与 * 运算符相结合可以用来拆解一个列表，可简单理解为解压。</p>
+<p>创建一个聚合了来自每个可迭代对象中的元素的迭代器。当所输入可迭代对象中最短的一个被耗尽时，迭代器将停止迭代。zip()
+与 * 运算符相结合可以用来拆解一个列表，可简单理解为解压。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">x = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]<br>y = [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>]<br>z = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">zip</span>(x, y))<br><span class="hljs-built_in">print</span>(z)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">[(1, 4), (2, 5), (3, 6)]</code></pre>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">x1, y1 = <span class="hljs-built_in">zip</span>(*z)<br>x1 = <span class="hljs-built_in">list</span>(x1)<br>y1 = <span class="hljs-built_in">list</span>(y1)<br><span class="hljs-built_in">print</span>(x1)<br><span class="hljs-built_in">print</span>(y1)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">[1, 2, 3]
 [4, 5, 6]</code></pre>
 <h1 id="python元组">2 Python元组</h1>
-<p>元组是一个不可变的序列类型，可以把元组理解为不可修改的列表，除了不可修改之外，其他适用于列表的操作同样适用于元组。元组使用圆括号( )来标识。</p>
+<p>元组是一个不可变的序列类型，可以把元组理解为不可修改的列表，除了不可修改之外，其他适用于列表的操作同样适用于元组。元组使用圆括号(
+)来标识。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">tuple_Lang = (<span class="hljs-string">'Python'</span>, <span class="hljs-string">'C'</span>, <span class="hljs-string">'C++'</span>, <span class="hljs-string">'Java'</span>, <span class="hljs-string">'JavaScript'</span>)<br><span class="hljs-built_in">print</span>(tuple_Lang)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">('Python', 'C', 'C++', 'Java', 'JavaScript')</code></pre>
 <p>修改元组中的元素会引发错误，如果想修改元组，只能对其重新赋值</p>
@@ -422,7 +456,8 @@ I can't wait to see your next trick, Carolina.</code></pre>
 <h3 id="直接创建字典">3.1.1 直接创建字典</h3>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">user = {<span class="hljs-string">'name'</span>:<span class="hljs-string">'Jack'</span>, <span class="hljs-string">'age'</span>:<span class="hljs-number">18</span>}<br><span class="hljs-built_in">print</span>(user)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">{'name': 'Jack', 'age': 18}</code></pre>
-<h3 id="使用-dict-函数创建字典">3.1.2 使用 <strong><code>dict()</code></strong> 函数创建字典</h3>
+<h3 id="使用-dict-函数创建字典">3.1.2 使用
+<strong><code>dict()</code></strong> 函数创建字典</h3>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Python">new_user = <span class="hljs-built_in">dict</span>(name = <span class="hljs-string">'Jack'</span>, age = <span class="hljs-number">18</span>)<br><span class="hljs-built_in">print</span>(new_user)<br></code></pre></td></tr></tbody></table></figure>
 <pre><code class="hljs">{'name': 'Jack', 'age': 18}</code></pre>
 <h3 id="使用列表函数创建字典">3.1.3 使用列表函数创建字典</h3>
