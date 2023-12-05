@@ -1,278 +1,236 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
-
-
-
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo-star-bg-1200.png">
-  <link rel="icon" href="/img/logo-star-bg-1200.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="chihchao">
-  <meta name="keywords" content="">
-  
-    <meta name="description" content="math库是Python中的一个基本库，在以后数据处理过程中会经常用到。本章节先学习math库，再尝试使用Python解决一些典型的数学问题。">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-1200-ich.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-1200-ich.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-1200-ich.png">
+  <link rel="mask-icon" href="/images/favicon-1200-ich.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"chihchao.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="math库是Python中的一个基本库，在以后数据处理过程中会经常用到。本章节先学习math库，再尝试使用Python解决一些典型的数学问题。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python学习笔记-6-math库及数学运算">
 <meta property="og:url" content="http://chihchao.cn/posts/965df762/index.html">
 <meta property="og:site_name" content="理乐志">
 <meta property="og:description" content="math库是Python中的一个基本库，在以后数据处理过程中会经常用到。本章节先学习math库，再尝试使用Python解决一些典型的数学问题。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://chihchao.cn/img/python-logo-master-v3-TM.png">
 <meta property="article:published_time" content="2020-11-06T09:10:00.000Z">
 <meta property="article:modified_time" content="2020-11-06T09:10:00.000Z">
 <meta property="article:author" content="chihchao">
 <meta property="article:tag" content="math">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://chihchao.cn/img/python-logo-master-v3-TM.png">
-  
-  
-  
-  <title>Python学习笔记-6-math库及数学运算 - 理乐志</title>
+<meta name="twitter:card" content="summary">
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+<link rel="canonical" href="http://chihchao.cn/posts/965df762/">
 
 
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  <title>Python学习笔记-6-math库及数学运算 | 理乐志</title>
   
 
 
 
 
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"chihchao.cn","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":" ","loop":false,"scope":"home"},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
 
-  
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0">
+<!-- hexo injector head_end end -->
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
 
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
 
-<body>
-  
-
-  <header>
-    
-
-<div class="header-inner" style="height: 70vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>理乐志</strong>
-    </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                首页
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                归档
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                分类
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                关于
-              </a>
-            </li>
-          
-        
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
-          </li>
-        
-      </ul>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">理乐志</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">chihchao's blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+  </ul>
 </nav>
 
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/background.jpg') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle">Python学习笔记-6-math库及数学运算</span>
-          
-        </div>
-
-        
-          
-  <div class="mt-3">
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-author" aria-hidden="true"></i>
-        chihchao
-      </span>
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2020-11-06 17:10" pubdate>
-          2020年11月6日 下午
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-
-    
-
-    
-    
-  </div>
 
 
-        
-      </div>
-
-      
-    </div>
-  </div>
-</div>
 
 </div>
+    </header>
 
-  </header>
-
-  <main>
     
-      
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
 
-    </div>
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
 
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div id="board">
-          <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">Python学习笔记-6-math库及数学运算</h1>
+          <div class="content post posts-expand">
             
-            <div class="markdown-body">
-              
-              <p>math库是Python中的一个基本库，在以后数据处理过程中会经常用到。本章节先学习math库，再尝试使用Python解决一些典型的数学问题。</p>
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://chihchao.cn/posts/965df762/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="chihchao">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="理乐志">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python学习笔记-6-math库及数学运算
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-11-06 17:10" itemprop="dateCreated datePublished" datetime="2020-11-06T17:10:00+08:00">2020-11-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>math库是Python中的一个基本库，在以后数据处理过程中会经常用到。本章节先学习math库，再尝试使用Python解决一些典型的数学问题。</p>
 <span id="more"></span>
 <h1 id="math库">1 math库</h1>
 <p>Python的math库包含很多函数，通过 <code>import</code>
 语句导入即可使用。总体可分为以下常量、幂函数与对数函数、角度转换与三角函数、数论与表示函数等几大类。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> math<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">dir</span>(math))<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">['__doc__', '__loader__', '__name__', '__package__', '__spec__', 'acos', 'acosh', 'asin', 'asinh', 'atan', 'atan2', 'atanh', 'ceil', 'comb', 'copysign', 'cos', 'cosh', 'degrees', 'dist', 'e', 'erf', 'erfc', 'exp', 'expm1', 'fabs', 'factorial', 'floor', 'fmod', 'frexp', 'fsum', 'gamma', 'gcd', 'hypot', 'inf', 'isclose', 'isfinite', 'isinf', 'isnan', 'isqrt', 'ldexp', 'lgamma', 'log', 'log10', 'log1p', 'log2', 'modf', 'nan', 'perm', 'pi', 'pow', 'prod', 'radians', 'remainder', 'sin', 'sinh', 'sqrt', 'tan', 'tanh', 'tau', 'trunc']</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">dir</span>(math))</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>['__doc__', '__loader__', '__name__', '__package__', '__spec__', 'acos', 'acosh', 'asin', 'asinh', 'atan', 'atan2', 'atanh', 'ceil', 'comb', 'copysign', 'cos', 'cosh', 'degrees', 'dist', 'e', 'erf', 'erfc', 'exp', 'expm1', 'fabs', 'factorial', 'floor', 'fmod', 'frexp', 'fsum', 'gamma', 'gcd', 'hypot', 'inf', 'isclose', 'isfinite', 'isinf', 'isnan', 'isqrt', 'ldexp', 'lgamma', 'log', 'log10', 'log1p', 'log2', 'modf', 'nan', 'perm', 'pi', 'pow', 'prod', 'radians', 'remainder', 'sin', 'sinh', 'sqrt', 'tan', 'tanh', 'tau', 'trunc']</code></pre>
 <h2 id="常量">1.1 常量</h2>
 <p>math 库中的常量包括Π、e、浮点正负无穷大、浮点“非数字”（NaN）值。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(<span class="hljs-string">'pi: '</span>, math.pi)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'e: '</span>, math.e)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'inf: '</span>, math.inf)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'-inf: '</span>, -math.inf)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'NaN: '</span>, math.nan)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">pi:  3.141592653589793
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">'pi: '</span>, math.pi)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'e: '</span>, math.e)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'inf: '</span>, math.inf)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'-inf: '</span>, -math.inf)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'NaN: '</span>, math.nan)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>pi:  3.141592653589793
 e:  2.718281828459045
 inf:  inf
 -inf:  -inf
@@ -292,8 +250,8 @@ pow(x, 0.0) 总是返回 1.0。 如果 x 和 y 都是有限的， x 是负数，
 <li><p><strong><code>math.sqrt(x)</code></strong>
 返回x的平方根。求n次根，可使用pow(x,1/n)</p></li>
 </ul>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python">a = math.<span class="hljs-built_in">pow</span>(<span class="hljs-number">3</span>,<span class="hljs-number">4</span>)  <span class="hljs-comment"># 求2的3次幂</span><br>b = math.exp(<span class="hljs-number">2</span>)  <span class="hljs-comment"># 求e的2次幂</span><br>c = math.expm1(<span class="hljs-number">2</span>)  <span class="hljs-comment"># 求e的2次幂再减1</span><br>d = math.sqrt(<span class="hljs-number">9</span>)  <span class="hljs-comment"># 求9的平方根</span><br>e = math.<span class="hljs-built_in">pow</span>(<span class="hljs-number">27</span>, <span class="hljs-number">1</span>/<span class="hljs-number">3</span>) <span class="hljs-comment"># 求27的3次根</span><br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'3的4次幂:'</span>, a)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'e的2次幂:'</span>, b)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'e的2次幂再减1:'</span>, c)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'9的平方根：'</span>, d)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'27的3次根：'</span>, e)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">3的4次幂: 81.0
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">a = math.<span class="built_in">pow</span>(<span class="number">3</span>,<span class="number">4</span>)  <span class="comment"># 求2的3次幂</span></span><br><span class="line">b = math.exp(<span class="number">2</span>)  <span class="comment"># 求e的2次幂</span></span><br><span class="line">c = math.expm1(<span class="number">2</span>)  <span class="comment"># 求e的2次幂再减1</span></span><br><span class="line">d = math.sqrt(<span class="number">9</span>)  <span class="comment"># 求9的平方根</span></span><br><span class="line">e = math.<span class="built_in">pow</span>(<span class="number">27</span>, <span class="number">1</span>/<span class="number">3</span>) <span class="comment"># 求27的3次根</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'3的4次幂:'</span>, a)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'e的2次幂:'</span>, b)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'e的2次幂再减1:'</span>, c)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'9的平方根：'</span>, d)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'27的3次根：'</span>, e)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>3的4次幂: 81.0
 e的2次幂: 7.38905609893065
 e的2次幂再减1: 6.38905609893065
 9的平方根： 3.0
@@ -308,8 +266,8 @@ e的2次幂再减1: 6.38905609893065
 <li><p><strong><code>math.log1p(x)</code></strong>
 求以e为底(1+x)的对数，对于接近零的 x 精确的方式计算结果</p></li>
 </ul>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python">a = math.log(<span class="hljs-number">81</span>,<span class="hljs-number">3</span>)<br>b = math.log(<span class="hljs-number">7.389</span>)<br>c = math.log2(<span class="hljs-number">8</span>)<br>d = math.log10(<span class="hljs-number">100</span>)<br>e = math.log1p(<span class="hljs-number">0.0003</span>)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'以3为底81的对数：'</span>, a)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'以e为底7.389的对数：'</span>, b)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'以2为底8的对数：'</span>, c)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'以10为底100的对数：'</span>, d)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'以e为底1.0003的对数：'</span>, e)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">以3为底81的对数： 4.0
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">a = math.log(<span class="number">81</span>,<span class="number">3</span>)</span><br><span class="line">b = math.log(<span class="number">7.389</span>)</span><br><span class="line">c = math.log2(<span class="number">8</span>)</span><br><span class="line">d = math.log10(<span class="number">100</span>)</span><br><span class="line">e = math.log1p(<span class="number">0.0003</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'以3为底81的对数：'</span>, a)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'以e为底7.389的对数：'</span>, b)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'以2为底8的对数：'</span>, c)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'以10为底100的对数：'</span>, d)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'以e为底1.0003的对数：'</span>, e)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>以3为底81的对数： 4.0
 以e为底7.389的对数： 1.9999924078065106
 以2为底8的对数： 3.0
 以10为底100的对数： 2.0
@@ -321,8 +279,8 @@ e的2次幂再减1: 6.38905609893065
 <li><p><strong><code>math.radians(x)</code></strong> 将 x
 从度数转换为弧度</p></li>
 </ul>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">a = math.degrees(math.pi)<br>b = math.radians(<span class="hljs-number">180</span>)<br><span class="hljs-built_in">print</span>(a, b)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">180.0 3.141592653589793</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = math.degrees(math.pi)</span><br><span class="line">b = math.radians(<span class="number">180</span>)</span><br><span class="line"><span class="built_in">print</span>(a, b)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>180.0 3.141592653589793</code></pre>
 <ul>
 <li><p><strong><code>math.sin(x)</code></strong>
 求弧度x的正弦值</p></li>
@@ -339,10 +297,10 @@ e的2次幂再减1: 6.38905609893065
 <li><p><strong><code>math.hypot(x,y)</code></strong>
 求欧几里德范数，从原点到点 (x, y) 的向量长度</p></li>
 </ul>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">a = math.sin(math.pi/<span class="hljs-number">2</span>)<br>b = math.degrees(math.asin(<span class="hljs-number">1</span>))<br><span class="hljs-built_in">print</span>(a, b)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">1.0 90.0</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">c = math.hypot(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>)<br><span class="hljs-built_in">print</span>(c)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">1.4142135623730951</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = math.sin(math.pi/<span class="number">2</span>)</span><br><span class="line">b = math.degrees(math.asin(<span class="number">1</span>))</span><br><span class="line"><span class="built_in">print</span>(a, b)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>1.0 90.0</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c = math.hypot(<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(c)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>1.4142135623730951</code></pre>
 <h2 id="其他">1.4 其他</h2>
 <ul>
 <li><p><strong><code>math.fabs(x)</code></strong> 返回 x
@@ -354,8 +312,8 @@ e的2次幂再减1: 6.38905609893065
 <li><p><strong><code>math.modf(x)</code></strong> 返回 x
 的小数和整数部分，两个结果都带有 x 的符号并且是浮点数</p></li>
 </ul>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(math.fabs(-<span class="hljs-number">3.6</span>))<br><span class="hljs-built_in">print</span>(math.ceil(<span class="hljs-number">3.6</span>))<br><span class="hljs-built_in">print</span>(math.floor(<span class="hljs-number">3.6</span>))<br><span class="hljs-built_in">print</span>(math.modf(<span class="hljs-number">3.6</span>))<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">3.6
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(math.fabs(-<span class="number">3.6</span>))</span><br><span class="line"><span class="built_in">print</span>(math.ceil(<span class="number">3.6</span>))</span><br><span class="line"><span class="built_in">print</span>(math.floor(<span class="number">3.6</span>))</span><br><span class="line"><span class="built_in">print</span>(math.modf(<span class="number">3.6</span>))</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>3.6
 4
 3
 (0.6000000000000001, 3.0)</code></pre>
@@ -366,8 +324,8 @@ e的2次幂再减1: 6.38905609893065
 <li><p><strong><code>math.factorial(x)</code></strong> 以一个整数返回 x
 的阶乘。 如果 x 不是整数或为负数时则将引发 ValueError</p></li>
 </ul>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(math.gcd(<span class="hljs-number">2</span>,<span class="hljs-number">4</span>))<br><span class="hljs-built_in">print</span>(math.factorial(<span class="hljs-number">5</span>))<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">2
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(math.gcd(<span class="number">2</span>,<span class="number">4</span>))</span><br><span class="line"><span class="built_in">print</span>(math.factorial(<span class="number">5</span>))</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>2
 120</code></pre>
 <ul>
 <li><p><strong><code>math.isinf(x)</code></strong> 如果 x
@@ -379,33 +337,33 @@ e的2次幂再减1: 6.38905609893065
 </ul>
 <h1 id="数学运算">2 数学运算</h1>
 <h2 id="求-12345...100">2.1 求 1+2+3+4+5+...+100</h2>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 方法一：使用while循环</span><br><br>i = <span class="hljs-number">0</span><br>s = <span class="hljs-number">0</span><br><br><span class="hljs-keyword">while</span> i &lt; <span class="hljs-number">100</span>:<br>    i += <span class="hljs-number">1</span><br>    s += i<br><br><span class="hljs-built_in">print</span>(s)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">5050</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 方法二：使用for循环</span><br><br>s = <span class="hljs-number">0</span><br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">101</span>):<br>    s += i<br><br><span class="hljs-built_in">print</span>(s)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">5050</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 方法三：内置函数sum()</span><br><br>a = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">101</span>))<br>sum_a = <span class="hljs-built_in">sum</span>(a)<br><span class="hljs-built_in">print</span>(sum_a)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">5050</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法一：使用while循环</span></span><br><span class="line"></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line">s = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">100</span>:</span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line">    s += i</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(s)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>5050</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法二：使用for循环</span></span><br><span class="line"></span><br><span class="line">s = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">    s += i</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(s)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>5050</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法三：内置函数sum()</span></span><br><span class="line"></span><br><span class="line">a = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>))</span><br><span class="line">sum_a = <span class="built_in">sum</span>(a)</span><br><span class="line"><span class="built_in">print</span>(sum_a)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>5050</code></pre>
 <h2 id="求-1-12-13-...-1100">2.2 求 1 + 1/2 + 1/3 + ... + 1/100</h2>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 方法一：使用while循环</span><br><br>i = <span class="hljs-number">0</span><br>s = <span class="hljs-number">0</span><br><br><span class="hljs-keyword">while</span> i &lt; <span class="hljs-number">100</span>:<br>    i += <span class="hljs-number">1</span><br>    s += <span class="hljs-number">1</span>/i<br><br><span class="hljs-built_in">print</span>(s)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">5.187377517639621</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 方法二：使用for循环</span><br><br>s = <span class="hljs-number">0</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">101</span>):<br>    s += <span class="hljs-number">1</span>/i<br><br><span class="hljs-built_in">print</span>(s) <br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">5.187377517639621</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 方法三：使用for循环创建1/n列表</span><br><br>a = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">101</span>))<br>b = []<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> a:<br>    b.append(<span class="hljs-number">1</span>/i)<br><br>sum_b = <span class="hljs-built_in">sum</span>(b)<br><span class="hljs-built_in">print</span>(sum_b)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">5.187377517639621</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 方法四：使用自定义函数结合内置函数map()创建1/n列表</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">f</span>(<span class="hljs-params">x</span>):<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>/x<br><br>a = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">101</span>))<br>b = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">map</span>(f,a))<br>sum_b = <span class="hljs-built_in">sum</span>(b)<br><span class="hljs-built_in">print</span>(sum_b)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">5.187377517639621</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 方法五：使用匿名函数结合内置函数map()创建1/n列表</span><br><br>a = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">101</span>))<br>b = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">map</span>(<span class="hljs-keyword">lambda</span> x:<span class="hljs-number">1</span>/x, a))<br>sum_b = <span class="hljs-built_in">sum</span>(b)<br><span class="hljs-built_in">print</span>(sum_b)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">5.187377517639621</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法一：使用while循环</span></span><br><span class="line"></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line">s = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">100</span>:</span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line">    s += <span class="number">1</span>/i</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(s)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>5.187377517639621</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法二：使用for循环</span></span><br><span class="line"></span><br><span class="line">s = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">    s += <span class="number">1</span>/i</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(s) </span><br></pre></td></tr></tbody></table></figure>
+<pre><code>5.187377517639621</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法三：使用for循环创建1/n列表</span></span><br><span class="line"></span><br><span class="line">a = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>))</span><br><span class="line">b = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> a:</span><br><span class="line">    b.append(<span class="number">1</span>/i)</span><br><span class="line"></span><br><span class="line">sum_b = <span class="built_in">sum</span>(b)</span><br><span class="line"><span class="built_in">print</span>(sum_b)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>5.187377517639621</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法四：使用自定义函数结合内置函数map()创建1/n列表</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>/x</span><br><span class="line"></span><br><span class="line">a = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>))</span><br><span class="line">b = <span class="built_in">list</span>(<span class="built_in">map</span>(f,a))</span><br><span class="line">sum_b = <span class="built_in">sum</span>(b)</span><br><span class="line"><span class="built_in">print</span>(sum_b)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>5.187377517639621</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法五：使用匿名函数结合内置函数map()创建1/n列表</span></span><br><span class="line"></span><br><span class="line">a = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>))</span><br><span class="line">b = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="keyword">lambda</span> x:<span class="number">1</span>/x, a))</span><br><span class="line">sum_b = <span class="built_in">sum</span>(b)</span><br><span class="line"><span class="built_in">print</span>(sum_b)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>5.187377517639621</code></pre>
 <h2 id="求-1---12-13---14-...---1100">2.3 求 1 - 1/2 + 1/3 - 1/4 + ... -
 1/100</h2>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 方法一：以分母判断正负</span><br><br>s = <span class="hljs-number">0</span><br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">101</span>):<br>    <span class="hljs-keyword">if</span> i%<span class="hljs-number">2</span> == <span class="hljs-number">1</span>:<br>        s += <span class="hljs-number">1</span>/i<br>    <span class="hljs-keyword">elif</span> i%<span class="hljs-number">2</span> == <span class="hljs-number">0</span>:<br>        s -= <span class="hljs-number">1</span>/i<br>        <br><span class="hljs-built_in">print</span>(s)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">0.688172179310195</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 方法二：以分子判断正负</span><br><br>s = <span class="hljs-number">0</span><br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">101</span>):<br>    s += <span class="hljs-built_in">pow</span>(-<span class="hljs-number">1</span>,i+<span class="hljs-number">1</span>)/i<br><br><span class="hljs-built_in">print</span>(s)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">0.688172179310195</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法一：以分母判断正负</span></span><br><span class="line"></span><br><span class="line">s = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">    <span class="keyword">if</span> i%<span class="number">2</span> == <span class="number">1</span>:</span><br><span class="line">        s += <span class="number">1</span>/i</span><br><span class="line">    <span class="keyword">elif</span> i%<span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">        s -= <span class="number">1</span>/i</span><br><span class="line">        </span><br><span class="line"><span class="built_in">print</span>(s)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>0.688172179310195</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法二：以分子判断正负</span></span><br><span class="line"></span><br><span class="line">s = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">101</span>):</span><br><span class="line">    s += <span class="built_in">pow</span>(-<span class="number">1</span>,i+<span class="number">1</span>)/i</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(s)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>0.688172179310195</code></pre>
 <h2 id="一元二次方程-y-ax2-bx-c">2.4 一元二次方程 y = ax**2 + bx +
 c</h2>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> math <span class="hljs-keyword">import</span> sqrt<br><br>a = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">'Enter a: '</span>))<br>b = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">'Enter b: '</span>))<br>c = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">'Enter c: '</span>))<br><br>delt = <span class="hljs-built_in">pow</span>(b,<span class="hljs-number">2</span>) - <span class="hljs-number">4</span>*a*c<br><br><span class="hljs-keyword">if</span> delt &gt; <span class="hljs-number">0</span>:<br>    x1 = (-b + sqrt(delt)) / (<span class="hljs-number">2</span>*a)<br>    x2 = (-b - sqrt(delt)) / (<span class="hljs-number">2</span>*a)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f"There are two solutions: <span class="hljs-subst">{x1}</span> and <span class="hljs-subst">{x2}</span>."</span>)<br><span class="hljs-keyword">elif</span> delt == <span class="hljs-number">0</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f"There is only one solution: <span class="hljs-subst">{x1}</span>."</span>)<br><span class="hljs-keyword">else</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"There is no solution."</span>)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">Enter a:  1
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> sqrt</span><br><span class="line"></span><br><span class="line">a = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">'Enter a: '</span>))</span><br><span class="line">b = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">'Enter b: '</span>))</span><br><span class="line">c = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">'Enter c: '</span>))</span><br><span class="line"></span><br><span class="line">delt = <span class="built_in">pow</span>(b,<span class="number">2</span>) - <span class="number">4</span>*a*c</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> delt &gt; <span class="number">0</span>:</span><br><span class="line">    x1 = (-b + sqrt(delt)) / (<span class="number">2</span>*a)</span><br><span class="line">    x2 = (-b - sqrt(delt)) / (<span class="number">2</span>*a)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f"There are two solutions: <span class="subst">{x1}</span> and <span class="subst">{x2}</span>."</span>)</span><br><span class="line"><span class="keyword">elif</span> delt == <span class="number">0</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f"There is only one solution: <span class="subst">{x1}</span>."</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"There is no solution."</span>)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>Enter a:  1
 Enter b:  1
 Enter c:  -2
 
@@ -415,342 +373,288 @@ There are two solutions: 1.0 and -2.0.</code></pre>
 <ul>
 <li>四个正整数1、2、3、4，能组成多少个互不相同且无重复数字的三位数？各是多少？</li>
 </ul>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python">a = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]<br>b = []<br>count = <span class="hljs-number">0</span><br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> a:<br>    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> a:<br>        <span class="hljs-keyword">for</span> k <span class="hljs-keyword">in</span> a:<br>            <span class="hljs-keyword">if</span> (i!=j) <span class="hljs-keyword">and</span> (j!=k) <span class="hljs-keyword">and</span> (i!=k):<br>                count += <span class="hljs-number">1</span><br>                num = i*<span class="hljs-number">100</span> + j*<span class="hljs-number">10</span> + k<br>                b.append(num)<br>    <br><span class="hljs-built_in">print</span>(<span class="hljs-string">"Total number:"</span>, count)<br><span class="hljs-built_in">print</span>(b)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">Total number: 24
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">b = []</span><br><span class="line">count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> a:</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> a:</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> a:</span><br><span class="line">            <span class="keyword">if</span> (i!=j) <span class="keyword">and</span> (j!=k) <span class="keyword">and</span> (i!=k):</span><br><span class="line">                count += <span class="number">1</span></span><br><span class="line">                num = i*<span class="number">100</span> + j*<span class="number">10</span> + k</span><br><span class="line">                b.append(num)</span><br><span class="line">    </span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Total number:"</span>, count)</span><br><span class="line"><span class="built_in">print</span>(b)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>Total number: 24
 [123, 124, 132, 134, 142, 143, 213, 214, 231, 234, 241, 243, 312, 314, 321, 324, 341, 342, 412, 413, 421, 423, 431, 432]</code></pre>
 
-              
-            </div>
-            <hr/>
-            <div>
-              <div class="post-metas my-3">
-  
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
+    </div>
 
-<span class="category-chains">
-  
-  
     
-      <span class="category-chain">
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/math/" rel="tag"><i class="fa fa-tag"></i> math</a>
+          </div>
+
         
-  <a href="/categories/Python/" class="category-chain-item">Python</a>
-  
-  
 
-      </span>
+
+        
+      </footer>
     
-  
-</span>
-
-    </div>
+  </article>
   
   
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/math/">#math</a>
-      
-    </div>
   
-</div>
 
 
-              
 
-              
-            </div>
+          </div>
+          
 
-            
-          </article>
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
         </div>
-      </div>
-    </div>
-
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-
-
-  </aside>
-
-
-    </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
   </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#math%E5%BA%93"><span class="nav-number">1.</span> <span class="nav-text">1 math库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E9%87%8F"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 常量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%82%E5%87%BD%E6%95%B0%E4%B8%8E%E5%AF%B9%E6%95%B0%E5%87%BD%E6%95%B0"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 幂函数与对数函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%92%E5%BA%A6%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0%E4%B8%8E%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 角度转换函数与三角函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 其他</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E8%BF%90%E7%AE%97"><span class="nav-number">2.</span> <span class="nav-text">2 数学运算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B1%82-12345...100"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 求 1+2+3+4+5+...+100</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B1%82-1-12-13-...-1100"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 求 1 + 1&#x2F;2 + 1&#x2F;3 + ... + 1&#x2F;100</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B1%82-1---12-13---14-...---1100"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 求 1 - 1&#x2F;2 + 1&#x2F;3 - 1&#x2F;4 + ... -
+1&#x2F;100</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E5%85%83%E4%BA%8C%E6%AC%A1%E6%96%B9%E7%A8%8B-y-ax2-bx-c"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 一元二次方程 y &#x3D; ax**2 + bx +
+c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96-1"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 其他</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="chihchao"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">chihchao</p>
+  <div class="site-description" itemprop="description"></div>
 </div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
 
 
 
+      </div>
 
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-
-
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-
-    
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-  
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
     </div>
-  
+  </aside>
+  <div id="sidebar-dimmer"></div>
 
-  
 
-  
+      </div>
+    </main>
 
-  
+    <footer class="footer">
+      <div class="footer-inner">
+        
 
+        
+
+<div class="copyright">
   
-    <!-- 站点运行时间 -->
-    <div class="runtime">
-    <span id="timeDate">载入天数...</span>
-    <span id="times">载入时分秒...</span>
-    <script>
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chihchao</span>
+</div><!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
     var now = new Date();
-    function createtime(){
+    function createtime() {
         var grt= new Date("02/25/2020 09:00:00");//此处修改你的建站时间或者网站上线时间
         now.setTime(now.getTime()+250);
-        days = (now - grt ) / 1000 / 60 / 60 / 24;
-        dnum = Math.floor(days);
-        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
-        hnum = Math.floor(hours);
-        if(String(hnum).length ==1 ){
-            hnum = "0" + hnum;
-        }
-        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
-        mnum = Math.floor(minutes);
-        if(String(mnum).length ==1 ){
-                  mnum = "0" + mnum;
-        }
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
         seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
-        snum = Math.round(seconds);
-        if(String(snum).length ==1 ){
-                  snum = "0" + snum;
-        }
-        document.getElementById("timeDate").innerHTML = "理乐志已运行 " + dnum + " 天 ";  //此次自定义显示内容
-        document.getElementById("times").innerHTML = hnum + " 时 " + mnum + " 分 " + snum + " 秒";
-    }  //此次自定义显示内容
-    setInterval("createtime()",250);
-    </script>
-</div>
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "理乐志已运行 "+ dnum +" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
   
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
-</div>
+<script src="/js/utils.js"></script>
 
-  </footer>
+<script src="/js/motion.js"></script>
 
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
 
   <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
 
-
-<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-
-
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    window.tocbot.init({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      collapseDepth   : CONFIG.toc.collapseDepth || 0,
-      scrollSmooth    : true,
-      headingsOffset  : -boardTop
-    });
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
     }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
   });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
 </script>
 
 
-  <script>
-  (function() {
-    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
-    var enableCopy = CONFIG.copy_btn;
-    if (!enableLang && !enableCopy) {
-      return;
-    }
-
-    function getBgClass(ele) {
-      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
-    }
-
-    var copyTmpl = '';
-    copyTmpl += '<div class="code-widget">';
-    copyTmpl += 'LANG';
-    copyTmpl += '</div>';
-    jQuery('.markdown-body pre').each(function() {
-      var $pre = jQuery(this);
-      if ($pre.find('code.mermaid').length > 0) {
-        return;
-      }
-      if ($pre.find('span.line').length > 0) {
-        return;
-      }
-
-      var lang = '';
-
-      if (enableLang) {
-        lang = CONFIG.code_language.default;
-        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
-          lang = $pre[0].children[0].classList[1];
-        } else if ($pre[0].getAttribute('data-language')) {
-          lang = $pre[0].getAttribute('data-language');
-        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
-          lang = $pre[0].children[0].classList[1];
-          $pre.parent().addClass('code-wrapper');
-        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
-          $pre.wrap('<div class="code-wrapper"></div>');
-        }
-        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
-      }
-      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
-        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
-
-      if (enableCopy) {
-        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
-          var clipboard = new window.ClipboardJS('.copy-btn', {
-            target: function(trigger) {
-              var nodes = trigger.parentNode.childNodes;
-              for (var i = 0; i < nodes.length; i++) {
-                if (nodes[i].tagName === 'CODE') {
-                  return nodes[i];
-                }
-              }
-            }
-          });
-          clipboard.on('success', function(e) {
-            e.clearSelection();
-            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
-            setTimeout(function() {
-              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
-            }, 2000);
-          });
-        });
-      }
-    });
-  })();
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
-    window.anchors.options = {
-      placement: CONFIG.anchorjs.placement,
-      visible  : CONFIG.anchorjs.visible
-    };
-    if (CONFIG.anchorjs.icon) {
-      window.anchors.options.icon = CONFIG.anchorjs.icon;
-    }
-    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-    var res = [];
-    for (var item of el) {
-      res.push('.markdown-body > ' + item.trim());
-    }
-    if (CONFIG.anchorjs.placement === 'left') {
-      window.anchors.options.class = 'anchorjs-link-left';
-    }
-    window.anchors.add(res.join(', '));
-  });
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
-    Fluid.plugins.fancyBox();
-  });
-</script>
-
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
 
 
   
 
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+  
+
+    </div>
 </body>
 </html>

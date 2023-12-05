@@ -1,268 +1,226 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
-
-
-
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo-star-bg-1200.png">
-  <link rel="icon" href="/img/logo-star-bg-1200.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="chihchao">
-  <meta name="keywords" content="">
-  
-    <meta name="description" content="本章节学习Python列表、元组和字典。">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-1200-ich.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-1200-ich.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-1200-ich.png">
+  <link rel="mask-icon" href="/images/favicon-1200-ich.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"chihchao.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="本章节学习Python列表、元组和字典。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python学习笔记-3-容器">
 <meta property="og:url" content="http://chihchao.cn/posts/6f6437fd/index.html">
 <meta property="og:site_name" content="理乐志">
 <meta property="og:description" content="本章节学习Python列表、元组和字典。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://chihchao.cn/img/python-logo-master-v3-TM.png">
 <meta property="article:published_time" content="2020-11-02T01:00:00.000Z">
 <meta property="article:modified_time" content="2020-11-02T01:00:00.000Z">
 <meta property="article:author" content="chihchao">
 <meta property="article:tag" content="python基础语法">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://chihchao.cn/img/python-logo-master-v3-TM.png">
-  
-  
-  
-  <title>Python学习笔记-3-容器 - 理乐志</title>
+<meta name="twitter:card" content="summary">
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+<link rel="canonical" href="http://chihchao.cn/posts/6f6437fd/">
 
 
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  <title>Python学习笔记-3-容器 | 理乐志</title>
   
 
 
 
 
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"chihchao.cn","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":" ","loop":false,"scope":"home"},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
 
-  
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
 <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0">
+<!-- hexo injector head_end end -->
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
 
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
 
-<body>
-  
-
-  <header>
-    
-
-<div class="header-inner" style="height: 70vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>理乐志</strong>
-    </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                首页
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                归档
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                分类
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                关于
-              </a>
-            </li>
-          
-        
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
-          </li>
-        
-      </ul>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">理乐志</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">chihchao's blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+  </ul>
 </nav>
 
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/background.jpg') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle">Python学习笔记-3-容器</span>
-          
-        </div>
-
-        
-          
-  <div class="mt-3">
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-author" aria-hidden="true"></i>
-        chihchao
-      </span>
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2020-11-02 09:00" pubdate>
-          2020年11月2日 上午
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-
-    
-
-    
-    
-  </div>
 
 
-        
-      </div>
-
-      
-    </div>
-  </div>
-</div>
 
 </div>
+    </header>
 
-  </header>
-
-  <main>
     
-      
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
 
-    </div>
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
 
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div id="board">
-          <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">Python学习笔记-3-容器</h1>
+          <div class="content post posts-expand">
             
-            <div class="markdown-body">
-              
-              <p>本章节学习Python列表、元组和字典。</p>
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://chihchao.cn/posts/6f6437fd/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="chihchao">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="理乐志">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python学习笔记-3-容器
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-11-02 09:00" itemprop="dateCreated datePublished" datetime="2020-11-02T09:00:00+08:00">2020-11-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>本章节学习Python列表、元组和字典。</p>
 <span id="more"></span>
 <h1 id="python列表">1 Python列表</h1>
 <p>列表是一种可变序列类型，用方括号<code>[]</code>包围，使用函数
@@ -272,89 +230,89 @@
 <ul>
 <li>直接创建列表</li>
 </ul>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">l1 = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span> ]<br>l2 = [<span class="hljs-string">'A'</span>,<span class="hljs-string">'b'</span>,<span class="hljs-string">'c'</span>]<br>l3 = [<span class="hljs-number">8</span>,<span class="hljs-string">'F'</span>,<span class="hljs-number">2.4</span>,<span class="hljs-number">1</span>+<span class="hljs-number">2j</span>,[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]]<br><span class="hljs-built_in">print</span>(l1,<span class="hljs-string">'\n'</span>,l2,<span class="hljs-string">'\n'</span>,l3)<br></code></pre></td></tr></tbody></table></figure>
-<figure class="highlight scheme"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scheme">[<span class="hljs-name">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>] <br>[<span class="hljs-symbol">'A</span>', <span class="hljs-symbol">'b</span>', <span class="hljs-symbol">'c</span>'] <br>[<span class="hljs-name">8</span>, <span class="hljs-symbol">'F</span>', <span class="hljs-number">2.4</span>, (<span class="hljs-name">1+2j</span>), [<span class="hljs-name">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]]<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">l1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> ]</span><br><span class="line">l2 = [<span class="string">'A'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>]</span><br><span class="line">l3 = [<span class="number">8</span>,<span class="string">'F'</span>,<span class="number">2.4</span>,<span class="number">1</span>+<span class="number">2j</span>,[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]]</span><br><span class="line"><span class="built_in">print</span>(l1,<span class="string">'\n'</span>,l2,<span class="string">'\n'</span>,l3)</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[1, 2, 3, 4, 5] </span><br><span class="line">['A', 'b', 'c'] </span><br><span class="line">[8, 'F', 2.4, (1+2j), [1, 2, 3]]</span><br></pre></td></tr></tbody></table></figure>
 <ul>
 <li>使用函数创建数值列表</li>
 </ul>
 <p>在创建列表中，最常用的函数是
 <strong><code>range(start, stop, step)</code></strong>
 。不过，range()函数只能创建整数列表，不能生成浮点数。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(<span class="hljs-built_in">list</span>(<span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>)))<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">list</span>(<span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>, <span class="hljs-number">2</span>)))<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">list</span>(<span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, -<span class="hljs-number">10</span>, -<span class="hljs-number">2</span>)))<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">10</span>)))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">0</span>, <span class="number">10</span>, <span class="number">2</span>)))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">0</span>, -<span class="number">10</span>, -<span class="number">2</span>)))</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 [0, 2, 4, 6, 8]
 [0, -2, -4, -6, -8]</code></pre>
 <ul>
 <li>使用列表解析式创建列表</li>
 </ul>
 <p>列表解析式是Python的一大亮点，可大大缩短代码。下面分别使用普通方法和列表解析式的创建一个平方数列表。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">squares = []<br><span class="hljs-keyword">for</span> value <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">11</span>):<br>    square = value**<span class="hljs-number">2</span><br>    squares.append(square)<br><span class="hljs-built_in">print</span>(squares)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</code></pre>
-<p>使用列表解析式则简单明了： </p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">squares = [value**<span class="hljs-number">2</span> <span class="hljs-keyword">for</span> value <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">11</span>)]<br><span class="hljs-built_in">print</span>(squares)<br></code></pre></td></tr></tbody></table></figure> [1, 4, 9, 16, 25, 36, 49,
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">squares = []</span><br><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">11</span>):</span><br><span class="line">    square = value**<span class="number">2</span></span><br><span class="line">    squares.append(square)</span><br><span class="line"><span class="built_in">print</span>(squares)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</code></pre>
+<p>使用列表解析式则简单明了： </p><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">squares = [value**<span class="number">2</span> <span class="keyword">for</span> value <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">11</span>)]</span><br><span class="line"><span class="built_in">print</span>(squares)</span><br></pre></td></tr></tbody></table></figure> [1, 4, 9, 16, 25, 36, 49,
 64, 81, 100]<p></p>
 <h2 id="列表的索引">1.2 列表的索引</h2>
 <p>只需知道列表中某元素的位置或索引就可以访问该元素了。列表使用方括号[
 ]来标识。如果某个列表有N个元素，那么列表的正向访问顺序为 0 到
 N-1，列表的逆向访问则为 -N 到 -1。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">Languages = [<span class="hljs-string">'Python'</span>, <span class="hljs-string">'C'</span>, <span class="hljs-string">'C++'</span>, <span class="hljs-string">'Java'</span>, <span class="hljs-string">'JavaScript'</span>]<br><span class="hljs-built_in">print</span>(Languages[<span class="hljs-number">0</span>])<br><span class="hljs-built_in">print</span>(Languages[<span class="hljs-number">0</span>:<span class="hljs-number">3</span>])<br><span class="hljs-built_in">print</span>(Languages[-<span class="hljs-number">1</span>])<br><span class="hljs-built_in">print</span>(Languages[-<span class="hljs-number">3</span>:-<span class="hljs-number">1</span>])<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">Python
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Languages = [<span class="string">'Python'</span>, <span class="string">'C'</span>, <span class="string">'C++'</span>, <span class="string">'Java'</span>, <span class="string">'JavaScript'</span>]</span><br><span class="line"><span class="built_in">print</span>(Languages[<span class="number">0</span>])</span><br><span class="line"><span class="built_in">print</span>(Languages[<span class="number">0</span>:<span class="number">3</span>])</span><br><span class="line"><span class="built_in">print</span>(Languages[-<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(Languages[-<span class="number">3</span>:-<span class="number">1</span>])</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>Python
 ['Python', 'C', 'C++']
 JavaScript
 ['C++', 'Java']</code></pre>
 <h2 id="修改列表中的元素">1.3 修改列表中的元素</h2>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">Languages = [<span class="hljs-string">'Python'</span>, <span class="hljs-string">'C'</span>, <span class="hljs-string">'C++'</span>, <span class="hljs-string">'Java'</span>, <span class="hljs-string">'JavaScript'</span>]<br><span class="hljs-built_in">print</span>(Languages)<br>Languages[<span class="hljs-number">0</span>] = <span class="hljs-string">'Fortran'</span><br><span class="hljs-built_in">print</span>(Languages)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">['Python', 'C', 'C++', 'Java', 'JavaScript']
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Languages = [<span class="string">'Python'</span>, <span class="string">'C'</span>, <span class="string">'C++'</span>, <span class="string">'Java'</span>, <span class="string">'JavaScript'</span>]</span><br><span class="line"><span class="built_in">print</span>(Languages)</span><br><span class="line">Languages[<span class="number">0</span>] = <span class="string">'Fortran'</span></span><br><span class="line"><span class="built_in">print</span>(Languages)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>['Python', 'C', 'C++', 'Java', 'JavaScript']
 ['Fortran', 'C', 'C++', 'Java', 'JavaScript']</code></pre>
 <h2 id="添加元素">1.4 添加元素</h2>
 <ul>
 <li>使用方法 <strong><code>append()</code></strong>
 在列表末尾添加新的元素</li>
 </ul>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">Languages = [<span class="hljs-string">'Python'</span>, <span class="hljs-string">'C'</span>, <span class="hljs-string">'C++'</span>, <span class="hljs-string">'Java'</span>, <span class="hljs-string">'JavaScript'</span>]<br><span class="hljs-built_in">print</span>(Languages)<br>Languages.append(<span class="hljs-string">'Fortran'</span>)<br><span class="hljs-built_in">print</span>(Languages)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">['Python', 'C', 'C++', 'Java', 'JavaScript']
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Languages = [<span class="string">'Python'</span>, <span class="string">'C'</span>, <span class="string">'C++'</span>, <span class="string">'Java'</span>, <span class="string">'JavaScript'</span>]</span><br><span class="line"><span class="built_in">print</span>(Languages)</span><br><span class="line">Languages.append(<span class="string">'Fortran'</span>)</span><br><span class="line"><span class="built_in">print</span>(Languages)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>['Python', 'C', 'C++', 'Java', 'JavaScript']
 ['Python', 'C', 'C++', 'Java', 'JavaScript', 'Fortran']</code></pre>
 <ul>
 <li>使用方法 <strong><code>insert()</code></strong>
 在列表的任何位置添加新元素</li>
 </ul>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">Languages = [<span class="hljs-string">'Python'</span>, <span class="hljs-string">'C'</span>, <span class="hljs-string">'C++'</span>, <span class="hljs-string">'Java'</span>, <span class="hljs-string">'JavaScript'</span>]<br><span class="hljs-built_in">print</span>(Languages)<br>Languages.insert(<span class="hljs-number">1</span>, <span class="hljs-string">'Fortran'</span>)<br><span class="hljs-built_in">print</span>(Languages)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">['Python', 'C', 'C++', 'Java', 'JavaScript']
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Languages = [<span class="string">'Python'</span>, <span class="string">'C'</span>, <span class="string">'C++'</span>, <span class="string">'Java'</span>, <span class="string">'JavaScript'</span>]</span><br><span class="line"><span class="built_in">print</span>(Languages)</span><br><span class="line">Languages.insert(<span class="number">1</span>, <span class="string">'Fortran'</span>)</span><br><span class="line"><span class="built_in">print</span>(Languages)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>['Python', 'C', 'C++', 'Java', 'JavaScript']
 ['Python', 'Fortran', 'C', 'C++', 'Java', 'JavaScript']</code></pre>
 <h2 id="删除列表中的元素">1.5 删除列表中的元素</h2>
 <ul>
 <li>使用 <strong><code>del</code></strong> 语句删除列表中某元素</li>
 </ul>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">Languages = [<span class="hljs-string">'Python'</span>, <span class="hljs-string">'C'</span>, <span class="hljs-string">'C++'</span>, <span class="hljs-string">'Java'</span>, <span class="hljs-string">'JavaScript'</span>]<br><span class="hljs-built_in">print</span>(Languages)<br><span class="hljs-keyword">del</span> Languages[<span class="hljs-number">1</span>]<br><span class="hljs-built_in">print</span>(Languages)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">['Python', 'C', 'C++', 'Java', 'JavaScript']
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Languages = [<span class="string">'Python'</span>, <span class="string">'C'</span>, <span class="string">'C++'</span>, <span class="string">'Java'</span>, <span class="string">'JavaScript'</span>]</span><br><span class="line"><span class="built_in">print</span>(Languages)</span><br><span class="line"><span class="keyword">del</span> Languages[<span class="number">1</span>]</span><br><span class="line"><span class="built_in">print</span>(Languages)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>['Python', 'C', 'C++', 'Java', 'JavaScript']
 ['Python', 'C++', 'Java', 'JavaScript']</code></pre>
 <ul>
 <li>使用方法 <strong><code>pop()</code></strong>
 根据索引删除列表中的某元素,如果不指定索引则默认删除列表最后一个元素。需要注意的是，方法<code>pop()</code>在删除元素后，可以让你接着使用它</li>
 </ul>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">Languages = [<span class="hljs-string">'Python'</span>, <span class="hljs-string">'C'</span>, <span class="hljs-string">'C++'</span>, <span class="hljs-string">'Java'</span>, <span class="hljs-string">'JavaScript'</span>]<br><span class="hljs-built_in">print</span>(Languages)<br>poped_Lang = Languages.pop(<span class="hljs-number">0</span>)<br><span class="hljs-built_in">print</span>(poped_Lang)<br><span class="hljs-built_in">print</span>(Languages)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">['Python', 'C', 'C++', 'Java', 'JavaScript']
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Languages = [<span class="string">'Python'</span>, <span class="string">'C'</span>, <span class="string">'C++'</span>, <span class="string">'Java'</span>, <span class="string">'JavaScript'</span>]</span><br><span class="line"><span class="built_in">print</span>(Languages)</span><br><span class="line">poped_Lang = Languages.pop(<span class="number">0</span>)</span><br><span class="line"><span class="built_in">print</span>(poped_Lang)</span><br><span class="line"><span class="built_in">print</span>(Languages)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>['Python', 'C', 'C++', 'Java', 'JavaScript']
 Python
 ['C', 'C++', 'Java', 'JavaScript']</code></pre>
 <ul>
 <li>使用方法 <strong><code>remove()</code></strong>
 该方法是根据值而非索引来实现删除操作的。<code>remove()</code>方法在删除元素后，并不能让你接着使用它。此外，<code>remove()</code>只删除列表中第一个出现的该元素，如果列表中有多个此元素，则需要使用其他方法。</li>
 </ul>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">Languages = [<span class="hljs-string">'Python'</span>, <span class="hljs-string">'C'</span>, <span class="hljs-string">'C++'</span>, <span class="hljs-string">'Java'</span>, <span class="hljs-string">'JavaScript'</span>]<br><span class="hljs-built_in">print</span>(Languages)<br>removed_Lang = Languages.remove(<span class="hljs-string">'Python'</span>)<br><span class="hljs-built_in">print</span>(removed_Lang)<br><span class="hljs-built_in">print</span>(Languages)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">['Python', 'C', 'C++', 'Java', 'JavaScript']
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Languages = [<span class="string">'Python'</span>, <span class="string">'C'</span>, <span class="string">'C++'</span>, <span class="string">'Java'</span>, <span class="string">'JavaScript'</span>]</span><br><span class="line"><span class="built_in">print</span>(Languages)</span><br><span class="line">removed_Lang = Languages.remove(<span class="string">'Python'</span>)</span><br><span class="line"><span class="built_in">print</span>(removed_Lang)</span><br><span class="line"><span class="built_in">print</span>(Languages)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>['Python', 'C', 'C++', 'Java', 'JavaScript']
 None
 ['C', 'C++', 'Java', 'JavaScript']</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 利用python中集合元素惟一性特点，将列表转为集合，将转为列表返回。</span><br><span class="hljs-comment"># 极度简洁，使用python原生方法效率最高</span><br>Languages = [<span class="hljs-string">'Python'</span>, <span class="hljs-string">'C'</span>, <span class="hljs-string">'Python'</span>,<span class="hljs-string">'C++'</span>, <span class="hljs-string">'Python'</span>,<span class="hljs-string">'Java'</span>, <span class="hljs-string">'Python'</span>,<span class="hljs-string">'JavaScript'</span>]<br>new_language = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">set</span>(Languages))<br><span class="hljs-built_in">print</span>(new_Languages)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">['JavaScript', 'C', 'Java', 'Python', 'C++']</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 利用python中集合元素惟一性特点，将列表转为集合，将转为列表返回。</span></span><br><span class="line"><span class="comment"># 极度简洁，使用python原生方法效率最高</span></span><br><span class="line">Languages = [<span class="string">'Python'</span>, <span class="string">'C'</span>, <span class="string">'Python'</span>,<span class="string">'C++'</span>, <span class="string">'Python'</span>,<span class="string">'Java'</span>, <span class="string">'Python'</span>,<span class="string">'JavaScript'</span>]</span><br><span class="line">new_language = <span class="built_in">list</span>(<span class="built_in">set</span>(Languages))</span><br><span class="line"><span class="built_in">print</span>(new_Languages)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>['JavaScript', 'C', 'Java', 'Python', 'C++']</code></pre>
 <h2 id="排列列表">1.6 排列列表</h2>
 <ul>
 <li>使用方法 <strong><code>sort()</code></strong>
 对列表进行永久性排序</li>
 </ul>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">cars = [<span class="hljs-string">'bmw'</span>,<span class="hljs-string">'audi'</span>,<span class="hljs-string">'toyota'</span>,<span class="hljs-string">'subaru'</span>]<br><span class="hljs-built_in">print</span>(cars)<br>cars.sort() <span class="hljs-comment"># 方法sort.()永久性修改了列表元素的排列顺序</span><br><span class="hljs-built_in">print</span>(cars)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">['bmw', 'audi', 'toyota', 'subaru']
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cars = [<span class="string">'bmw'</span>,<span class="string">'audi'</span>,<span class="string">'toyota'</span>,<span class="string">'subaru'</span>]</span><br><span class="line"><span class="built_in">print</span>(cars)</span><br><span class="line">cars.sort() <span class="comment"># 方法sort.()永久性修改了列表元素的排列顺序</span></span><br><span class="line"><span class="built_in">print</span>(cars)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>['bmw', 'audi', 'toyota', 'subaru']
 ['audi', 'bmw', 'subaru', 'toyota']</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 按照与字母顺序相反的顺序排列</span><br>cars.sort(reverse=<span class="hljs-literal">True</span>)<br><span class="hljs-built_in">print</span>(cars)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">['toyota', 'subaru', 'bmw', 'audi']</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 按照与字母顺序相反的顺序排列</span></span><br><span class="line">cars.sort(reverse=<span class="literal">True</span>)</span><br><span class="line"><span class="built_in">print</span>(cars)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>['toyota', 'subaru', 'bmw', 'audi']</code></pre>
 <ul>
 <li><p>使用函数 <strong><code>sorted()</code></strong>
 对列表进行临时排序
@@ -366,23 +324,23 @@ None
 为一个布尔值。 如果设为
 True，则每个列表元素将按反向顺序比较进行排序</p></li>
 </ul>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">alist = [<span class="hljs-string">'a'</span>,<span class="hljs-string">'b'</span>,<span class="hljs-string">'d'</span>,<span class="hljs-string">'c'</span>,<span class="hljs-string">'B'</span>,<span class="hljs-string">'A'</span>]<br><span class="hljs-built_in">print</span>(alist)<br><span class="hljs-comment"># 函数sorted()对列表的排序不影响原始列表</span><br><span class="hljs-comment"># 默认按字符ascii码排序</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">sorted</span>(alist))<br><span class="hljs-built_in">print</span>(alist)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">['a','b','d','c','B','A']
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">alist = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'d'</span>,<span class="string">'c'</span>,<span class="string">'B'</span>,<span class="string">'A'</span>]</span><br><span class="line"><span class="built_in">print</span>(alist)</span><br><span class="line"><span class="comment"># 函数sorted()对列表的排序不影响原始列表</span></span><br><span class="line"><span class="comment"># 默认按字符ascii码排序</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sorted</span>(alist))</span><br><span class="line"><span class="built_in">print</span>(alist)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>['a','b','d','c','B','A']
 ['A', 'B', 'a', 'b', 'c', 'd']
 ['a','b','d','c','B','A']</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 反向排序</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">sorted</span>(alist))<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">sorted</span>(alist, reverse = <span class="hljs-literal">True</span>))<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">['A', 'B', 'a', 'b', 'c', 'd']
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 反向排序</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sorted</span>(alist))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sorted</span>(alist, reverse = <span class="literal">True</span>))</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>['A', 'B', 'a', 'b', 'c', 'd']
 ['d', 'c', 'b', 'a', 'B', 'A']</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 默认按字符ascii码排序</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">sorted</span>(alist)) <br><span class="hljs-comment"># 转换成小写后再排序，'a'和'A'值一样，'b'和'B'值一样</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">sorted</span>(alist, key = <span class="hljs-built_in">str</span>.lower))<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">sorted</span>(alist, key = <span class="hljs-built_in">str</span>.lower, reverse = <span class="hljs-literal">True</span>))<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">['A', 'B', 'a', 'b', 'c', 'd']
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 默认按字符ascii码排序</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sorted</span>(alist)) </span><br><span class="line"><span class="comment"># 转换成小写后再排序，'a'和'A'值一样，'b'和'B'值一样</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sorted</span>(alist, key = <span class="built_in">str</span>.lower))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sorted</span>(alist, key = <span class="built_in">str</span>.lower, reverse = <span class="literal">True</span>))</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>['A', 'B', 'a', 'b', 'c', 'd']
 ['a', 'A', 'b', 'B', 'c', 'd']
 ['d', 'c', 'b', 'B', 'a', 'A']</code></pre>
 <ul>
 <li>使用方法 <strong><code>reverse()</code></strong> 反序排列列表</li>
 </ul>
 <p>注意：reverse()不是按与字母顺序相反的顺序排列列表，而只是反转列表元素的排列顺序。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(alist)<br><span class="hljs-comment"># 方法reverse.()永久性反转列表</span><br>alist.reverse()<br><span class="hljs-built_in">print</span>(alist)<br><span class="hljs-comment"># 只需再次调用reverse()即可恢复原来顺序</span><br>alist.reverse()<br><span class="hljs-built_in">print</span>(alist)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">['a','b','d','c','B','A']
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(alist)</span><br><span class="line"><span class="comment"># 方法reverse.()永久性反转列表</span></span><br><span class="line">alist.reverse()</span><br><span class="line"><span class="built_in">print</span>(alist)</span><br><span class="line"><span class="comment"># 只需再次调用reverse()即可恢复原来顺序</span></span><br><span class="line">alist.reverse()</span><br><span class="line"><span class="built_in">print</span>(alist)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>['a','b','d','c','B','A']
 ['A', 'B', 'c', 'd', 'b', 'a']
 ['a','b','d','c','B','A']</code></pre>
 <h2 id="遍历整个列表">1.7 遍历整个列表</h2>
@@ -390,13 +348,13 @@ True，则每个列表元素将按反向顺序比较进行排序</p></li>
 <li>使用for循环遍历整个列表。</li>
 </ul>
 <p>在对列表的命名时，选择使用单数和复数式的名称，可有效区分列表元素与列表集合。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">magicians = [<span class="hljs-string">'alice'</span>,<span class="hljs-string">'david'</span>,<span class="hljs-string">'carolina'</span>]<br><span class="hljs-keyword">for</span> magician <span class="hljs-keyword">in</span> magicians:<br>    <span class="hljs-built_in">print</span>(magician)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">alice
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">magicians = [<span class="string">'alice'</span>,<span class="string">'david'</span>,<span class="string">'carolina'</span>]</span><br><span class="line"><span class="keyword">for</span> magician <span class="keyword">in</span> magicians:</span><br><span class="line">    <span class="built_in">print</span>(magician)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>alice
 david
 carolina</code></pre>
 <p>在for循环中，想包含多少行代码都可以，for语句后每个缩进的代码行都是循环的一部分，且对列表中的每个值都执行一次。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">magicians = [<span class="hljs-string">'alice'</span>,<span class="hljs-string">'david'</span>,<span class="hljs-string">'carolina'</span>]<br><span class="hljs-keyword">for</span> magician <span class="hljs-keyword">in</span> magicians:<br>    <span class="hljs-built_in">print</span>(magician.title() + <span class="hljs-string">', that was a great trick!'</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"I can't wait to see your next trick, "</span> + magician.title() + <span class="hljs-string">'.\n'</span>)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">Alice, that was a great trick!
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">magicians = [<span class="string">'alice'</span>,<span class="string">'david'</span>,<span class="string">'carolina'</span>]</span><br><span class="line"><span class="keyword">for</span> magician <span class="keyword">in</span> magicians:</span><br><span class="line">    <span class="built_in">print</span>(magician.title() + <span class="string">', that was a great trick!'</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"I can't wait to see your next trick, "</span> + magician.title() + <span class="string">'.\n'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>Alice, that was a great trick!
 I can't wait to see your next trick, Alice.
 
 David, that was a great trick!
@@ -415,11 +373,11 @@ list，而是返回一个新的 list。利用map()函数，可以把一个 list 
 list，只需要传入转换函数。
 <strong>map()函数是一个非常有用的功能强大的内置函数，需要引起重视。</strong></p></li>
 </ul>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">squ</span>(<span class="hljs-params">x</span>):<br>    <span class="hljs-keyword">return</span> x ** <span class="hljs-number">2</span><br><br>a = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">6</span>))<br>b = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">map</span>(squ, a))<br><span class="hljs-built_in">print</span>(a)<br><span class="hljs-built_in">print</span>(b)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">[1, 2, 3, 4, 5]
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">squ</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> x ** <span class="number">2</span></span><br><span class="line"></span><br><span class="line">a = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">1</span>,<span class="number">6</span>))</span><br><span class="line">b = <span class="built_in">list</span>(<span class="built_in">map</span>(squ, a))</span><br><span class="line"><span class="built_in">print</span>(a)</span><br><span class="line"><span class="built_in">print</span>(b)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>[1, 2, 3, 4, 5]
 [1, 4, 9, 16, 25]</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 使用lambda匿名函数，</span><br><span class="hljs-comment"># 提供了两个列表，对相同位置的列表数据进行相加</span><br><span class="hljs-built_in">list</span>(<span class="hljs-built_in">map</span>(<span class="hljs-keyword">lambda</span> x, y: x + y, a, b))<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">[2, 6, 12, 20, 30]</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用lambda匿名函数，</span></span><br><span class="line"><span class="comment"># 提供了两个列表，对相同位置的列表数据进行相加</span></span><br><span class="line"><span class="built_in">list</span>(<span class="built_in">map</span>(<span class="keyword">lambda</span> x, y: x + y, a, b))</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>[2, 6, 12, 20, 30]</code></pre>
 <ul>
 <li><p>使用Python内置函数filter()过滤列表
 <strong><code>filter(function, iterable)</code></strong></p>
@@ -430,105 +388,105 @@ list，只需要传入转换函数。
 中所有返回假的元素会被移除。通俗来讲，filter()函数就是使用指定方法过滤可迭代对象的元素。
 <strong>filter()函数是一个非常有用的功能强大的内置函数，需要引起重视。</strong></p></li>
 </ul>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">if_odd</span>(<span class="hljs-params">x</span>):<br>    <span class="hljs-keyword">return</span> x % <span class="hljs-number">2</span> == <span class="hljs-number">1</span><br><br>a = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">11</span>))<br>b = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">filter</span>(if_odd, a))<br><span class="hljs-built_in">print</span>(a)<br><span class="hljs-built_in">print</span>(b)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">if_odd</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> x % <span class="number">2</span> == <span class="number">1</span></span><br><span class="line"></span><br><span class="line">a = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">1</span>,<span class="number">11</span>))</span><br><span class="line">b = <span class="built_in">list</span>(<span class="built_in">filter</span>(if_odd, a))</span><br><span class="line"><span class="built_in">print</span>(a)</span><br><span class="line"><span class="built_in">print</span>(b)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 [1, 3, 5, 7, 9]</code></pre>
 <h2 id="合并列表">1.8 合并列表</h2>
 <p><strong><code>zip(*iterables)</code></strong></p>
 <p>创建一个聚合了来自每个可迭代对象中的元素的迭代器。当所输入可迭代对象中最短的一个被耗尽时，迭代器将停止迭代。zip()
 与 * 运算符相结合可以用来拆解一个列表，可简单理解为解压。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">x = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]<br>y = [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>]<br>z = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">zip</span>(x, y))<br><span class="hljs-built_in">print</span>(z)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">[(1, 4), (2, 5), (3, 6)]</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">x1, y1 = <span class="hljs-built_in">zip</span>(*z)<br>x1 = <span class="hljs-built_in">list</span>(x1)<br>y1 = <span class="hljs-built_in">list</span>(y1)<br><span class="hljs-built_in">print</span>(x1)<br><span class="hljs-built_in">print</span>(y1)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">[1, 2, 3]
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">y = [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line">z = <span class="built_in">list</span>(<span class="built_in">zip</span>(x, y))</span><br><span class="line"><span class="built_in">print</span>(z)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>[(1, 4), (2, 5), (3, 6)]</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x1, y1 = <span class="built_in">zip</span>(*z)</span><br><span class="line">x1 = <span class="built_in">list</span>(x1)</span><br><span class="line">y1 = <span class="built_in">list</span>(y1)</span><br><span class="line"><span class="built_in">print</span>(x1)</span><br><span class="line"><span class="built_in">print</span>(y1)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>[1, 2, 3]
 [4, 5, 6]</code></pre>
 <h1 id="python元组">2 Python元组</h1>
 <p>元组是一个不可变的序列类型，可以把元组理解为不可修改的列表，除了不可修改之外，其他适用于列表的操作同样适用于元组。元组使用圆括号(
 )来标识。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">tuple_Lang = (<span class="hljs-string">'Python'</span>, <span class="hljs-string">'C'</span>, <span class="hljs-string">'C++'</span>, <span class="hljs-string">'Java'</span>, <span class="hljs-string">'JavaScript'</span>)<br><span class="hljs-built_in">print</span>(tuple_Lang)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">('Python', 'C', 'C++', 'Java', 'JavaScript')</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tuple_Lang = (<span class="string">'Python'</span>, <span class="string">'C'</span>, <span class="string">'C++'</span>, <span class="string">'Java'</span>, <span class="string">'JavaScript'</span>)</span><br><span class="line"><span class="built_in">print</span>(tuple_Lang)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>('Python', 'C', 'C++', 'Java', 'JavaScript')</code></pre>
 <p>修改元组中的元素会引发错误，如果想修改元组，只能对其重新赋值</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">tuple_Lang = (<span class="hljs-string">'Fortran'</span>, <span class="hljs-string">'C'</span>, <span class="hljs-string">'C++'</span>, <span class="hljs-string">'Java'</span>, <span class="hljs-string">'JavaScript'</span>)<br><span class="hljs-built_in">print</span>(tuple_Lang)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">('Fortran', 'C', 'C++', 'Java', 'JavaScript')</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tuple_Lang = (<span class="string">'Fortran'</span>, <span class="string">'C'</span>, <span class="string">'C++'</span>, <span class="string">'Java'</span>, <span class="string">'JavaScript'</span>)</span><br><span class="line"><span class="built_in">print</span>(tuple_Lang)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>('Fortran', 'C', 'C++', 'Java', 'JavaScript')</code></pre>
 <h1 id="字典">3 字典</h1>
 <p>在Python中，字典是一系列<code>键-值</code>对，每个键都与一个值相关联，你可以使用键来访问与之相关联的值。与键相关联的值可以是数字、字符串、列表乃至字典。事实上，可将任何Python对象用作字典中的值。字典用花括号<code>{}</code>表示，键和值之间用冒号<code>:</code>分隔,<code>键-值</code>对之间用逗号<code>,</code>分隔。字典中可包含任意数量的<code>键-值</code>对，可存储的信息量几乎不受限制。</p>
 <h2 id="创建并访问字典">3.1 创建并访问字典</h2>
 <h3 id="直接创建字典">3.1.1 直接创建字典</h3>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">user = {<span class="hljs-string">'name'</span>:<span class="hljs-string">'Jack'</span>, <span class="hljs-string">'age'</span>:<span class="hljs-number">18</span>}<br><span class="hljs-built_in">print</span>(user)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">{'name': 'Jack', 'age': 18}</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">user = {<span class="string">'name'</span>:<span class="string">'Jack'</span>, <span class="string">'age'</span>:<span class="number">18</span>}</span><br><span class="line"><span class="built_in">print</span>(user)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>{'name': 'Jack', 'age': 18}</code></pre>
 <h3 id="使用-dict-函数创建字典">3.1.2 使用
 <strong><code>dict()</code></strong> 函数创建字典</h3>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Python">new_user = <span class="hljs-built_in">dict</span>(name = <span class="hljs-string">'Jack'</span>, age = <span class="hljs-number">18</span>)<br><span class="hljs-built_in">print</span>(new_user)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">{'name': 'Jack', 'age': 18}</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">new_user = <span class="built_in">dict</span>(name = <span class="string">'Jack'</span>, age = <span class="number">18</span>)</span><br><span class="line"><span class="built_in">print</span>(new_user)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>{'name': 'Jack', 'age': 18}</code></pre>
 <h3 id="使用列表函数创建字典">3.1.3 使用列表函数创建字典</h3>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Python">key_list = [<span class="hljs-string">'name'</span>, <span class="hljs-string">'age'</span>]<br>value_list = [<span class="hljs-string">'Jack'</span>, <span class="hljs-string">'18'</span>]<br>user = <span class="hljs-built_in">dict</span>(<span class="hljs-built_in">zip</span>(key_list, value_list))<br><span class="hljs-built_in">print</span>(user)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">{'name': 'Jack', 'age': 18}</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Python">another_user = <span class="hljs-built_in">dict</span>([(<span class="hljs-string">'name'</span>, <span class="hljs-string">'Jack'</span>), (<span class="hljs-string">'age'</span>, <span class="hljs-number">18</span>)])<br><span class="hljs-built_in">print</span>(another_user)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">{'name': 'Jack', 'age': 18}</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">key_list = [<span class="string">'name'</span>, <span class="string">'age'</span>]</span><br><span class="line">value_list = [<span class="string">'Jack'</span>, <span class="string">'18'</span>]</span><br><span class="line">user = <span class="built_in">dict</span>(<span class="built_in">zip</span>(key_list, value_list))</span><br><span class="line"><span class="built_in">print</span>(user)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>{'name': 'Jack', 'age': 18}</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">another_user = <span class="built_in">dict</span>([(<span class="string">'name'</span>, <span class="string">'Jack'</span>), (<span class="string">'age'</span>, <span class="number">18</span>)])</span><br><span class="line"><span class="built_in">print</span>(another_user)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>{'name': 'Jack', 'age': 18}</code></pre>
 <h2 id="添加-修改-字典中的值">3.2 添加 / 修改 字典中的值</h2>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">user = {<span class="hljs-string">'name'</span>:<span class="hljs-string">'Jack'</span>, <span class="hljs-string">'age'</span>:<span class="hljs-number">18</span>}<br>user[<span class="hljs-string">'sex'</span>] = <span class="hljs-string">'man'</span><br>user[<span class="hljs-string">'height'</span>] = <span class="hljs-number">180</span><br><span class="hljs-built_in">print</span>(user)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">{'name': 'Jack', 'age': 18, 'sex': 'man', 'height': 180}</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(<span class="hljs-string">f"<span class="hljs-subst">{user[<span class="hljs-string">'name'</span>]}</span> is only <span class="hljs-subst">{user[<span class="hljs-string">'age'</span>]}</span> years old!"</span>)<br>user[<span class="hljs-string">'age'</span>] = <span class="hljs-number">30</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f"<span class="hljs-subst">{user[<span class="hljs-string">'name'</span>]}</span> is already <span class="hljs-subst">{user[<span class="hljs-string">'age'</span>]}</span> years old!"</span>)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">Jack is only 18 years old!
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">user = {<span class="string">'name'</span>:<span class="string">'Jack'</span>, <span class="string">'age'</span>:<span class="number">18</span>}</span><br><span class="line">user[<span class="string">'sex'</span>] = <span class="string">'man'</span></span><br><span class="line">user[<span class="string">'height'</span>] = <span class="number">180</span></span><br><span class="line"><span class="built_in">print</span>(user)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>{'name': 'Jack', 'age': 18, 'sex': 'man', 'height': 180}</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">f"<span class="subst">{user[<span class="string">'name'</span>]}</span> is only <span class="subst">{user[<span class="string">'age'</span>]}</span> years old!"</span>)</span><br><span class="line">user[<span class="string">'age'</span>] = <span class="number">30</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f"<span class="subst">{user[<span class="string">'name'</span>]}</span> is already <span class="subst">{user[<span class="string">'age'</span>]}</span> years old!"</span>)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>Jack is only 18 years old!
 Jack is already 30 years old!</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># del语句永久删除</span><br>user = {<span class="hljs-string">'name'</span>:<span class="hljs-string">'Jack'</span>, <span class="hljs-string">'age'</span>:<span class="hljs-number">18</span>}<br><span class="hljs-built_in">print</span>(user)<br><span class="hljs-keyword">del</span> user[<span class="hljs-string">'age'</span>]<br><span class="hljs-built_in">print</span>(user)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">{'name': 'Jack', 'age': 18}
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># del语句永久删除</span></span><br><span class="line">user = {<span class="string">'name'</span>:<span class="string">'Jack'</span>, <span class="string">'age'</span>:<span class="number">18</span>}</span><br><span class="line"><span class="built_in">print</span>(user)</span><br><span class="line"><span class="keyword">del</span> user[<span class="string">'age'</span>]</span><br><span class="line"><span class="built_in">print</span>(user)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>{'name': 'Jack', 'age': 18}
 {'name': 'Jack'}</code></pre>
 <h2 id="遍历字典">3.3 遍历字典</h2>
 <p>一个Python字典可能包含几个<code>键-值</code>对，也可能包含数百万个<code>键-值</code>对。鉴于字典可能包含大量的数据，Python支持对字典遍历。字典可用于以各种方式存储信息，因此有多种遍历字典的方式：可遍历字典的所有<code>键-值对</code>、<code>键</code>或<code>值</code>。</p>
 <h3 id="遍历所有的键-值对">3.3.1 遍历所有的<code>键-值</code>对</h3>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">user = {<span class="hljs-string">'name'</span>:<span class="hljs-string">'Jack'</span>, <span class="hljs-string">'age'</span>:<span class="hljs-number">18</span>}<br><br><span class="hljs-comment"># 方法items()返回一个键-值对列表</span><br><span class="hljs-keyword">for</span> key, value <span class="hljs-keyword">in</span> user.items():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">'Key: '</span> + key)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">'Value: '</span> + <span class="hljs-built_in">str</span>(value))<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">Key: name
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">user = {<span class="string">'name'</span>:<span class="string">'Jack'</span>, <span class="string">'age'</span>:<span class="number">18</span>}</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法items()返回一个键-值对列表</span></span><br><span class="line"><span class="keyword">for</span> key, value <span class="keyword">in</span> user.items():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'Key: '</span> + key)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'Value: '</span> + <span class="built_in">str</span>(value))</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>Key: name
 Value: Jack
 Key: age
 Value: 18</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python">favorite_languages = {<br>    <span class="hljs-string">'jen'</span>: <span class="hljs-string">'python'</span>,<br>    <span class="hljs-string">'edward'</span>: <span class="hljs-string">'ruby'</span>,<br>    <span class="hljs-string">'phil'</span>: <span class="hljs-string">'java'</span>,<br>    <span class="hljs-string">'sarah'</span>: <span class="hljs-string">'c'</span>,<br>    }<br><br><span class="hljs-keyword">for</span> name, language <span class="hljs-keyword">in</span> favorite_languages.items():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f"<span class="hljs-subst">{name.title()}</span>'s favorite language is <span class="hljs-subst">{language.title()}</span>."</span>)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">Jen's favorite language is Python.
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">favorite_languages = {</span><br><span class="line">    <span class="string">'jen'</span>: <span class="string">'python'</span>,</span><br><span class="line">    <span class="string">'edward'</span>: <span class="string">'ruby'</span>,</span><br><span class="line">    <span class="string">'phil'</span>: <span class="string">'java'</span>,</span><br><span class="line">    <span class="string">'sarah'</span>: <span class="string">'c'</span>,</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> name, language <span class="keyword">in</span> favorite_languages.items():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f"<span class="subst">{name.title()}</span>'s favorite language is <span class="subst">{language.title()}</span>."</span>)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>Jen's favorite language is Python.
 Edward's favorite language is Ruby.
 Phil's favorite language is Java.
 Sarah's favorite language is C.</code></pre>
 <h3 id="遍历所有的键">3.3.2遍历所有的键</h3>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python">favorite_languages = {<br>    <span class="hljs-string">'jen'</span>: <span class="hljs-string">'python'</span>,<br>    <span class="hljs-string">'edward'</span>: <span class="hljs-string">'ruby'</span>,<br>    <span class="hljs-string">'phil'</span>: <span class="hljs-string">'java'</span>,<br>    <span class="hljs-string">'sarah'</span>: <span class="hljs-string">'c'</span>,<br>    }<br><br><span class="hljs-comment"># 方法keys.()返回字典中的键</span><br><span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> favorite_languages.keys():<br>    <span class="hljs-built_in">print</span>(name.title())<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">Jen
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">favorite_languages = {</span><br><span class="line">    <span class="string">'jen'</span>: <span class="string">'python'</span>,</span><br><span class="line">    <span class="string">'edward'</span>: <span class="string">'ruby'</span>,</span><br><span class="line">    <span class="string">'phil'</span>: <span class="string">'java'</span>,</span><br><span class="line">    <span class="string">'sarah'</span>: <span class="string">'c'</span>,</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法keys.()返回字典中的键</span></span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> favorite_languages.keys():</span><br><span class="line">    <span class="built_in">print</span>(name.title())</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>Jen
 Edward
 Phil
 Sarah</code></pre>
 <p>在这种循环中，可使用当前键来访问与之相关联的值。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python">favorite_languages = {<br>    <span class="hljs-string">'jen'</span>: <span class="hljs-string">'python'</span>,<br>    <span class="hljs-string">'edward'</span>: <span class="hljs-string">'ruby'</span>,<br>    <span class="hljs-string">'phil'</span>: <span class="hljs-string">'java'</span>,<br>    <span class="hljs-string">'sarah'</span>: <span class="hljs-string">'c'</span>,<br>    }<br><br><span class="hljs-comment"># 方法keys.()返回字典中的键</span><br><span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> favorite_languages.keys():<br>    <span class="hljs-built_in">print</span>(favorite_languages[name].title())<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">Python
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">favorite_languages = {</span><br><span class="line">    <span class="string">'jen'</span>: <span class="string">'python'</span>,</span><br><span class="line">    <span class="string">'edward'</span>: <span class="string">'ruby'</span>,</span><br><span class="line">    <span class="string">'phil'</span>: <span class="string">'java'</span>,</span><br><span class="line">    <span class="string">'sarah'</span>: <span class="string">'c'</span>,</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法keys.()返回字典中的键</span></span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> favorite_languages.keys():</span><br><span class="line">    <span class="built_in">print</span>(favorite_languages[name].title())</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>Python
 Ruby
 Java
 C</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python">favorite_languages = {<br>    <span class="hljs-string">'jen'</span>: <span class="hljs-string">'python'</span>,<br>    <span class="hljs-string">'edward'</span>: <span class="hljs-string">'ruby'</span>,<br>    <span class="hljs-string">'phil'</span>: <span class="hljs-string">'java'</span>,<br>    <span class="hljs-string">'sarah'</span>: <span class="hljs-string">'c'</span>,<br>    }<br><br>friends = [<span class="hljs-string">'phil'</span>, <span class="hljs-string">'sarah'</span>]<br><span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> favorite_languages.keys():<br>    <span class="hljs-built_in">print</span>(name.title())<br>    <span class="hljs-keyword">if</span> name <span class="hljs-keyword">in</span> friends:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f"\tHi <span class="hljs-subst">{name.title()}</span>, I see your favorite language is <span class="hljs-subst">{favorite_languages[name].title()}</span>"</span>)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">Jen
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">favorite_languages = {</span><br><span class="line">    <span class="string">'jen'</span>: <span class="string">'python'</span>,</span><br><span class="line">    <span class="string">'edward'</span>: <span class="string">'ruby'</span>,</span><br><span class="line">    <span class="string">'phil'</span>: <span class="string">'java'</span>,</span><br><span class="line">    <span class="string">'sarah'</span>: <span class="string">'c'</span>,</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">friends = [<span class="string">'phil'</span>, <span class="string">'sarah'</span>]</span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> favorite_languages.keys():</span><br><span class="line">    <span class="built_in">print</span>(name.title())</span><br><span class="line">    <span class="keyword">if</span> name <span class="keyword">in</span> friends:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"\tHi <span class="subst">{name.title()}</span>, I see your favorite language is <span class="subst">{favorite_languages[name].title()}</span>"</span>)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>Jen
 Edward
 Phil
     Hi Phil, I see your favorite language is Java!
 Sarah
     Hi Sarah, I see your favorite language is C!</code></pre>
 <p>还可以用keys()确定某人是否接受流量调查</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python">favorite_languages = {<br>    <span class="hljs-string">'jen'</span>: <span class="hljs-string">'python'</span>,<br>    <span class="hljs-string">'edward'</span>: <span class="hljs-string">'ruby'</span>,<br>    <span class="hljs-string">'phil'</span>: <span class="hljs-string">'java'</span>,<br>    <span class="hljs-string">'sarah'</span>: <span class="hljs-string">'c'</span>,<br>    }<br><br><span class="hljs-keyword">if</span> <span class="hljs-string">'erin'</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> favorite_languages.keys():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">'Erin, please take our poll!'</span>)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">Erin, please take our poll!</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">favorite_languages = {</span><br><span class="line">    <span class="string">'jen'</span>: <span class="string">'python'</span>,</span><br><span class="line">    <span class="string">'edward'</span>: <span class="string">'ruby'</span>,</span><br><span class="line">    <span class="string">'phil'</span>: <span class="string">'java'</span>,</span><br><span class="line">    <span class="string">'sarah'</span>: <span class="string">'c'</span>,</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="string">'erin'</span> <span class="keyword">not</span> <span class="keyword">in</span> favorite_languages.keys():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'Erin, please take our poll!'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>Erin, please take our poll!</code></pre>
 <ul>
 <li>按顺序遍历字典中所有的键</li>
 </ul>
 <p>字典中明确的记录键和值之间的关联，但获取字典的元素时，获取顺序是不可预测的。要以特定的顺序返回元素，一种办法是在for循环中对返回的键进行排序，可使用函数sorted()来获得按特定顺序排列的键列表的副本。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python">favorite_languages = {<br>    <span class="hljs-string">'jen'</span>: <span class="hljs-string">'python'</span>,<br>    <span class="hljs-string">'edward'</span>: <span class="hljs-string">'ruby'</span>,<br>    <span class="hljs-string">'phil'</span>: <span class="hljs-string">'java'</span>,<br>    <span class="hljs-string">'sarah'</span>: <span class="hljs-string">'c'</span>,<br>    }<br><br><span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> <span class="hljs-built_in">sorted</span>(favorite_languages.keys()):<br>    <span class="hljs-built_in">print</span>(name.title() + <span class="hljs-string">', thank you for taking the poll.'</span>)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">Edward, thank you for taking the poll.
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">favorite_languages = {</span><br><span class="line">    <span class="string">'jen'</span>: <span class="string">'python'</span>,</span><br><span class="line">    <span class="string">'edward'</span>: <span class="string">'ruby'</span>,</span><br><span class="line">    <span class="string">'phil'</span>: <span class="string">'java'</span>,</span><br><span class="line">    <span class="string">'sarah'</span>: <span class="string">'c'</span>,</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> <span class="built_in">sorted</span>(favorite_languages.keys()):</span><br><span class="line">    <span class="built_in">print</span>(name.title() + <span class="string">', thank you for taking the poll.'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>Edward, thank you for taking the poll.
 Jen, thank you for taking the poll.
 Phil, thank you for taking the poll.
 Sarah, thank you for taking the poll.</code></pre>
 <h3 id="遍历字典中所有的值">3.3.3遍历字典中所有的值</h3>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python">favorite_languages = {<br>    <span class="hljs-string">'jen'</span>: <span class="hljs-string">'python'</span>,<br>    <span class="hljs-string">'edward'</span>: <span class="hljs-string">'ruby'</span>,<br>    <span class="hljs-string">'phil'</span>: <span class="hljs-string">'java'</span>,<br>    <span class="hljs-string">'sarah'</span>: <span class="hljs-string">'c'</span>,<br>    <span class="hljs-string">'erin'</span>:<span class="hljs-string">'python'</span><br>    }<br><br><span class="hljs-comment"># 方法value.()返回字典中的值</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'The following languages have been mentioned:'</span>)<br><span class="hljs-keyword">for</span> language <span class="hljs-keyword">in</span> favorite_languages.values():<br>    <span class="hljs-built_in">print</span>(language.title())<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">The following languages have been mentioned:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">favorite_languages = {</span><br><span class="line">    <span class="string">'jen'</span>: <span class="string">'python'</span>,</span><br><span class="line">    <span class="string">'edward'</span>: <span class="string">'ruby'</span>,</span><br><span class="line">    <span class="string">'phil'</span>: <span class="string">'java'</span>,</span><br><span class="line">    <span class="string">'sarah'</span>: <span class="string">'c'</span>,</span><br><span class="line">    <span class="string">'erin'</span>:<span class="string">'python'</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法value.()返回字典中的值</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'The following languages have been mentioned:'</span>)</span><br><span class="line"><span class="keyword">for</span> language <span class="keyword">in</span> favorite_languages.values():</span><br><span class="line">    <span class="built_in">print</span>(language.title())</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>The following languages have been mentioned:
 Python
 Ruby
 Java
 C
 Python</code></pre>
 <p>上述方法提取字典中所有的值，但没有考虑重复的问题。为剔除重复项，可使用<code>集合set()</code>。集合类似于列表，但每个元素都必须独一无二。对包含重复元素的列表调用集合set()，可让python找出列表中独一无二的元素，并使用这些元素来创建一个集合。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python">favorite_languages = {<br>    <span class="hljs-string">'jen'</span>: <span class="hljs-string">'python'</span>,<br>    <span class="hljs-string">'edward'</span>: <span class="hljs-string">'ruby'</span>,<br>    <span class="hljs-string">'phil'</span>: <span class="hljs-string">'java'</span>,<br>    <span class="hljs-string">'sarah'</span>: <span class="hljs-string">'c'</span>,<br>    <span class="hljs-string">'erin'</span>:<span class="hljs-string">'python'</span><br>    }<br><br><span class="hljs-comment"># 方法value.()返回字典中的值</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'The following languages have been mentioned:'</span>)<br><span class="hljs-keyword">for</span> language <span class="hljs-keyword">in</span> <span class="hljs-built_in">set</span>(favorite_languages.values()):<br>    <span class="hljs-built_in">print</span>(language.title())<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">The following languages have been mentioned:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">favorite_languages = {</span><br><span class="line">    <span class="string">'jen'</span>: <span class="string">'python'</span>,</span><br><span class="line">    <span class="string">'edward'</span>: <span class="string">'ruby'</span>,</span><br><span class="line">    <span class="string">'phil'</span>: <span class="string">'java'</span>,</span><br><span class="line">    <span class="string">'sarah'</span>: <span class="string">'c'</span>,</span><br><span class="line">    <span class="string">'erin'</span>:<span class="string">'python'</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法value.()返回字典中的值</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'The following languages have been mentioned:'</span>)</span><br><span class="line"><span class="keyword">for</span> language <span class="keyword">in</span> <span class="built_in">set</span>(favorite_languages.values()):</span><br><span class="line">    <span class="built_in">print</span>(language.title())</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>The following languages have been mentioned:
 C
 Ruby
 Java
@@ -536,28 +494,28 @@ Python</code></pre>
 <h2 id="嵌套">3.4嵌套</h2>
 <p>有时候，需要将一系列字典存储在列表中，或将列表存储在字典中，这称为<code>嵌套</code>。你可以在列表中嵌套字典、在字典中嵌套列表，甚至在字典中嵌套字典。</p>
 <h3 id="在列表中嵌套字典">3.4.1在列表中嵌套字典</h3>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">user_0 = {<span class="hljs-string">'name'</span>:<span class="hljs-string">'Jack'</span>, <span class="hljs-string">'age'</span>:<span class="hljs-number">18</span>}<br>user_1 = {<span class="hljs-string">'name'</span>:<span class="hljs-string">'Tom'</span>, <span class="hljs-string">'age'</span>:<span class="hljs-number">20</span>}<br>user_2 = {<span class="hljs-string">'name'</span>:<span class="hljs-string">'Jame'</span>, <span class="hljs-string">'age'</span>:<span class="hljs-number">22</span>}<br><br>users = [user_0, user_1, user_2]<br><br><span class="hljs-keyword">for</span> user <span class="hljs-keyword">in</span> users:<br>    <span class="hljs-built_in">print</span>(user)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">{'name': 'Jack', 'age': 18}
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">user_0 = {<span class="string">'name'</span>:<span class="string">'Jack'</span>, <span class="string">'age'</span>:<span class="number">18</span>}</span><br><span class="line">user_1 = {<span class="string">'name'</span>:<span class="string">'Tom'</span>, <span class="string">'age'</span>:<span class="number">20</span>}</span><br><span class="line">user_2 = {<span class="string">'name'</span>:<span class="string">'Jame'</span>, <span class="string">'age'</span>:<span class="number">22</span>}</span><br><span class="line"></span><br><span class="line">users = [user_0, user_1, user_2]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> user <span class="keyword">in</span> users:</span><br><span class="line">    <span class="built_in">print</span>(user)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>{'name': 'Jack', 'age': 18}
 {'name': 'Tom', 'age': 20}
 {'name': 'Jame', 'age': 22}</code></pre>
 <p>通常用户数目有很多，且每个用户都是使用代码自动生成的。在下面的示例中，我们使用range()生成30个用户。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 创建一个用于存储用户的空列表</span><br>users = []<br><br><span class="hljs-comment"># 创建30个用户</span><br><span class="hljs-keyword">for</span> user_number <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">30</span>):<br>    new_user = {<span class="hljs-string">'name'</span>:<span class="hljs-string">'user'</span>, <span class="hljs-string">'age'</span>:<span class="hljs-number">20</span>}<br>    users.append(new_user)<br><br><span class="hljs-comment"># 显示前五个用户</span><br><span class="hljs-keyword">for</span> user <span class="hljs-keyword">in</span> users[:<span class="hljs-number">5</span>]:<br>    <span class="hljs-built_in">print</span>(user)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'...'</span>)<br><br><span class="hljs-comment">#显示创建了多少个用户</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'Total number of users:'</span> + <span class="hljs-built_in">str</span>(<span class="hljs-built_in">len</span>(users)))<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">{'name': 'user', 'age': 20}
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建一个用于存储用户的空列表</span></span><br><span class="line">users = []</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建30个用户</span></span><br><span class="line"><span class="keyword">for</span> user_number <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">30</span>):</span><br><span class="line">    new_user = {<span class="string">'name'</span>:<span class="string">'user'</span>, <span class="string">'age'</span>:<span class="number">20</span>}</span><br><span class="line">    users.append(new_user)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示前五个用户</span></span><br><span class="line"><span class="keyword">for</span> user <span class="keyword">in</span> users[:<span class="number">5</span>]:</span><br><span class="line">    <span class="built_in">print</span>(user)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'...'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#显示创建了多少个用户</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'Total number of users:'</span> + <span class="built_in">str</span>(<span class="built_in">len</span>(users)))</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>{'name': 'user', 'age': 20}
 {'name': 'user', 'age': 20}
 {'name': 'user', 'age': 20}
 {'name': 'user', 'age': 20}
 {'name': 'user', 'age': 20}
 ...
 Total number of users:30</code></pre>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 修改前三项用户年龄</span><br><span class="hljs-keyword">for</span> user <span class="hljs-keyword">in</span> users[:<span class="hljs-number">3</span>]:<br>    <span class="hljs-keyword">if</span> user[<span class="hljs-string">'age'</span>] == <span class="hljs-number">20</span>:<br>        user[<span class="hljs-string">'age'</span>] = <span class="hljs-number">18</span><br><br><span class="hljs-comment"># 显示前五个用户</span><br><span class="hljs-keyword">for</span> user <span class="hljs-keyword">in</span> users[:<span class="hljs-number">5</span>]:<br>    <span class="hljs-built_in">print</span>(user)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">{'name': 'user', 'age': 18}
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改前三项用户年龄</span></span><br><span class="line"><span class="keyword">for</span> user <span class="keyword">in</span> users[:<span class="number">3</span>]:</span><br><span class="line">    <span class="keyword">if</span> user[<span class="string">'age'</span>] == <span class="number">20</span>:</span><br><span class="line">        user[<span class="string">'age'</span>] = <span class="number">18</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示前五个用户</span></span><br><span class="line"><span class="keyword">for</span> user <span class="keyword">in</span> users[:<span class="number">5</span>]:</span><br><span class="line">    <span class="built_in">print</span>(user)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>{'name': 'user', 'age': 18}
 {'name': 'user', 'age': 18}
 {'name': 'user', 'age': 18}
 {'name': 'user', 'age': 20}
 {'name': 'user', 'age': 20}</code></pre>
 <h3 id="在字典中嵌套列表">3.4.2在字典中嵌套列表</h3>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python">favorite_languages = {<br>    <span class="hljs-string">'jen'</span>:[<span class="hljs-string">'python'</span>,<span class="hljs-string">'ruby'</span>],<br>    <span class="hljs-string">'sarah'</span>:[<span class="hljs-string">'c'</span>],<br>    <span class="hljs-string">'edward'</span>:[<span class="hljs-string">'ruby'</span>,<span class="hljs-string">'go'</span>],<br>    <span class="hljs-string">'phil'</span>:[<span class="hljs-string">'python'</span>,<span class="hljs-string">'fortran'</span>],<br>    }<br><br><span class="hljs-keyword">for</span> name,values <span class="hljs-keyword">in</span> favorite_languages.items():<br>    <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(values) == <span class="hljs-number">1</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f"\n<span class="hljs-subst">{name.title()}</span>'s favorite language is:"</span>)<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f"  <span class="hljs-subst">{values[<span class="hljs-number">0</span>].title()}</span>"</span>)<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f"\n<span class="hljs-subst">{name.title()}</span>'s favorite language are:"</span>)<br>        <span class="hljs-keyword">for</span> value <span class="hljs-keyword">in</span> values:<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">f"  <span class="hljs-subst">{value.title()}</span>"</span>)<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">Jen's favorite language are:
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">favorite_languages = {</span><br><span class="line">    <span class="string">'jen'</span>:[<span class="string">'python'</span>,<span class="string">'ruby'</span>],</span><br><span class="line">    <span class="string">'sarah'</span>:[<span class="string">'c'</span>],</span><br><span class="line">    <span class="string">'edward'</span>:[<span class="string">'ruby'</span>,<span class="string">'go'</span>],</span><br><span class="line">    <span class="string">'phil'</span>:[<span class="string">'python'</span>,<span class="string">'fortran'</span>],</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> name,values <span class="keyword">in</span> favorite_languages.items():</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(values) == <span class="number">1</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"\n<span class="subst">{name.title()}</span>'s favorite language is:"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"  <span class="subst">{values[<span class="number">0</span>].title()}</span>"</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f"\n<span class="subst">{name.title()}</span>'s favorite language are:"</span>)</span><br><span class="line">        <span class="keyword">for</span> value <span class="keyword">in</span> values:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f"  <span class="subst">{value.title()}</span>"</span>)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>Jen's favorite language are:
   Python
   Ruby
 
@@ -572,8 +530,8 @@ Phil's favorite language are:
   Python
   Fortran</code></pre>
 <h3 id="在字典中嵌套字典">3.4.3在字典中嵌套字典</h3>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python">users = {<br>    <span class="hljs-string">'aeinstein'</span>:{<span class="hljs-string">'first_name'</span>:<span class="hljs-string">'albert'</span>, <span class="hljs-string">'last_name'</span>:<span class="hljs-string">'einstein'</span>, <span class="hljs-string">'location'</span>:<span class="hljs-string">'princeton'</span>},<br>    <span class="hljs-string">'mcurie'</span>:{<span class="hljs-string">'first_name'</span>:<span class="hljs-string">'marie'</span>, <span class="hljs-string">'last_name'</span>:<span class="hljs-string">'curie'</span>, <span class="hljs-string">'location'</span>:<span class="hljs-string">'paris'</span>}<br>    }<br><br><span class="hljs-keyword">for</span> username,user_info <span class="hljs-keyword">in</span> users.items():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">'\nUsername: '</span> + username)<br>    full_name = user_info[<span class="hljs-string">'first_name'</span>] + <span class="hljs-string">' '</span> + user_info[<span class="hljs-string">'last_name'</span>]<br>    location = user_info[<span class="hljs-string">'location'</span>]<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">'\tFull name: '</span> + full_name.title())<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">'\tLocation: '</span> + location.title())<br></code></pre></td></tr></tbody></table></figure>
-<pre><code class="hljs">Username: aeinstein
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">users = {</span><br><span class="line">    <span class="string">'aeinstein'</span>:{<span class="string">'first_name'</span>:<span class="string">'albert'</span>, <span class="string">'last_name'</span>:<span class="string">'einstein'</span>, <span class="string">'location'</span>:<span class="string">'princeton'</span>},</span><br><span class="line">    <span class="string">'mcurie'</span>:{<span class="string">'first_name'</span>:<span class="string">'marie'</span>, <span class="string">'last_name'</span>:<span class="string">'curie'</span>, <span class="string">'location'</span>:<span class="string">'paris'</span>}</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> username,user_info <span class="keyword">in</span> users.items():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'\nUsername: '</span> + username)</span><br><span class="line">    full_name = user_info[<span class="string">'first_name'</span>] + <span class="string">' '</span> + user_info[<span class="string">'last_name'</span>]</span><br><span class="line">    location = user_info[<span class="string">'location'</span>]</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'\tFull name: '</span> + full_name.title())</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'\tLocation: '</span> + location.title())</span><br></pre></td></tr></tbody></table></figure>
+<pre><code>Username: aeinstein
     Full name: Albert Einstein
     Location: Princeton
 
@@ -581,338 +539,283 @@ Username: mcurie
     Full name: Marie Curie
     Location: Paris</code></pre>
 
-              
-            </div>
-            <hr/>
-            <div>
-              <div class="post-metas my-3">
-  
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
+    </div>
 
-<span class="category-chains">
-  
-  
     
-      <span class="category-chain">
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> python基础语法</a>
+          </div>
+
         
-  <a href="/categories/Python/" class="category-chain-item">Python</a>
-  
-  
 
-      </span>
+
+        
+      </footer>
     
-  
-</span>
-
-    </div>
+  </article>
   
   
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">#python基础语法</a>
-      
-    </div>
   
-</div>
 
 
-              
 
-              
-            </div>
+          </div>
+          
 
-            
-          </article>
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
         </div>
-      </div>
-    </div>
-
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-
-
-  </aside>
-
-
-    </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
   </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#python%E5%88%97%E8%A1%A8"><span class="nav-number">1.</span> <span class="nav-text">1 Python列表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%88%97%E8%A1%A8"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 创建列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%97%E8%A1%A8%E7%9A%84%E7%B4%A2%E5%BC%95"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 列表的索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%88%97%E8%A1%A8%E4%B8%AD%E7%9A%84%E5%85%83%E7%B4%A0"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 修改列表中的元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E5%85%83%E7%B4%A0"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 添加元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E5%88%97%E8%A1%A8%E4%B8%AD%E7%9A%84%E5%85%83%E7%B4%A0"><span class="nav-number">1.5.</span> <span class="nav-text">1.5 删除列表中的元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%92%E5%88%97%E5%88%97%E8%A1%A8"><span class="nav-number">1.6.</span> <span class="nav-text">1.6 排列列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%8D%E5%8E%86%E6%95%B4%E4%B8%AA%E5%88%97%E8%A1%A8"><span class="nav-number">1.7.</span> <span class="nav-text">1.7 遍历整个列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%88%E5%B9%B6%E5%88%97%E8%A1%A8"><span class="nav-number">1.8.</span> <span class="nav-text">1.8 合并列表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python%E5%85%83%E7%BB%84"><span class="nav-number">2.</span> <span class="nav-text">2 Python元组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%97%E5%85%B8"><span class="nav-number">3.</span> <span class="nav-text">3 字典</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%B9%B6%E8%AE%BF%E9%97%AE%E5%AD%97%E5%85%B8"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 创建并访问字典</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E5%88%9B%E5%BB%BA%E5%AD%97%E5%85%B8"><span class="nav-number">3.1.1.</span> <span class="nav-text">3.1.1 直接创建字典</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-dict-%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA%E5%AD%97%E5%85%B8"><span class="nav-number">3.1.2.</span> <span class="nav-text">3.1.2 使用
+dict() 函数创建字典</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%88%97%E8%A1%A8%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA%E5%AD%97%E5%85%B8"><span class="nav-number">3.1.3.</span> <span class="nav-text">3.1.3 使用列表函数创建字典</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0-%E4%BF%AE%E6%94%B9-%E5%AD%97%E5%85%B8%E4%B8%AD%E7%9A%84%E5%80%BC"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 添加 &#x2F; 修改 字典中的值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%8D%E5%8E%86%E5%AD%97%E5%85%B8"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 遍历字典</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%8D%E5%8E%86%E6%89%80%E6%9C%89%E7%9A%84%E9%94%AE-%E5%80%BC%E5%AF%B9"><span class="nav-number">3.3.1.</span> <span class="nav-text">3.3.1 遍历所有的键-值对</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%8D%E5%8E%86%E6%89%80%E6%9C%89%E7%9A%84%E9%94%AE"><span class="nav-number">3.3.2.</span> <span class="nav-text">3.3.2遍历所有的键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%8D%E5%8E%86%E5%AD%97%E5%85%B8%E4%B8%AD%E6%89%80%E6%9C%89%E7%9A%84%E5%80%BC"><span class="nav-number">3.3.3.</span> <span class="nav-text">3.3.3遍历字典中所有的值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B5%8C%E5%A5%97"><span class="nav-number">3.4.</span> <span class="nav-text">3.4嵌套</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E5%88%97%E8%A1%A8%E4%B8%AD%E5%B5%8C%E5%A5%97%E5%AD%97%E5%85%B8"><span class="nav-number">3.4.1.</span> <span class="nav-text">3.4.1在列表中嵌套字典</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E5%AD%97%E5%85%B8%E4%B8%AD%E5%B5%8C%E5%A5%97%E5%88%97%E8%A1%A8"><span class="nav-number">3.4.2.</span> <span class="nav-text">3.4.2在字典中嵌套列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E5%AD%97%E5%85%B8%E4%B8%AD%E5%B5%8C%E5%A5%97%E5%AD%97%E5%85%B8"><span class="nav-number">3.4.3.</span> <span class="nav-text">3.4.3在字典中嵌套字典</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="chihchao"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">chihchao</p>
+  <div class="site-description" itemprop="description"></div>
 </div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
 
 
 
+      </div>
 
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-
-
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-
-    
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-  
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
     </div>
-  
+  </aside>
+  <div id="sidebar-dimmer"></div>
 
-  
 
-  
+      </div>
+    </main>
 
-  
+    <footer class="footer">
+      <div class="footer-inner">
+        
 
+        
+
+<div class="copyright">
   
-    <!-- 站点运行时间 -->
-    <div class="runtime">
-    <span id="timeDate">载入天数...</span>
-    <span id="times">载入时分秒...</span>
-    <script>
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chihchao</span>
+</div><!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
     var now = new Date();
-    function createtime(){
+    function createtime() {
         var grt= new Date("02/25/2020 09:00:00");//此处修改你的建站时间或者网站上线时间
         now.setTime(now.getTime()+250);
-        days = (now - grt ) / 1000 / 60 / 60 / 24;
-        dnum = Math.floor(days);
-        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
-        hnum = Math.floor(hours);
-        if(String(hnum).length ==1 ){
-            hnum = "0" + hnum;
-        }
-        minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
-        mnum = Math.floor(minutes);
-        if(String(mnum).length ==1 ){
-                  mnum = "0" + mnum;
-        }
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
         seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
-        snum = Math.round(seconds);
-        if(String(snum).length ==1 ){
-                  snum = "0" + snum;
-        }
-        document.getElementById("timeDate").innerHTML = "理乐志已运行 " + dnum + " 天 ";  //此次自定义显示内容
-        document.getElementById("times").innerHTML = hnum + " 时 " + mnum + " 分 " + snum + " 秒";
-    }  //此次自定义显示内容
-    setInterval("createtime()",250);
-    </script>
-</div>
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "理乐志已运行 "+ dnum +" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
   
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
-</div>
+<script src="/js/utils.js"></script>
 
-  </footer>
+<script src="/js/motion.js"></script>
 
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
 
   <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
 
-
-<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-
-
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    window.tocbot.init({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      collapseDepth   : CONFIG.toc.collapseDepth || 0,
-      scrollSmooth    : true,
-      headingsOffset  : -boardTop
-    });
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
     }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
   });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
 </script>
 
 
-  <script>
-  (function() {
-    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
-    var enableCopy = CONFIG.copy_btn;
-    if (!enableLang && !enableCopy) {
-      return;
-    }
-
-    function getBgClass(ele) {
-      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
-    }
-
-    var copyTmpl = '';
-    copyTmpl += '<div class="code-widget">';
-    copyTmpl += 'LANG';
-    copyTmpl += '</div>';
-    jQuery('.markdown-body pre').each(function() {
-      var $pre = jQuery(this);
-      if ($pre.find('code.mermaid').length > 0) {
-        return;
-      }
-      if ($pre.find('span.line').length > 0) {
-        return;
-      }
-
-      var lang = '';
-
-      if (enableLang) {
-        lang = CONFIG.code_language.default;
-        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
-          lang = $pre[0].children[0].classList[1];
-        } else if ($pre[0].getAttribute('data-language')) {
-          lang = $pre[0].getAttribute('data-language');
-        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
-          lang = $pre[0].children[0].classList[1];
-          $pre.parent().addClass('code-wrapper');
-        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
-          $pre.wrap('<div class="code-wrapper"></div>');
-        }
-        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
-      }
-      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
-        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
-
-      if (enableCopy) {
-        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
-          var clipboard = new window.ClipboardJS('.copy-btn', {
-            target: function(trigger) {
-              var nodes = trigger.parentNode.childNodes;
-              for (var i = 0; i < nodes.length; i++) {
-                if (nodes[i].tagName === 'CODE') {
-                  return nodes[i];
-                }
-              }
-            }
-          });
-          clipboard.on('success', function(e) {
-            e.clearSelection();
-            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
-            setTimeout(function() {
-              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
-            }, 2000);
-          });
-        });
-      }
-    });
-  })();
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
-    window.anchors.options = {
-      placement: CONFIG.anchorjs.placement,
-      visible  : CONFIG.anchorjs.visible
-    };
-    if (CONFIG.anchorjs.icon) {
-      window.anchors.options.icon = CONFIG.anchorjs.icon;
-    }
-    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-    var res = [];
-    for (var item of el) {
-      res.push('.markdown-body > ' + item.trim());
-    }
-    if (CONFIG.anchorjs.placement === 'left') {
-      window.anchors.options.class = 'anchorjs-link-left';
-    }
-    window.anchors.add(res.join(', '));
-  });
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
-    Fluid.plugins.fancyBox();
-  });
-</script>
-
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
 
 
   
 
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+  
+
+    </div>
 </body>
 </html>
